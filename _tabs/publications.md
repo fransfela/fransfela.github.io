@@ -14,8 +14,8 @@ order: 4
 
 ### On Progress
 - Takeuchi, M., Marozeau, J., Gkanos, K., **Fela, R F**., Nørholm, S M. (2023). Evaluation of One’s Own Voice Perception while Using In-ear Headsets. Under Review.
-- **Fela, R F**., Pastor A., Le Callet P., Zacharov N., Vigier T, Forchhammer S. (2023). Multimodal Perceptual Quality Evaluation of 360 Media: Dataset, Metrics and Models.
-- **Fela, R F**., Utami S S., Sarwono J. (2022). Using auditory-visual virtual reality to enhance the learning experience of nursing students in the intensive care unit. Behavior and Information Technology. Under Review.
+- **Fela, R F**., Pastor A., Le Callet P., Zacharov N., Vigier T, Forchhammer S. (2023). Multimodal Perceptual Quality Evaluation of 360 Media: Dataset, Metrics and Models. IEEE Trans. Multimedia. Under Review.
+- **Fela, R F**., Utami S S., Sarwono J. (2022). Using auditory-visual virtual reality to enhance the learning experience of nursing students in the intensive care unit. Behavior and Information Technology. Draft.
 
 ### Other Articles
 - Barabah, H A G., Utami, S S., Hapsari, H R., Prasetiyo, I., **Fela, R F**., Yanti, R J., (2019). [Prediction of sound insulation for middle class apartment based on noise site analysis](https://pubs.aip.org/aip/acp/article-abstract/2088/1/050010/797521/Prediction-of-sound-insulation-for-middle-class?redirectedFrom=fulltext). Engineering Physics International Conference. 31 October – 2 November 2018, Surabaya.
