@@ -1,8 +1,8 @@
 ---
 title: "Sound Quality Wheel: A Journey into Perceptual Audio Evaluation"
 date:  2023-09-07 00:00:00 +0200
-categories: [Sound Quality]
-tags: [sound evaluation]
+categories: [Perceptual Audio Evaluation, Theories]
+tags: [sound wheel]
 ---
 
 
