@@ -1,7 +1,7 @@
 ---
 title: "Understanding Sound Quality Through Sensory Evaluation"
 date:  2023-09-05 00:00:00 +0200
-categories: [Perceptual Audio Evaluation, Theories]
+categories: [PAE, Theories]
 tags: [sound evaluation]
 ---
 
