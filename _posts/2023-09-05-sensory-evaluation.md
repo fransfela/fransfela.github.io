@@ -1,8 +1,8 @@
 ---
 title: "Understanding Sound Quality Through Sensory Evaluation"
 date:  2023-09-05 00:00:00 +0200
-categories: [PAE, Theories]
-tags: [sound evaluation]
+categories: [Perceptual Audio Evaluation, PAE Theories]
+tags: [sound evaluation, sensory evaluation]
 ---
 
 Have you ever wondered why some songs sound amazing while others fall flat? Why certain headphones make your favorite tunes come alive, while others leave you yearning for more? As a devoted audio engineer, I've always been captivated by the ethereal world of sound. The way it can evoke emotions, create vivid imagery, and even transport us to another time and place is truly magical. But what exactly makes one sound better than another? That's where sensory evaluation comes into play, a fascinating field that allows us to decode the intricacies of sound quality.
