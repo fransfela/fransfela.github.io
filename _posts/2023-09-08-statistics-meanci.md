@@ -1,5 +1,5 @@
 ---
-title: "Statistics for Perceptual Sound Evaluation: Brief Example"
+title: "[01] Statistics for Perceptual Sound Evaluation: Brief Example"
 date:  2023-09-08 00:00:00 +0200
 categories: [Perceptual Audio Evaluation, Statistical Programming]
 tags: [statistical programming]
