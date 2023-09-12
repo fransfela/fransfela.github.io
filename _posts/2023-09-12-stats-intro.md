@@ -1,7 +1,7 @@
 ---
 title: "Statistics for Perceptual Audio Evaluation: An Introduction"
 date:  2023-09-12 16:19:00 +0200
-categories: [Perceptual Audio Evaluation, Statistics, Theories]
+categories: [Perceptual Audio Evaluation, Statistical Theories]
 tags: [statistical theories]
 ---
 
@@ -43,14 +43,13 @@ Now, let's explore some statistical techniques that are particularly handy for p
 ## **Software for Perceptual Audio Evaluation**
 
 To unleash the power of statistics in perceptual audio evaluation, you'll need the right software. Here are some popular choices:
+- **R:** R is a powerful open-source statistical programming language. It has a rich ecosystem of packages like `lme4` and `ggplot2` for advanced audio analysis and data visualization.
 
-- **R:** R is a free, open-source statistical software that offers a wide range of packages and libraries for data analysis and visualization. It's a favorite among researchers and statisticians.
+- **Python:** Python's libraries, such as `numpy`, `scipy`, and `pandas`, are popular among researchers and engineers for data manipulation and analysis. Tools like `matplotlib` and `seaborn` are great for visualizing audio evaluation results.
 
-- **Python:** Python, with libraries like NumPy, SciPy, and pandas, is a versatile choice for statistical analysis and data manipulation. It's known for its simplicity and readability.
+- **Matlab:** Matlab provides a user-friendly environment for statistical analysis and signal processing. It's widely used in the audio research community for tasks like feature extraction and signal processing.
 
 - **SPSS:** IBM's SPSS Statistics is a user-friendly software suite designed for statistical analysis. It's often used in academic and business settings.
-
-- **MATLAB:** MATLAB is a high-performance software for technical computing, including statistical analysis and data visualization. It's widely used in engineering and scientific research.
 
 
 In the upcoming parts of this series, we'll dive deeper into the theories and practice of using statistics for perceptual audio evaluation data. We'll explore real-world examples, apply statistical techniques, and use R, Python, and Matlab to unlock the potential of our audio data.
