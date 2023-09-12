@@ -1,8 +1,8 @@
 ---
-title: "Statistics in Perceptual Sound Evaluation"
+title: "Statistics for Perceptual Sound Evaluation: Brief Example"
 date:  2023-09-08 00:00:00 +0200
-categories: [Perceptual Audio Evaluation, Statistics]
-tags: [sound evaluation, sensory evaluation]
+categories: [Perceptual Audio Evaluation, Statistics, Programming]
+tags: [statistical programming]
 ---
 
 Sound, with its ability to move and inspire us, is not just an art; it's also a science. And one of the key scientific tools that plays a vital role in understanding the quality of sound is statistics. In this blog post, we'll explore how statistics is not just a bunch of numbers but a powerful ally in the perceptual evaluation of sound. We'll discuss its usefulness, provide a case study, and even delve into the practical side by showing you how to calculate mean confidence intervals (mean-CI) in R and create mean-CI plots using a simple example.
