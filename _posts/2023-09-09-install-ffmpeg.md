@@ -1,5 +1,5 @@
 ---
-title: "Installing FFmpeg: Your Guide for Windows and Mac"
+title: "[02] Installing FFmpeg: Your Guide for Windows and Mac"
 date:  2023-09-09 22:35:00 +0200
 categories: [Audio-video Programming with FFmpeg]
 tags: [ffmpeg, audiovisual programming]
