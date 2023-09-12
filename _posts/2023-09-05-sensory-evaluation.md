@@ -64,3 +64,9 @@ To delve deeper into the intricacies of sound quality, we must explore psychoaco
 ## Enough for Now
 
 So, the next time you lose yourself in the symphony of your favorite music or soundscape, take a moment to appreciate the role of sensory evaluation in enhancing your auditory journey. Whether you're a seasoned audiophile or just someone who loves good music, understanding sound quality through sensory evaluation is a gratifying endeavor that can deepen your connection with the sonic universe. 🎵👂✨
+
+## Still Hungry?
+
+Read these two awesome books written/edited by my Guru, [Nick Zacharov, D.Sc.(Tech.)](https://scholar.google.com/citations?user=O2yO7w4AAAAJ&hl=en&oi=ao) and his world-class colleagues.
+- Bech, S., & Zacharov, N. (2007). Perceptual Audio Evaluation - Theory, Method and Application. John Wiley & Sons.
+- Zacharov, N. (Ed.). (2018). Sensory Evaluation of Sound. CRC Press.
