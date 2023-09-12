@@ -1,5 +1,5 @@
 ---
-title: "Statistics for Perceptual Audio Evaluation: An Introduction"
+title: "[01] Statistics for Perceptual Audio Evaluation: An Introduction"
 date:  2023-09-12 16:19:00 +0200
 categories: [Perceptual Audio Evaluation, Statistical Theories]
 tags: [statistical theories]
