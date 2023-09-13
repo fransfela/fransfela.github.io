@@ -28,8 +28,8 @@ description: >- # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://fransfela.github.io"
 
-linkedin:
-  username: randy-frans-fela
+#linkedin:
+#  username: randy-frans-fela
   
 github:
   username: fransfela # change to your github username
@@ -47,7 +47,7 @@ social:
     - https://twitter.com/username # change to your twitter homepage
     - https://github.com/username # change to your github homepage
     # Uncomment below to add more social links
-    # - https://www.facebook.com/username
+    - https://www.facebook.com/randy.fela/
     - https://www.linkedin.com/in/randy-frans-fela
 
 google_site_verification: # fill in to your verification string
