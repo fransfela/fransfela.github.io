@@ -1,7 +1,7 @@
 #  The contact options.
-- type: linkedin
-  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-  url:  'www.linkedin.com/in/randy-frans-fela' # Fill with your Linkedin homepage
+#- type: linkedin
+#  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+#  url:  'www.linkedin.com/in/randy-frans-fela' # Fill with your Linkedin homepage
 
 - type: github
   icon: "fab fa-github"
@@ -13,9 +13,9 @@
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
 
-# - type: rss
-#   icon: "fas fa-rss"
-#   noblank: true
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
