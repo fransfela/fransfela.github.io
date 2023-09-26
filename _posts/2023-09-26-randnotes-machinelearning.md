@@ -3,6 +3,8 @@ title: "[01] General Machine Learning Process"
 date:  2023-09-26 21:52:00 +0200
 categories: [Random Notes, Machine Learning]
 tags: [random notes, machine learning]
+pin: true
+math: true
 ---
 
 Machine learning, often touted as the engine behind artificial intelligence, is a captivating realm that empowers computers to learn and make decisions from data. If you've ever been curious about how this fascinating technology works, you're in the right place. In this blog post, I'll try breaking down the steps and concepts into bite-sized, understandable pieces.
@@ -70,7 +72,7 @@ $$ X_{\text{new}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} $
 
 Standardization rescales features to have a mean (μ) of 0 and a standard deviation (σ) of 1:
 
-$$ X_{\text{new}} = \frac{X - \mu}{\sigma} $$
+$$ X_{\text{new}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} $$
 
 
 ### **Don't stop here!**
