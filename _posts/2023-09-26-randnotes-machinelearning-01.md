@@ -72,7 +72,7 @@ $$ X_{\text{new}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} $
 
 Standardization rescales features to have a mean (μ) of 0 and a standard deviation (σ) of 1:
 
-$$ X_{\text{new}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} $$
+$$X_{\text{new}} = \frac{X - \mu}{\sigma}$$
 
 
 ### **Don't stop here!**
