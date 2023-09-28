@@ -1,0 +1,99 @@
+---
+title: "[02] Data Preprocessing in Machine Learning"
+date:  2023-09-28 21:37:00 +0200
+categories: [Random Notes, Machine Learning]
+tags: [random notes, machine learning]
+pin: true
+math: true
+---
+
+
+Data preprocessing — Understanding data preprocessing is like unlocking the key to the treasure chest. In this blog post, we'll explore the data preprocessing tools and techniques with example that lay the foundation for successful machine learning process. For this example, I use a very tiny dataset (we usually always want as big data as possible) that you can download [here](https://drive.google.com/drive/folders/1ctRxq5KcwGWmi2ut-FCOAGOz3NXZ2eBp?usp=sharing).
+
+But before we dive in, if you haven't already, I highly recommend reading about the general process of machine learning in my previous [blog post](https://fransfela.github.io/posts/randnotes-machinelearning-01/). It provides a brief overview of the entire machine learning process, and understanding the big picture will make our discussion of data preprocessing even more meaningful.
+
+## **Getting Started: Importing the Tools and Libraries**
+
+Like any good adventure, we need the right tools to begin. In the world of Python and machine learning, that means importing essential libraries. We bring in the cavalry with these lines of code:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+```
+
+These libraries will be our trusty companions as we navigate the data preprocessing landscape.
+
+## **Step 1: Importing the Dataset**
+
+I say, almost any data analysis process begins with data—raw and unrefined. Using Python's pandas library, we load our dataset from a CSV file:
+
+```python
+dataset = pd.read_csv('Data.csv')
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+```
+
+The 'X' array holds our independent variables, while 'y' contains the dependent variable. This data will serve as the raw material for our machine learning model.
+
+## **Step 2: Taking Care of Missing Data**
+
+No dataset is perfect, and missing data can throw a wrench in our plans. To address this issue, we employ the imputation using the SimpleImputer from scikit-learn:
+
+```python
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+imputer.fit(X[:, 1:3])
+X[:, 1:3] = imputer.transform(X[:, 1:3])
+```
+
+The missing values are replaced with the mean of the column, ensuring that our dataset is complete.
+
+## **Step 3: Encoding Categorical Data**
+
+Ah, categorical data—our model prefers numbers. To bridge this gap, we use one-hot encoding to convert categorical variables into a numerical format. First, for the independent variable:
+
+```python
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+X = np.array(ct.fit_transform(X))
+```
+
+Our independent variables now wear a numerical disguise, ready for modeling.
+
+For the dependent variable:
+
+```python
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(y)
+```
+
+Now, our model understands 'Yes' as 1 and 'No' as 0—a language it can work with.
+
+## **Step 4: Splitting the Dataset**
+
+To evaluate our model's performance, we need to divide our dataset into two parts: one for training and one for testing. Scikit-learn's train_test_split function does the job:
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
+```
+
+The data is split, and our model now has unseen data to test its abilities.
+
+## **Step 5: Feature Scaling**
+
+Our dataset might contain features with different scales. To ensure that no feature dominates the learning process, we apply feature scaling. The StandardScaler from scikit-learn transforms our features to have a mean of 0 and a standard deviation of 1:
+
+```python
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train[:, 3:] = sc.fit_transform(X_train[:, 3:])
+X_test[:, 3:] = sc.transform(X_test[:, 3:])
+```
+
+With feature scaling, our model is ready for action, and we've laid the groundwork for a successful machine learning endeavor.
+
+In conclusion, data preprocessing is the essential first step in any machine learning project. It involves handling missing data, encoding categorical variables, splitting the dataset, and scaling features. These techniques prepare your data for modeling, ensuring that your machine learning journey is off to a smooth start.
