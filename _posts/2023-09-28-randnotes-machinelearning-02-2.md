@@ -1,5 +1,5 @@
 ---
-title: "[02-1] Feature Scaling: Normalization or Standardization?"
+title: "[02-2] Feature Scaling: Normalization or Standardization?"
 date:  2023-09-29 08:37:00 +0200
 categories: [Random Notes, Machine Learning]
 tags: [random notes, machine learning, feature scaling]
