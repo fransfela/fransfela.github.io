@@ -95,9 +95,9 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: fransfela/fransfela.github.io# <gh-username>/<repo>
+    repo: fransfela/fransfela.github.io # <gh-username>/<repo>
     repo_id: R_kgDOKPzdmg
-    category: "Posts"
+    category: #"Posts"
     category_id:
     mapping: # optional, default to 'pathname'
     input_position: # optional, default to 'bottom'
