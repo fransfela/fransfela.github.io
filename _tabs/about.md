@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: fa-regular fa-user-ninja
+icon: fas fa-user-ninja
 order: 4
 ---
 
