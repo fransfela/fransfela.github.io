@@ -22,5 +22,5 @@ Each Teaching Slide will be available soon after the class.
 > `Meeting 4 (2.5 hrs)`:  Research and Experimental Designs.
 {: .prompt-warning }
 
-> `Meeting 5 (2.5 hrs)`:  Data Collection Technique and Data Analysis.
+> `Meeting 5 (2 hrs)`:  Data Collection Technique and Data Analysis.
 {: .prompt-danger }
