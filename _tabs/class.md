@@ -4,24 +4,23 @@ icon: fas fa-person-chalkboard
 order: 6
 ---
 
-In this semester, I am teaching Research Methodology for Electrical Engineering Department.
+In the Fall semester of 2023, I am joining the teaching team for the Research Methodology course in the Electrical Engineering Department at a university in Indonesia.
 
 ## Teaching Slides
 
-> Meeting 1 (2 hrs):  `Material` will be updated soon.
+Each Teaching Slide will be available soon after the class.
+
+> `Meeting 1 (2.5 hrs)`:  Introduction of Research Methodology for Industrial Application.
 {: .prompt-tip }
 
-> Meeting 2 (2 hrs):  `Material` will be updated soon.
-{: .prompt-tip }
-
-> Meeting 3 (2 hrs):  `Material` will be updated soon.
+> `Meeting 2 (2.5 hrs)`:  Formulating Research Problems.
 {: .prompt-info }
 
-> Meeting 4 (2 hrs):  `Material` will be updated soon.
+> `Meeting 3 (2.5 hrs)`:  Literature Study: The Purposes, Methods, and Techniques.
 {: .prompt-info }
 
-> Meeting 5 (2 hrs):  `Material` will be updated soon.
+> `Meeting 4 (2.5 hrs)`:  Research and Experimental Designs.
 {: .prompt-warning }
 
-> Meeting 6 (2 hrs):  `Material` will be updated soon.
+> `Meeting 5 (2.5 hrs)`:  Data Collection Technique and Data Analysis.
 {: .prompt-danger }
