@@ -24,7 +24,7 @@ Before we delve into the methods, let's understand why feature scaling is essent
 **Formula:**
 $$X_{\text{new}} = \frac{X - \mu}{\sigma}$$
 
-In standardization, also known as Z-score scaling, each feature is transformed to have a mean (\(\mu\)) of 0 and a standard deviation (\(\sigma\)) of 1. This method is ideal when your data follows a roughly Gaussian (normal) distribution.
+In standardization, also known as Z-score scaling, each feature is transformed to have a mean ($\mu$) of 0 and a standard deviation ($\sigma$) of 1. This method is ideal when your data follows a roughly Gaussian (normal) distribution.
 
 ### **2. Min-Max Scaling (Normalization)**
 
