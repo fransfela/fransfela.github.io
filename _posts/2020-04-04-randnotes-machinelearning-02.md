@@ -1,7 +1,7 @@
 ---
 title: "[02] Data Preprocessing in Machine Learning"
-date:  2023-09-27 21:37:00 +0200
-categories: [Random Notes, Machine Learning]
+date:  2020-04-04 21:37:00 +0200
+categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning]
 pin: true
 math: true
