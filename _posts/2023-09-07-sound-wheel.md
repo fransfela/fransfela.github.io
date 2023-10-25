@@ -3,6 +3,11 @@ title: "[01] Sound Quality Wheel: A Journey into Perceptual Audio Evaluation"
 date:  2023-09-07 00:00:00 +0200
 categories: [Perceptual Audio Evaluation, PAE Theories]
 tags: [sound wheel]
+pin: true
+math: true
+image:
+  path: /assets/img/content/sound-quality-wheel.png
+  alt: Sound Quality Wheel developed by [SenseLab, FORCE Technology](https://forcetechnology.com/en/articles/gated-content-senselab-sound-wheel)
 ---
 
 
@@ -33,8 +38,6 @@ The wheel is divided into sections, each representing a different perceptual att
 - **Balance:** Is there an even distribution of frequencies, or is the sound lopsided?
 - **Timbre:** What unique tonal characteristics define the sound source?
 
-![Sound Quality Wheel](https://forcetechnology.com/-/media/force-technology-media/images/articles/gated-content-senselab-sound-wheel/common-language-describe-sound-lydhjul.png)
-Resource: [FORCE Technology](https://forcetechnology.com/en/articles/gated-content-senselab-sound-wheel) (my beloved SenseLab Team!)
 
 ## **Usefulness in Perceptual Audio Evaluation**
 
@@ -46,7 +49,7 @@ Imagine you're an audio engineer working on a new pair of headphones. You want t
 
 The Sound Quality Wheel isn't just a random assortment of attributes. It's rooted in scientific research on auditory perception and psychoacoustics. Scientists have studied how our brains process sound and have identified these perceptual attributes as essential elements of sound quality.
 
-One famous framework that underpins the Sound Quality Wheel is the **MUSHRA (Multiple Stimuli with Hidden Reference and Anchor)** methodology. It's a scientifically rigorous approach used to conduct controlled listening tests and evaluate sound quality.
+Some famous frameworks that underpins the Sound Quality Wheel are Attribute Evaluation, Basic Audio Quality, and **MUSHRA (Multiple Stimuli with Hidden Reference and Anchor)** methodology. It's a scientifically rigorous approach used to conduct controlled listening tests and evaluate sound quality.
 
 ## **Does this New for You?**
 
