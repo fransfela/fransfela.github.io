@@ -1,7 +1,7 @@
 ---
 title: "[01] General Machine Learning Process"
-date:  2023-09-26 21:52:00 +0200
-categories: [Random Notes, Machine Learning]
+date:  2020-03-27 21:52:00 +0200
+categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning]
 pin: true
 math: true
