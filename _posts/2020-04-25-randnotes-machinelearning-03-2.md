@@ -5,7 +5,6 @@ categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning, linear regression]
 pin: true
 math: true
-image: assets/img/content/sds_poster_linear-assumptions.png
 ---
 
 ![Desktop View](assets/img/content/sds_poster_linear-assumptions.png)
