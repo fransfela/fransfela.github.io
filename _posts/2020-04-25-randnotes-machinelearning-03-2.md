@@ -5,9 +5,10 @@ categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning, linear regression]
 pin: true
 math: true
+image: /assets/img/content/sds_poster_linear-assumptions.png
 ---
 
-![Desktop View](assets/img/content/sds_poster_linear-assumptions.png)
+![Desktop View](/assets/img/content/sds_poster_linear-assumptions.png)
 _Six important assumptions for Linear Regression Model_
 
 Linear regression is a powerful tool in the world of data analysis and predictive modeling. But like any tool, it comes with a set of assumptions that are crucial to ensuring the validity and reliability of your results. In this blog post, we'll dive into the fundamental assumptions for linear regression and why they matter.
