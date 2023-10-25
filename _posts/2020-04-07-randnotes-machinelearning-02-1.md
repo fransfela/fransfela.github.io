@@ -1,7 +1,7 @@
 ---
 title: "[02-1] Feature Scaling: Before or After Data Splitting?"
-date:  2023-09-28 21:37:00 +0200
-categories: [Random Notes, Machine Learning]
+date:  2020-04-07 21:37:00 +0200
+categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning]
 pin: true
 math: true
