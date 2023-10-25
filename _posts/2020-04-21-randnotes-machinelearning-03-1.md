@@ -1,7 +1,7 @@
 ---
-title: "[03] Understanding Linear Regression: A Simple and Powerful Tool"
-date:  2023-10-23 21:37:00 +0200
-categories: [Random Notes, Machine Learning]
+title: "[03-1] Understanding Linear Regression: A Simple and Powerful Tool"
+date:  2020-04-21 21:37:00 +0200
+categories: [Random Notes, Machine Learning Theories]
 tags: [random notes, machine learning, linear regression]
 pin: true
 math: true
