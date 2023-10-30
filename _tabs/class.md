@@ -13,6 +13,8 @@ Each Teaching Slide will be available soon after the class.
 > `Meeting 1 (2.5 hrs)`:  Introduction of Research Methodology for Industrial Application.
 {: .prompt-tip }
 
+[Download slides from Meeting 1](https://drive.google.com/file/d/1P-DH3ZX9rg9fHXgJDq1_Zv519bcmvuxV/view?usp=sharing)
+
 > `Meeting 2 (2.5 hrs)`:  Formulating Research Problems.
 {: .prompt-info }
 
