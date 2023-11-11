@@ -18,6 +18,8 @@ Each Teaching Slide will be available soon after the class.
 > `Meeting 2 (2.5 hrs)`:  Formulating Research Problems.
 {: .prompt-info }
 
+[Download slides from Meeting 2](https://drive.google.com/file/d/1x4HgNDOBOukvmrCSyh1jx72oFXCFY8Ig/view?usp=sharing)
+
 > `Meeting 3 (2.5 hrs)`:  Literature Study: The Purposes, Methods, and Techniques.
 {: .prompt-info }
 
