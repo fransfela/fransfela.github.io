@@ -8,15 +8,17 @@ order: 4
 
 Gue lahir dan besar di pinggiran Jakarta, dari keluarga kelas bawah. Sejak kecil, gue selalu percaya satu hal: **pendidikan bisa mengubah hidup.** Tapi buat gue, sekolah tinggi itu bukan jalan yang gampang. Gue bukan anak orang kaya. Gue bukan dari keluarga yang bisa dengan mudah nyekolahin anaknya sampai perguruan tinggi.  
 
-Setelah lulus STM, gue ngalamin hidup yang keras. **Kerja serabutan, gaji Rp 250.000 - Rp 500.000 sebulan,** sampai akhirnya jadi **kuli pabrik di perusahaan otomotif.** Di titik itu gue sadar: **kalau gue nggak berubah, gue bakal selamanya ada di sini.**  
+Setelah lulus STM, gue ngalamin hidup yang keras. **Kerja serabutan dengan upah harian, kadang cuma Rp 250.000 - Rp 500.000 sebulan.** Pernah juga jadi kuli pabrik di perusahaan otomotif. Kerja berat, upah pas-pasan, dan di titik itu gue sadar: **kalau gue nggak berubah, gue bakal selamanya ada di sini.**  
 
 Jadi gue mulai **nabung dan belajar sendiri.** Di sela kerja kasar, gue cari buku, gue belajar bahasa Inggris, gue cari tahu gimana caranya bisa kuliah. Sampai akhirnya, di tahun 2010, gue keterima di **UGM.** Itu jadi titik balik.  
 
-Di sana, gue nggak cuma belajar di kelas. **Gue kerja apa aja buat bertahan hidup di Jogja.** Jadi asisten dosen, bantu proyek riset, sampai jualan kecil-kecilan. Tapi di balik semua perjuangan itu, ada satu hal yang bikin gue terus maju: **beasiswa.** Gue dapet berbagai beasiswa, dan itu yang bikin gue sadar kalau pendidikan itu sebenarnya bukan cuma buat orang kaya. **Asal lo tahu caranya, ada banyak pintu yang bisa lo buka.**  
+Di sana, gue nggak cuma belajar di kelas. Gue kerja apa aja buat bertahan hidup di Jogja. Jadi asisten dosen, bantu proyek riset, sampai jualan kecil-kecilan. Tapi di balik semua perjuangan itu, ada satu hal yang bikin gue terus maju: **beasiswa.** Gue dapet berbagai beasiswa, dan itu yang bikin gue sadar kalau pendidikan itu sebenarnya bukan cuma buat orang kaya. **Asal lo tahu caranya, ada banyak pintu yang bisa lo buka.**  
 
 Tahun 2013, untuk pertama kalinya gue ke luar negeri. **Australia, gratis, untuk konferensi pemuda.** Itu pengalaman yang mind-blowing. Anak STM dari pinggiran Jakarta, yang dulu kerja kasar, sekarang bisa berdiri di panggung internasional. Dari situ, mimpi gue makin besar. Gue ngejar beasiswa lagi, dapet **short course dari Australia Awards, Sandwich Program di ITB, sampai akhirnya beasiswa S3 Marie Sklodowska Curie Action dari Uni Eropa.**  
 
-Hari ini, gue bekerja di **Denmark sebagai Perceptual Audio Engineer.** Gue udah menjelajahi **lebih dari 15 negara,** bertemu dengan penerima beasiswa dari berbagai program, bahkan ngobrol langsung dengan **reviewer dan panitia seleksi beasiswa.** Dari interaksi itu, gue makin paham **apa yang bikin aplikasi beasiswa lolos atau gagal.**  
+Sekarang, gue berkarir di Denmark sebagai **Perceptual Audio Engineer** dan udah menjelajahi lebih dari **15 negara**. Gue nggak cuma belajar dan bekerja di luar negeri, tapi juga berinteraksi dengan **penerima beasiswa dari berbagai program di seluruh dunia**, bahkan ngobrol langsung dengan **para reviewer dan panitia seleksi beasiswa internasional.**  
+
+Dari perjalanan ini, gue makin sadar satu hal: **banyak orang Indonesia punya potensi luar biasa, tapi seringkali gagal bukan karena nggak mampu, melainkan karena nggak tahu harus mulai dari mana.**  
 
 ### **Gue Tau Rasanya Berjuang Sendiri**  
 
@@ -27,11 +29,11 @@ Sebagai anak beasiswa, gue ngerti banget gimana rasanya:
 ❌ **Kesulitan nyiapin dokumen** – nulis motivation letter yang powerful itu susah! Dan kalau gak ada yang nge-review, kita gak tahu apa yang kurang.  
 ❌ **Ketakutan saat wawancara** – bisa lolos seleksi dokumen, tapi tiba-tiba gugup di wawancara? Banyak yang gagal di tahap ini.  
 
-Gue udah ngalamin semua itu. **Gue tahu rasanya berjuang sendiri, jatuh bangun, dan gak punya orang yang bisa bener-bener bantu.**  
+Gue udah ngalamin semua itu. Gue tahu rasanya sendirian nyiapin semuanya, nggak tahu harus mulai dari mana, dan sering ngerasa minder. Dan gue gak mau orang lain harus ngelewatin kesulitan yang sama tanpa bantuan.  
 
-### **Solusi: Gue Ada Buat Bantuin Lo!**  
+### **Solusi: Mentoring Bang Randy 🚀**  
 
-Gue mau jadi **orang yang dulu gue butuhin** saat gue masih bingung dan berjuang sendiri. Makanya gue bikin layanan ini, supaya lo punya tempat buat **dapat bimbingan yang real, jujur, dan bisa diandalkan.**  
+Gue mau jadi **orang yang dulu gue butuhin** saat gue masih bingung dan berjuang sendiri. Makanya gue bikin **Mentoring Bang Randy**, supaya lo punya tempat buat **dapat bimbingan yang real, jujur, dan bisa diandalkan.**  
 
 💡 **1-on-1 Konsultasi Beasiswa** – Bantu lo nyusun strategi, nyari beasiswa yang cocok, dan kasih insight dari pengalaman gue sendiri.  
 📝 **Review & Revisi Dokumen** – Motivation letter, CV, research proposal? Gue bantu lo revisi biar makin kuat dan standout.  
