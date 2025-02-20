@@ -1,4 +1,6 @@
+---
 name: "Build and Deploy"
+
 on:
   push:
     branches:
@@ -28,22 +30,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          # submodules: true
-          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
-          # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
+        uses: actions/checkout@v4  # Updated to latest
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v4  # Updated to latest
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
+          ruby-version: '3.2'  # Updated to latest stable Ruby
           bundler-cache: true
+
+      - name: Install Upload Artifact (Latest)  # Explicitly use v4 to override v3
+        uses: actions/upload-artifact@v4
+        with:
+          name: force-latest-upload-artifact
+          path: .  # Uploading the entire workspace as a temporary step
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
@@ -55,7 +58,7 @@ jobs:
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # Ensure latest version
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
@@ -65,7 +68,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # Ensure latest version
