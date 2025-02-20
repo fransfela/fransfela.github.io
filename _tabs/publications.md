@@ -6,14 +6,14 @@ order: 4
 
 ### Recent Articles
 
-- **Fela, R F**., Zacharov N., Forchhammer S. (2022). [Comparison of Full Factorial and Optimal Experimental Design for Perceptual Evaluation of Audiovisual Quality](https://www.aes.org/e-lib/browse.cfm?elib=22027). Journal of Audio Engineering Society. vol. 71, no. 1/2, pp. 4-19, (2023 January.).
+- Takeuchi, M., Marozeau, J., Gkanos, K., **Fela, R F**., Nørholm, S M. (2023). [Evaluation of One’s Own Voice Perception while Using In-ear Headsets] (https://aes2.org/publications/elibrary-page/?id=22419). Audio Engineering Society 4th International Convention on Audio and Induced Hearing Disorders. Aalborg, Denmark. (May 2024).
+- - **Fela, R F**., Zacharov N., Forchhammer S. (2022). [Comparison of Full Factorial and Optimal Experimental Design for Perceptual Evaluation of Audiovisual Quality](https://www.aes.org/e-lib/browse.cfm?elib=22027). Journal of Audio Engineering Society. vol. 71, no. 1/2, pp. 4-19, (2023 January.).
 - **Fela, R F**., Zacharov N., Forchhammer S. (2022). [Assessor Selection Process for Perceptual Quality Evaluation of 360 Audiovisual Content](https://www.aes.org/e-lib/browse.cfm?elib=22010). Journal of Audio Engineering Society. vol. 70, no. 10, pp. 824-842, (2022 October.)
 - **Fela, R F**., Pastor A., Le Callet P., Zacharov N., Vigier T, Forchhammer S (2022). [Perceptual Evaluation on Audio-visual Dataset of 360 Content](https://arxiv.org/abs/2205.08007). International Conference on Multimedia and Expo 2022. Taipei, Taiwan.
 - **Fela, R F**., Zacharov N., Forchhammer S. (2021). [Perceptual Evaluation of 360 Audiovisual Quality and Machine Learning Predictions](https://ieeexplore.ieee.org/document/9733677/). Multimedia and Signal Processing Conference 2021. Tampere, Finland.
 - **Fela, R F**., Zacharov N., Forchhammer S. (2020). [Towards a Perceived Audiovisual Quality Model for Immersive Content](https://ieeexplore.ieee.org/document/9123134). The 12th International Conference on Quality of Multimedia Experience. Dublin, Ireland.
 
 ### On Progress
-- Takeuchi, M., Marozeau, J., Gkanos, K., **Fela, R F**., Nørholm, S M. (2023). Evaluation of One’s Own Voice Perception while Using In-ear Headsets. Under Review.
 - **Fela, R F**., Pastor A., Le Callet P., Zacharov N., Vigier T, Forchhammer S. (2023). Multimodal Perceptual Quality Evaluation of 360 Media: Dataset, Metrics and Models. IEEE Trans. Multimedia. Under Review.
 - **Fela, R F**., Utami S S., Sarwono J. (2022). Using auditory-visual virtual reality to enhance the learning experience of nursing students in the intensive care unit. Behavior and Information Technology. Draft.
 
