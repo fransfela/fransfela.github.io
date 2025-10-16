@@ -2,14 +2,15 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Dr.  # the website title (if blank, full name will be used instead)
+title: Dr. Randy F. Fela # the website title (if blank, full name will be used instead)
 first_name: Randy
 middle_name: F.
 last_name: Fela
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Perceptual Evaluation Engineer at Jabra | PhD in Audio-Video Quality Assessment | 
+  Research Mentor helping aspiring scholars
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
