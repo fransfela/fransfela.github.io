@@ -1,0 +1,28 @@
+# For bilingual, kita setup dua versi
+en:
+  - title: about
+    url: /
+  - title: research
+    url: /research/
+  - title: publications
+    url: /publications/
+  - title: mentoring  # New section!
+    url: /mentoring/
+  - title: blog
+    url: /blog/
+  - title: cv
+    url: /cv/
+
+id:  # Indonesian navigation
+  - title: tentang
+    url: /id/
+  - title: penelitian
+    url: /id/research/
+  - title: publikasi
+    url: /id/publications/
+  - title: mentoring
+    url: /id/mentoring/
+  - title: blog
+    url: /id/blog/
+  - title: cv
+    url: /id/cv/
