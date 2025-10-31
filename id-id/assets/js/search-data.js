@@ -457,9 +457,9 @@ ninja.data = [{
           section: "",},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "",},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
+          section: "",},{id: "projects-batchmailer",
+          title: 'BatchMaileR',
+          description: "A Shiny web application for sending batch emails with personalized content and attachments",
           section: "",handler: () => {
               window.location.href = "/id-id/projects/7_project/";
             },},{id: "projects-project-8",
