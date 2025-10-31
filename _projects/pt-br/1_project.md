@@ -4,7 +4,7 @@ layout: page
 title: projeto 1
 description: com imagem de fundo
 img: assets/img/12.jpg
-importance: 1
+importance: 0
 category: work
 related_publications: true
 ---
