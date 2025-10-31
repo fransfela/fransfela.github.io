@@ -1,81 +1,163 @@
 ---
+page_id: batchmailer
 layout: page
-title: project 7
-description: with background image
-img: assets/img/4.jpg
+title: BatchMaileR
+description: A Shiny web application for sending batch emails with personalized content and attachments
+img: assets/img/BatchMaileR.png
 importance: 1
 category: work
+github: https://github.com/fransfela/BatchMaileR
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+BatchMaileR is a professional **R Shiny web application** designed to streamline the process of sending batch emails with both common and personalized content and attachments. This tool is particularly useful for researchers, HR professionals, and anyone who needs to send customized emails to multiple recipients efficiently.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Key Features
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+<div class="row mt-3">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">📧 Batch Email Processing</h5>
+                <p class="card-text">Upload recipient data from CSV files and send personalized emails to multiple recipients simultaneously.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mt-3 mt-md-0">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">✏️ Rich Text Editor</h5>
+                <p class="card-text">Edit email content with various formatting options including bold, italic, lists, and more.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">🎯 Dynamic Personalization</h5>
+                <p class="card-text">Use placeholders like <code>[ColumnName]</code> to personalize email subjects and body content for each recipient.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mt-3 mt-md-0">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">📎 Flexible Attachments</h5>
+                <p class="card-text">Attach common files to all emails or include personalized attachments specific to each recipient.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+## Technical Stack
+
+The application is built using modern R technologies:
+
+- **Shiny** - Interactive web application framework
+- **readr** - Fast and friendly data import
+- **RDCOMClient** - Windows COM interface for Outlook integration
+- **Bootstrap** - Responsive UI components
+
+## Use Cases
+
+BatchMaileR has been particularly useful in several professional contexts:
+
+1. **Research Studies**: Sending personalized invitations and materials to study participants
+2. **HR Communication**: Distributing customized employment documents and onboarding materials
+3. **Academic Administration**: Sending grade reports and feedback to students
+4. **Business Operations**: Distributing personalized reports and certificates
+
+## How It Works
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/batchmailer-upload.png" title="Upload recipient data" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/batchmailer-editor.png" title="Edit email content" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/batchmailer-send.png" title="Send batch emails" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
+    The BatchMaileR workflow: Upload recipient data, customize your email content, and send personalized emails with one click.
 </div>
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+The application follows a straightforward workflow:
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+1. **Upload Data**: Import a CSV file containing recipient information
+2. **Compose Email**: Use the rich text editor to craft your message
+3. **Add Placeholders**: Insert dynamic fields using the `[ColumnName]` syntax
+4. **Attach Files**: Include common or personalized attachments
+5. **Send**: Process and send all emails automatically
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+### Example Personalization
 
-{% raw %}
+You can use placeholders to personalize both the subject and body of your emails:
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+```
+Subject: Assessment Results for [AssessorName]
+
+Dear [AssessorName],
+
+Thank you for participating in our study. Your assessment ID is [AssessorID].
+Please find your personalized report attached.
+
+Best regards,
+Research Team
 ```
 
-{% endraw %}
+Each recipient will receive an email with their specific information filled in automatically.
+
+## Installation & Usage
+
+To run BatchMaileR on your local machine:
+
+```r
+# Install required packages
+install.packages("shiny")
+install.packages("readr")
+install.packages("RDCOMClient")
+
+# Clone the repository
+git clone https://github.com/fransfela/BatchMaileR.git
+
+# Run the application
+shiny::runApp('path_to_BatchMaileR')
+```
+
+<div class="row justify-content-sm-center mt-4">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/batchmailer-interface.png" title="BatchMaileR interface" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The intuitive interface makes batch emailing accessible to users with varying technical backgrounds.
+</div>
+
+## Future Development
+
+Planned enhancements for future versions include:
+
+- Support for additional email clients beyond Outlook
+- Email template library for common use cases
+- Enhanced analytics and delivery tracking
+- Multi-language support
+- Cloud deployment options
+
+## Project Background
+
+BatchMaileR was developed to address a common challenge in research and professional environments: efficiently sending personalized communications to large groups while maintaining quality and accuracy. The tool has been successfully used in perceptual evaluation studies and administrative workflows at GN Audio A/S.
+
+---
+
+**Version**: v2.1  
+**Status**: Active Development  
+**License**: Open Source  
+**GitHub**: [fransfela/BatchMaileR](https://github.com/fransfela/BatchMaileR)
+
+For questions or support, feel free to reach out or open an issue on GitHub.
