@@ -457,12 +457,7 @@ ninja.data = [{
           section: "",},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "",},{id: "projects-batchmailer",
-          title: 'BatchMaileR',
-          description: "A Shiny web application for sending batch emails with personalized content and attachments",
-          section: "",handler: () => {
-              window.location.href = "/id-id/projects/7_project/";
-            },},{id: "projects-project-8",
+          section: "",},{id: "projects-project-8",
           title: 'project 8',
           description: "an other project with a background image and giscus comments",
           section: "",handler: () => {
@@ -472,6 +467,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "",handler: () => {
               window.location.href = "/id-id/projects/9_project/";
+            },},{id: "projects-batchmailer",
+          title: 'BatchMaileR',
+          description: "A Shiny web application for sending batch emails with personalized content and attachments",
+          section: "",handler: () => {
+              window.location.href = "/id-id/projects/batchmailer/";
             },},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
