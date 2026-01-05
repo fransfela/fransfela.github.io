@@ -454,6 +454,11 @@ ninja.data = [{
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
           section: "Projects",handler: () => {
               window.location.href = "/projects/batchmailer/";
+            },},{id: "projects-hoa-ssr-dataset",
+          title: 'HOA-SSR Dataset',
+          description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/hoassr_dataset/";
             },},{id: "projects-project-9",
           title: 'project 9',
           description: "another project with an image 🎉",
