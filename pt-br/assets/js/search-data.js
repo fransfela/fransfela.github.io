@@ -530,46 +530,53 @@ ninja.data = [{
           section: "Projetos",handler: () => {
               window.location.href = "/pt-br/projects/9_project/";
             },},{
-        id: 'social-cv',
-        title: 'CV',
-        section: 'Redes sociais',
-        handler: () => {
-          window.open("/assets/pdf/pt-br/example_pdf.pdf", "_blank");
-        },
-      },{
         id: 'social-email',
         title: 'Enviar um email',
         section: 'Redes sociais',
         handler: () => {
-          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+          window.open("mailto:%72%61%6E%64%79%72%66%66@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
-        id: 'social-inspire',
-        title: 'Inspire HEP',
+        id: 'social-linkedin',
+        title: 'LinkedIn',
         section: 'Redes sociais',
         handler: () => {
-          window.open("https://inspirehep.net/authors/1010907", "_blank");
+          window.open("https://www.linkedin.com/in/randy-frans-fela", "_blank");
         },
       },{
-        id: 'social-rss',
-        title: 'RSS Feed',
+        id: 'social-orcid',
+        title: 'ORCID',
         section: 'Redes sociais',
         handler: () => {
-          window.open("/feed.xml", "_blank");
+          window.open("https://orcid.org/0000-0001-5905-5522", "_blank");
+        },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Redes sociais',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/Randy-Fela/", "_blank");
         },
       },{
         id: 'social-scholar',
         title: 'Google Scholar',
         section: 'Redes sociais',
         handler: () => {
-          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
+          window.open("https://scholar.google.com/citations?user=XSBROGkAAAAJ", "_blank");
         },
       },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
+        id: 'social-scopus',
+        title: 'Scopus',
         section: 'Redes sociais',
         handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
+          window.open("https://www.scopus.com/authid/detail.uri?authorId=57195643532", "_blank");
+        },
+      },{
+        id: 'social-youtube',
+        title: 'YouTube',
+        section: 'Redes sociais',
+        handler: () => {
+          window.open("https://youtube.com/@youtube.com/@fransfela", "_blank");
         },
       },{
           id: 'lang-en-us',
