@@ -33,13 +33,13 @@ My work at [Jabra](https://www.jabra.com/) sits at the intersection of:
 
 Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalborg) — and I'm open to collaborating with students from universities abroad. I also run a mentoring practice through [MentoringBangRandy](/mentoring/), helping aspiring Indonesian researchers crack the master's and PhD application code, share career reflections on YouTube, and try to balance being a present parent with staying on top of the latest AI hype cycles.
 
----
+__________________________________
 
 📍 Copenhagen, Denmark<br>
 🇮🇩 Indonesian roots<br>
 💼 Open to collaborations, consulting, speaking gigs, student supervision
 
----
+__________________________________
 
 **What drives me:** Making technology more human-centered, one metric at a time.
 
@@ -50,7 +50,7 @@ Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalbo
 - Survived the Danish winter (multiple times)
 - I love exploring the flavor of coffee ☕ using different manual brewing techniques
 
----
+__________________________________
 
 [📧 Get in touch](mailto:rffela@gn.com) | 
 [📱 Follow me on Instagram](https://instagram.com/fransfela) | 
