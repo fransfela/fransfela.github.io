@@ -541,7 +541,7 @@ ninja.data = [{
         title: 'YouTube',
         section: 'réseaux sociaux',
         handler: () => {
-          window.open("https://youtube.com/@youtube.com/@fransfela", "_blank");
+          window.open("https://youtube.com/@fransfela", "_blank");
         },
       },{
           id: 'lang-en-us',
