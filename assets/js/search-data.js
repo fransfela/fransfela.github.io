@@ -237,6 +237,39 @@ ninja.data = [{
             window.location.href = "/blog/2023/tikzjax/";
           
         },
+      },{id: "post-statistical-design-of-experiment-01-an-introduction",
+        
+          title: 'Statistical Design of Experiment 01: An Introduction <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/@fransfela/statistical-design-of-experiment-01-an-introduction-98394af6c74c?source=rss-d87e2a60cec5------2", "_blank");
+          
+        },
+      },{id: "post-ffmpeg-apa-itu-dan-bagaimana-cara-menginstalnya-di-mesin-anda",
+        
+          title: 'FFmpeg: Apa Itu dan Bagaimana Cara Menginstalnya di Mesin Anda <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/@fransfela/ffmpeg-apa-itu-dan-bagaimana-cara-menginstalnya-di-mesin-anda-17590374a7b?source=rss-d87e2a60cec5------2", "_blank");
+          
+        },
+      },{id: "post-ffmpeg-what-it-is-and-how-to-install-it-on-your-machine",
+        
+          title: 'FFmpeg: What it is and how to install it on your machine <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/@fransfela/ffmpeg-what-it-is-and-how-to-install-it-on-your-machine-fb589318d117?source=rss-d87e2a60cec5------2", "_blank");
+          
+        },
       },{id: "post-a-post-with-bibliography",
         
           title: "a post with bibliography",
@@ -334,17 +367,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2022/giscus-comments/";
-          
-        },
-      },{id: "post-displaying-external-posts-on-your-al-folio-blog",
-        
-          title: 'Displaying External Posts on Your al-folio Blog <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
       },{id: "post-a-post-with-redirect",
