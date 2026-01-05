@@ -459,11 +459,6 @@ ninja.data = [{
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/hoassr_dataset/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/id-id/projects/9_project/";
             },},{
         id: 'social-email',
         title: 'Send an email',
