@@ -204,154 +204,154 @@
   "certificates": [
     {
       "name": "Natural Language Processing for Speech and Text: From Beginner to Advanced",
-      "date": "2024-12-01",
+      "date": "2024-12-16",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/certificates/eb18a7a608d9962438653c655be18fe5e8897200d818aac63a1ea4980448dc99",
       "icon": "fa-solid fa-certificate"
     },
     {
-      "name": "Building and Deploying Deep Learning Applications with TensorFlow",
-      "date": "2024-01-01",
-      "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-brain"
-    },
-    {
-      "name": "Data & Stats: Introduction to Jamovi",
-      "date": "2024-01-01",
-      "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-chart-bar"
-    },
-    {
-      "name": "Data & Stats: SQL Essential Training",
-      "date": "2024-01-01",
-      "issuer": "National Association of State Boards of Accountancy (NASBA)",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-database"
-    },
-    {
       "name": "Foundation of UX Research",
-      "date": "2024-01-01",
+      "date": "2023-11-14",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/certificates/de7702771a949746efdc56ace70e19607175a96db66a1c3eddb4167c571eadd3",
       "icon": "fa-solid fa-users"
     },
     {
-      "name": "Learning Cloud Computing: Cloud Storage",
-      "date": "2024-01-01",
-      "issuer": "CompTIA",
+      "name": "Data Visualization: Storytelling",
+      "date": "2023-11-21",
+      "issuer": "National Association of State Boards of Accountancy (NASBA)",
       "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-cloud"
+      "icon": "fa-solid fa-chart-pie"
+    },
+    {
+      "name": "SQL Essential Training",
+      "date": "2023-11-29",
+      "issuer": "National Association of State Boards of Accountancy (NASBA)",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-database"
+    },
+    {
+      "name": "Effective Communication",
+      "date": "2023-12-07",
+      "issuer": "Project Management Institute",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-comments"
+    },
+    {
+      "name": "Introduction to Jamovi",
+      "date": "2023-12-09",
+      "issuer": "LinkedIn",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-chart-bar"
+    },
+    {
+      "name": "Learning the R Tidyverse",
+      "date": "2023-12-10",
+      "issuer": "LinkedIn",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-table"
+    },
+    {
+      "name": "MLOps Essentials - Model Development and Integration",
+      "date": "2023-12-10",
+      "issuer": "LinkedIn",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-gears"
+    },
+    {
+      "name": "Building and Deploying Deep Learning Applications with TensorFlow",
+      "date": "2023-12-11",
+      "issuer": "LinkedIn",
+      "url": "https://www.linkedin.com/learning/",
+      "icon": "fa-solid fa-brain"
     },
     {
       "name": "Learning Git and GitHub",
-      "date": "2024-01-01",
+      "date": "2023-12-11",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-brands fa-github"
     },
     {
       "name": "NLP with Python for Machine Learning Essential Training",
-      "date": "2024-01-01",
+      "date": "2023-12-11",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-language"
     },
     {
-      "name": "Python for Data Analysis (300 hrs + 5 Projects)",
-      "date": "2024-01-01",
-      "issuer": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/",
-      "icon": "fa-brands fa-python"
-    },
-    {
-      "name": "IBM PY0101EN - Python 101 for Data Science",
-      "date": "2024-01-01",
-      "issuer": "Cognitive Class",
-      "url": "https://cognitiveclass.ai/",
-      "icon": "fa-brands fa-python"
-    },
-    {
-      "name": "MLOps Essentials - Model Development and Integration",
-      "date": "2024-01-01",
-      "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-gears"
-    },
-    {
-      "name": "Machine Learning with Python (300 hrs + 5 Projects)",
-      "date": "2024-01-01",
-      "issuer": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/",
-      "icon": "fa-solid fa-robot"
-    },
-    {
       "name": "R Essential Training Part 2: Modeling Data",
-      "date": "2024-01-01",
+      "date": "2023-12-11",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-chart-line"
     },
     {
       "name": "Building Data Apps with R and Shiny",
-      "date": "2024-01-01",
+      "date": "2023-12-11",
       "issuer": "LinkedIn",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-code"
     },
     {
-      "name": "Learning the R Tidyverse",
-      "date": "2024-01-01",
-      "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-table"
+      "name": "IBM PY0101EN - Python 101 for Data Science",
+      "date": "2023-07-25",
+      "issuer": "Cognitive Class",
+      "url": "https://cognitiveclass.ai/",
+      "icon": "fa-brands fa-python"
     },
     {
       "name": "R Programming A-Z: R For Data Science With Real Exercises",
-      "date": "2024-01-01",
+      "date": "2022-11-09",
       "issuer": "Udemy",
       "url": "https://www.udemy.com/certificate/UC-4a4347c2-bcae-4bf6-8527-a1f2df0b5f3a",
       "icon": "fa-solid fa-graduation-cap"
     },
     {
+      "name": "Python for Data Analysis (300 hrs + 5 Projects)",
+      "date": "2021-06-17",
+      "issuer": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/",
+      "icon": "fa-brands fa-python"
+    },
+    {
+      "name": "Machine Learning with Python (300 hrs + 5 Projects)",
+      "date": "2021-07-04",
+      "issuer": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/",
+      "icon": "fa-solid fa-robot"
+    },
+    {
       "name": "Critical Thinking and Problem Solving",
-      "date": "2024-01-01",
+      "date": "2021-07-06",
       "issuer": "Project Management Institute",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-lightbulb"
     },
     {
-      "name": "Data Visualization: Storytelling",
-      "date": "2024-01-01",
-      "issuer": "National Association of State Boards of Accountancy (NASBA)",
+      "name": "Learning Cloud Computing: Cloud Storage",
+      "date": "2021-07-12",
+      "issuer": "CompTIA",
       "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-chart-pie"
-    },
-    {
-      "name": "Effective Communication",
-      "date": "2024-01-01",
-      "issuer": "Project Management Institute",
-      "url": "https://www.linkedin.com/learning/",
-      "icon": "fa-solid fa-comments"
+      "icon": "fa-solid fa-cloud"
     },
     {
       "name": "Improving Your Focus",
-      "date": "2024-01-01",
+      "date": "2021-07-12",
       "issuer": "NASBA",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-bullseye"
     },
     {
       "name": "Prioritizing Your Tasks",
-      "date": "2024-01-01",
+      "date": "2021-07-13",
       "issuer": "NASBA",
       "url": "https://www.linkedin.com/learning/",
       "icon": "fa-solid fa-list-check"
     },
     {
       "name": "Project Management: Planning Phase of Project Management 21",
-      "date": "2024-01-01",
+      "date": "2021-07-27",
       "issuer": "Udemy",
       "url": "https://www.udemy.com/",
       "icon": "fa-solid fa-project-diagram"
