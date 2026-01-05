@@ -9,7 +9,7 @@ profile:
   align: right
   image: bitmoji-cropped.jpg
   image_circular: true # crops the image to make it circular
-    
+
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 
@@ -24,38 +24,38 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I spend my days asking: *"How do devices and algorithms really sound and look to humans?"* — then building systems to answer that question at scale.
+I spend my days asking: _"How do devices and algorithms really sound and look to humans?"_ — then building systems to answer that question at scale.
 
 My work at [Jabra](https://www.jabra.com/) sits at the intersection of:
+
 - 🎧 Audio-visual quality evaluation
-- 🤖 Bridging AI metrics with human perception  
+- 🤖 Bridging AI metrics with human perception
 - 📊 Turning subjective ratings into actionable insights
 
 Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalborg) — and I'm open to collaborating with students from universities abroad. I also run a mentoring practice through [MentoringBangRandy](/mentoring/), helping aspiring Indonesian researchers crack the master's and PhD application code, share career reflections on YouTube, and try to balance being a present parent with staying on top of the latest AI hype cycles.
 
-__________________________________
+---
 
 📍 Copenhagen, Denmark<br>
 🇮🇩 Indonesian roots<br>
 💼 Open to collaborations, consulting, speaking gigs, student supervision
 
-__________________________________
+---
 
 **What drives me:** Making technology more human-centered, one metric at a time.
 
 **Quick facts:**
+
 - PhD in [Perceptual Evaluation of Immersive Audio-visual Technology](https://orbit.dtu.dk/en/publications/perceptual-evaluation-of-immersive-audiovisual-quality) from [Technical University of Denmark](https://electro.dtu.dk/) (because someone has to quantify "good enough")
 - Built internal tools that evaluate 100+ audio-visual metrics (yes, I did!)
 - Supervise Master's theses on perceptual evaluation, AI, signal processing, and human-centered tech
 - Survived the Danish winter (multiple times)
 - I love exploring the flavor of coffee ☕ using different manual brewing techniques
 
-__________________________________
+---
 
-[📧 Get in touch](mailto:rffela@gn.com) | 
-[📱 Follow me on Instagram](https://instagram.com/fransfela) | 
+[📧 Get in touch](mailto:rffela@gn.com) |
+[📱 Follow me on Instagram](https://instagram.com/fransfela) |
 [🎥 YouTube Channel](https://www.youtube.com/@fransfela)
 
 ---
-
-
