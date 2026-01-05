@@ -7,7 +7,7 @@ img: assets/img/BatchMaileR.png
 importance: 1
 category: work
 github: https://github.com/fransfela/BatchMaileR
-related_publications: true
+related_publications: false
 ---
 
 BatchMaileR is a professional **R Shiny web application** designed to streamline the process of sending batch emails with both common and personalized content and attachments. This tool is particularly useful for researchers, HR professionals, and anyone who needs to send customized emails to multiple recipients efficiently.
@@ -51,6 +51,7 @@ BatchMaileR is a professional **R Shiny web application** designed to streamline
         </div>
     </div>
 </div>
+
 
 ## Technical Stack
 
