@@ -6,7 +6,7 @@ description: Higher-Order Ambisonics Sound Scene Repository - A comprehensive 36
 img: assets/img/hoassr.png
 importance: 2
 category: work
-related_publications: true
+related_publications: false
 ---
 
 The **Higher-Order Ambisonics Sound Scene Repository (HOA-SSR)** is a groundbreaking open-source dataset designed to advance research in perceptual quality evaluation of immersive 360° audiovisual content. This comprehensive dataset combines state-of-the-art spatial audio recording with ultra-high-definition 360° video, accompanied by subjective quality scores from trained assessors.
