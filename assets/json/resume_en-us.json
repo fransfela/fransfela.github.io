@@ -97,10 +97,9 @@
       "endDate": "Present",
       "summary": "Providing 1-on-1 mentoring for Indonesian students applying to international Master's, PhD, and Postdoc programs.",
       "highlights": [
-        "Successfully guided 50+ students to acceptance at top universities worldwide",
+        "Successfully guided 10+ students to acceptance at top universities worldwide",
         "85% acceptance rate across mentees",
-        "Total scholarships secured by mentees exceed $2M USD",
-        "Active community of 10K+ followers across Instagram, Threads, and YouTube"
+        "Active community of 5K+ followers across Instagram, Threads, and YouTube"
       ]
     },
     {
@@ -220,84 +219,84 @@
       "name": "Data Visualization: Storytelling",
       "date": "2023-11-21",
       "issuer": "National Association of State Boards of Accountancy (NASBA)",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/020c1db7db54327a0ac5bfd9ed3a0d7482165f67cf7d580795f1f78d6b091198",
       "icon": "fa-solid fa-chart-pie"
     },
     {
       "name": "SQL Essential Training",
       "date": "2023-11-29",
       "issuer": "National Association of State Boards of Accountancy (NASBA)",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/67a73941a0b06e8ede07bd8a99a9342687a9d69f04062deef8fe18f19bb1cb06",
       "icon": "fa-solid fa-database"
     },
     {
       "name": "Effective Communication",
       "date": "2023-12-07",
       "issuer": "Project Management Institute",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/fc18e2ad1523af948ed0b59826faa03e79d7c1dc5fbe7ce2bf67f8bc8b91780f",
       "icon": "fa-solid fa-comments"
     },
     {
       "name": "Introduction to Jamovi",
       "date": "2023-12-09",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/115c69c9d61ccbb4708d23ac229f4be1d596c867cae5c927248891bdd27f7602",
       "icon": "fa-solid fa-chart-bar"
     },
     {
       "name": "Learning the R Tidyverse",
       "date": "2023-12-10",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/ad552c35668fa43207c01165ac5b5298b93369c42c7c41efec2ff9cc4d559567",
       "icon": "fa-solid fa-table"
     },
     {
       "name": "MLOps Essentials - Model Development and Integration",
       "date": "2023-12-10",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/e30c83fd38b0ae04be94ac91f81e2a5b198fc77c031165f56358fbd8846c6073",
       "icon": "fa-solid fa-gears"
     },
     {
       "name": "Building and Deploying Deep Learning Applications with TensorFlow",
       "date": "2023-12-11",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/a73f8b0ace10941a10ffa80b91b19643112b61297c2a791047f7d5fac9e3f413",
       "icon": "fa-solid fa-brain"
     },
     {
       "name": "Learning Git and GitHub",
       "date": "2023-12-11",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/0fc1671af7335e5a091e8bf4165f6eac5437b4c50572becab3f318410bf8965c",
       "icon": "fa-brands fa-github"
     },
     {
       "name": "NLP with Python for Machine Learning Essential Training",
       "date": "2023-12-11",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/a3a48d1a1d826e1892ee99bf7920e8bd8b54058f6d72ef33d0f93fd8315aae27",
       "icon": "fa-solid fa-language"
     },
     {
       "name": "R Essential Training Part 2: Modeling Data",
       "date": "2023-12-11",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/696f0277b5db8bebc79448c3675ff849cbecdd83b606c556830f4d895815b542",
       "icon": "fa-solid fa-chart-line"
     },
     {
       "name": "Building Data Apps with R and Shiny",
       "date": "2023-12-11",
       "issuer": "LinkedIn",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://www.linkedin.com/learning/certificates/3387ee5b8633bc22621f792aa9112e4250bc5aca876d449cb9ad37c6abde0cd6",
       "icon": "fa-solid fa-code"
     },
     {
       "name": "IBM PY0101EN - Python 101 for Data Science",
       "date": "2023-07-25",
       "issuer": "Cognitive Class",
-      "url": "https://cognitiveclass.ai/",
+      "url": "https://courses.cognitiveclass.ai/certificates/6d646f170f0541bda72187f8fd027920",
       "icon": "fa-brands fa-python"
     },
     {
@@ -311,49 +310,49 @@
       "name": "Python for Data Analysis (300 hrs + 5 Projects)",
       "date": "2021-06-17",
       "issuer": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/",
+      "url": "https://www.freecodecamp.org/certification/fcc6915f0c9-d6a3-4634-afe8-66252c499787/data-analysis-with-python-v7",
       "icon": "fa-brands fa-python"
     },
     {
       "name": "Machine Learning with Python (300 hrs + 5 Projects)",
       "date": "2021-07-04",
       "issuer": "freeCodeCamp",
-      "url": "https://www.freecodecamp.org/",
+      "url": "https://www.freecodecamp.org/certification/fcc6915f0c9-d6a3-4634-afe8-66252c499787/machine-learning-with-python-v7",
       "icon": "fa-solid fa-robot"
     },
     {
       "name": "Critical Thinking and Problem Solving",
       "date": "2021-07-06",
       "issuer": "Project Management Institute",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://drive.google.com/file/d/1Z4R0YmvFoIZ3-9kBKC10gM0pqFGjs7xj/view",
       "icon": "fa-solid fa-lightbulb"
     },
     {
       "name": "Learning Cloud Computing: Cloud Storage",
       "date": "2021-07-12",
       "issuer": "CompTIA",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://drive.google.com/file/d/1iJc3Xk2R99ksh_Cn8ReDlrti2ziX_V0t/view",
       "icon": "fa-solid fa-cloud"
     },
     {
       "name": "Improving Your Focus",
       "date": "2021-07-12",
       "issuer": "NASBA",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://drive.google.com/file/d/1OxZ6PCmILX-HS48F5ERwYIyrsZWEJFIK/view",
       "icon": "fa-solid fa-bullseye"
     },
     {
       "name": "Prioritizing Your Tasks",
       "date": "2021-07-13",
       "issuer": "NASBA",
-      "url": "https://www.linkedin.com/learning/",
+      "url": "https://drive.google.com/file/d/1twtl-J941z4hPS2cnD3I8juhSLZFaGF_/view",
       "icon": "fa-solid fa-list-check"
     },
     {
       "name": "Project Management: Planning Phase of Project Management 21",
       "date": "2021-07-27",
       "issuer": "Udemy",
-      "url": "https://www.udemy.com/",
+      "url": "https://drive.google.com/file/d/1khxgzrzH8BSpT6wY9_d2asT3Q7pJRBSz/view",
       "icon": "fa-solid fa-project-diagram"
     }
   ],
