@@ -2,7 +2,9 @@
 page_id: about
 layout: about
 title: About
-permalink: /
+permalink: /about/
+nav: true
+nav_order: 1
 subtitle: Perceptual Engineer | Mentor | Perpetual Learner
 
 profile:
