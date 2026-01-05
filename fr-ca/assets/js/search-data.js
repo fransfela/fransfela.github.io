@@ -449,12 +449,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "actualités",},{id: "projects-projeto-3-com-um-nome-bem-longo",
-          title: 'projeto 3 com um nome bem longo',
-          description: "um projeto que redireciona pra outro website",
-          section: "projets",handler: () => {
-              window.location.href = "/fr-ca/projects/3_project/";
-            },},{id: "projects-projeto-4",
+          section: "actualités",},{id: "projects-projeto-4",
           title: 'projeto 4',
           description: "outro sem imagem",
           section: "projets",handler: () => {
