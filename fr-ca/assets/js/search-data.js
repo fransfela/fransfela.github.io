@@ -449,12 +449,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "actualités",},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "projets",handler: () => {
-              window.location.href = "/fr-ca/projects/8_project/";
-            },},{id: "projects-project-9",
+          section: "actualités",},{id: "projects-project-9",
           title: 'project 9',
           description: "another project with an image 🎉",
           section: "projets",handler: () => {
