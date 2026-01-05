@@ -7,6 +7,7 @@ img: assets/img/12.jpg
 importance: 1
 category: work
 related_publications: true
+published: false
 ---
 
 Cada projeto tem uma bela página de apresentação de recursos.
