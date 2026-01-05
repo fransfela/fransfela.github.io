@@ -449,12 +449,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "actualités",},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
-          section: "projets",handler: () => {
-              window.location.href = "/fr-ca/projects/4_project/";
-            },},{id: "projects-project-5",
+          section: "actualités",},{id: "projects-project-5",
           title: 'project 5',
           description: "a project with a background image",
           section: "projets",handler: () => {
@@ -494,6 +489,11 @@ ninja.data = [{
           description: "um projeto que redireciona pra outro website",
           section: "projets",handler: () => {
               window.location.href = "/fr-ca/projects/3_project/";
+            },},{id: "projects-projeto-4",
+          title: 'projeto 4',
+          description: "outro sem imagem",
+          section: "projets",handler: () => {
+              window.location.href = "/fr-ca/projects/4_project/";
             },},{
         id: 'social-email',
         title: 'envoyer un courriel',
