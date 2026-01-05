@@ -484,12 +484,7 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
           title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "Novidades",},{id: "projects-projeto-6",
-          title: 'projeto 6',
-          description: "um projeto sem imagem",
-          section: "Projetos",handler: () => {
-              window.location.href = "/pt-br/projects/6_project/";
-            },},{id: "projects-project-7",
+          section: "Novidades",},{id: "projects-project-7",
           title: 'project 7',
           description: "with background image",
           section: "Projetos",handler: () => {
