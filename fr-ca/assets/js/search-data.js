@@ -449,12 +449,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "actualités",},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
-          section: "projets",handler: () => {
-              window.location.href = "/fr-ca/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
+          section: "actualités",},{id: "projects-project-3-with-very-long-name",
           title: 'project 3 with very long name',
           description: "a project that redirects to another website",
           section: "projets",handler: () => {
@@ -494,6 +489,11 @@ ninja.data = [{
           description: "com imagem de fundo",
           section: "projets",handler: () => {
               window.location.href = "/fr-ca/projects/1_project/";
+            },},{id: "projects-projeto-2",
+          title: 'projeto 2',
+          description: "um projeto com imagem de fundo e comentários do giscus",
+          section: "projets",handler: () => {
+              window.location.href = "/fr-ca/projects/2_project/";
             },},{
         id: 'social-email',
         title: 'envoyer un courriel',
