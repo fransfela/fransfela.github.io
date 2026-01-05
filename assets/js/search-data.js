@@ -21,8 +21,8 @@ ninja.data = [{
       window.location.href = "/";
     },
   },{id: "nav-blog",
-          title: "blog",
-          description: "a simple whitespace theme for academics",
+          title: "Blog",
+          description: "A journey navigating signal, data, and human experience",
           section: "Navigation menu",
           handler: () => {
             window.location.href = "/blog/";
