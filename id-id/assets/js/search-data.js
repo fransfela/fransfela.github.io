@@ -92,6 +92,17 @@ ninja.data = [{
             window.open("https://medium.com/@fransfela/ffmpeg-what-it-is-and-how-to-install-it-on-your-machine-fb589318d117?source=rss-d87e2a60cec5------2", "_blank");
           
         },
+      },{id: "post-a-post-with-table-of-contents",
+        
+          title: "a post with table of contents",
+        
+        description: "an example of a blog post with table of contents",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2023/table-of-contents/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
