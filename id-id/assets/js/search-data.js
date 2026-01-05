@@ -59,6 +59,17 @@ ninja.data = [{
             window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
           
         },
+      },{id: "post-a-post-with-advanced-image-components",
+        
+          title: "a post with advanced image components",
+        
+        description: "this is what advanced image components could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2024/advanced-images/";
+          
+        },
       },{id: "post-statistical-design-of-experiment-01-an-introduction",
         
           title: 'Statistical Design of Experiment 01: An Introduction <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
@@ -92,6 +103,39 @@ ninja.data = [{
             window.open("https://medium.com/@fransfela/ffmpeg-what-it-is-and-how-to-install-it-on-your-machine-fb589318d117?source=rss-d87e2a60cec5------2", "_blank");
           
         },
+      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
+        
+          title: "a post with table of contents on a sidebar",
+        
+        description: "an example of a blog post with table of contents on a sidebar",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2023/sidebar-table-of-contents/";
+          
+        },
+      },{id: "post-a-post-with-audios",
+        
+          title: "a post with audios",
+        
+        description: "this is what included audios could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2023/audios/";
+          
+        },
+      },{id: "post-a-post-with-videos",
+        
+          title: "a post with videos",
+        
+        description: "this is what included videos could look like",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2023/videos/";
+          
+        },
       },{id: "post-a-post-with-table-of-contents",
         
           title: "a post with table of contents",
@@ -101,6 +145,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/id-id/blog/2023/table-of-contents/";
+          
+        },
+      },{id: "post-a-distill-style-blog-post",
+        
+          title: "a distill-style blog post",
+        
+        description: "an example of a distill-style blog post and main elements",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2018/distill/";
           
         },
       },{id: "books-the-godfather",
