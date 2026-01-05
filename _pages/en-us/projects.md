@@ -1,9 +1,9 @@
 ---
 page_id: projects
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: This page will be updated with my recent works and fun projects.
 nav: true
 nav_order: 3
 display_categories: [work, fun]
