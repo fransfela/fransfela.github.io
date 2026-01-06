@@ -15,12 +15,19 @@ const ninja = document.querySelector('ninja-keys');
 // add the home and posts menu items
 ninja.data = [{
     id: "nav-",
-    title: "",
+    title: "🎧",
     section: "Navigation menu",
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-about",
+  },{id: "nav-",
+          title: "🎧",
+          description: "",
+          section: "Navigation menu",
+          handler: () => {
+            window.location.href = "/";
+          },
+        },{id: "nav-about",
           title: "About",
           description: "",
           section: "Navigation menu",
