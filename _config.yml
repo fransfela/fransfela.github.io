@@ -7,7 +7,7 @@ first_name: Randy
 middle_name: F.
 last_name: Fela
 keywords: perception, audio-visual, research, data-science # add your own keywords or leave empty
-icon: bitmoji-closeup-icon.jpg # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: bitmoji-closeup.png # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://fransfela.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
