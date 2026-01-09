@@ -188,6 +188,11 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/id-id/books/the_godfather/";
+            },},{id: "news-miho-defended-thesis-on-own-voice-perception-at-dtu",
+          title: 'Miho Defended Thesis on Own Voice Perception at DTU',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/id-id/news/announcement_miho_defense/";
             },},{id: "news-rucha-defended-thesis-on-video-conferencing-quality-at-dtu-fotonik",
           title: 'Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik',
           description: "",
