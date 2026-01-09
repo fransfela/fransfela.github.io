@@ -489,19 +489,9 @@ These methods provide additional perspectives and can resolve ambiguities when f
 
 ---
 
-## Complete Code Repository
-
-All code from this tutorial, including plot generation scripts and additional examples, is available in my GitHub repository:
-
-{% github randy-gralinski/cluster-analysis-tutorials %}
-
-Feel free to fork, experiment, and adapt for your own projects!
-
----
-
 ## Questions or Suggestions?
 
-Found this helpful? Have questions about applying these methods to your specific use case? Drop a comment below or reach out on [LinkedIn](your-linkedin-url).
+Found this helpful? Have questions about applying these methods to your specific use case? Drop a comment below or reach out on [LinkedIn]([https://www.linkedin.com/in/randy-frans-fela?originalSubdomain=dk]).
 
 In my day job at Jabra, I use these clustering techniques extensively for grouping perceptual audio quality metrics - if you're working on similar problems in audio/video evaluation, I'd love to connect!
 
