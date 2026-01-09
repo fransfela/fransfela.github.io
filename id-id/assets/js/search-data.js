@@ -199,8 +199,8 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "news-our-industrial-master-student-from-dtu-fotonik-defended-her-work-today",
-          title: 'Our industrial master student from DTU Fotonik defended her work today',
+          section: "News",},{id: "news-rucha-defended-thesis-on-video-conferencing-quality-at-dtu-fotonik",
+          title: 'Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/id-id/news/announcement_rucha_defense/";
