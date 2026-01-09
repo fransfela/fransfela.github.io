@@ -39,10 +39,8 @@ title: Master Thesis Defense on Own Voice Perception at DTU
 
 Miho's work explores critical factors affecting self-voice perception when using in-ear devices—crucial for both consumer headsets and hearing aid applications.
 
-### 🎤 Conference Presentation
+### Conference Presentation
 
 Miho's work was accepted for presentation at the **AES 4th International Conference on Audio and Music Induced Hearing Disorders** (May 29–31, 2024, Aalborg, Denmark).
 
 **📄 Paper:** [Access the full paper here →](https://aes.org/publications/elibrary-page/?id=22419) (freely accessible)
-
-Congratulations again, Miho! 🎉
