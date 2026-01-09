@@ -193,8 +193,8 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/id-id/news/announcement_miho_defense/";
-            },},{id: "news-rucha-defended-thesis-on-video-conferencing-quality-at-dtu-fotonik",
-          title: 'Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik',
+            },},{id: "news-master-thesis-defense-on-video-conferencing-quality-at-dtu-fotonik",
+          title: 'Master Thesis Defense on Video Conferencing Quality at DTU Fotonik',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/id-id/news/announcement_rucha_defense/";
