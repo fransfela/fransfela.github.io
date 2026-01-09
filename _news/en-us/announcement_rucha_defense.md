@@ -3,7 +3,7 @@ layout: post
 date: 2024-08-14 15:00:00+0200
 inline: false
 related_posts: false
-title: Our industrial master student from DTU Fotonik defended her work today
+title: Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik
 ---
 
 🎓 **Congratulations to Rucha Jevalikar** for successfully defending her Industrial Master's thesis at DTU Fotonik!
@@ -17,6 +17,8 @@ title: Our industrial master student from DTU Fotonik defended her work today
 - Prof. Søren Forchhammer (DTU Fotonik)
 - Dr. Randy F. Fela (GN Group / Jabra)
 - Dr. Umair Mukkati (GN Group / Jabra)
+
+**Thesis Title:** *Video Conferencing Quality Assessment of Device Induced Distortions*
 
 ---
 
