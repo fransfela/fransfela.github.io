@@ -16,9 +16,7 @@ In this post, I'll show you two fundamental methods to answer this question:
 
 We'll use the classic Iris dataset and Python's scikit-learn library.
 
-{::nomarkdown}
 {% jupyter_notebook "2025-01-09-cluster-analysis-intro.ipynb" %}
-{:/nomarkdown}
 
 ## Summary
 
