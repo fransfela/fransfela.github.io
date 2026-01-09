@@ -3,7 +3,7 @@ layout: post
 date: 2025-08-14 18:00:00+0200
 inline: false
 related_posts: false
-title: Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik
+title: Master Thesis Defense on Video Conferencing Quality at DTU Fotonik
 ---
 
 🎓 **Congratulations to Rucha Jevalikar** for successfully defending her Industrial Master's thesis at DTU Fotonik!
@@ -41,6 +41,4 @@ title: Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik
 
 **Research Focus:** Perceptual Video Quality in Video Conferencing Systems
 
-Rucha's excellent work contributes to understanding how device-induced distortions affect perceived video quality in hybrid meeting scenarios—a critical area as remote collaboration continues to evolve.
-
-Congratulations again, Rucha! 🎉
+Rucha's excellent work contributes to understanding how device-induced distortions affect perceived video quality in hybrid meeting scenarios, a critical area as remote collaboration continues to evolve.
