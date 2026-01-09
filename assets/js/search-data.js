@@ -191,13 +191,13 @@ ninja.data = [{
             },},{id: "news-um-anúncio-simples-em-uma-linha",
           title: 'Um anúncio simples em uma linha.',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-um-anúncio-longo-com-detalhes",
+          title: 'Um anúncio longo com detalhes',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-um-anúncio-simples-em-uma-linha-com-markdown-emoji-sparkles-smile",
+          title: 'Um anúncio simples em uma linha com Markdown emoji! :sparkles: :smile:',
           description: "",
           section: "News",},{id: "news-rucha-defended-thesis-on-video-conferencing-quality-at-dtu-fotonik",
           title: 'Rucha Defended Thesis on Video Conferencing Quality at DTU Fotonik',
