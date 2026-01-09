@@ -95,6 +95,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/advanced-images/";
           
         },
+      },{id: "post-finding-the-optimal-number-of-clusters",
+        
+          title: "Finding the Optimal Number of Clusters",
+        
+        description: "Master the art of determining optimal clusters with Elbow Method, Silhouette Analysis, and Davies-Bouldin Index. A practical guide with Python implementations.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/optimal-clustering-part1-foundation-methods/";
+          
+        },
       },{id: "post-statistical-design-of-experiment-01-an-introduction",
         
           title: 'Statistical Design of Experiment 01: An Introduction <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
