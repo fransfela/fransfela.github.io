@@ -188,8 +188,8 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-miho-defended-thesis-on-own-voice-perception-at-dtu",
-          title: 'Miho Defended Thesis on Own Voice Perception at DTU',
+            },},{id: "news-master-thesis-defense-on-own-voice-perception-at-dtu",
+          title: 'Master Thesis Defense on Own Voice Perception at DTU',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_miho_defense/";
