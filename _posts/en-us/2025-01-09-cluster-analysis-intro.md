@@ -3,7 +3,7 @@ layout: post
 title: "Finding the Right Number of Clusters: A Practical Guide"
 date: 2025-01-09 10:00:00
 description: Learn how to determine optimal cluster numbers using Elbow Method and Silhouette Analysis with Python
-tags: machine-learning clustering data-science python
+tags: python-programming
 categories: tutorials
 giscus_comments: true
 ---
