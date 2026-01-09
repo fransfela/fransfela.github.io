@@ -3,7 +3,7 @@ layout: post
 date: 2023-10-17 14:00:00+0200
 inline: false
 related_posts: false
-title: Miho Defended Thesis on Own Voice Perception at DTU
+title: Master Thesis Defense on Own Voice Perception at DTU
 ---
 
 🎓 **Congratulations to Miho Takeuchi** for successfully defending her Industrial Master's thesis at DTU!
