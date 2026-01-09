@@ -199,7 +199,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-batchmailer",
+          section: "News",},{id: "news-our-industrial-master-student-from-dtu-fotonik-defended-her-work-today",
+          title: 'Our industrial master student from DTU Fotonik defended her work today',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/id-id/news/announcement_rucha_defense/";
+            },},{id: "projects-batchmailer",
           title: 'BatchMaileR',
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
           section: "Projects",handler: () => {
