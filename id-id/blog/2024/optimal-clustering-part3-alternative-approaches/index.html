@@ -107,7 +107,7 @@ Cluster distribution:
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
-</code></pre></div></div> <p><strong>Characteristics of each method:</strong></p> <table> <thead> <tr> <th>Linkage</th> <th>Cluster Shape</th> <th>Outlier Sensitivity</th> <th>Best For</th> </tr> </thead> <tbody> <tr> <td><strong>Single</strong></td> <td>Chain-like, elongated</td> <td>Very high</td> <td>Finding bridges between clusters</td> </tr> <tr> <td><strong>Complete</strong></td> <td>Compact, spherical</td> <td>Low</td> <td>Well-separated, compact clusters</td> </tr> <tr> <td><strong>Average</strong></td> <td>Moderate compactness</td> <td>Medium</td> <td>General purpose, balanced</td> </tr> <tr> <td><strong>Ward</strong></td> <td>Spherical, balanced</td> <td>Medium</td> <td>Most common choice, minimizes variance</td> </tr> </tbody> </table> <p><strong>Recommendation</strong>: Start with <strong>Ward’s linkage</strong> - it works well for most applications and creates intuitive, balanced clusters.</p> <h3 id="cophenetic-correlation">Cophenetic Correlation</h3> <p>How well does the dendrogram preserve original distances? The <strong>cophenetic correlation coefficient</strong> tells us:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">cophenet</span>
+</code></pre></div></div> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/clustering-methods/12-hierarchical-linkage-comparison-480.webp 480w,/assets/img/posts/clustering-methods/12-hierarchical-linkage-comparison-800.webp 800w,/assets/img/posts/clustering-methods/12-hierarchical-linkage-comparison-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/clustering-methods/12-hierarchical-linkage-comparison.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <p><strong>Characteristics of each method:</strong></p> <table> <thead> <tr> <th>Linkage</th> <th>Cluster Shape</th> <th>Outlier Sensitivity</th> <th>Best For</th> </tr> </thead> <tbody> <tr> <td><strong>Single</strong></td> <td>Chain-like, elongated</td> <td>Very high</td> <td>Finding bridges between clusters</td> </tr> <tr> <td><strong>Complete</strong></td> <td>Compact, spherical</td> <td>Low</td> <td>Well-separated, compact clusters</td> </tr> <tr> <td><strong>Average</strong></td> <td>Moderate compactness</td> <td>Medium</td> <td>General purpose, balanced</td> </tr> <tr> <td><strong>Ward</strong></td> <td>Spherical, balanced</td> <td>Medium</td> <td>Most common choice, minimizes variance</td> </tr> </tbody> </table> <p><strong>Recommendation</strong>: Start with <strong>Ward’s linkage</strong> - it works well for most applications and creates intuitive, balanced clusters.</p> <h3 id="cophenetic-correlation">Cophenetic Correlation</h3> <p>How well does the dendrogram preserve original distances? The <strong>cophenetic correlation coefficient</strong> tells us:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">cophenet</span>
 <span class="kn">from</span> <span class="n">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span>
 
 <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="sh">'</span><span class="s">single</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">complete</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">average</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">ward</span><span class="sh">'</span><span class="p">]:</span>
@@ -118,136 +118,96 @@ Cluster distribution:
 Complete     - Cophenetic correlation: 0.8532
 Average      - Cophenetic correlation: 0.8891
 Ward         - Cophenetic correlation: 0.8776
-</code></pre></div></div> <p><strong>Higher is better</strong> - average linkage preserves distances best for this dataset.</p> <h3 id="pros-and-cons">Pros and Cons</h3> <p><strong>✅ Advantages:</strong></p> <ul> <li> <strong>No need to pre-specify k</strong>: Explore multiple k values from one tree</li> <li> <strong>Intuitive visualization</strong>: Easy to explain to non-technical stakeholders</li> <li> <strong>Reveals hierarchical structure</strong>: Understand relationships at multiple levels</li> <li> <strong>Deterministic</strong>: Same data always gives same tree (unlike k-means)</li> <li> <strong>Works with any distance metric</strong>: Very flexible</li> <li> <strong>Can capture non-spherical clusters</strong>: Depending on linkage method</li> </ul> <p><strong>❌ Limitations:</strong></p> <ul> <li> <strong>Computationally expensive</strong>: O(n² log n) to O(n³) depending on method</li> <li> <strong>Not scalable</strong>: Struggles with &gt; 10,000 samples</li> <li> <strong>Subjective cut point</strong>: Choosing where to cut can be ambiguous</li> <li> <strong>No reassignment</strong>: Once merged, points can’t move to different clusters</li> <li> <strong>Sensitive to outliers</strong>: Especially single linkage (“chaining effect”)</li> <li> <strong>Memory intensive</strong>: Requires full distance matrix</li> </ul> <h3 id="when-to-use-it">When to Use It</h3> <p>Dendrogram analysis excels when:</p> <ul> <li>You want to <strong>explore hierarchical relationships</strong> in your data</li> <li>Dataset is <strong>moderate size</strong> (&lt; 5,000 samples)</li> <li>You need <strong>visual interpretation</strong> for presentations</li> <li>You want to <strong>examine multiple k values</strong> from one analysis</li> <li> <strong>Domain knowledge</strong> suggests hierarchical structure (e.g., taxonomy, organizational charts)</li> <li>You need <strong>deterministic results</strong> (no random initialization)</li> </ul> <hr> <h2 id="method-8-dbscan---parameter-tuning">Method 8: DBSCAN - Parameter Tuning</h2> <h3 id="the-intuition-1">The Intuition</h3> <p>All methods so far assume clusters are <strong>convex and roughly spherical</strong>. But what if your data looks like this?</p> <ul> <li> <strong>Crescent moons</strong> intertwined with each other</li> <li> <strong>Concentric circles</strong> of different densities</li> <li> <strong>Arbitrary shapes</strong> that can’t be captured by centroids</li> </ul> <p><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong> takes a fundamentally different approach: it finds regions of <strong>high density</strong> separated by regions of low density.</p> <p>Think of it like finding cities on a map by looking at population density - you don’t need to know how many cities there are beforehand; you just look for dense clusters of people separated by sparse rural areas.</p> <h3 id="how-it-works-1">How It Works</h3> <p>DBSCAN has two parameters:</p> <p><strong>1. eps (ε)</strong>: The radius to search for neighbors <strong>2. min_samples</strong>: Minimum points needed to form a dense region</p> <p><strong>Core concepts:</strong></p> <ul> <li> <strong>Core point</strong>: Has ≥ min_samples neighbors within eps radius</li> <li> <strong>Border point</strong>: Within eps of a core point, but has &lt; min_samples neighbors</li> <li> <strong>Noise point</strong>: Neither core nor border (labeled as -1)</li> </ul> <p><strong>Algorithm:</strong></p> <ol> <li>For each point, find all neighbors within eps</li> <li>If point has ≥ min_samples neighbors → it’s a core point</li> <li>Connect core points that are within eps of each other → clusters</li> <li>Assign border points to nearby clusters</li> <li>Mark remaining points as noise</li> </ol> <p><strong>The beauty</strong>: Number of clusters emerges naturally from the data!</p> <h3 id="finding-optimal-eps-k-distance-plot">Finding Optimal eps: k-Distance Plot</h3> <p>The key challenge with DBSCAN is choosing eps. The <strong>k-distance plot</strong> helps:</p> <p><strong>Idea</strong>: For each point, calculate distance to k-th nearest neighbor, sort these distances, and plot. The “elbow” in this plot suggests optimal eps.</p> <p><strong>Why it works</strong>:</p> <ul> <li>Points in dense regions have small k-distances</li> <li>Noise points have large k-distances</li> <li>The elbow separates dense regions from noise ```python from sklearn.neighbors import NearestNeighbors</li> </ul> <h1 id="choose-k--min_samples-rule-of-thumb-2dim-for-high-dim-4-for-low-dim">Choose k = min_samples (rule of thumb: 2*dim for high-dim, 4 for low-dim)</h1> <p>k = 4 nbrs = NearestNeighbors(n_neighbors=k).fit(X_scaled) distances, indices = nbrs.kneighbors(X_scaled)</p> <h1 id="sort-distances-to-k-th-nearest-neighbor">Sort distances to k-th nearest neighbor</h1> <p>distances = np.sort(distances[:, k-1], axis=0)</p> <h1 id="plot">Plot</h1> <p>plt.figure(figsize=(10, 6)) plt.plot(distances, linewidth=2, color=’#D00000’) plt.xlabel(‘Points sorted by distance’, fontsize=12) plt.ylabel(f’{k}-NN Distance’, fontsize=12) plt.title(‘K-Distance Plot for DBSCAN eps Selection’, fontsize=14, fontweight=’bold’) plt.grid(True, alpha=0.3) plt.axhline(y=0.5, color=’#06A77D’, linestyle=’–’, linewidth=2, label=’Suggested eps=0.5’) plt.legend() plt.tight_layout() plt.show()</p> <p>print(f”Suggested eps: {np.percentile(distances, 90):.2f}”)</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-&lt;div class="row mt-3"&gt;
-    &lt;div class="col-sm mt-3 mt-md-0"&gt;
+</code></pre></div></div> <p><strong>Higher is better</strong> - average linkage preserves distances best for this dataset.</p> <h3 id="pros-and-cons">Pros and Cons</h3> <p><strong>✅ Advantages:</strong></p> <ul> <li> <strong>No need to pre-specify k</strong>: Explore multiple k values from one tree</li> <li> <strong>Intuitive visualization</strong>: Easy to explain to non-technical stakeholders</li> <li> <strong>Reveals hierarchical structure</strong>: Understand relationships at multiple levels</li> <li> <strong>Deterministic</strong>: Same data always gives same tree (unlike k-means)</li> <li> <strong>Works with any distance metric</strong>: Very flexible</li> <li> <strong>Can capture non-spherical clusters</strong>: Depending on linkage method</li> </ul> <p><strong>❌ Limitations:</strong></p> <ul> <li> <strong>Computationally expensive</strong>: O(n² log n) to O(n³) depending on method</li> <li> <strong>Not scalable</strong>: Struggles with &gt; 10,000 samples</li> <li> <strong>Subjective cut point</strong>: Choosing where to cut can be ambiguous</li> <li> <strong>No reassignment</strong>: Once merged, points can’t move to different clusters</li> <li> <strong>Sensitive to outliers</strong>: Especially single linkage (“chaining effect”)</li> <li> <strong>Memory intensive</strong>: Requires full distance matrix</li> </ul> <h3 id="when-to-use-it">When to Use It</h3> <p>Dendrogram analysis excels when:</p> <ul> <li>You want to <strong>explore hierarchical relationships</strong> in your data</li> <li>Dataset is <strong>moderate size</strong> (&lt; 5,000 samples)</li> <li>You need <strong>visual interpretation</strong> for presentations</li> <li>You want to <strong>examine multiple k values</strong> from one analysis</li> <li> <strong>Domain knowledge</strong> suggests hierarchical structure (e.g., taxonomy, organizational charts)</li> <li>You need <strong>deterministic results</strong> (no random initialization)</li> </ul> <hr> <h2 id="method-8-dbscan---parameter-tuning">Method 8: DBSCAN - Parameter Tuning</h2> <h3 id="the-intuition-1">The Intuition</h3> <p>All methods so far assume clusters are <strong>convex and roughly spherical</strong>. But what if your data looks like this?</p> <ul> <li> <strong>Crescent moons</strong> intertwined with each other</li> <li> <strong>Concentric circles</strong> of different densities</li> <li> <strong>Arbitrary shapes</strong> that can’t be captured by centroids</li> </ul> <p><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong> takes a fundamentally different approach: it finds regions of <strong>high density</strong> separated by regions of low density.</p> <p>Think of it like finding cities on a map by looking at population density - you don’t need to know how many cities there are beforehand; you just look for dense clusters of people separated by sparse rural areas.</p> <h3 id="how-it-works-1">How It Works</h3> <p>DBSCAN has two parameters:</p> <p><strong>1. eps (ε)</strong>: The radius to search for neighbors <strong>2. min_samples</strong>: Minimum points needed to form a dense region</p> <p><strong>Core concepts:</strong></p> <ul> <li> <strong>Core point</strong>: Has ≥ min_samples neighbors within eps radius</li> <li> <strong>Border point</strong>: Within eps of a core point, but has &lt; min_samples neighbors</li> <li> <strong>Noise point</strong>: Neither core nor border (labeled as -1)</li> </ul> <p><strong>Algorithm:</strong></p> <ol> <li>For each point, find all neighbors within eps</li> <li>If point has ≥ min_samples neighbors → it’s a core point</li> <li>Connect core points that are within eps of each other → clusters</li> <li>Assign border points to nearby clusters</li> <li>Mark remaining points as noise</li> </ol> <p><strong>The beauty</strong>: Number of clusters emerges naturally from the data!</p> <h3 id="finding-optimal-eps-k-distance-plot">Finding Optimal eps: k-Distance Plot</h3> <p>The key challenge with DBSCAN is choosing eps. The <strong>k-distance plot</strong> helps:</p> <p><strong>Idea</strong>: For each point, calculate distance to k-th nearest neighbor, sort these distances, and plot. The “elbow” in this plot suggests optimal eps.</p> <p><strong>Why it works</strong>:</p> <ul> <li>Points in dense regions have small k-distances</li> <li>Noise points have large k-distances</li> <li>The elbow separates dense regions from noise</li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+
+<span class="c1"># Choose k = min_samples (rule of thumb: 2*dim for high-dim, 4 for low-dim)
+</span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">nbrs</span> <span class="o">=</span> <span class="nc">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">).</span><span class="nf">fit</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+<span class="n">distances</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">nbrs</span><span class="p">.</span><span class="nf">kneighbors</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+
+<span class="c1"># Sort distances to k-th nearest neighbor
+</span><span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">distances</span><span class="p">[:,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">#D00000</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Points sorted by distance</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s">-NN Distance</span><span class="sh">'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">K-Distance Plot for DBSCAN eps Selection</span><span class="sh">'</span><span class="p">,</span> 
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="sh">'</span><span class="s">bold</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">#06A77D</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sh">'</span><span class="s">Suggested eps=0.5</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Suggested eps: </span><span class="si">{</span><span class="n">np</span><span class="p">.</span><span class="nf">percentile</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/clustering-methods/10-dbscan-k-distance-480.webp 480w,/assets/img/posts/clustering-methods/10-dbscan-k-distance-800.webp 800w,/assets/img/posts/clustering-methods/10-dbscan-k-distance-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/clustering-methods/10-dbscan-k-distance.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <div class="caption"> K-distance plot showing the "elbow" that suggests optimal eps parameter for DBSCAN. </div> <h3 id="systematic-parameter-search">Systematic Parameter Search</h3> <p>Instead of visual inspection, let’s systematically search for optimal parameters:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span> <span class="n">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="c1"># Define parameter ranges
+</span><span class="n">eps_range</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">min_samples_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">eps</span> <span class="ow">in</span> <span class="n">eps_range</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">min_samples</span> <span class="ow">in</span> <span class="n">min_samples_range</span><span class="p">:</span>
+        <span class="n">dbscan</span> <span class="o">=</span> <span class="nc">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="n">min_samples</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">.</span><span class="nf">fit_predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
         
+        <span class="n">n_clusters</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="nf">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">labels</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">n_noise</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">labels</span><span class="p">).</span><span class="nf">count</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate silhouette score (only for non-noise points)
+</span>        <span class="k">if</span> <span class="n">n_clusters</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">n_noise</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="nf">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">sil_score</span> <span class="o">=</span> <span class="nf">silhouette_score</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sil_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sil_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        
+        <span class="n">results</span><span class="p">.</span><span class="nf">append</span><span class="p">({</span>
+            <span class="sh">'</span><span class="s">eps</span><span class="sh">'</span><span class="p">:</span> <span class="n">eps</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">min_samples</span><span class="sh">'</span><span class="p">:</span> <span class="n">min_samples</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">n_clusters</span><span class="sh">'</span><span class="p">:</span> <span class="n">n_clusters</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">n_noise</span><span class="sh">'</span><span class="p">:</span> <span class="n">n_noise</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">:</span> <span class="n">sil_score</span><span class="p">,</span>
+            <span class="sh">'</span><span class="s">noise_ratio</span><span class="sh">'</span><span class="p">:</span> <span class="n">n_noise</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="p">})</span>
 
+<span class="c1"># Convert to DataFrame and find optimal
+</span><span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
+<span class="c1"># Filter: at least 2 clusters, &lt; 20% noise, positive silhouette
+</span><span class="n">valid_results</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">results_df</span><span class="p">[</span><span class="sh">'</span><span class="s">n_clusters</span><span class="sh">'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="p">(</span><span class="n">results_df</span><span class="p">[</span><span class="sh">'</span><span class="s">noise_ratio</span><span class="sh">'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">results_df</span><span class="p">[</span><span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">]</span>
 
-&lt;figure
-  
-&gt;
-  &lt;picture&gt;
-    &lt;!-- Auto scaling with imagemagick --&gt;
-    &lt;!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    --&gt;
+<span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">valid_results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">optimal_idx</span> <span class="o">=</span> <span class="n">valid_results</span><span class="p">[</span><span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">].</span><span class="nf">idxmax</span><span class="p">()</span>
+    <span class="n">optimal_params</span> <span class="o">=</span> <span class="n">valid_results</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">optimal_idx</span><span class="p">]</span>
     
-      
-        &lt;source
-          class="responsive-img-srcset"
-          
-            srcset="/assets/img/posts/clustering-methods/10-dbscan-k-distance-480.webp 480w,/assets/img/posts/clustering-methods/10-dbscan-k-distance-800.webp 800w,/assets/img/posts/clustering-methods/10-dbscan-k-distance-1400.webp 1400w,"
-            type="image/webp"
-          
-          
-            sizes="95vw"
-          
-        &gt;
-      
-    
-    &lt;img
-      src="/assets/img/posts/clustering-methods/10-dbscan-k-distance.png"
-      
-        class="img-fluid rounded z-depth-1"
-      
-      
-        width="100%"
-      
-      
-        height="auto"
-      
-      
-      
-      
-      
-      
-        loading="lazy"
-      
-      onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
-    &gt;
-  &lt;/picture&gt;
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Optimal DBSCAN parameters:</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  eps = </span><span class="si">{</span><span class="n">optimal_params</span><span class="p">[</span><span class="sh">'</span><span class="s">eps</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  min_samples = </span><span class="si">{</span><span class="nf">int</span><span class="p">(</span><span class="n">optimal_params</span><span class="p">[</span><span class="sh">'</span><span class="s">min_samples</span><span class="sh">'</span><span class="p">])</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  n_clusters = </span><span class="si">{</span><span class="nf">int</span><span class="p">(</span><span class="n">optimal_params</span><span class="p">[</span><span class="sh">'</span><span class="s">n_clusters</span><span class="sh">'</span><span class="p">])</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  n_noise = </span><span class="si">{</span><span class="nf">int</span><span class="p">(</span><span class="n">optimal_params</span><span class="p">[</span><span class="sh">'</span><span class="s">n_noise</span><span class="sh">'</span><span class="p">])</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  silhouette = </span><span class="si">{</span><span class="n">optimal_params</span><span class="p">[</span><span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">No valid parameter combination found!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">optimal_params</span> <span class="o">=</span> <span class="n">results_df</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results_df</span><span class="p">[</span><span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">].</span><span class="nf">idxmax</span><span class="p">()]</span>
 
-  
-&lt;/figure&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="caption"&gt;
-    K-distance plot showing the "elbow" that suggests optimal eps parameter for DBSCAN.
-&lt;/div&gt;
-
-### Systematic Parameter Search
-
-Instead of visual inspection, let's systematically search for optimal parameters:
-```python
-from sklearn.cluster import DBSCAN
-from sklearn.metrics import silhouette_score
-
-# Define parameter ranges
-eps_range = np.arange(0.3, 1.2, 0.1)
-min_samples_range = [3, 4, 5, 6, 7]
-
-results = []
-
-for eps in eps_range:
-    for min_samples in min_samples_range:
-        dbscan = DBSCAN(eps=eps, min_samples=min_samples)
-        labels = dbscan.fit_predict(X_scaled)
-        
-        n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
-        n_noise = list(labels).count(-1)
-        
-        # Calculate silhouette score (only for non-noise points)
-        if n_clusters &gt; 1 and n_noise &lt; len(labels):
-            mask = labels != -1
-            if sum(mask) &gt; 0:
-                sil_score = silhouette_score(X_scaled[mask], labels[mask])
-            else:
-                sil_score = -1
-        else:
-            sil_score = -1
-        
-        results.append({
-            'eps': eps,
-            'min_samples': min_samples,
-            'n_clusters': n_clusters,
-            'n_noise': n_noise,
-            'silhouette': sil_score,
-            'noise_ratio': n_noise / len(labels)
-        })
-
-# Convert to DataFrame and find optimal
-results_df = pd.DataFrame(results)
-
-# Filter: at least 2 clusters, &lt; 20% noise, positive silhouette
-valid_results = results_df[
-    (results_df['n_clusters'] &gt;= 2) &amp; 
-    (results_df['noise_ratio'] &lt; 0.2) &amp;
-    (results_df['silhouette'] &gt; 0)
-]
-
-if len(valid_results) &gt; 0:
-    optimal_idx = valid_results['silhouette'].idxmax()
-    optimal_params = valid_results.loc[optimal_idx]
-    
-    print("Optimal DBSCAN parameters:")
-    print(f"  eps = {optimal_params['eps']:.2f}")
-    print(f"  min_samples = {int(optimal_params['min_samples'])}")
-    print(f"  n_clusters = {int(optimal_params['n_clusters'])}")
-    print(f"  n_noise = {int(optimal_params['n_noise'])}")
-    print(f"  silhouette = {optimal_params['silhouette']:.4f}")
-else:
-    print("No valid parameter combination found!")
-    optimal_params = results_df.loc[results_df['silhouette'].idxmax()]
-
-# Display top 10 configurations
-print("\nTop 10 configurations:")
-print(valid_results.nlargest(10, 'silhouette')[
-    ['eps', 'min_samples', 'n_clusters', 'n_noise', 'silhouette']
-].to_string(index=False))
+<span class="c1"># Display top 10 configurations
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">Top 10 configurations:</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">valid_results</span><span class="p">.</span><span class="nf">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">)[</span>
+    <span class="p">[</span><span class="sh">'</span><span class="s">eps</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">min_samples</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">n_clusters</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">n_noise</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">silhouette</span><span class="sh">'</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
 </code></pre></div></div> <p><strong>Output:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Optimal DBSCAN parameters:
   eps = 0.50
   min_samples = 4
@@ -303,7 +263,7 @@ Top 10 configurations:
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
-</code></pre></div></div> <h3 id="dbscan-vs-k-means-comparison">DBSCAN vs K-Means Comparison</h3> <p>Let’s compare DBSCAN directly with K-means on the same data:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</code></pre></div></div> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/clustering-methods/13-dbscan-parameter-search-480.webp 480w,/assets/img/posts/clustering-methods/13-dbscan-parameter-search-800.webp 800w,/assets/img/posts/clustering-methods/13-dbscan-parameter-search-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/clustering-methods/13-dbscan-parameter-search.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <h3 id="dbscan-vs-k-means-comparison">DBSCAN vs K-Means Comparison</h3> <p>Let’s compare DBSCAN directly with K-means on the same data:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <span class="kn">from</span> <span class="n">sklearn.metrics</span> <span class="kn">import</span> <span class="n">adjusted_rand_score</span><span class="p">,</span> <span class="n">adjusted_mutual_info_score</span>
 
 <span class="c1"># K-means with k=3
@@ -337,7 +297,7 @@ Cluster size distribution:
 K-Means: [50 62 38]
 DBSCAN:  [49 51 47]
 DBSCAN noise points: 3
-</code></pre></div></div> <h3 id="when-dbscan-shines">When DBSCAN Shines</h3> <p>DBSCAN is particularly powerful for:</p> <p><strong>1. Non-spherical clusters</strong>:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generate two moons dataset
+</code></pre></div></div> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/clustering-methods/14-dbscan-vs-kmeans-comparison-480.webp 480w,/assets/img/posts/clustering-methods/14-dbscan-vs-kmeans-comparison-800.webp 800w,/assets/img/posts/clustering-methods/14-dbscan-vs-kmeans-comparison-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/clustering-methods/14-dbscan-vs-kmeans-comparison.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <h3 id="when-dbscan-shines">When DBSCAN Shines</h3> <p>DBSCAN is particularly powerful for:</p> <p><strong>1. Non-spherical clusters</strong>:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generate two moons dataset
 </span><span class="kn">from</span> <span class="n">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
 
 <span class="n">X_moons</span><span class="p">,</span> <span class="n">y_moons</span> <span class="o">=</span> <span class="nf">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -364,7 +324,7 @@ DBSCAN noise points: 3
 
 <span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
-</code></pre></div></div> <p><strong>2. Automatic noise detection</strong>: Points that don’t fit any cluster are marked as noise</p> <p><strong>3. Varying cluster sizes</strong>: Unlike K-means which prefers equal-sized clusters</p> <h3 id="pros-and-cons-1">Pros and Cons</h3> <p><strong>✅ Advantages:</strong></p> <ul> <li> <strong>No need to specify k</strong>: Number of clusters emerges from data</li> <li> <strong>Handles arbitrary shapes</strong>: Not limited to convex/spherical clusters</li> <li> <strong>Robust to outliers</strong>: Automatically identifies noise points</li> <li> <strong>Variable cluster sizes</strong>: No assumption of equal-sized clusters</li> <li> <strong>Deterministic</strong>: Same parameters always give same results</li> <li> <strong>Works well with spatial data</strong>: Originally designed for geographic data</li> </ul> <p><strong>❌ Limitations:</strong></p> <ul> <li> <strong>Difficult parameter tuning</strong>: eps and min_samples require domain knowledge</li> <li> <strong>Struggles with varying densities</strong>: Can’t handle clusters with different densities well</li> <li> <strong>Curse of dimensionality</strong>: Distance becomes meaningless in high dimensions (&gt;20)</li> <li> <strong>Not suitable for all data types</strong>: Requires meaningful distance metric</li> <li> <strong>Computational complexity</strong>: O(n log n) with spatial indexing, O(n²) without</li> <li> <strong>Border point ambiguity</strong>: Border points may be assigned arbitrarily</li> </ul> <h3 id="when-to-use-it-1">When to Use It</h3> <p>DBSCAN excels when:</p> <ul> <li><strong>Cluster shape is unknown or non-spherical</strong></li> <li>You have <strong>outliers/noise</strong> that should be identified</li> <li> <strong>Don’t know k in advance</strong> and can’t estimate it</li> <li>Working with <strong>spatial or geographic data</strong> </li> <li>Clusters have <strong>varying sizes</strong> but similar densities</li> <li>Need <strong>deterministic results</strong> (no random initialization)</li> </ul> <p><strong>Don’t use DBSCAN when:</strong></p> <ul> <li>Clusters have <strong>very different densities</strong> </li> <li>Working in <strong>high dimensions</strong> (&gt; 20 features)</li> <li>Need <strong>every point assigned</strong> to a cluster (DBSCAN leaves noise)</li> <li>Data doesn’t have meaningful <strong>distance metric</strong> </li> </ul> <hr> <h2 id="comprehensive-comparison-all-8-methods">Comprehensive Comparison: All 8 Methods</h2> <p>Now let’s bring it all together with a complete side-by-side comparison:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</code></pre></div></div> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/clustering-methods/15-dbscan-on-moons-480.webp 480w,/assets/img/posts/clustering-methods/15-dbscan-on-moons-800.webp 800w,/assets/img/posts/clustering-methods/15-dbscan-on-moons-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/clustering-methods/15-dbscan-on-moons.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <p><strong>2. Automatic noise detection</strong>: Points that don’t fit any cluster are marked as noise</p> <p><strong>3. Varying cluster sizes</strong>: Unlike K-means which prefers equal-sized clusters</p> <h3 id="pros-and-cons-1">Pros and Cons</h3> <p><strong>✅ Advantages:</strong></p> <ul> <li> <strong>No need to specify k</strong>: Number of clusters emerges from data</li> <li> <strong>Handles arbitrary shapes</strong>: Not limited to convex/spherical clusters</li> <li> <strong>Robust to outliers</strong>: Automatically identifies noise points</li> <li> <strong>Variable cluster sizes</strong>: No assumption of equal-sized clusters</li> <li> <strong>Deterministic</strong>: Same parameters always give same results</li> <li> <strong>Works well with spatial data</strong>: Originally designed for geographic data</li> </ul> <p><strong>❌ Limitations:</strong></p> <ul> <li> <strong>Difficult parameter tuning</strong>: eps and min_samples require domain knowledge</li> <li> <strong>Struggles with varying densities</strong>: Can’t handle clusters with different densities well</li> <li> <strong>Curse of dimensionality</strong>: Distance becomes meaningless in high dimensions (&gt;20)</li> <li> <strong>Not suitable for all data types</strong>: Requires meaningful distance metric</li> <li> <strong>Computational complexity</strong>: O(n log n) with spatial indexing, O(n²) without</li> <li> <strong>Border point ambiguity</strong>: Border points may be assigned arbitrarily</li> </ul> <h3 id="when-to-use-it-1">When to Use It</h3> <p>DBSCAN excels when:</p> <ul> <li><strong>Cluster shape is unknown or non-spherical</strong></li> <li>You have <strong>outliers/noise</strong> that should be identified</li> <li> <strong>Don’t know k in advance</strong> and can’t estimate it</li> <li>Working with <strong>spatial or geographic data</strong> </li> <li>Clusters have <strong>varying sizes</strong> but similar densities</li> <li>Need <strong>deterministic results</strong> (no random initialization)</li> </ul> <p><strong>Don’t use DBSCAN when:</strong></p> <ul> <li>Clusters have <strong>very different densities</strong> </li> <li>Working in <strong>high dimensions</strong> (&gt; 20 features)</li> <li>Need <strong>every point assigned</strong> to a cluster (DBSCAN leaves noise)</li> <li>Data doesn’t have meaningful <strong>distance metric</strong> </li> </ul> <hr> <h2 id="comprehensive-comparison-all-8-methods">Comprehensive Comparison: All 8 Methods</h2> <p>Now let’s bring it all together with a complete side-by-side comparison:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 
 <span class="c1"># Collect all results
 </span><span class="n">all_results</span> <span class="o">=</span> <span class="p">{</span>
