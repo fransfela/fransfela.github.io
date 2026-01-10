@@ -147,29 +147,41 @@ Saya lahir di pinggiran Jakarta dari keluarga kelas bawah. Setelah lulus STM, sa
 
 ---
 
-## 💬 Testimonials
+## 💬 Testimonials dari Mentee
 
 <div class="testimonials" style="margin: 3rem 0;">
 
 <div class="testimonial-card" style="border-left: 4px solid var(--global-theme-color); padding: 1.5rem; margin-bottom: 2rem; background-color: var(--global-bg-color); border-radius: 5px;">
-  <p style="font-style: italic; margin-bottom: 1rem;">"[Testimonial text akan diisi di sini - cerita pengalaman mentee, hasil yang didapat, dll]"</p>
-  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Nama Mentee</p>
-  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Program/Universitas</p>
+  <p style="font-style: italic; margin-bottom: 1rem;">"Mas Randy sangat helpful dan terorganisir. Beliau berhasil mengcompress CV saya dari 5 halaman menjadi 2 halaman yang padat dan concise, plus motivation letter yang sesuai requirement. Surprisingly, hanya dalam beberapa hari setelah pertemuan pertama, draft resume 2 halaman sudah ready dengan link yang valid dan informasi yang lengkap."</p>
+  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Yustina</p>
+  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Badan POM → PhD Vacancy, University of Groningen</p>
+  <p style="color: var(--global-theme-color); font-size: 0.85rem; margin-top: 0.5rem;">⭐⭐⭐⭐⭐ (5/5)</p>
 </div>
 
 <div class="testimonial-card" style="border-left: 4px solid var(--global-theme-color); padding: 1.5rem; margin-bottom: 2rem; background-color: var(--global-bg-color); border-radius: 5px;">
-  <p style="font-style: italic; margin-bottom: 1rem;">"[Testimonial text akan diisi di sini]"</p>
-  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Nama Mentee 2</p>
-  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Program/Universitas 2</p>
+  <p style="font-style: italic; margin-bottom: 1rem;">"Pengalaman dan ilmunya valid! Mentoring membuat struktur dokumen saya lebih terarah dan visioner. Sekarang saya lebih pede untuk submit aplikasi. Mas Randy humble, diskusinya clear, dan benar-benar paham kebutuhan mentee."</p>
+  <p style="font-weight: bold; margin-bottom: 0.25rem;">— R.G.</p>
+  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Universitas Malang → Postdoc Application</p>
+  <p style="color: var(--global-theme-color); font-size: 0.85rem; margin-top: 0.5rem;">⭐⭐⭐⭐ (4/5)</p>
 </div>
 
 <div class="testimonial-card" style="border-left: 4px solid var(--global-theme-color); padding: 1.5rem; margin-bottom: 2rem; background-color: var(--global-bg-color); border-radius: 5px;">
-  <p style="font-style: italic; margin-bottom: 1rem;">"[Testimonial text akan diisi di sini]"</p>
-  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Nama Mentee 3</p>
-  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Program/Universitas 3</p>
+  <p style="font-style: italic; margin-bottom: 1rem;">"Hebat! Mas Randy membantu saya melihat kembali kekuatan, minat, dan nilai yang saya miliki melalui pertanyaan reflektif dan sharing pengalaman pribadi. Beliau tidak hanya fokus ke dokumen, tapi juga membangun kepercayaan diri dan mental readiness untuk apply PhD. Dokumen hasil mentoringnya sangat bermanfaat dan membuat saya lebih pede."</p>
+  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Nafiatur Rizqoh</p>
+  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">Fenanza Company → PhD, Aarhus University</p>
+  <p style="color: var(--global-theme-color); font-size: 0.85rem; margin-top: 0.5rem;">⭐⭐⭐⭐⭐ (5/5)</p>
+</div>
+
+<div class="testimonial-card" style="border-left: 4px solid var(--global-theme-color); padding: 1.5rem; margin-bottom: 2rem; background-color: var(--global-bg-color); border-radius: 5px;">
+  <p style="font-style: italic; margin-bottom: 1rem;">"Komunikatif, helpful, clear direction! Mas Randy mengajarkan strategi mengaitkan benang merah antara background, current situation, dan plan dalam essay yang concise dan catchy. Time managementnya sangat baik meski sibuk, beliau tetap konsisten dan bertanggung jawab ke mentee. Overall terbaik!"</p>
+  <p style="font-weight: bold; margin-bottom: 0.25rem;">— Ipol</p>
+  <p style="color: var(--global-text-color-light); font-size: 0.9rem;">INDICO by Telkomsel → Chevening Scholarship</p>
+  <p style="color: var(--global-theme-color); font-size: 0.85rem; margin-top: 0.5rem;">⭐⭐⭐⭐⭐ (5/5)</p>
 </div>
 
 </div>
+
+<p style="text-align: center; color: var(--global-text-color-light); font-size: 0.9rem; margin-top: 2rem;"><em>*Testimonial dari mentee yang sedang dalam proses aplikasi beasiswa</em></p>
 
 ---
 
