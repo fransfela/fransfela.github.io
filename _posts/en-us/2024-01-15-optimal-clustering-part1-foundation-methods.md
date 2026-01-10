@@ -20,7 +20,7 @@ In this three-part series, I'll walk you through **eight proven methods** for fi
 - **Part 2**: Advanced statistical methods - Calinski-Harabasz, Gap Statistic, and BIC/AIC
 - **Part 3**: Alternative approaches - Dendrogram analysis, DBSCAN, and practical recommendations
 
-Let's dive in! 🚀
+Let's dive in!
 
 ---
 
@@ -386,8 +386,8 @@ Now that we've covered three foundational methods, let's compare them side-by-si
 
 | Criterion | Elbow Method | Silhouette Analysis | Davies-Bouldin Index |
 |-----------|--------------|---------------------|----------------------|
-| **Computation** | Fast ⚡ | Slow 🐌 | Fast ⚡ |
-| **Interpretability** | High 👍 | Medium 👌 | Medium 👌 |
+| **Computation** | Fast | Slow | Fast |
+| **Interpretability** | High | Medium | Medium |
 | **Cluster Shape** | Spherical | Any | Spherical |
 | **Noise Robustness** | Medium | Low | Medium |
 | **Objectivity** | Low (subjective) | High | High |
@@ -491,7 +491,7 @@ These methods provide additional perspectives and can resolve ambiguities when f
 
 ## Questions or Suggestions?
 
-Found this helpful? Have questions about applying these methods to your specific use case? Drop a comment below or reach out on [LinkedIn]([https://www.linkedin.com/in/randy-frans-fela?originalSubdomain=dk]).
+Found this helpful? Have questions about applying these methods to your specific use case? Drop a comment below or reach out on [LinkedIn](https://www.linkedin.com/in/randy-frans-fela?originalSubdomain=dk).
 
 In my day job at Jabra, I use these clustering techniques extensively for grouping perceptual audio quality metrics - if you're working on similar problems in audio/video evaluation, I'd love to connect!
 
