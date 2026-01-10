@@ -5,6 +5,7 @@ date: 2024-01-15 21:01:00
 description: "Master the art of determining optimal clusters with Elbow Method, Silhouette Analysis, and Davies-Bouldin Index. A practical guide with Python implementations."
 tags: [clustering, machine-learning, unsupervised-learning, data-science, python-programming]
 categories: [tutorials, machine-learning]
+featured: true
 thumbnail: assets/img/posts/clustering-methods/11-all-methods-comparison.png
 ---
 
