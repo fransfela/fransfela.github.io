@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Finding the Optimal Number of Clusters
+title: "Finding the Optimal Number of Clusters: Part 1 - Foundation Methods"
 date: 2024-01-15 21:01:00
 description: "Master the art of determining optimal clusters with Elbow Method, Silhouette Analysis, and Davies-Bouldin Index. A practical guide with Python implementations."
-tags: python-programming
-categories: 
+tags: [clustering, machine-learning, unsupervised-learning, data-science, python-programming]
+categories: [tutorials, machine-learning]
 thumbnail: assets/img/posts/clustering-methods/11-all-methods-comparison.png
 ---
 
