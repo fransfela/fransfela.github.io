@@ -106,9 +106,9 @@ ninja.data = [{
             window.location.href = "/blog/2024/optimal-clustering-part2-advanced-statistical-methods/";
           
         },
-      },{id: "post-finding-the-optimal-number-of-clusters",
+      },{id: "post-finding-the-optimal-number-of-clusters-part-1-foundation-methods",
         
-          title: "Finding the Optimal Number of Clusters",
+          title: "Finding the Optimal Number of Clusters: Part 1 - Foundation Methods",
         
         description: "Master the art of determining optimal clusters with Elbow Method, Silhouette Analysis, and Davies-Bouldin Index. A practical guide with Python implementations.",
         section: "Posts",
