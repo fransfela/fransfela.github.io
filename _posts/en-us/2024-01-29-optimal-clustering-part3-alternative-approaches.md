@@ -1520,7 +1520,7 @@ Focus: Understanding, not deciding
 
 ## Conclusion: The Journey Complete
 
-Congratulations! You've now mastered **8 different methods** for finding the optimal number of clusters, spanning:
+I hope you found this series of articles is useful and you've now mastered **8 different methods** for finding the optimal number of clusters, spanning:
 
 - **Visual methods**: Elbow, Dendrogram
 - **Geometric methods**: Silhouette, Davies-Bouldin
@@ -1559,27 +1559,6 @@ Want to explore further?
 - Rousseeuw (1987) - Silhouettes original paper
 - Ester et al. (1996) - DBSCAN original paper
 - "Cluster Analysis" by Everitt et al. - Comprehensive textbook
-
----
-
-## Complete Code Repository
-
-All code from this 3-part series, including:
-- Complete implementations of all 8 methods
-- Production-ready classes and workflows
-- Visualization scripts
-- Example datasets and case studies
-- Jupyter notebooks for interactive learning
-
-Available at:
-
-{% github randy-gralinski/cluster-analysis-tutorials %}
-
-**Bonus materials in repository:**
-- Comparison across 10+ datasets
-- Interactive dashboard for method selection
-- Automated reporting templates
-- Unit tests for all methods
 
 ---
 
