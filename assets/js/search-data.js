@@ -84,6 +84,17 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
+      },{id: "post-analisis-soundscape-dari-teori-hingga-praktek",
+        
+          title: "Analisis Soundscape: Dari Teori hingga Praktek",
+        
+        description: "Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/book-soundscape-analysis/";
+          
+        },
       },{id: "post-finding-the-optimal-number-of-clusters-part-3-alternative-approaches-amp-practical-guide",
         
           title: "Finding the Optimal Number of Clusters: Part 3 - Alternative Approaches &amp; Practical...",
