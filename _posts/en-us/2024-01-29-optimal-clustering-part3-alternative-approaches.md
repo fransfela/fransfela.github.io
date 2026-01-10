@@ -240,6 +240,11 @@ for idx, method in enumerate(linkage_methods):
 plt.tight_layout()
 plt.show()
 ```
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/clustering-methods/12-hierarchical-linkage-comparison.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 **Characteristics of each method:**
 
@@ -351,6 +356,7 @@ The key challenge with DBSCAN is choosing eps. The **k-distance plot** helps:
 - Points in dense regions have small k-distances
 - Noise points have large k-distances
 - The elbow separates dense regions from noise
+
 ```python
 from sklearn.neighbors import NearestNeighbors
 
@@ -391,6 +397,7 @@ print(f"Suggested eps: {np.percentile(distances, 90):.2f}")
 ### Systematic Parameter Search
 
 Instead of visual inspection, let's systematically search for optimal parameters:
+
 ```python
 from sklearn.cluster import DBSCAN
 from sklearn.metrics import silhouette_score
@@ -521,6 +528,11 @@ plt.colorbar(scatter, ax=axes[1])
 plt.tight_layout()
 plt.show()
 ```
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/clustering-methods/13-dbscan-parameter-search.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 ### DBSCAN vs K-Means Comparison
 
@@ -565,6 +577,11 @@ K-Means: [50 62 38]
 DBSCAN:  [49 51 47]
 DBSCAN noise points: 3
 ```
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/clustering-methods/14-dbscan-vs-kmeans-comparison.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 ### When DBSCAN Shines
 
@@ -600,6 +617,11 @@ axes[1].set_title('DBSCAN (Succeeds on Moons)', fontweight='bold')
 plt.tight_layout()
 plt.show()
 ```
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/clustering-methods/15-dbscan-on-moons.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 **2. Automatic noise detection**: Points that don't fit any cluster are marked as noise
 
