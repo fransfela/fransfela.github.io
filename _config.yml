@@ -124,12 +124,12 @@ external_sources:
     rss_url: https://medium.com/@fransfela/feed
     categories: [external-posts]
     tags: [medium]
-  - name: Google Blog
+  - name: Substack
     posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
+      - url: https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya
+        published_date: 2025-08-23
     categories: [external-posts]
-    tags: [google]
+    tags: [substack]
 
 # -----------------------------------------------------------------------------
 # Newsletter
