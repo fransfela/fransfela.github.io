@@ -95,6 +95,17 @@ ninja.data = [{
             window.location.href = "/blog/2024/advanced-images/";
           
         },
+      },{id: "post-finding-the-optimal-number-of-clusters-part-2-advanced-statistical-methods",
+        
+          title: "Finding the Optimal Number of Clusters: Part 2 - Advanced Statistical Methods",
+        
+        description: "Dive deeper into cluster validation with Calinski-Harabasz Index, Gap Statistic, and BIC/AIC. Statistical rigor meets practical implementation.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/optimal-clustering-part2-advanced-statistical-methods/";
+          
+        },
       },{id: "post-finding-the-optimal-number-of-clusters",
         
           title: "Finding the Optimal Number of Clusters",
