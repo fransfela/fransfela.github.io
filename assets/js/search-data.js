@@ -127,6 +127,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_miho_defense/";
+            },},{id: "news-secured-phc-nusantara-2024-multinational-research-funding",
+          title: 'Secured PHC Nusantara 2024 Multinational Research Funding',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_phc_nusantara/";
             },},{id: "news-master-thesis-defense-on-video-conferencing-quality-at-dtu-fotonik",
           title: 'Master Thesis Defense on Video Conferencing Quality at DTU Fotonik',
           description: "",
