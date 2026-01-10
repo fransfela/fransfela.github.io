@@ -84,9 +84,9 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
-      },{id: "post-analisis-soundscape-dari-teori-hingga-praktek",
+      },{id: "post-soundscape-bentang-suara-teori-metode-dan-analisis",
         
-          title: "Analisis Soundscape: Dari Teori hingga Praktek",
+          title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis",
         
         description: "Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R",
         section: "Posts",
