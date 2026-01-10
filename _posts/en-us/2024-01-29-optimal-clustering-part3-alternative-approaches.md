@@ -10,7 +10,7 @@ thumbnail: assets/img/posts/clustering-methods/09-dendrogram-ward.png
 
 Welcome to the final installment of our series on finding the optimal number of clusters! 
 
-In [Part 1](https://fransfela.github.io/blog/2024/optimal-clustering-part1-foundation-methods/), we explored foundational methods: Elbow, Silhouette, and Davies-Bouldin. In [Part 2](https://fransfela.github.io/blog/), we dove into advanced statistical approaches: Calinski-Harabasz, Gap Statistic, and BIC/AIC.
+In [Part 1](https://fransfela.github.io/blog/2024/optimal-clustering-part1-foundation-methods/), we explored foundational methods: Elbow, Silhouette, and Davies-Bouldin. In [Part 2](https://fransfela.github.io/blog/2024/optimal-clustering-part2-advanced-statistical-methods/), we dove into advanced statistical approaches: Calinski-Harabasz, Gap Statistic, and BIC/AIC.
 
 Today, we're completing the toolkit with two powerful alternative approaches that **don't require pre-specifying k**, plus a comprehensive practical guide to tie everything together.
 
