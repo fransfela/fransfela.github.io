@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Analisis Soundscape: Dari Teori hingga Praktek"
+title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis"
+subtitle: "A Living Textbook"
 date: 2025-01-10
 description: Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R
 authors:
