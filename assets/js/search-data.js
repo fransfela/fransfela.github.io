@@ -84,6 +84,17 @@ ninja.data = [{
             window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
           
         },
+      },{id: "post-finding-the-optimal-number-of-clusters-part-3-alternative-approaches-amp-practical-guide",
+        
+          title: "Finding the Optimal Number of Clusters: Part 3 - Alternative Approaches &amp; Practical...",
+        
+        description: "Complete your clustering toolkit with dendrogram analysis, DBSCAN tuning, and a comprehensive decision framework. From theory to production-ready code.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/optimal-clustering-part3-alternative-approaches/";
+          
+        },
       },{id: "post-a-post-with-advanced-image-components",
         
           title: "a post with advanced image components",
