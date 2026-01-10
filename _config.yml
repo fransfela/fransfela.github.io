@@ -128,6 +128,8 @@ external_sources:
     posts:
       - url: https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya
         published_date: 2025-08-23
+        title: "Sound Horeg: Antara Euforia Budaya dan Noise Pollution"
+        description: "Menelaah Dari Sudut Pandang Psikoakustika dan Ilmu Pendengaran" 
     categories: [external-posts]
     tags: [substack]
 
