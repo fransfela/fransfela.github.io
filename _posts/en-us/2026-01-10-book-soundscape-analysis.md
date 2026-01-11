@@ -16,7 +16,15 @@ related_posts: false
 toc:
   sidebar: left
 ---
+<div class="authors">
+  <div class="author">
+    <strong>Randy Frans Fela</strong><br>
+    <em>GN Group, Copenhagen</em><br>
+    <a href="https://fransfela.github.io">fransfela.github.io</a>
+  </div>
+</div>
 
+---
 # Pengantar
 
 Dalam beberapa dekade terakhir, kesadaran akan pentingnya kualitas lingkungan akustik telah meningkat secara signifikan, tidak hanya dalam konteks pengendalian kebisingan (*noise control*), tetapi juga dalam pemahaman yang lebih holistik tentang bagaimana manusia mempersepsikan dan berinteraksi dengan lingkungan sonik mereka. Pergeseran paradigma ini menandai transisi dari pendekatan reduksionis yang berfokus pada pengurangan kebisingan (*noise reduction*) menuju pendekatan yang lebih komprehensif dalam memahami lanskap suara (*soundscape*) sebagai sumber daya lingkungan yang berharga.
