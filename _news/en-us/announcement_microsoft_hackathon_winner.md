@@ -31,3 +31,12 @@ The solution addresses a critical need at GN: reducing manual overhead in tracki
 This hackathon was a fantastic opportunity to combine technical innovation with practical business needs, and a reminder that the best solutions often come from understanding real-world pain points.
 
 Thanks to the organizing team and congratulations to all participants!
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/hackathon-winner.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Each of us got this Microsoft Power Platform Tumbler for winning this Hackathon.
+</div>
