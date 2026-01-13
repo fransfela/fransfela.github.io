@@ -55,6 +55,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
+        },{id: "nav-zettelkasten",
+          title: "Zettelkasten",
+          description: "A living archive of interconnected ideas. Notes that evolve, connect, and compound over time",
+          section: "Navigation menu",
+          handler: () => {
+            window.location.href = "/zettelkasten/";
+          },
         },{id: "nav-cv",
           title: "CV",
           description: "",
