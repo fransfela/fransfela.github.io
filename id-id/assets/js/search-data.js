@@ -143,6 +143,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/id-id/news/announcement_phc_nusantara/";
+            },},{id: "news-winner-of-microsoft-power-platform-hackathon-2024",
+          title: 'Winner of Microsoft Power Platform Hackathon 2024',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/id-id/news/announcement_microsoft_hackathon_winner/";
             },},{id: "news-master-thesis-defense-on-video-conferencing-quality-at-dtu-fotonik",
           title: 'Master Thesis Defense on Video Conferencing Quality at DTU Fotonik',
           description: "",
