@@ -102,6 +102,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/panduan-beasiswa-luar-negeri/";
           
         },
+      },{id: "post-audio-quality-metrics-quick-reference-guide",
+        
+          title: "Audio Quality Metrics: Quick Reference Guide",
+        
+        description: "Objective and subjective metrics for evaluating speech, music, and general audio quality",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/audio-quality-metrics-reference/";
+          
+        },
       },{id: "post-soundscape-bentang-suara-teori-metode-dan-analisis",
         
           title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis",
