@@ -127,7 +127,7 @@ I left the event buzzing with ideas, questions, and a strange sense of optimism.
         </div>
     </div>
 </div>
-<div class="caption text-center">
+<div class="caption">
     Danish Sound Day 2023 event highlights at Copenhagen Hearing & Balance Center
 </div>
 ---
