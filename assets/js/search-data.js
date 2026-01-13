@@ -95,6 +95,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/book-soundscape-analysis/";
           
         },
+      },{id: "post-megatrends-in-sound-ai-competition-and-what-39-s-next-for-audio",
+        
+          title: "Megatrends in Sound: AI, Competition, and What&#39;s Next for Audio",
+        
+        description: "Reflections from the Danish Sound Cluster workshop on AI, industry challenges, and the future of audio technology",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/megatrends-sound-industry-workshop-reflection/";
+          
+        },
       },{id: "post-finding-the-optimal-number-of-clusters-part-3-alternative-approaches-amp-practical-guide",
         
           title: "Finding the Optimal Number of Clusters: Part 3 - Alternative Approaches &amp; Practical...",
