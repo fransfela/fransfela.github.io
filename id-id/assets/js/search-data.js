@@ -91,6 +91,17 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
+      },{id: "post-panduan-lengkap-beasiswa-luar-negeri-dari-kuli-pabrik-ke-denmark",
+        
+          title: "Panduan Lengkap Beasiswa Luar Negeri: Dari Kuli Pabrik ke Denmark",
+        
+        description: "Comprehensive guide untuk meraih beasiswa S2 dan S3 di luar negeri, based on real experience",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2025/panduan-beasiswa-luar-negeri/";
+          
+        },
       },{id: "post-soundscape-bentang-suara-teori-metode-dan-analisis",
         
           title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis",
