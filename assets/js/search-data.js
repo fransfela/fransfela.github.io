@@ -143,7 +143,7 @@ ninja.data = [{
         
           title: "Sound, Health, and Memories: Reflections from Danish Sound Day 2023",
         
-        description: "Personal reflections on audio technology in healthcare, from ICU soundscape recordings in Indonesia to cutting-edge research at Rigshospitalet",
+        description: "Personal reflections on audio technology in healthcare; from ICU soundscape recordings in Indonesia to cutting-edge research at Rigshospitalet",
         section: "Posts",
         handler: () => {
           
