@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sound, Health, and Memories: Reflections from Danish Sound Day 2023"
-date: 2023-11-07
+date: 2023-11-08
 description: Personal reflections on audio technology in healthcare; from ICU soundscape recordings in Indonesia to cutting-edge research at Rigshospitalet
 tags: [auditory-perception, perceptual-evaluation]
 categories: [research]
@@ -19,13 +19,13 @@ thumbnail: assets/img/posts/danish-sound-day-2023.jpg
 
 The auditorium lights dimmed at Copenhagen Hearing & Balance Center yesterday morning, and I felt that familiar buzz, the kind you get when you know you're about to hear something that matters. Danish Sound Day 2023 had brought together an eclectic crowd: audiologists in crisp white coats, startup founders clutching pitch decks, audio engineers with noise-canceling headphones slung around their necks, and researchers like me, somewhere in between all of it.
 
-The day's focus was sound in healthcare, how audio technology intersects with healing, well-being, and the delicate machinery of human perception. But as speaker after speaker took the stage, my mind kept wandering seven years back, to a sticky November night in Jakarta.
+The day's focus was sound in healthcare, how audio technology intersects with healing, well-being, and the delicate machinery of human perception. But as speaker after speaker took the stage, my mind kept wandering seven years back, to a sticky December night in Jakarta.
 
 ---
 
-## The Night We Became Audio Guerrillas
+## A Night in the ICU: My First Encounter with Healthcare Soundscapes
 
-It was 2016, and I was deep into my master's thesis on immersive audio environments for nurse training. The concept seemed straightforward on paper: record realistic ICU soundscapes using 3D ambisonics, then use those recordings to train nursing students in a controlled simulation before they faced the real chaos of critical care.
+It was 2017, and I was deep into my master's thesis on immersive audio environments for nurse training. The concept seemed straightforward on paper: record realistic ICU soundscapes using 3D ambisonics, then use those recordings to train nursing students in a controlled simulation before they faced the real chaos of critical care.
 
 Simple, right?
 
@@ -33,7 +33,7 @@ Except nothing about recording sound in a hospital ICU is simple.
 
 My classmates and I needed high-fidelity spatial audio, not just the beeping monitors and ventilator hums you'd expect, but the *directionality* of those sounds. Where is that alarm coming from? How does a nurse's brain filter signal from noise when twelve machines are competing for attention? To answer those questions, we needed to be *in* the ICU, microphones and all.
 
-So we did what any slightly desperate, highly motivated grad students would do: we convinced a hospital administrator to let us camp out overnight in one of Indonesia's busiest ICUs. No formal ethics approval (because that would take months we didn't have), no official protocol, just three ambisonics mics, a laptop running recording software, and a prayer that security wouldn't kick us out.
+So we did what any slightly desperate, highly motivated grad students would do: we convinced a hospital administrator to let us camp out overnight in one of Indonesia's busiest ICUs. We had ethics approval and official protocols, of course, but the real challenge wasn't bureaucracy. It was logistics. We couldn't bring ICU equipment to our university's anechoic chamber. We couldn't schedule "empty room" recording sessions in a facility that operates 24/7. The only way to capture authentic soundscapes was to be *there*, in the middle of the chaos, recording while the ICU was fully operational. Just three ambisonics mics, a laptop running recording software, and a prayer that security wouldn't decide our gear looked too suspicious.
 
 I remember the smell most vividly. Antiseptic mixed with something faintly metallic, the air conditioning struggling against Jakarta's humidity. We set up our gear in a corner, trying to be invisible as nurses moved between beds, checking vitals, adjusting IVs. The soundscape was overwhelming: ventilators cycling in and out of sync, alarms stacked on top of each other, footsteps echoing down hallways, the occasional murmur of a family member pleading with a doctor.
 
@@ -120,9 +120,11 @@ The difference now is that we have the tools, the data, and the momentum to actu
 
 I left the event buzzing with ideas, questions, and a strange sense of optimism. Because if Denmark can build an ecosystem where researchers, clinicians, and industry work hand-in-hand on this stuff, maybe, just maybe, the rest of the world will follow. If you want to see the highlight of the event, here is the video.
 
-<div class="row mt-1">
-    <div class="col-sm mt-1 mt-md-0">
-        {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA?si=R44mwXk-VMhf2arh" class="img-fluid rounded z-depth-1" %}
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0" style="max-width: 75%;">
+        <div class="ratio ratio-16x9">
+            {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA?si=R44mwXk-VMhf2arh" class="img-fluid rounded z-depth-1" %}
+        </div>
     </div>
 </div>
 <div class="caption text-center">
