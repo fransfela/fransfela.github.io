@@ -9,7 +9,7 @@ authors:
     url: "https://fransfela.github.io"
     affiliations:
       name: GN Group, Copenhagen
-tags: soundscape acoustics perceptual-audio
+tags: living-book, soundscape acoustics perceptual-audio
 categories: audio-engineering
 giscus_comments: true
 related_posts: false
