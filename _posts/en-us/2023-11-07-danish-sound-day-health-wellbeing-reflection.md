@@ -17,9 +17,9 @@ thumbnail: assets/img/posts/danish-sound-day-2023.jpg
     Danish Sound Day 2023 at Copenhagen Hearing & Balance Center, Rigshospitalet
 </div>
 
-The auditorium lights dimmed at Copenhagen Hearing & Balance Center yesterday morning, and I felt that familiar buzz—the kind you get when you know you're about to hear something that matters. Danish Sound Day 2023 had brought together an eclectic crowd: audiologists in crisp white coats, startup founders clutching pitch decks, audio engineers with noise-canceling headphones slung around their necks, and researchers like me, somewhere in between all of it.
+The auditorium lights dimmed at Copenhagen Hearing & Balance Center yesterday morning, and I felt that familiar buzz, the kind you get when you know you're about to hear something that matters. Danish Sound Day 2023 had brought together an eclectic crowd: audiologists in crisp white coats, startup founders clutching pitch decks, audio engineers with noise-canceling headphones slung around their necks, and researchers like me, somewhere in between all of it.
 
-The day's focus was sound in healthcare—how audio technology intersects with healing, well-being, and the delicate machinery of human perception. But as speaker after speaker took the stage, my mind kept wandering seven years back, to a sticky November night in Jakarta.
+The day's focus was sound in healthcare, how audio technology intersects with healing, well-being, and the delicate machinery of human perception. But as speaker after speaker took the stage, my mind kept wandering seven years back, to a sticky November night in Jakarta.
 
 ---
 
@@ -31,13 +31,13 @@ Simple, right?
 
 Except nothing about recording sound in a hospital ICU is simple.
 
-My classmates and I needed high-fidelity spatial audio—not just the beeping monitors and ventilator hums you'd expect, but the *directionality* of those sounds. Where is that alarm coming from? How does a nurse's brain filter signal from noise when twelve machines are competing for attention? To answer those questions, we needed to be *in* the ICU, microphones and all.
+My classmates and I needed high-fidelity spatial audio, not just the beeping monitors and ventilator hums you'd expect, but the *directionality* of those sounds. Where is that alarm coming from? How does a nurse's brain filter signal from noise when twelve machines are competing for attention? To answer those questions, we needed to be *in* the ICU, microphones and all.
 
-So we did what any slightly desperate, highly motivated grad students would do: we convinced a hospital administrator to let us camp out overnight in one of Indonesia's busiest ICUs. No formal ethics approval (because that would take months we didn't have), no official protocol—just three ambisonics mics, a laptop running recording software, and a prayer that security wouldn't kick us out.
+So we did what any slightly desperate, highly motivated grad students would do: we convinced a hospital administrator to let us camp out overnight in one of Indonesia's busiest ICUs. No formal ethics approval (because that would take months we didn't have), no official protocol, just three ambisonics mics, a laptop running recording software, and a prayer that security wouldn't kick us out.
 
 I remember the smell most vividly. Antiseptic mixed with something faintly metallic, the air conditioning struggling against Jakarta's humidity. We set up our gear in a corner, trying to be invisible as nurses moved between beds, checking vitals, adjusting IVs. The soundscape was overwhelming: ventilators cycling in and out of sync, alarms stacked on top of each other, footsteps echoing down hallways, the occasional murmur of a family member pleading with a doctor.
 
-We recorded for eight hours straight. Then, because we're nerds, we spent another two hours measuring the **sound directivity of medical equipment**—pointing our microphones at infusion pumps, cardiac monitors, oxygen concentrators, documenting how sound radiates from each device.
+We recorded for eight hours straight. Then, because we're nerds, we spent another two hours measuring the **sound directivity of medical equipment**, pointing our microphones at infusion pumps, cardiac monitors, oxygen concentrators, documenting how sound radiates from each device.
 
 Why go to such lengths? Because **spatial accuracy matters**. If you're training a nurse to navigate a high-stress environment, the simulation needs to feel *real*. The beep from a cardiac monitor on the left side of the room should sound like it's coming from the left, not from some generic stereo speaker setup.
 
@@ -49,9 +49,9 @@ Except it's not.
 
 ## From Guerrilla Recordings to World-Class Research
 
-Fast forward to yesterday's event at Rigshospitalet, and the contrast couldn't be starker. Here, in one of Europe's leading research hospitals, teams of PhDs and clinicians are systematically studying what we were fumbling toward in that Jakarta ICU—except with proper funding, institutional support, and cutting-edge technology.
+Fast forward to yesterday's event at Rigshospitalet, and the contrast couldn't be starker. Here, in one of Europe's leading research hospitals, teams of PhDs and clinicians are systematically studying what we were fumbling toward in that Jakarta ICU, except with proper funding, institutional support, and cutting-edge technology.
 
-The keynote session featured researchers from Copenhagen Hearing & Balance Center walking us through their work. They're not just recording soundscapes—they're designing interventions. Soundscapes that help schizophrenia patients manage auditory hallucinations. Audio systems that optimize hospital environments for better sleep. Hearing aids that blur the line between correction and augmentation.
+The keynote session featured researchers from Copenhagen Hearing & Balance Center walking us through their work. They're not just recording soundscapes, they're designing interventions. Soundscapes that help schizophrenia patients manage auditory hallucinations. Audio systems that optimize hospital environments for better sleep. Hearing aids that blur the line between correction and augmentation.
 
 One presentation in particular stuck with me. Katalin Vikuk and Anders Bargum talked about their work using carefully designed audio to help patients with schizophrenia regain control over intrusive voices. The approach is elegant: instead of suppressing hallucinations (which often doesn't work), they introduce external sounds that patients can *learn* to distinguish from internal ones, slowly rebuilding a sense of auditory agency.
 
@@ -65,7 +65,7 @@ The thing about sound is that it's maddeningly personal. A tone that calms one p
 
 Another session that hit close to home was Kira Vibe Jespersen's talk on sound and sleep. Hospitals are, ironically, terrible places to rest. Alarms blare. Carts rattle. Conversations echo. And patients, who desperately need sleep to heal, lie awake through it all.
 
-Kira's research digs into how we can mitigate this. Active noise cancellation for hospital rooms? Ambient soundscapes designed to mask disruptive noise? It sounds futuristic, but the technology exists. The question is whether hospitals—operating on razor-thin margins—will invest in it.
+Kira's research digs into how we can mitigate this. Active noise cancellation for hospital rooms? Ambient soundscapes designed to mask disruptive noise? It sounds futuristic, but the technology exists. The question is whether hospitals, operating on razor-thin margins, will invest in it.
 
 I kept thinking about that Jakarta ICU. The nurses we interviewed afterward all said the same thing: "You get used to it." But should you *have* to*? What if we designed healthcare environments where acoustic stress wasn't just accepted as collateral damage?
 
@@ -75,7 +75,7 @@ I kept thinking about that Jakarta ICU. The nurses we interviewed afterward all 
 
 One of the most fascinating discussions came during the panel on the future of hearing aids. Alex Costa from GN Group and Nick Hunn from WiFore talked about how these devices are evolving from assistive tools into augmented hearing systems.
 
-Think about it: if you can selectively amplify voices while suppressing background noise, why stop there? Why not add real-time translation? Or directional focus that lets you "zoom in" on a conversation across a crowded room? We're moving toward a world where hearing aids aren't just for people with hearing loss—they're for anyone who wants to *optimize* how they experience sound.
+Think about it: if you can selectively amplify voices while suppressing background noise, why stop there? Why not add real-time translation? Or directional focus that lets you "zoom in" on a conversation across a crowded room? We're moving toward a world where hearing aids aren't just for people with hearing loss, they're for anyone who wants to *optimize* how they experience sound.
 
 But here's where my perceptual evaluation background kicks in: **who decides what "optimized" means?** If an algorithm enhances your hearing, is it improving fidelity, or is it imposing a version of reality that doesn't exist? And more importantly, do users feel *better* with these enhancements, or just *different*?
 
@@ -87,11 +87,11 @@ This is why subjective evaluation matters. You can measure speech intelligibilit
 
 Here's the thing nobody wants to say out loud at these events: most of the innovations presented yesterday won't reach patients for years, maybe decades.
 
-Why? Because healthcare moves at a glacial pace—and for good reason. You can't just roll out an experimental soundscape intervention without proving it works across diverse patient populations. Clinical trials take time. Regulatory approval takes time. Convincing risk-averse hospital administrators to adopt new technology takes even more time.
+Why? Because healthcare moves at a glacial pace, and for good reason. You can't just roll out an experimental soundscape intervention without proving it works across diverse patient populations. Clinical trials take time. Regulatory approval takes time. Convincing risk-averse hospital administrators to adopt new technology takes even more time.
 
 But the need is *now*. Nurses are burning out. Patients aren't sleeping. Hospital-acquired delirium is partly driven by sensory overload. We have the research. We have the technology. What we lack is the bridge between lab and bedside.
 
-Denmark has a unique advantage here. The ecosystem is small enough that researchers, industry, and clinicians actually talk to each other. GN Group, EPOS, Cochlear—they're not just companies, they're partners in academic research. That kind of collaboration is rare, and it's Denmark's best shot at turning sound research into real-world impact.
+Denmark has a unique advantage here. The ecosystem is small enough that researchers, industry, and clinicians actually talk to each other. GN Group, EPOS, Cochlear, they're not just companies, they're partners in academic research. That kind of collaboration is rare, and it's Denmark's best shot at turning sound research into real-world impact.
 
 ---
 
@@ -112,16 +112,16 @@ These aren't questions you answer with microphones and FFT analysis. They requir
 
 ## Full Circle: From Sneaking Mics into ICUs to Shaping the Future
 
-Sitting in that Rigshospitalet auditorium, I couldn't help but smile at how far we've come. A decade ago, I was a grad student sneaking recording equipment into a hospital, hoping we wouldn't get thrown out. Yesterday, I watched world-class researchers present meticulously designed studies on the exact same problem—backed by institutional support and millions in funding.
+Sitting in that Rigshospitalet auditorium, I couldn't help but smile at how far we've come. A decade ago, I was a grad student sneaking recording equipment into a hospital, hoping we wouldn't get thrown out. Yesterday, I watched world-class researchers present meticulously designed studies on the exact same problem, backed by institutional support and millions in funding.
 
 But both efforts came from the same place: a belief that **sound matters in healing**.
 
-The difference now is that we have the tools, the data, and the momentum to actually do something about it. The question isn't whether sound technology can improve healthcare. The question is whether we'll prioritize it—whether hospitals will invest, whether researchers will collaborate, whether policymakers will recognize that better soundscapes aren't a luxury, they're a necessity.
+The difference now is that we have the tools, the data, and the momentum to actually do something about it. The question isn't whether sound technology can improve healthcare. The question is whether we'll prioritize it, whether hospitals will invest, whether researchers will collaborate, whether policymakers will recognize that better soundscapes aren't a luxury, they're a necessity.
 
-I left the event buzzing with ideas, questions, and a strange sense of optimism. Because if Denmark can build an ecosystem where researchers, clinicians, and industry work hand-in-hand on this stuff, maybe—just maybe—the rest of the world will follow. If you want to see the highlight of the event, here is the video.
+I left the event buzzing with ideas, questions, and a strange sense of optimism. Because if Denmark can build an ecosystem where researchers, clinicians, and industry work hand-in-hand on this stuff, maybe, just maybe, the rest of the world will follow. If you want to see the highlight of the event, here is the video.
 
-<div class="row mt-3 justify-content-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
+<div class="row mt-3">
+    <div class="col-md mt-3 mt-md-0">
         {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA?si=R44mwXk-VMhf2arh" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -130,7 +130,7 @@ I left the event buzzing with ideas, questions, and a strange sense of optimism.
 </div>
 ---
 
-**P.S.** If you're working on healthcare acoustics, perceptual audio research, or just think sound in hospitals deserves more attention, let's talk. I'd love to hear what you're working on—and what keeps you up at night (besides hospital alarms). ☕
+**P.S.** If you're working on healthcare acoustics, perceptual audio research, or just think sound in hospitals deserves more attention, let's talk. I'd love to hear what you're working on, and what keeps you up at night (besides hospital alarms). ☕
 
 ---
 *Tags: #HealthcareAcoustics #PerceptualEvaluation #DanishSoundCluster #SoundAndWellbeing #ICUSoundscapes*
