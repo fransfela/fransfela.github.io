@@ -139,6 +139,17 @@ ninja.data = [{
             window.location.href = "/id-id/blog/2024/optimal-clustering-part1-foundation-methods/";
           
         },
+      },{id: "post-sound-health-and-memories-reflections-from-danish-sound-day-2023",
+        
+          title: "Sound, Health, and Memories: Reflections from Danish Sound Day 2023",
+        
+        description: "Personal reflections on audio technology in healthcare, from ICU soundscape recordings in Indonesia to cutting-edge research at Rigshospitalet",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2023/danish-sound-day-health-wellbeing-reflection/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
