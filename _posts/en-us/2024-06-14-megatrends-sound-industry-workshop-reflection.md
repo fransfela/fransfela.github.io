@@ -5,12 +5,21 @@ date: 2024-06-14
 description: Reflections from the Danish Sound Cluster workshop on AI, industry challenges, and the future of audio technology
 tags: [auditory-perception, career-tips]
 categories: [research]
-thumbnail: assets/img/posts/megatrends-sound-workshop.jpg
+thumbnail: assets/img/posts/megatrends-sound-workshop_thumbnail.jpg
 ---
 
 Last Friday, I found myself back at FORCE Technology in Hørsholm, a place that used to be my office during my PhD years (2019-2022). This time, though, I wasn't there as a doctoral student buried in experiments. I was attending the [**Megatrends in the Sound Industry Workshop**](https://danishsoundcluster.dk/megatrends-in-the-sound-industry/), organized by Danish Technological Institute and Danish Sound Cluster.
 
 Walking through those familiar corridors felt surreal. The SenseLab where I spent countless hours running perceptual evaluations was still there, still buzzing with activity. But the context had shifted entirely. I was now sitting among senior professionals from EPOS, Jabra, Augmented Hearing, and other major players in Denmark's audio scene. And yes, I think I was the only Asian person in the room, which made the experience both humbling and a bit isolating in an oddly motivating way.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/megatrends-sound-workshop.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Megatrends in the Sound Industry Workshop at FORCE Technology, Hørsholm, Denmark (June 14, 2024)
+</div>
 
 ---
 
