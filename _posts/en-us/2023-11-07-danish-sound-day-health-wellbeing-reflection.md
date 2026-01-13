@@ -121,7 +121,7 @@ The difference now is that we have the tools, the data, and the momentum to actu
 I left the event buzzing with ideas, questions, and a strange sense of optimism. Because if Denmark can build an ecosystem where researchers, clinicians, and industry work hand-in-hand on this stuff, maybe, just maybe, the rest of the world will follow. If you want to see the highlight of the event, here is the video.
 
 <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0" style="max-width: 75%;">
+    <div class="col-sm mt-3 mt-md-0" style="max-width: 100%;">
         <div class="ratio ratio-16x9">
             {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA?si=R44mwXk-VMhf2arh" class="img-fluid rounded z-depth-1" %}
         </div>
