@@ -9,12 +9,14 @@ authors:
     url: "https://fransfela.github.io"
     affiliations:
       name: GN Group, Copenhagen
-tags: living-book, soundscape acoustics perceptual-audio
+tags: [living-book, soundscape acoustics perceptual-audio]
 categories: audio-engineering
 giscus_comments: true
 related_posts: false
 toc:
   sidebar: left
+---
+> **Last updated:** {{ page.date | date: "%B %d, %Y" }}
 ---
 <div class="authors">
   <div class="author">
@@ -23,7 +25,6 @@ toc:
     <a href="https://fransfela.github.io">fransfela.github.io</a>
   </div>
 </div>
-
 ---
 # Pengantar
 
