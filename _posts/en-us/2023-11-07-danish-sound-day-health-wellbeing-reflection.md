@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sound, Health, and Memories: Reflections from Danish Sound Day 2023"
-date: 2023-11-07
+date: 2023-11-08
 description: Personal reflections on audio technology in healthcare, from ICU soundscape recordings in Indonesia to cutting-edge research at Rigshospitalet
 tags: [auditory-perception, perceptual-evaluation]
 categories: [research]
@@ -118,7 +118,7 @@ The question is: **Will we?**
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA" class="img-fluid rounded z-depth-1" %}
+        {% include video.liquid path="https://www.youtube.com/embed/6_4R7hOVMkA?si=R44mwXk-VMhf2arh" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
