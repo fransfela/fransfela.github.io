@@ -1,10 +1,10 @@
 
 const currentUrl = window.location.href;
 const siteUrl = "https://fransfela.github.io";
-let updatedUrl = currentUrl.replace("https://fransfela.github.io/blog/", "");
+let updatedUrl = currentUrl.replace("https://fransfela.github.io", "");
 if (currentUrl.length == updatedUrl.length && currentUrl.startsWith("http://127.0.0.1")) {
   const otherSiteUrl = siteUrl.replace("localhost", "127.0.0.1");
-  updatedUrl = currentUrl.replace(otherSiteUrl + "/blog/", "");
+  updatedUrl = currentUrl.replace(otherSiteUrl + "", "");
 }
 if ("".length > 0) {
   updatedUrl = updatedUrl.replace("/", "");
@@ -18,56 +18,56 @@ ninja.data = [{
     title: "🎧",
     section: "Navigation menu",
     handler: () => {
-      window.location.href = "/blog/";
+      window.location.href = "/";
     },
   },{id: "nav-",
           title: "🎧",
           description: "",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/";
+            window.location.href = "/";
           },
         },{id: "nav-about",
           title: "About",
           description: "",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/about/";
+            window.location.href = "/about/";
           },
         },{id: "nav-blog",
           title: "Blog",
           description: "A journey navigating signal, data, and human experience",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/blog/";
+            window.location.href = "/blog/";
           },
         },{id: "nav-publications",
           title: "Publications",
           description: "My research journey started in Acoustics with my bachelor&#39;s thesis on Mathematical Modeling of Acoustic Emission for Water Pipeline Leakage Detection, while simultaneously working as a research assistant specializing in building acoustics and physics. This foundation evolved during my master&#39;s studies at Institut Teknologi Bandung, where I delved into audio-visual perception, VR technology, and immersive multimedia. Today, my research centers on perceptual multimedia evaluation for next-generation AV communication devices, integrating expertise in experimental design optimization, predictive modeling, statistical machine learning, perceptual metrics, and composite model building. Here are selected highlights from my scientific contributions.",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/publications/";
+            window.location.href = "/publications/";
           },
         },{id: "nav-projects",
           title: "Projects",
           description: "This page will be updated with my recent works and fun projects.",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/projects/";
+            window.location.href = "/projects/";
           },
         },{id: "nav-zettelkasten",
           title: "Zettelkasten",
           description: "A living archive of interconnected ideas. Notes that evolve, connect, and compound over time",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/zettelkasten/";
+            window.location.href = "/zettelkasten/";
           },
         },{id: "nav-cv",
           title: "CV",
           description: "",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/blog/cv/";
+            window.location.href = "/cv/";
           },
         },{id: "post-mentoringbangrandy-perjalanan-dari-kuli-pabrik-ke-denmark",
         
@@ -77,7 +77,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2026/mentoring-bang-randy-scholarship-guidance/";
+            window.location.href = "/blog/2026/mentoring-bang-randy-scholarship-guidance/";
           
         },
       },{id: "post-just-a-moment",
@@ -99,7 +99,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2025/audio-quality-metrics-reference/";
+            window.location.href = "/blog/2025/audio-quality-metrics-reference/";
           
         },
       },{id: "post-soundscape-bentang-suara-teori-metode-dan-analisis",
@@ -110,7 +110,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2025/book-soundscape-analysis/";
+            window.location.href = "/blog/2025/book-soundscape-analysis/";
           
         },
       },{id: "post-megatrends-in-sound-ai-competition-and-what-39-s-next-for-audio",
@@ -121,7 +121,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2024/megatrends-sound-industry-workshop-reflection/";
+            window.location.href = "/blog/2024/megatrends-sound-industry-workshop-reflection/";
           
         },
       },{id: "post-finding-the-optimal-number-of-clusters-part-3-alternative-approaches-amp-practical-guide",
@@ -132,7 +132,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2024/optimal-clustering-part3-alternative-approaches/";
+            window.location.href = "/blog/2024/optimal-clustering-part3-alternative-approaches/";
           
         },
       },{id: "post-finding-the-optimal-number-of-clusters-part-2-advanced-statistical-methods",
@@ -143,7 +143,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2024/optimal-clustering-part2-advanced-statistical-methods/";
+            window.location.href = "/blog/2024/optimal-clustering-part2-advanced-statistical-methods/";
           
         },
       },{id: "post-finding-the-optimal-number-of-clusters-part-1-foundation-methods",
@@ -154,7 +154,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2024/optimal-clustering-part1-foundation-methods/";
+            window.location.href = "/blog/2024/optimal-clustering-part1-foundation-methods/";
           
         },
       },{id: "post-sound-health-and-memories-reflections-from-danish-sound-day-2023",
@@ -165,44 +165,44 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/blog/2023/danish-sound-day-health-wellbeing-reflection/";
+            window.location.href = "/blog/2023/danish-sound-day-health-wellbeing-reflection/";
           
         },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "",handler: () => {
-              window.location.href = "/blog/books/the_godfather/";
+              window.location.href = "/books/the_godfather/";
             },},{id: "news-master-thesis-defense-on-own-voice-perception-at-dtu",
           title: 'Master Thesis Defense on Own Voice Perception at DTU',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/blog/news/announcement_miho_defense/";
+              window.location.href = "/news/announcement_miho_defense/";
             },},{id: "news-secured-phc-nusantara-2024-multinational-research-funding",
           title: 'Secured PHC Nusantara 2024 Multinational Research Funding',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/blog/news/announcement_phc_nusantara/";
+              window.location.href = "/news/announcement_phc_nusantara/";
             },},{id: "news-winner-of-microsoft-power-platform-hackathon-2024",
           title: 'Winner of Microsoft Power Platform Hackathon 2024',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/blog/news/announcement_microsoft_hackathon_winner/";
+              window.location.href = "/news/announcement_microsoft_hackathon_winner/";
             },},{id: "news-master-thesis-defense-on-video-conferencing-quality-at-dtu-fotonik",
           title: 'Master Thesis Defense on Video Conferencing Quality at DTU Fotonik',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/blog/news/announcement_rucha_defense/";
+              window.location.href = "/news/announcement_rucha_defense/";
             },},{id: "projects-batchmailer",
           title: 'BatchMaileR',
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
           section: "Projects",handler: () => {
-              window.location.href = "/blog/projects/batchmailer/";
+              window.location.href = "/projects/batchmailer/";
             },},{id: "projects-hoa-ssr-dataset",
           title: 'HOA-SSR Dataset',
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
-              window.location.href = "/blog/projects/hoassr_dataset/";
+              window.location.href = "/projects/hoassr_dataset/";
             },},{
         id: 'social-email',
         title: 'Send an email',
@@ -257,7 +257,7 @@ ninja.data = [{
           title: 'id-id',
           section: 'Languages',
           handler: () => {
-            window.location.href = "/blog//id-id" + updatedUrl;
+            window.location.href = "/id-id" + updatedUrl;
           },
         },{
       id: 'light-theme',
