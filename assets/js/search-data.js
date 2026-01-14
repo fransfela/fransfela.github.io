@@ -91,11 +91,11 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
-      },{id: "post-audio-quality-metrics-quick-reference-guide",
+      },{id: "post-audio-quality-metrics-a-comprehensive-reference",
         
-          title: "Audio Quality Metrics: Quick Reference Guide",
+          title: "Audio Quality Metrics: A Comprehensive Reference",
         
-        description: "Objective and subjective metrics for evaluating speech, music, and general audio quality",
+        description: "Objective and subjective metrics for evaluating speech, music, and general audio quality with implementation resources",
         section: "Posts",
         handler: () => {
           
