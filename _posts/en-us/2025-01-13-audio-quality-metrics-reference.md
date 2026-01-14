@@ -1,10 +1,12 @@
 ---
-layout: distill
+layout: post
 title: "Audio Quality Metrics: A Comprehensive Reference"
 date: 2025-01-14
 description: "Structured guide to objective and subjective metrics for speech, music, and audio quality evaluation across diverse applications"
 tags: [living-note, auditory-perception, perceptual-evaluation]
 categories: [research]
+toc:
+  sidebar: left
 
 authors:
   - name: Randy F. Fela
@@ -38,14 +40,13 @@ Audio quality evaluation spans multiple domains, each with specialized metrics d
 > **Last updated:** {{ page.date | date: "%B %d, %Y" }}  
 > **Status:** 🟢 Actively maintained
 
-***
-
 ## Speech Level Variation
 
 Metrics for assessing speech level consistency and dynamics.
 
 <details>
 <summary><strong>Active Speech Level (ASL)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Measures the active speech level excluding pauses and silent segments.
@@ -70,6 +71,7 @@ where $$x_i$$ are active speech samples.
 
 <details>
 <summary><strong>Loudness (ITU-R BS.1770)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Perceptually weighted loudness measurement for broadcast audio.
@@ -97,6 +99,7 @@ Broad metrics for general audio fidelity.
 
 <details>
 <summary><strong>Signal-to-Noise Ratio (SNR)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Ratio of signal power to noise power, expressed in dB.
@@ -120,6 +123,7 @@ $$
 
 <details>
 <summary><strong>Perceptual Evaluation of Audio Quality (PEAQ)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** ITU standard for objective audio quality measurement, designed for codec evaluation.
@@ -147,6 +151,7 @@ Metrics specifically for telephony and VoIP.
 
 <details>
 <summary><strong>Perceptual Evaluation of Speech Quality (PESQ)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** ITU standard for predicting speech quality in telecom networks.
@@ -170,6 +175,7 @@ Metrics specifically for telephony and VoIP.
 
 <details>
 <summary><strong>Perceptual Objective Listening Quality Assessment (POLQA)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Successor to PESQ, supporting wideband and super-wideband speech.
@@ -194,6 +200,7 @@ Metrics for evaluating noise suppression and enhancement algorithms.
 
 <details>
 <summary><strong>Short-Time Objective Intelligibility (STOI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Predicts speech intelligibility in noisy conditions.
@@ -216,6 +223,7 @@ Metrics for evaluating noise suppression and enhancement algorithms.
 
 <details>
 <summary><strong>Perceptual Contrast Using Spectrograms (PCSS)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Measures perceptual contrast enhancement in processed speech spectrograms.
@@ -233,6 +241,7 @@ Metrics for evaluating noise suppression and enhancement algorithms.
 
 <details>
 <summary><strong>DNSMOS (Deep Noise Suppression MOS)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Deep learning-based predictor of subjective MOS for noise suppression systems.
@@ -259,6 +268,7 @@ Metrics correlating with human speech understanding.
 
 <details>
 <summary><strong>Speech Intelligibility Index (SII)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** ANSI standard for predicting speech intelligibility based on audibility.
@@ -300,6 +310,7 @@ Metrics for reverberant environments.
 
 <details>
 <summary><strong>Speech-to-Reverberation Modulation Energy Ratio (SRMR)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Non-intrusive metric estimating intelligibility degradation due to reverberation.
@@ -326,6 +337,7 @@ Metrics related to spatial and architectural acoustics.
 
 <details>
 <summary><strong>Reverberation Time (RT60)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Time for sound to decay by 60 dB after source stops.
@@ -348,6 +360,7 @@ Metrics related to spatial and architectural acoustics.
 
 <details>
 <summary><strong>Clarity (C50, C80)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Ratio of early to late arriving sound energy.
@@ -376,6 +389,7 @@ Metrics for speech masked by background noise.
 
 <details>
 <summary><strong>Hearing Aid Speech Perception Index (HASPI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Predicts speech intelligibility for hearing-impaired listeners with and without hearing aids.
@@ -399,6 +413,7 @@ Metrics for evaluating source separation quality.
 
 <details>
 <summary><strong>Signal-to-Distortion Ratio (SDR)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Measures separation quality as ratio of target signal to artifacts.
@@ -420,6 +435,7 @@ Metrics for evaluating source separation quality.
 
 <details>
 <summary><strong>Scale-Invariant SDR (SI-SDR)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Scale-invariant version of SDR, more robust to amplitude differences.
@@ -443,6 +459,7 @@ Metrics for music fidelity and artifact detection.
 
 <details>
 <summary><strong>PEAQ (Perceptual Evaluation of Audio Quality)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** See "Overall Audio Quality" section above.
@@ -452,6 +469,7 @@ Metrics for music fidelity and artifact detection.
 
 <details>
 <summary><strong>ViSQOL (Virtual Speech Quality Objective Listener)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Perceptual quality metric for speech and audio, supporting music mode.
@@ -478,6 +496,7 @@ Metrics measuring spectral or waveform distance.
 
 <details>
 <summary><strong>Log-Spectral Distance (LSD)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Euclidean distance between log-magnitude spectra.
@@ -498,6 +517,7 @@ $$
 
 <details>
 <summary><strong>Mel-Cepstral Distortion (MCD)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Distance between mel-frequency cepstral coefficients (MFCCs).
@@ -526,6 +546,7 @@ Metrics using automatic speech recognition and language models.
 
 <details>
 <summary><strong>Word Error Rate (WER)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Percentage of word errors (substitutions, deletions, insertions) in ASR output.
@@ -551,6 +572,7 @@ where S=substitutions, D=deletions, I=insertions, N=total words.
 
 <details>
 <summary><strong>BERT Score</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Contextual embedding similarity between reference and hypothesis transcriptions.
@@ -574,6 +596,7 @@ Metrics specific to hearing aid and assistive listening device evaluation.
 
 <details>
 <summary><strong>Hearing Aid Speech Quality Index (HASQI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Predicts speech quality (not just intelligibility) for hearing aid users.
@@ -591,6 +614,7 @@ Metrics specific to hearing aid and assistive listening device evaluation.
 
 <details>
 <summary><strong>Binaural Intelligibility Level Difference (BILD)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Improvement in intelligibility from binaural vs. monaural listening.
@@ -613,6 +637,7 @@ Metrics for environmental and ecological acoustics.
 
 <details>
 <summary><strong>Acoustic Complexity Index (ACI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Measures temporal variability in soundscapes, correlates with biodiversity.
@@ -635,6 +660,7 @@ Metrics for environmental and ecological acoustics.
 
 <details>
 <summary><strong>Normalized Difference Soundscape Index (NDSI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Ratio of biophony (1-2 kHz) to anthrophony (1-2 kHz and 2-11 kHz).
@@ -656,6 +682,7 @@ $$
 
 <details>
 <summary><strong>Bioacoustic Index (BI)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Area under the spectrum curve within frequency range of biological sounds.
@@ -673,6 +700,7 @@ $$
 
 <details>
 <summary><strong>Soundscape Pleasantness (ISO 12913-3)</strong></summary>
+  
 <div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
 **Description:** Subjective assessment of soundscape quality in urban environments.
