@@ -1,36 +1,28 @@
 ---
 layout: post
 title: "Audio Quality Metrics: A Comprehensive Reference"
+subtitle: "A Living Notebook"
 date: 2025-01-14
 description: "Structured guide to objective and subjective metrics for speech, music, and audio quality evaluation across diverse applications"
+authors:
+  - name: Randy Frans Fela
+    url: "https://fransfela.github.io"
+    affiliations:
+      name: GN Group, Copenhagen
 tags: [living-note, auditory-perception, perceptual-evaluation]
 categories: [research]
+giscus_comments: true
+related_posts: false
 toc:
   sidebar: left
-
-authors:
-  - name: Randy F. Fela
-    url: "https://fransfela.com"
-    affiliations:
-      name: GN Group, Denmark
-
-toc:
-  - name: Introduction
-  - name: Speech Level Variation
-  - name: Overall Audio Quality
-  - name: Speech Quality
-  - name: Speech Enhancement
-  - name: Speech Intelligibility
-  - name: Speech in Reverberation
-  - name: Room Acoustics Quality
-  - name: Speech in Noise
-  - name: Blind Source Separation
-  - name: Music Quality
-  - name: Distance-Based Metrics
-  - name: ASR & NLP-Based Metrics
-  - name: Hearing Aid Metrics
-  - name: Soundscape Indices
-  - name: References
+---
+<div class="authors">
+  <div class="author">
+    <strong>Randy Frans Fela</strong><br>
+    <em>GN Group, Copenhagen</em><br>
+    <a href="https://fransfela.github.io">fransfela.github.io</a>
+  </div>
+</div>
 ---
 
 ## Introduction
