@@ -91,6 +91,17 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
+      },{id: "post-image-and-video-quality-metrics-a-comprehensive-reference",
+        
+          title: "Image and Video Quality Metrics: A Comprehensive Reference",
+        
+        description: "Structured guide to objective and subjective metrics for image and video quality evaluation across diverse applications and content types",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/id-id/blog/2025/image-video-quality-metrics-reference/";
+          
+        },
       },{id: "post-audio-quality-metrics-a-comprehensive-reference",
         
           title: "Audio Quality Metrics: A Comprehensive Reference",
