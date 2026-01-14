@@ -94,11 +94,15 @@ where $$x_i$$ are active speech samples.
 
 **Description:** Perceptually weighted loudness measurement for broadcast audio.
 
-**How it works:** Applies K-weighting filter to approximate human loudness perception.
+**How it works:** Applies K-weighting filter to approximate human loudness perception, integrates over time.
 
 **Libraries:**
 - Python: `pyloudnorm`
 - C++: `libebur128`
+
+**Datasets:** - [EBU Loudness Test Set](https://tech.ebu.ch/publications/tech3343) 
+
+**References:** - [ITU-R BS.1770-4: Algorithms to measure audio programme loudness](https://www.itu.int/rec/R-REC-BS.1770)
 
 </div>
 </details>
