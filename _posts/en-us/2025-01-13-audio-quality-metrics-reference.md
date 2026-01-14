@@ -62,7 +62,7 @@ where $$x_i$$ are active speech samples.
 </details>
 
 <details markdown="1">
-<summary><strong>Loudness-markdown (ITU-R BS.1770)</strong></summary>
+<summary><strong>Loudness (ITU-R BS.1770)</strong></summary>
 
 <div markdown="1" style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
 
