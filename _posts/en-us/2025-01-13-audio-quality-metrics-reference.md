@@ -62,23 +62,43 @@ where $$x_i$$ are active speech samples.
 </details>
 
 <details>
-<summary><strong>Loudness (ITU-R BS.1770)</strong></summary>
-  
-<div style="padding: 1rem; background-color: var(--global-bg-color); margin-top: 0.5rem; border-left: 3px solid var(--global-theme-color);">
+  <summary><strong>Loudness-html (ITU-R BS.1770)</strong></summary>
+
+  <div style="padding:1rem; background-color:#f8f9fa; margin-top:0.5rem; border-left:3px solid #0d6efd;">
+    <p><strong>Description:</strong> Perceptually weighted loudness measurement for broadcast audio.</p>
+
+    <p><strong>How it works:</strong> Applies K-weighting filter to approximate human loudness perception, integrates over time.</p>
+
+    <p><strong>Libraries:</strong></p>
+    <ul>
+      <li>Python: <code>pyloudnorm</code></li>
+      <li>C++: <code>libebur128</code></li>
+    </ul>
+
+    <p><strong>Datasets:</strong></p>
+    <ul>
+      <li><a href="https://tech.ebu.ch/publications/tech3343">EBU Loudness Test Set</a></li>
+    </ul>
+
+    <p><strong>References:</strong></p>
+    <ul>
+      <li><a href="https://www.itu.int/rec/R-REC-BS.1770">ITU-R BS.1770-4</a></li>
+    </ul>
+  </div>
+</details>
+
+<details markdown="1">
+<summary><strong>Loudness-markdown (ITU-R BS.1770)</strong></summary>
+
+<div markdown="1">
 
 **Description:** Perceptually weighted loudness measurement for broadcast audio.
 
-**How it works:** Applies K-weighting filter to approximate human loudness perception, integrates over time.
+**How it works:** Applies K-weighting filter to approximate human loudness perception.
 
 **Libraries:**
 - Python: `pyloudnorm`
 - C++: `libebur128`
-
-**Datasets:**
-- [EBU Loudness Test Set](https://tech.ebu.ch/publications/tech3343)
-
-**References:**
-- [ITU-R BS.1770-4: Algorithms to measure audio programme loudness](https://www.itu.int/rec/R-REC-BS.1770)
 
 </div>
 </details>
