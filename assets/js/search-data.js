@@ -95,7 +95,7 @@ ninja.data = [{
         
           title: "Audio Quality Metrics: A Comprehensive Reference",
         
-        description: "Objective and subjective metrics for evaluating speech, music, and general audio quality with implementation resources",
+        description: "Structured guide to objective and subjective metrics for speech, music, and audio quality evaluation across diverse applications",
         section: "Posts",
         handler: () => {
           
