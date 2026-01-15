@@ -179,6 +179,17 @@ ninja.data = [{
             window.location.href = "/blog/2023/danish-sound-day-health-wellbeing-reflection/";
           
         },
+      },{id: "post-matlab-can-do-that-reflections-from-a-day-with-data-ai-and-python-integration",
+        
+          title: "MATLAB Can Do That? Reflections from a Day with Data, AI, and Python...",
+        
+        description: "A surprisingly productive Tuesday at Radisson Collection Royal Hotel learning how MATLAB has quietly become a polyglot powerhouse",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/mastering-matlab-data-ai-cloud-reflection/";
+          
+        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
