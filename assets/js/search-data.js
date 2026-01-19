@@ -69,18 +69,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-",
-        
-          title: "",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/2026-01-10-book-soundscape-analysis/";
-          
-        },
-      },{id: "post-mentoringbangrandy-perjalanan-dari-kuli-pabrik-ke-denmark",
+        },{id: "post-mentoringbangrandy-perjalanan-dari-kuli-pabrik-ke-denmark",
         
           title: "MentoringBangRandy: Perjalanan dari Kuli Pabrik ke Denmark",
         
@@ -122,6 +111,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/audio-quality-metrics-reference/";
+          
+        },
+      },{id: "post-soundscape-bentang-suara-teori-metode-dan-analisis",
+        
+          title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis",
+        
+        description: "A living book - Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/book-soundscape-analysis/";
           
         },
       },{id: "post-megatrends-in-sound-ai-competition-and-what-39-s-next-for-audio",
