@@ -124,14 +124,14 @@ external_sources:
     rss_url: https://medium.com/@fransfela/feed
     categories: [external-posts]
     tags: [medium]
-  - name: Substack
-    posts:
-      - url: https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya
-        published_date: 2025-08-23
-        title: "Sound Horeg: Antara Euforia Budaya dan Noise Pollution"
-        description: "Menelaah Dari Sudut Pandang Psikoakustika dan Ilmu Pendengaran" 
-    categories: [external-posts]
-    tags: [substack]
+  # name: Substack
+    #posts:
+      #- url: https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya
+        #published_date: 2025-08-23
+        #title: "Sound Horeg: Antara Euforia Budaya dan Noise Pollution"
+        #description: "Menelaah Dari Sudut Pandang Psikoakustika dan Ilmu Pendengaran" 
+    #categories: [external-posts]
+    #tags: [substack]
 
 # -----------------------------------------------------------------------------
 # Newsletter
