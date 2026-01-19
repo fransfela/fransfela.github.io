@@ -2,6 +2,7 @@
 layout: post
 title: "Evaluating AI-Generated Content: The Challenge of Measuring What Machines Create"
 date: 2025-03-14
+last_modified_at: 2025-01-20
 description: "A systematic overview of objective and subjective methods for evaluating AI-generated audio, images, video, and multimodal content"
 tags: [living-note, auditory-perception, visual-perception, perceptual-evaluation]
 categories: [research]
@@ -9,7 +10,7 @@ toc:
   sidebar: left
 ---
 
-> **Last updated:** {{ page.date | date: "%B %d, %Y" }}  
+> **Last updated:** {{ page.last_modified_at | date: "%B %d, %Y" }}
 > **Status:** 🟢 Actively maintained
 
 ---
