@@ -3,7 +3,7 @@ layout: post
 title: "Soundscape (Bentang Suara): Teori, Metode, dan Analisis"
 subtitle: "A Living Textbook"
 date: 2025-01-10
-description: A living book: Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R
+description: A living book - Panduan komprehensif tentang analisis soundscape dari perspektif teknis dan perseptual dengan implementasi praktis menggunakan Python dan R
 authors:
   - name: Randy Frans Fela
     url: "https://fransfela.github.io"
