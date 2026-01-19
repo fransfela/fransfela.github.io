@@ -232,6 +232,7 @@ plugins:
   - jekyll-terser
   - jekyll-toc
   - jekyll-twitter-plugin
+  - jekyll-last-modified-at
   - jemoji
 
 # Sitemap settings
