@@ -52,18 +52,18 @@ Quality is not unidimensional. A generated video might have excellent visual fid
 ### Generative Models in Audio
 
 **Speech Synthesis:**
-- VALL-E (Microsoft): Few-shot voice cloning
-- Bark (Suno AI): Text-to-audio with emotion
-- Tortoise TTS: High-quality but slow synthesis
+- VALL-E (Microsoft): Few-shot voice cloning [Link](https://lifeiteng.github.io/valle/index.html)
+- Bark (Suno AI): Text-to-audio with emotion [Link](https://github.com/suno-ai/bark)
+- Tortoise TTS: High-quality but slow synthesis [Link](https://github.com/neonbjb/tortoise-tts)
 
 **Music Generation:**
-- MusicGen (Meta): Text-to-music generation
-- AudioLM (Google): Audio continuation and infilling
-- Jukebox (OpenAI): Raw audio generation
+- MusicGen (Meta): Text-to-music generation [Linke](https://audiocraft.metademolab.com/musicgen.html)
+- AudioLM (Google): Audio continuation and infilling [Link](https://research.google/blog/audiolm-a-language-modeling-approach-to-audio-generation/)
+- Jukebox (OpenAI): Raw audio generation [Link](https://github.com/openai/jukebox)
 
 **General Audio:**
-- AudioLDM: Text-to-audio diffusion
-- Stable Audio: Latent diffusion for sound effects
+- AudioLDM: Text-to-audio diffusion [Link](https://audioldm.github.io/)
+- Stable Audio: Latent diffusion for sound effects [Link](https://github.com/Stability-AI/stable-audio-tools)
 
 ### Objective Metrics for Generated Audio
 
@@ -253,7 +253,7 @@ where μ is mean, Σ is covariance.
 - MCD correlation: r ≈ 0.50-0.60 (moderate, limited by spectral focus)
 
 **Datasets for Validation:**
-- [VCC (Voice Conversion Challenge)](https://voicemos-challenge-2022.github.io/)
+- [VCC (Voice Conversion Challenge)](https://github.com/nii-yamagishilab/VCC2020-database)
 - [VoiceMOS Challenge Dataset](https://sites.google.com/view/voicemos-challenge)
 
 ---
@@ -477,10 +477,10 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 - Ask specific questions: realism, aesthetic quality, semantic coherence
 
 **Datasets:**
-- [HYPE (Human eYe Perceptual Evaluation)](https://github.com/google-research/hype)
+- [HYPE (Human eYe Perceptual Evaluation)](https://stanfordhci.github.io/gen-eval/)
 
 **References:**
-- Zhou, S., et al. (2019). "HYPE: A benchmark for human eye perceptual evaluation of generative models"
+- Zhou, S., et al. (2019). "Human eYe Perceptual Evaluation: A benchmark for generative models"
 
 </div>
 </details>
@@ -513,12 +513,12 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 
 **Image Generation Benchmarks:**
 - [COCO Captions](https://cocodataset.org/#captions-2015): Caption-to-image
-- [DrawBench](https://github.com/google-research/parti): Challenging prompts for text-to-image
-- [HYPE Dataset](https://github.com/google-research/hype): Human evaluation benchmark
+- [DrawBench](https://github.com/kennymckormick/DrawBench-Glance): Challenging prompts for text-to-image
+- [HYPE Dataset](https://stanfordhci.github.io/gen-eval/): Human evaluation benchmark
 
 **Video Generation Benchmarks:**
 - [UCF-101](https://www.crcv.ucf.edu/data/UCF101.php): Action recognition dataset (used for FVD)
-- [Kinetics](https://www.deepmind.com/open-source/kinetics): Large-scale video dataset
+- [Kinetics](http://github.com/cvdfoundation/kinetics-dataset): Large-scale video dataset
 
 ---
 
@@ -527,12 +527,12 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 ### Generative Models in Audiovisual Domain
 
 **Talking Head Synthesis:**
-- SadTalker: Audio-driven facial animation
-- Wav2Lip: Lip-syncing to arbitrary audio
+- SadTalker: Audio-driven facial animation [Github](https://github.com/OpenTalker/SadTalker), [Paper](https://sadtalker.github.io/)
+- Wav2Lip: Lip-syncing to arbitrary audio [Github](https://github.com/Rudrabha/Wav2Lip)
 
 **Text-to-Video with Audio:**
-- VideoPoet (Google): Multimodal video generation
-- Make-A-Video (Meta): Text-to-video with audio
+- VideoPoet (Google): Multimodal video generation [Link](https://sites.research.google/videopoet/), [Paper](https://arxiv.org/abs/2312.14125)
+- Make-A-Video (Meta): Text-to-video with audio [Link](https://makeavideo.studio/), [Paper](https://arxiv.org/abs/2209.14792)
 
 ---
 
@@ -695,17 +695,17 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 ### Datasets for Validation
 
 **Audio:**
-- [VoiceMOS Challenge](https://github.com/nii-yamagishilab/VoiceMOS-Challenge-2023)
-- [BVCC Dataset](https://github.com/nii-yamagishilab/VoiceMOS-Challenge-2022)
+- VoiceMOS Challeng: [Link](https://sites.google.com/view/voicemos-challenge), [Paper](https://arxiv.org/abs/2409.07001)
+- VCC Dataset: [Github](https://github.com/nii-yamagishilab/VCC2020-database), [Link](https://vc-challenge.org/vcc2020/index.html)
 
 **Images:**
-- [COCO](https://cocodataset.org/)
-- [HYPE Benchmark](https://github.com/google-research/hype)
-- [DrawBench](https://github.com/google-research/parti)
+- COCO: [Link](https://cocodataset.org/), [Paper](https://arxiv.org/abs/1405.0312)
+- HYPE Benchmark: [Link](https://stanfordhci.github.io/gen-eval/), [Paper](https://arxiv.org/abs/1904.01121)
+- DrawBench: [Link](https://github.com/kennymckormick/DrawBench-Glance), [HuggingFace](https://huggingface.co/datasets/shunk031/DrawBench)
 
 **Video:**
-- [UCF-101](https://www.crcv.ucf.edu/data/UCF101.php)
-- [Kinetics](https://www.deepmind.com/open-source/kinetics)
+- UCF-101: [Link](https://www.crcv.ucf.edu/data/UCF101.php), [Paper](https://www.crcv.ucf.edu/papers/UCF101_CRCV-TR-12-01.pdf)
+- Kinetics: [Github](https://github.com/cvdfoundation/kinetics-dataset), [Paper](https://arxiv.org/abs/1705.06950)
 
 ---
 
