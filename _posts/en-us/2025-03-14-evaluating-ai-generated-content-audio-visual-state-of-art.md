@@ -162,6 +162,8 @@ where μ is mean, Σ is covariance.
 </div>
 </details>
 
+---
+
 ### Subjective Evaluation Protocols for Audio
 
 <details markdown="1">
@@ -234,6 +236,8 @@ where μ is mean, Σ is covariance.
 </div>
 </details>
 
+---
+
 ### Validation: Objective-Subjective Correlation
 
 **Challenge:** Do objective metrics predict human perception?
@@ -267,6 +271,8 @@ where μ is mean, Σ is covariance.
 - Sora (OpenAI): Long-form video from text
 - Runway Gen-2: Text/image-to-video
 - Pika Labs: Controllable video synthesis
+
+---
 
 ### Objective Metrics for Generated Images
 
@@ -375,6 +381,8 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 </div>
 </details>
 
+---
+
 ### Objective Metrics for Generated Video
 
 <details markdown="1">
@@ -422,6 +430,8 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 
 </div>
 </details>
+
+---
 
 ### Subjective Evaluation for Images and Video
 
@@ -497,6 +507,8 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 </div>
 </details>
 
+---
+
 ### Validation Datasets
 
 **Image Generation Benchmarks:**
@@ -521,6 +533,8 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 **Text-to-Video with Audio:**
 - VideoPoet (Google): Multimodal video generation
 - Make-A-Video (Meta): Text-to-video with audio
+
+---
 
 ### Objective Metrics for Audiovisual Content
 
@@ -567,6 +581,8 @@ where p(y|x) is conditional class distribution, p(y) is marginal.
 
 </div>
 </details>
+
+---
 
 ### Subjective Evaluation for Audiovisual Content
 
