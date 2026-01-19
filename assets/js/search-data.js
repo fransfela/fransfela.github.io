@@ -91,6 +91,17 @@ ninja.data = [{
             window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
           
         },
+      },{id: "post-evaluating-ai-generated-content-the-challenge-of-measuring-what-machines-create",
+        
+          title: "Evaluating AI-Generated Content: The Challenge of Measuring What Machines Create",
+        
+        description: "A systematic overview of objective and subjective methods for evaluating AI-generated audio, images, video, and multimodal content",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/evaluating-ai-generated-content-audio-visual-state-of-art/";
+          
+        },
       },{id: "post-image-and-video-quality-metrics-a-comprehensive-reference",
         
           title: "Image and Video Quality Metrics: A Comprehensive Reference",
