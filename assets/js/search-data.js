@@ -80,17 +80,6 @@ ninja.data = [{
             window.location.href = "/blog/2026/mentoring-bang-randy-scholarship-guidance/";
           
         },
-      },{id: "post-just-a-moment",
-        
-          title: 'Just a moment... <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://fransfela.substack.com/p/sound-horeg-antara-euforia-budaya", "_blank");
-          
-        },
       },{id: "post-sound-horeg-antara-euforia-budaya-populer-dan-degradasi-fungsi-pendengaran",
         
           title: 'Sound Horeg: Antara Euforia Budaya Populer dan Degradasi Fungsi Pendengaran <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
