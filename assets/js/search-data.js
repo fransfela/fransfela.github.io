@@ -113,6 +113,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/image-video-quality-metrics-reference/";
           
         },
+      },{id: "post-why-your-expensive-earbuds-spend-more-engineering-effort-on-your-zoom-calls-than-your-spotify-playlist",
+        
+          title: "Why Your Expensive Earbuds Spend More Engineering Effort on Your Zoom Calls Than...",
+        
+        description: "A decade in audio engineering taught me this: we market music, but we engineer for voice. Here&#39;s why 70% of your earbud&#39;s R&amp;D went into making sure you don&#39;t sound like a robot on calls",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/expensive-earbuds-engineering-voice-calls-music/";
+          
+        },
       },{id: "post-audio-quality-metrics-a-comprehensive-reference",
         
           title: "Audio Quality Metrics: A Comprehensive Reference",
