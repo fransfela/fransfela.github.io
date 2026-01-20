@@ -6,6 +6,7 @@ description: "The hidden reality of audio product development: why voice communi
 tags: [auditory-perception, perceptual-evaluation]
 categories: [research]
 thumbnail: assets/img/posts/music-vs-voice/voice_vs_music.webp
+giscus_comments: true
 toc:
   sidebar: left
 ---
