@@ -20,6 +20,14 @@ And after spending over a decade working as an audio engineer on consumer and en
 This isn't marketing. This isn't what we tell customers. But this is the reality of building audio products that actually survive in the real world.
 
 ---
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/music-vs-voice/voice_vs_music.webp" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Voice communication vs music: fundamentally different frequency ranges and perceptual priorities. Source: <a href="https://easyonhold.com/blog/hold-music-or-messages/">Easy On Hold</a>
+</div>
 
 ## The Consumer Perspective: We All Start With Music
 
@@ -74,6 +82,14 @@ But the real complexity isn't the codec. It's everything that happens before and
 ---
 
 ## The Microphone Side: Capturing Voice in Chaos
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/music-vs-voice/noise_by_Peter_Arkle.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    The modern workplace soundscape: competing noise sources that voice communication systems must suppress. Illustration by Peter Arkle. Source: <a href="https://ctiwe.com/our-blog/whats-your-noise">CTIWE</a>
+</div>
 
 Let's start with capturing your voice. You're on a call. Where are you?
 
@@ -110,6 +126,14 @@ Here's a scenario: you're on a call using your earbuds. The other person is talk
 **Acoustic Echo Cancellation (AEC)** is the technology that prevents this. And it is mind-bogglingly complex.
 
 ### How AEC Works (In Theory)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/music-vs-voice/aec_pipeline.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Acoustic echo cancellation pipeline: modeling and subtracting the echo path in real-time. Source: <a href="https://vocal.com/echo-cancellation/acoustic-echo-canceller/">VOCAL Technologies</a>
+</div>
 
 AEC works by maintaining an internal model of the path that sound takes from the speaker to the microphone. It takes the signal that's being played through your speaker, predicts what that signal will sound like when it reaches the microphone, and subtracts it from the actual microphone signal. What's left, ideally, is just your voice.
 
@@ -155,6 +179,14 @@ I've seen products with excellent music quality fail in the market because their
 ---
 
 ## The Platform Compatibility Nightmare
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/posts/music-vs-voice/video-conferencing-tools-2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    One product, dozens of platforms: each with different codecs, processing pipelines, and compatibility challenges. Source: <a href="https://cloudinfrastructureservices.co.uk/best-free-video-conferencing-apps-software/">Cloud Infrastructure Services</a>
+</div>
 
 Even after you've solved all the DSP challenges, there's another layer of complexity: **platform compatibility**.
 
