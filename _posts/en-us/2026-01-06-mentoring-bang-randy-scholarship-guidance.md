@@ -3,7 +3,7 @@ layout: post
 title: "MentoringBangRandy: Perjalanan dari Kuli Pabrik ke Denmark"
 date: 2026-01-06 08:00:00
 description: Bagaimana saya membantu kamu meraih beasiswa luar negeri lewat pengalaman yang benar-benar saya jalani
-tags: [career-tips, scholarship-tips]
+tags: [career-tips, scholarship-tips, external-services]
 categories: [mentoring]
 featured: true
 thumbnail: assets/img/posts/mentoring-thumbnail.jpg
