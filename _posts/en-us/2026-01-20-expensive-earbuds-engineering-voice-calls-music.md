@@ -18,7 +18,7 @@ But here's what happened next. Within a few weeks, you found yourself using thos
 
 This is the paradox of modern audio products. We buy them for music. We judge them by their voice communication performance.
 
-And after spending over a decade in the field of acoustics and audio, and now working as an engineer on consumer and enterprise products (TWS earbuds, headsets, videobars, smartphones), I've come to realize something that most people outside the industry don't know: **the engineering team spends far more time, budget, and brainpower making sure you can talk clearly on a phone call than making sure your favorite song sounds perfect.**
+And after spending over a decade in the field of acoustics and audio, and now working as an engineer on consumer and enterprise products (TWS earbuds, headsets, videobars), I've come to realize something that most people outside the industry don't know: **the engineering team spends far more time, budget, and brainpower making sure you can talk clearly on a phone call than making sure your favorite song sounds perfect.**
 
 This isn't marketing. This isn't what we tell customers. But this is the reality of building audio products that actually survive in the real world.
 
