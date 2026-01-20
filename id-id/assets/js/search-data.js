@@ -73,7 +73,7 @@ ninja.data = [{
         
           title: "MentoringBangRandy: Perjalanan dari Kuli Pabrik ke Denmark",
         
-        description: "Bagaimana saya membantu kamu meraih beasiswa luar negeri berdasarkan pengalaman nyata",
+        description: "Bagaimana saya membantu kamu meraih beasiswa luar negeri lewat pengalaman yang benar-benar saya jalani",
         section: "Posts",
         handler: () => {
           
