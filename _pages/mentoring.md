@@ -37,7 +37,7 @@ Saya lahir dan besar di pinggiran Jakarta, dari keluarga sederhana. Selepas lulu
 
 <div class="service-card" style="border: 2px solid var(--global-divider-color); border-radius: 10px; padding: 2rem; text-align: center;">
   <h3 style="color: var(--global-theme-color);">💡 1-on-1 Konsultasi</h3>
-  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 299K</p>
+  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 269K</p>
   <p>Sesi strategis untuk memetakan rencana beasiswa luar negeri</p>
   <ul style="text-align: left; margin: 1rem 0;">
     <li>60 menit sesi konsultasi intensif</li>
@@ -50,7 +50,7 @@ Saya lahir dan besar di pinggiran Jakarta, dari keluarga sederhana. Selepas lulu
 
 <div class="service-card" style="border: 2px solid var(--global-divider-color); border-radius: 10px; padding: 2rem; text-align: center;">
   <h3 style="color: var(--global-theme-color);">📝 Konsultasi + Revisi</h3>
-  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 249K</p>
+  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 349K</p>
   <p>Per dokumen (CV / Motivation Letter / Research Proposal)</p>
   <ul style="text-align: left; margin: 1rem 0;">
     <li>30 menit sesi diskusi terarah</li>
@@ -64,7 +64,7 @@ Saya lahir dan besar di pinggiran Jakarta, dari keluarga sederhana. Selepas lulu
 <div class="service-card" style="border: 2px solid var(--global-theme-color); border-radius: 10px; padding: 2rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <div style="background-color: var(--global-theme-color); color: white; padding: 0.5rem; border-radius: 5px; margin: -2rem -2rem 1rem; font-weight: bold;">🔥 MOST POPULAR</div>
   <h3 style="color: var(--global-theme-color);">🌟 Paket Premium</h3>
-  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 1,199K</p>
+  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 1,649K</p>
   <p>Pendampingan menyeluruh dari awal hingga siap submit</p>
   <ul style="text-align: left; margin: 1rem 0;">
     <li><strong>5 sesi</strong> @ 60 menit</li>
@@ -77,7 +77,7 @@ Saya lahir dan besar di pinggiran Jakarta, dari keluarga sederhana. Selepas lulu
 
 <div class="service-card" style="border: 2px solid var(--global-divider-color); border-radius: 10px; padding: 2rem; text-align: center;">
   <h3 style="color: var(--global-theme-color);">📄 Paket Lengkap Dokumen</h3>
-  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 849K</p>
+  <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">IDR 999K</p>
   <p>Review komprehensif seluruh dokumen aplikasi</p>
   <ul style="text-align: left; margin: 1rem 0;">
     <li>CV + Motivation Letter + Research Proposal</li>
