@@ -1,0 +1,3057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Silsilah — Family Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════ */
+:root {
+  --ink:      #0c0a07;
+  --ink2:     #131109;
+  --ink3:     #1a1714;
+  --surface:  #211e19;
+  --edge:     #352d22;
+  --edge2:    #4a3f30;
+  --gold:     #c8a86a;
+  --gold2:    #e6c882;
+  --gold3:    #f4dfa0;
+  --parchment:#ede5d0;
+  --text:     #e5d9c3;
+  --text2:    #b5a48a;
+  --text3:    #756350;
+  --male:     #3e6080;
+  --female:   #7a3e60;
+  --danger:   #b85a3a;
+  --success:  #5a8a6a;
+  --r:        10px;
+  --shadow:   0 8px 32px rgba(0,0,0,0.6);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overflow: hidden; touch-action: none; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--ink);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* ═══════════════════════════════
+   LANDING PAGE
+═══════════════════════════════ */
+#landing {
+  position: fixed; inset: 0;
+  background: var(--ink);
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  overflow-y: auto;
+  transition: opacity 0.4s, transform 0.4s;
+}
+#landing.exit { opacity: 0; transform: scale(1.02); pointer-events: none; }
+
+.landing-ornament {
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 32px;
+}
+.landing-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 10vw, 88px);
+  font-weight: 300;
+  color: var(--gold2);
+  letter-spacing: 0.18em;
+  text-align: center;
+  line-height: 1;
+}
+.landing-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 3vw, 18px);
+  font-style: italic;
+  color: var(--text3);
+  letter-spacing: 0.25em;
+  text-align: center;
+  margin-top: 8px;
+}
+.landing-desc {
+  max-width: 520px;
+  text-align: center;
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: var(--text2);
+  line-height: 1.7;
+  margin: 32px auto 40px;
+}
+
+.landing-features {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+.feat-chip {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--edge2);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--text2);
+  background: var(--surface);
+}
+.feat-chip svg { flex-shrink: 0; }
+
+.landing-actions {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}
+
+.btn-landing-primary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 14px 40px;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-landing-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+.btn-landing-secondary {
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--text2);
+  border: 1px solid var(--edge2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-landing-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.landing-badges {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  margin-top: 48px;
+}
+.badge {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.badge-tech { background: #1a2a3a; color: #5a9abf; border: 1px solid #2a4a6a; }
+.badge-status { background: #1a2a1a; color: #5abf7a; border: 1px solid #2a4a2a; }
+
+.landing-credit {
+  margin-top: 40px;
+  font-size: 12px;
+  color: var(--text3);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.landing-credit a { color: var(--gold); text-decoration: none; }
+
+/* ═══════════════════════════════
+   COLLAB ROOM SETUP
+═══════════════════════════════ */
+#room-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 8000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+}
+#room-modal.open { display: flex; }
+.room-box {
+  background: var(--ink2);
+  border: 1px solid var(--edge2);
+  border-radius: 14px;
+  padding: 32px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+}
+.room-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--gold2);
+  margin-bottom: 6px;
+}
+.room-box p { font-size: 14px; color: var(--text3); margin-bottom: 24px; line-height: 1.5; }
+.room-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 16px 0;
+  font-size: 12px; color: var(--text3); letter-spacing: 0.1em;
+}
+.room-divider::before, .room-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--edge);
+}
+
+/* ═══════════════════════════════
+   TOPBAR
+═══════════════════════════════ */
+#topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 52px;
+  background: var(--ink2);
+  border-bottom: 1px solid var(--edge);
+  flex-shrink: 0;
+  z-index: 100;
+  overflow-x: auto;
+  overflow-y: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+#topbar.visible { opacity: 1; pointer-events: all; }
+#topbar::-webkit-scrollbar { display: none; }
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold2);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.tb-sep { width: 1px; height: 20px; background: var(--edge); flex-shrink: 0; margin: 0 2px; }
+
+.tb-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  padding: 6px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--edge);
+  background: var(--surface);
+  color: var(--text2);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  -webkit-appearance: none;
+}
+.tb-btn:hover { border-color: var(--gold); color: var(--gold2); background: var(--edge); }
+.tb-btn.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 600; }
+.tb-btn.primary:hover { background: var(--gold2); }
+.tb-btn.active { border-color: var(--gold); color: var(--gold2); }
+
+.tb-search {
+  font-family: 'Crimson Pro', serif;
+  font-size: 14px;
+  padding: 5px 10px 5px 32px;
+  border-radius: 6px;
+  border: 1px solid var(--edge);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  width: 160px;
+  flex-shrink: 0;
+  transition: border-color 0.2s, width 0.3s;
+}
+.tb-search:focus { border-color: var(--gold); width: 200px; }
+.tb-search::placeholder { color: var(--text3); }
+.search-wrap { position: relative; flex-shrink: 0; }
+.search-wrap svg { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+
+.zoom-label {
+  font-size: 11px;
+  color: var(--text3);
+  min-width: 38px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.collab-indicator {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px;
+  color: var(--text3);
+  flex-shrink: 0;
+}
+.collab-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--text3);
+  transition: background 0.3s;
+}
+.collab-dot.live { background: var(--success); box-shadow: 0 0 6px var(--success); }
+
+.node-count {
+  font-size: 11px; color: var(--text3);
+  white-space: nowrap; flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════
+   CANVAS
+═══════════════════════════════ */
+#canvas-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  touch-action: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+#canvas-wrap.visible { opacity: 1; pointer-events: all; }
+#canvas-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(53,45,34,0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53,45,34,0.25) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+/* vignette */
+#canvas-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(12,10,7,0.5) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#canvas {
+  position: absolute; top: 0; left: 0;
+  transform-origin: 0 0;
+  cursor: grab;
+  z-index: 2;
+}
+#canvas.grabbing { cursor: grabbing; }
+
+svg#tree-svg { overflow: visible; }
+
+/* ═══════════════════════════════
+   NODE CARDS
+═══════════════════════════════ */
+.node-card {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: filter 0.2s;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.node-card.hovered { filter: brightness(1.12); z-index: 10; }
+.node-card.focused-node { z-index: 20; }
+.node-card.dimmed { opacity: 0.28; }
+
+.card-inner {
+  width: 148px;
+  background: var(--ink3);
+  border-radius: var(--r);
+  border: 1px solid var(--edge);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.55);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.node-card.hovered .card-inner,
+.node-card.focused-node .card-inner {
+  border-color: var(--gold);
+  box-shadow: 0 6px 28px rgba(200,168,106,0.22);
+}
+
+.card-stripe {
+  height: 5px;
+  background: linear-gradient(90deg, var(--male), #5a8ab0);
+}
+.card-stripe.f { background: linear-gradient(90deg, var(--female), #b05a8a); }
+
+.card-av {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  margin: 11px auto 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 700;
+  border: 2px solid var(--edge2);
+  overflow: hidden;
+  background: var(--surface);
+  color: #a0c0e0;
+}
+.card-av.f-av { color: #e0a0c0; background: linear-gradient(135deg, #4a1e38, #6e2e52); }
+.card-av.m-av { background: linear-gradient(135deg, #1e304a, #2e5070); }
+.card-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-weight: 600;
+  text-align: center;
+  color: var(--parchment);
+  padding: 0 8px 1px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+.card-nick {
+  font-size: 11px; font-style: italic;
+  text-align: center; color: var(--gold);
+  padding-bottom: 2px;
+}
+.card-dates {
+  font-size: 10px; text-align: center;
+  color: var(--text3); padding: 0 6px 2px;
+  letter-spacing: 0.03em;
+}
+.card-role {
+  font-size: 10px; text-align: center;
+  color: var(--text3); padding: 0 6px 5px;
+  font-style: italic;
+}
+
+.card-btns {
+  display: flex;
+  border-top: 1px solid var(--edge);
+}
+.card-btn {
+  flex: 1; padding: 6px 3px;
+  background: var(--surface); border: none;
+  color: var(--text3); cursor: pointer;
+  transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-btn + .card-btn { border-left: 1px solid var(--edge); }
+.card-btn:hover { background: var(--edge); color: var(--gold2); }
+.card-btn.card-btn-active { background: rgba(200,168,106,0.15); color: var(--gold2); }
+.card-btn svg { pointer-events: none; }
+
+/* marriage ring */
+.marry-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--ink3);
+  display: flex; align-items: center; justify-content: center;
+  cursor: default;
+  box-shadow: 0 2px 10px rgba(200,168,106,0.4);
+  z-index: 4;
+  transition: transform 0.15s;
+}
+.marry-node:hover { transform: translate(-50%,-50%) scale(1.15); }
+.marry-node { transition: transform 0.15s, opacity 0.2s; }
+.marry-dim { opacity: 0.15 !important; background: var(--text3) !important; box-shadow: none !important; }
+
+/* ═══════════════════════════════
+   SVG LINES
+═══════════════════════════════ */
+.lk-couple { stroke: var(--gold); stroke-width: 2; fill: none; opacity: 0.65; stroke-dasharray: 6 3; }
+.lk-divorced { stroke: var(--danger) !important; stroke-dasharray: 3 5 !important; opacity: 0.5 !important; }
+.lk-child  { stroke: var(--text3); stroke-width: 1.5; fill: none; opacity: 0.45; }
+.lk-step   { stroke: #5a7a9e !important; stroke-dasharray: 4 4 !important; opacity: 0.55 !important; }
+.lk-child.hl { stroke: var(--gold); opacity: 0.85; stroke-width: 2; }
+.lk-dim    { opacity: 0.1 !important; }
+
+/* ═══════════════════════════════
+   SIDE PANEL
+═══════════════════════════════ */
+#panel {
+  position: fixed;
+  top: 52px; right: 0; bottom: 0;
+  width: min(360px, 100vw);
+  background: var(--ink2);
+  border-left: 1px solid var(--edge);
+  z-index: 200;
+  display: flex; flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.32,0,0.16,1);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.4);
+}
+#panel.open { transform: translateX(0); }
+
+.panel-head {
+  padding: 16px 18px 13px;
+  border-bottom: 1px solid var(--edge);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; color: var(--gold2); font-weight: 600;
+}
+.panel-close {
+  background: none; border: none;
+  color: var(--text3); cursor: pointer;
+  padding: 4px; border-radius: 4px;
+  transition: color 0.15s;
+}
+.panel-close:hover { color: var(--danger); }
+
+.panel-body {
+  flex: 1; overflow-y: auto; padding: 16px 18px;
+}
+.panel-body::-webkit-scrollbar { width: 3px; }
+.panel-body::-webkit-scrollbar-thumb { background: var(--edge2); border-radius: 2px; }
+
+.panel-foot {
+  padding: 13px 18px;
+  border-top: 1px solid var(--edge);
+  display: flex; gap: 8px;
+  flex-shrink: 0;
+}
+
+/* form fields */
+.fg { margin-bottom: 13px; }
+.fl {
+  display: block;
+  font-size: 10.5px; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.09em;
+  margin-bottom: 4px;
+}
+.fi {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  width: 100%; padding: 7px 10px;
+  background: var(--surface);
+  border: 1px solid var(--edge2);
+  border-radius: 6px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.fi:focus { border-color: var(--gold); }
+.fi::placeholder { color: var(--text3); font-style: italic; }
+textarea.fi { resize: vertical; min-height: 68px; font-size: 13px; }
+select.fi {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23756350' d='M5 6 0 0h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 26px;
+}
+
+.radio-row { display: flex; gap: 16px; }
+.rl {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; color: var(--text2); cursor: pointer;
+}
+.rl input { accent-color: var(--gold); }
+
+.av-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px;
+}
+.av-preview {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--edge2);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--text3);
+  overflow: hidden;
+}
+.av-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* buttons */
+.btn {
+  font-family: 'Crimson Pro', serif;
+  font-size: 14px; padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--edge2);
+  background: var(--surface);
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  -webkit-appearance: none;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold2); background: var(--edge); }
+.btn.prim { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 600; flex: 1; }
+.btn.prim:hover { background: var(--gold2); }
+.btn.dang { border-color: var(--danger); color: var(--danger); }
+.btn.dang:hover { background: rgba(184,90,58,0.12); }
+
+/* ═══════════════════════════════
+   CONNECT MODAL
+═══════════════════════════════ */
+#conn-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 300;
+  display: none;
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+#conn-modal.open { display: flex; }
+.cm-box {
+  background: var(--ink2);
+  border: 1px solid var(--edge2);
+  border-radius: 14px;
+  padding: 26px;
+  width: 100%; max-width: 380px;
+  box-shadow: var(--shadow);
+}
+.cm-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--gold2); margin-bottom: 18px;
+}
+.cm-foot { display: flex; gap: 8px; margin-top: 18px; justify-content: flex-end; }
+
+/* ═══════════════════════════════
+   MINIMAP
+═══════════════════════════════ */
+#minimap {
+  position: fixed;
+  bottom: 16px; left: 16px;
+  width: 160px; height: 96px;
+  background: rgba(19,17,9,0.88);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+#mm-cv { width: 100%; height: 100%; }
+
+/* ═══════════════════════════════
+   FOCUS BADGE
+═══════════════════════════════ */
+#focus-badge {
+  position: fixed;
+  top: 62px; left: 16px;
+  display: none;
+  align-items: center; gap: 7px;
+  background: rgba(200,168,106,0.12);
+  border: 1px solid var(--gold);
+  color: var(--gold2);
+  font-size: 12px; letter-spacing: 0.04em;
+  padding: 5px 12px; border-radius: 20px;
+  z-index: 50;
+}
+#focus-badge.on { display: flex; }
+#focus-badge button {
+  background: none; border: none;
+  color: var(--gold); cursor: pointer; font-size: 14px;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════
+   TOAST
+═══════════════════════════════ */
+#toast {
+  position: fixed; bottom: 130px; left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--surface);
+  border: 1px solid var(--gold);
+  color: var(--gold2);
+  font-size: 13px; padding: 8px 20px;
+  border-radius: 20px;
+  opacity: 0; pointer-events: none;
+  transition: all 0.25s;
+  z-index: 1000;
+  white-space: nowrap;
+  max-width: calc(100vw - 32px);
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ═══════════════════════════════
+   LOADING
+═══════════════════════════════ */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--ink);
+  z-index: 9999;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  transition: opacity 0.5s;
+}
+#loader.gone { opacity: 0; pointer-events: none; }
+.ld-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px; font-weight: 300;
+  color: var(--gold2); letter-spacing: 0.2em;
+}
+.ld-sub {
+  font-size: 13px; color: var(--text3);
+  letter-spacing: 0.22em; font-style: italic;
+  margin: 6px 0 28px;
+}
+.ld-bar {
+  width: 180px; height: 1px;
+  background: var(--edge); overflow: hidden;
+}
+.ld-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold3));
+  animation: ldAnim 1.1s ease forwards;
+}
+@keyframes ldAnim { from { width:0 } to { width:100% } }
+
+/* ═══════════════════════════════
+   FLUID FONT SCALE
+   Uses clamp() so everything scales
+   smoothly from 320px → 1920px
+═══════════════════════════════ */
+:root {
+  --fs-xs:  clamp(9px,  1.1vw, 11px);
+  --fs-sm:  clamp(11px, 1.4vw, 13px);
+  --fs-md:  clamp(13px, 1.6vw, 15px);
+  --fs-lg:  clamp(15px, 2vw,   18px);
+  --fs-xl:  clamp(18px, 2.5vw, 22px);
+  --fs-2xl: clamp(22px, 3.5vw, 32px);
+}
+
+/* Apply fluid sizes */
+body                { font-size: var(--fs-md); }
+.tb-btn             { font-size: var(--fs-sm); }
+.brand              { font-size: clamp(16px, 2vw, 20px); }
+.card-name          { font-size: clamp(11px, 1.3vw, 13.5px); }
+.card-nick          { font-size: clamp(9px, 1.1vw, 11px); }
+.card-dates         { font-size: clamp(9px, 1vw, 10.5px); }
+.card-role          { font-size: clamp(9px, 1vw, 10.5px); }
+.zoom-label         { font-size: var(--fs-xs); }
+.node-count         { font-size: var(--fs-xs); }
+.collab-indicator   { font-size: var(--fs-xs); }
+.panel-title        { font-size: var(--fs-xl); }
+.fl                 { font-size: var(--fs-xs); }
+.fi                 { font-size: var(--fs-md); }
+.btn                { font-size: var(--fs-md); }
+.landing-desc       { font-size: clamp(13px, 2vw, 16px); }
+.feat-chip          { font-size: clamp(11px, 1.3vw, 13px); }
+
+/* ─── TABLET (≤900px) ─── */
+@media (max-width: 900px) {
+  /* Hide text labels, keep icons only for some buttons */
+  .tb-btn .tb-label { display: none; }
+  .tb-search { width: 110px; }
+  .tb-search:focus { width: 150px; }
+  #minimap { width: 130px; height: 78px; }
+  .landing-features { gap: 10px; }
+}
+
+/* ─── MOBILE (≤600px) ─── */
+@media (max-width: 600px) {
+  .brand-full { display: none; }
+
+  /* Topbar becomes icon-only strip */
+  #topbar { height: 48px; gap: 5px; padding: 0 8px; }
+  .tb-btn { padding: 5px 8px; gap: 3px; }
+  .tb-sep { margin: 0 1px; }
+
+  /* Search bar compact */
+  .tb-search { width: 90px; font-size: 13px; }
+  .tb-search:focus { width: 120px; }
+
+  /* Panel full-width on mobile */
+  #panel { width: 100vw; top: 48px; }
+
+  /* Minimap smaller, bottom-right to avoid FAB */
+  #minimap { width: 110px; height: 66px; bottom: 12px; left: 12px; }
+
+  /* Focus badge below topbar */
+  #focus-badge { top: 56px; font-size: 11px; padding: 4px 10px; }
+
+  /* Toast higher to clear minimap */
+  #toast { bottom: 100px; font-size: 12px; }
+
+  /* Cards slightly smaller on mobile */
+  .card-inner { width: 128px; }
+  .card-av { width: 46px; height: 46px; font-size: 15px; }
+  .card-btn { padding: 5px 2px; }
+
+  /* Landing page compact */
+  #landing { padding: 24px 18px; justify-content: flex-start; padding-top: 48px; }
+  .landing-ornament { margin-bottom: 20px; }
+  .landing-features { gap: 8px; }
+  .feat-chip { padding: 5px 10px; font-size: 11px; }
+  .landing-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .btn-landing-primary, .btn-landing-secondary { text-align: center; }
+  .landing-badges { gap: 6px; }
+  .badge { font-size: 10px; }
+}
+
+/* ─── SMALL MOBILE (≤380px) ─── */
+@media (max-width: 380px) {
+  .card-inner { width: 114px; }
+  .card-av { width: 40px; height: 40px; font-size: 13px; }
+  .card-name { font-size: 10.5px; }
+}
+
+/* ═══════════════════════════════
+   CONNECT MODAL — SEARCHABLE
+═══════════════════════════════ */
+.person-search-wrap { position: relative; }
+.person-search-input {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  width: 100%; padding: 7px 10px 7px 32px;
+  background: var(--surface);
+  border: 1px solid var(--edge2);
+  border-radius: 6px 6px 0 0;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  border-bottom: none;
+}
+.person-search-input:focus { border-color: var(--gold); }
+.person-search-input::placeholder { color: var(--text3); font-style: italic; }
+.person-search-icon {
+  position: absolute; left: 9px; top: 50%; transform: translateY(-50%);
+  pointer-events: none; color: var(--text3);
+}
+.person-dropdown {
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--edge2);
+  border-top: 1px solid var(--edge);
+  border-radius: 0 0 6px 6px;
+  margin-bottom: 2px;
+}
+.person-dropdown::-webkit-scrollbar { width: 3px; }
+.person-dropdown::-webkit-scrollbar-thumb { background: var(--edge2); }
+.person-opt {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--edge);
+  transition: background 0.12s;
+  display: flex; align-items: center; gap: 8px;
+}
+.person-opt:last-child { border-bottom: none; }
+.person-opt:hover, .person-opt.selected { background: var(--edge); color: var(--gold2); }
+.person-opt .opt-av {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; flex-shrink: 0;
+  color: #a0c0e0;
+  background: linear-gradient(135deg, #1e304a, #2e5070);
+}
+.person-opt .opt-av.f { color: #e0a0c0; background: linear-gradient(135deg, #4a1e38, #6e2e52); }
+.person-opt .opt-info { min-width: 0; }
+.person-opt .opt-name { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; }
+.person-opt .opt-sub { font-size: 11px; color: var(--text3); font-style: italic; }
+.person-selected-badge {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  background: rgba(200,168,106,0.1);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-size: 13px; color: var(--gold2);
+  margin-top: 2px;
+  min-height: 36px;
+}
+.person-selected-badge .clear-sel {
+  background: none; border: none; color: var(--text3);
+  cursor: pointer; font-size: 14px; margin-left: auto; padding: 0 2px;
+}
+.person-selected-badge .clear-sel:hover { color: var(--danger); }
+
+/* relation status tags */
+.rel-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10px; padding: 2px 7px;
+  border-radius: 10px; letter-spacing: 0.04em;
+  font-weight: 600; margin-left: 4px;
+}
+.rel-tag.divorced { background: rgba(184,90,58,0.18); color: var(--danger); border: 1px solid rgba(184,90,58,0.3); }
+.rel-tag.step { background: rgba(90,122,158,0.18); color: #8ab0d0; border: 1px solid rgba(90,122,158,0.3); }
+.rel-tag.active { background: rgba(90,158,122,0.18); color: #8ad0b0; border: 1px solid rgba(90,158,122,0.3); }
+
+/* marry-node divorced */
+.marry-node.divorced-ring { background: var(--danger); box-shadow: 0 2px 8px rgba(184,90,58,0.35); }
+.marry-node.step-ring { background: #5a7a9e; box-shadow: 0 2px 8px rgba(90,122,158,0.35); }
+
+/* ═══════════════════════════════
+   CONNECTION POINTS (drag-to-link)
+═══════════════════════════════ */
+.conn-pt {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--ink3);
+  box-shadow: 0 0 6px rgba(200,168,106,0.6);
+  cursor: crosshair;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 30;
+  transform: translate(-50%,-50%) scale(0.6);
+  pointer-events: all;
+}
+.node-card:hover .conn-pt { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+.conn-pt.top    { left:50%; top:-6px; }
+.conn-pt.bottom { left:50%; bottom:-18px; transform: translate(-50%,50%) scale(0.6); }
+.conn-pt.left   { top:50%; left:-6px; }
+.conn-pt.right  { top:50%; right:-18px; transform: translate(50%,-50%) scale(0.6); }
+.node-card:hover .conn-pt.bottom { transform: translate(-50%,50%) scale(1); }
+.node-card:hover .conn-pt.right  { transform: translate(50%,-50%) scale(1); }
+.conn-pt:hover  { background: var(--gold3); transform: translate(-50%,-50%) scale(1.3) !important; }
+.conn-pt.bottom:hover { transform: translate(-50%,50%) scale(1.3) !important; }
+.conn-pt.right:hover  { transform: translate(50%,-50%) scale(1.3) !important; }
+
+/* drag wire */
+#drag-wire { position:absolute; top:0; left:0; pointer-events:none; z-index:25; overflow:visible; }
+.wire-line { stroke: var(--gold2); stroke-width:2; stroke-dasharray:5 4; fill:none; opacity:0.8; }
+
+/* drop target highlight */
+.node-card.drop-target .card-inner { border-color: var(--gold3) !important; box-shadow: 0 0 20px rgba(244,223,160,0.4) !important; }
+
+/* ═══════════════════════════════
+   EXPORT MODAL
+═══════════════════════════════ */
+#export-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 300;
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+#export-modal.open { display: flex; }
+.ex-box {
+  background: var(--ink2);
+  border: 1px solid var(--edge2);
+  border-radius: 14px;
+  padding: 26px;
+  width: 100%; max-width: 440px;
+  box-shadow: var(--shadow);
+  max-height: 90vh; overflow-y: auto;
+}
+.ex-box h2 { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--gold2); margin-bottom:18px; }
+.ex-preview {
+  width:100%; height:100px;
+  border-radius:8px; border:1px solid var(--edge2);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:14px; font-size:12px; color:var(--text3);
+  font-style:italic; transition:background 0.2s;
+}
+.size-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:4px; }
+.size-opt {
+  padding:8px 6px; text-align:center; border-radius:6px;
+  border:1px solid var(--edge2); background:var(--surface);
+  cursor:pointer; font-size:12px; color:var(--text2);
+  transition:all 0.15s;
+}
+.size-opt:hover { border-color:var(--gold); color:var(--gold2); }
+.size-opt.active { border-color:var(--gold); background:rgba(200,168,106,0.12); color:var(--gold2); font-weight:600; }
+.size-opt .size-dims { font-size:10px; color:var(--text3); margin-top:2px; }
+.bg-swatches { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+.bg-swatch {
+  width:32px; height:32px; border-radius:6px;
+  cursor:pointer; border:2px solid transparent;
+  transition:border-color 0.15s, transform 0.15s;
+}
+.bg-swatch:hover { transform:scale(1.1); }
+.bg-swatch.active { border-color:var(--gold); }
+.ex-foot { display:flex; gap:8px; margin-top:18px; justify-content:flex-end; }
+
+/* ═══════════════════════════════
+   CONNECTION POINTS
+═══════════════════════════════ */
+.conn-pt {
+  position:absolute; width:11px; height:11px; border-radius:50%;
+  background:var(--gold); border:2px solid var(--ink3);
+  box-shadow:0 0 6px rgba(200,168,106,0.7);
+  cursor:crosshair; opacity:0; transition:opacity 0.15s,transform 0.15s;
+  z-index:30; pointer-events:all;
+  transform:translate(-50%,-50%) scale(0.5);
+}
+.node-card:hover .conn-pt { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.conn-pt:hover { background:var(--gold3); transform:translate(-50%,-50%) scale(1.4)!important; }
+
+/* ═══════════════════════════════
+   WIRE CHOOSER
+═══════════════════════════════ */
+.wire-opt {
+  padding:7px 10px; border-radius:6px; cursor:pointer;
+  font-size:13px; color:var(--text2); transition:background 0.12s;
+  display:flex; align-items:center; gap:8px;
+}
+.wire-opt:hover { background:var(--edge); color:var(--gold2); }
+.wire-opt-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+/* ═══════════════════════════════
+   EXPORT MODAL
+═══════════════════════════════ */
+#export-modal {
+  position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:500;
+  display:none; align-items:center; justify-content:center;
+  backdrop-filter:blur(5px); padding:20px;
+}
+#export-modal.open { display:flex; }
+.ex-box {
+  background:var(--ink2); border:1px solid var(--edge2); border-radius:14px;
+  padding:26px; width:100%; max-width:460px; box-shadow:var(--shadow);
+  max-height:92vh; overflow-y:auto;
+}
+.ex-box h2 { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--gold2); margin-bottom:16px; }
+.size-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+.size-opt {
+  padding:8px 6px; text-align:center; border-radius:6px;
+  border:1px solid var(--edge2); background:var(--surface);
+  cursor:pointer; font-size:12px; color:var(--text2); transition:all 0.15s;
+}
+.size-opt:hover { border-color:var(--gold); color:var(--gold2); }
+.size-opt.active { border-color:var(--gold); background:rgba(200,168,106,0.1); color:var(--gold2); font-weight:600; }
+.size-dims { font-size:10px; color:var(--text3); margin-top:2px; }
+.bg-swatches { display:flex; gap:8px; flex-wrap:wrap; }
+.bg-swatch {
+  width:34px; height:34px; border-radius:6px; cursor:pointer;
+  border:2px solid var(--edge); transition:transform 0.12s,border-color 0.12s;
+}
+.bg-swatch:hover { transform:scale(1.1); }
+.bg-swatch.active { border-color:var(--gold); }
+.ex-preview {
+  width:100%; height:80px; border-radius:8px; border:1px solid var(--edge2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:var(--text3); font-style:italic;
+  margin-top:10px; overflow:hidden; position:relative;
+}
+.ex-preview canvas { max-width:100%; max-height:100%; object-fit:contain; }
+.ex-foot { display:flex; gap:8px; margin-top:16px; justify-content:flex-end; }
+
+input[type="file"] { display: none; }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-title">Silsilah</div>
+  <div class="ld-sub">warisan untuk anak cucu</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<!-- LANDING PAGE -->
+<div id="landing">
+  <div class="landing-ornament"></div>
+  <div class="landing-title">Silsilah</div>
+  <div class="landing-subtitle">family heritage, beautifully preserved</div>
+
+  <p class="landing-desc">
+    A living family tree — build your lineage across generations, collaborate in real-time with family members, and export a high-resolution heirloom you can frame and pass down.
+  </p>
+
+  <div class="landing-features">
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Unlimited Members
+    </div>
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Real-time Collaboration
+    </div>
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      Multi-generational
+    </div>
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      High-res Export
+    </div>
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Focus & Filter
+    </div>
+    <div class="feat-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Yours Forever
+    </div>
+  </div>
+
+  <div class="landing-actions">
+    <button class="btn-landing-primary" onclick="showStartChoice()">Start Your Tree</button>
+    <button class="btn-landing-secondary" onclick="startDemo()">View Sample Family</button>
+    <button class="btn-landing-secondary" onclick="startCollab()">Join / Create Room</button>
+  </div>
+
+  <!-- start choice sub-panel -->
+  <div id="start-choice" style="display:none;flex-direction:column;align-items:center;gap:12px;margin-top:4px;width:100%;max-width:360px">
+    <div style="font-size:12px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">How do you want to begin?</div>
+    <button class="btn-landing-secondary" style="width:100%" onclick="enterCanvas(false)">
+      <span style="display:block;font-size:16px;margin-bottom:2px">Blank Canvas</span>
+      <span style="font-size:12px;color:var(--text3);font-style:italic">Start from scratch</span>
+    </button>
+    <button class="btn-landing-secondary" style="width:100%;border-color:var(--gold);color:var(--gold2)" onclick="enterCanvas(true)">
+      <span style="display:block;font-size:16px;margin-bottom:2px">Start from Sample</span>
+      <span style="font-size:12px;color:var(--text3);font-style:italic">Edit the example family as your template</span>
+    </button>
+    <button style="background:none;border:none;color:var(--text3);font-size:13px;cursor:pointer;margin-top:2px;font-family:'Crimson Pro',serif" onclick="hideStartChoice()">← Back</button>
+  </div>
+
+  <div class="landing-badges">
+    <span class="badge badge-tech">Vanilla JS</span>
+    <span class="badge badge-tech">SVG Canvas</span>
+    <span class="badge badge-tech">Touch-ready</span>
+    <span class="badge badge-tech">IndexedDB</span>
+    <span class="badge badge-status">v2.0 — Open Source</span>
+  </div>
+
+  <div class="landing-credit">
+    Built by <a href="https://fransfela.com" target="_blank">Randy Frans Fela</a> &middot; A fun project on family heritage &amp; human connection
+  </div>
+</div>
+
+<!-- ROOM MODAL -->
+<div id="room-modal">
+  <div class="room-box">
+    <h2 id="rm-modal-title">Collaborative Room</h2>
+    <p id="rm-modal-desc">Create a shared room so your family can edit together in real-time. Share the Room ID with them.</p>
+    <div id="rm-current-room" style="display:none;background:var(--surface);border:1px solid var(--gold);border-radius:8px;padding:10px 14px;margin-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px">Active Room</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span id="rm-active-id" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold2);letter-spacing:0.1em"></span>
+        <button class="btn" style="padding:4px 10px;font-size:12px" onclick="copyRoomId()" title="Copy Room ID">Copy ID</button>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Your Name</label>
+      <input class="fi" id="rm-name" placeholder="Isal, Bunda, Ayah..." maxlength="30">
+    </div>
+    <button class="btn prim" style="width:100%" onclick="createRoom()">Create New Room</button>
+    <div class="room-divider">OR JOIN EXISTING</div>
+    <div class="fg">
+      <label class="fl">Room ID</label>
+      <input class="fi" id="rm-join-id" placeholder="e.g. FELA-2024" maxlength="20" style="text-transform:uppercase">
+    </div>
+    <button class="btn" style="width:100%" onclick="joinRoom()">Join Room</button>
+    <div id="rm-leave-row" style="display:none;margin-top:8px">
+      <button class="btn dang" style="width:100%" onclick="leaveRoom()">Leave Room</button>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn" style="flex:1" onclick="closeRoomModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <button class="tb-btn" id="btn-home" onclick="goHome()" title="Back to home" style="display:none;gap:4px">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Home
+  </button>
+
+  <div class="brand" onclick="goHome()" style="cursor:pointer" title="Back to home">
+    Silsilah
+    <span class="brand-full" style="font-size:11px;color:var(--text3);font-weight:300;font-family:'Crimson Pro',serif;letter-spacing:0.15em;font-style:italic"> — family tree</span>
+  </div>
+
+  <div class="tb-sep"></div>
+
+  <button class="tb-btn primary" onclick="openAddPanel(null)" title="Add person">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    <span class="tb-label">Add</span>
+  </button>
+
+  <button class="tb-btn" onclick="openConnModal()" title="Connect people">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    <span class="tb-label">Link</span>
+  </button>
+
+  <div class="tb-sep"></div>
+
+  <div class="search-wrap">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" class="tb-search" id="searchbox" placeholder="Search..." oninput="searchNodes(this.value)">
+  </div>
+
+  <div class="tb-sep"></div>
+
+  <button class="tb-btn" onclick="zoomOut()" title="Zoom out">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
+  <span class="zoom-label" id="zoom-lbl">100%</span>
+  <button class="tb-btn" onclick="zoomIn()" title="Zoom in">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
+  <button class="tb-btn" onclick="fitView()" title="Fit all">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+  </button>
+
+  <div class="tb-sep"></div>
+
+  <button class="tb-btn" onclick="doFocus()" title="Focus mode">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+    <span class="tb-label">Focus</span>
+  </button>
+
+  <button class="tb-btn" onclick="autoLayout()" title="Auto-arrange layout">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="4" rx="1"/><rect x="14" y="3" width="7" height="4" rx="1"/><rect x="7" y="10" width="10" height="4" rx="1"/><rect x="3" y="17" width="7" height="4" rx="1"/><rect x="14" y="17" width="7" height="4" rx="1"/><line x1="7" y1="5" x2="3" y2="5"/><line x1="12" y1="5" x2="14" y2="5"/><line x1="12" y1="7" x2="12" y2="10"/><line x1="8.5" y1="14" x2="6.5" y2="17"/><line x1="15.5" y1="14" x2="17.5" y2="17"/></svg>
+    <span class="tb-label">Arrange</span>
+  </button>
+
+  <button class="tb-btn" onclick="openExportModal()" title="Export PNG">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span class="tb-label">Export</span>
+  </button>
+
+  <button class="tb-btn" onclick="saveData()" title="Save JSON">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+    <span class="tb-label">Save</span>
+  </button>
+
+  <button class="tb-btn" onclick="triggerLoad()" title="Load JSON">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+    <span class="tb-label">Load</span>
+  </button>
+  <input type="file" id="file-in" accept=".json" onchange="loadFile(event)">
+
+  <div class="tb-sep"></div>
+
+  <div class="collab-indicator" id="collab-ind" onclick="openCollabFromCanvas()" title="Click to manage collaboration room" style="cursor:pointer">
+    <div class="collab-dot" id="collab-dot"></div>
+    <span id="collab-lbl">Offline</span>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;opacity:0.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  </div>
+
+  <span class="node-count" id="node-count">0 people</span>
+</div>
+
+<!-- CANVAS -->
+<div id="canvas-wrap"
+  onmousedown="wrapMD(event)"
+  onmousemove="wrapMM(event)"
+  onmouseup="wrapMU(event)"
+  onwheel="wrapWheel(event)"
+  ondblclick="wrapDbl(event)"
+  ontouchstart="wrapTS(event)"
+  ontouchmove="wrapTM(event)"
+  ontouchend="wrapTE(event)">
+  <div id="canvas">
+    <svg id="tree-svg" width="5000" height="5000"></svg>
+  </div>
+  <!-- wire drag overlay -->
+  <svg id="wire-svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:25;overflow:visible">
+    <path id="wire-path" d="" stroke="var(--gold2)" stroke-width="2" stroke-dasharray="5 4" fill="none" opacity="0.85" style="display:none"/>
+  </svg>
+  <!-- wire type chooser -->
+  <div id="wire-chooser" style="display:none;position:fixed;z-index:400;background:var(--ink2);border:1px solid var(--edge2);border-radius:10px;padding:10px 14px;box-shadow:var(--shadow);min-width:180px">
+    <div style="font-size:11px;color:var(--text3);letter-spacing:0.08em;margin-bottom:8px">LINK TYPE</div>
+    <div id="wire-opts"></div>
+  </div>
+</div>
+
+<!-- FOCUS BADGE -->
+<div id="focus-badge">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+  <span id="focus-name">Focus</span>
+  <button onclick="clearFocus()">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
+<!-- MINIMAP -->
+<div id="minimap"><canvas id="mm-cv"></canvas></div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- PANEL -->
+<div id="panel">
+  <div class="panel-head">
+    <div class="panel-title" id="panel-title">Add Person</div>
+    <button class="panel-close" onclick="closePanel()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="panel-body">
+    <div class="av-row">
+      <div class="av-preview" id="av-preview">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <div class="fl" style="margin-bottom:6px">Photo</div>
+        <button class="btn" onclick="document.getElementById('photo-in').click()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Upload
+        </button>
+        <input type="file" id="photo-in" accept="image/*" onchange="handlePhoto(event)">
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Full Name *</label>
+      <input class="fi" id="f-name" placeholder="Muhammad Faisal bin Ahmad">
+    </div>
+    <div class="fg">
+      <label class="fl">Nickname / Panggilan</label>
+      <input class="fi" id="f-nick" placeholder="Isal, Bunda, Abi, Nenek...">
+    </div>
+    <div class="fg">
+      <label class="fl">Gender</label>
+      <div class="radio-row">
+        <label class="rl"><input type="radio" name="g" value="male" id="g-m" checked> Laki-laki</label>
+        <label class="rl"><input type="radio" name="g" value="female" id="g-f"> Perempuan</label>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Birth Date</label>
+      <input class="fi" id="f-birth" placeholder="15 Maret 1952">
+    </div>
+    <div class="fg">
+      <label class="fl">Death Date (leave blank if alive)</label>
+      <input class="fi" id="f-death" placeholder="wafat...">
+    </div>
+    <div class="fg">
+      <label class="fl">Birthplace</label>
+      <input class="fi" id="f-place" placeholder="Makassar, Sulawesi Selatan">
+    </div>
+    <div class="fg">
+      <label class="fl">Occupation / Title</label>
+      <input class="fi" id="f-job" placeholder="Dokter, Guru, Insinyur...">
+    </div>
+    <div class="fg">
+      <label class="fl">Notes / Story</label>
+      <textarea class="fi" id="f-notes" placeholder="Cerita singkat, kenangan, atau kutipan..."></textarea>
+    </div>
+    <div class="fg">
+      <label class="fl">Child of...</label>
+      <select class="fi" id="f-parent">
+        <option value="">— Root (no parent) —</option>
+      </select>
+    </div>
+  </div>
+  <div class="panel-foot">
+    <button class="btn prim" onclick="savePerson()">Save</button>
+    <button class="btn dang" id="btn-del" style="display:none" onclick="deletePerson()">Delete</button>
+    <button class="btn" onclick="closePanel()">Cancel</button>
+  </div>
+</div>
+
+<!-- CONNECT MODAL -->
+<div id="conn-modal">
+  <div class="cm-box">
+    <h2>Link Members</h2>
+    <div class="fg">
+      <label class="fl">Relationship Type</label>
+      <select class="fi" id="m-type" onchange="updModalMode()">
+        <option value="spouse">Spouse / Pasangan (active)</option>
+        <option value="spouse-divorced">Mantan Pasangan (divorced)</option>
+        <option value="parent-child">Parent → Child</option>
+        <option value="step-parent">Step-Parent → Child</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="fl" id="m-lbl1">Person A</label>
+      <div class="person-search-wrap" id="search-wrap-1">
+        <svg class="person-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input class="person-search-input" id="m-search1" placeholder="Search by name..." oninput="filterPersonOpts(1,this.value)" onfocus="showDropdown(1)" autocomplete="off">
+        <div class="person-dropdown" id="m-drop1"></div>
+        <div class="person-selected-badge" id="m-sel1" style="display:none">
+          <span id="m-sel1-text"></span>
+          <button class="clear-sel" onclick="clearSel(1)">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl" id="m-lbl2">Person B</label>
+      <div class="person-search-wrap" id="search-wrap-2">
+        <svg class="person-search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input class="person-search-input" id="m-search2" placeholder="Search by name..." oninput="filterPersonOpts(2,this.value)" onfocus="showDropdown(2)" autocomplete="off">
+        <div class="person-dropdown" id="m-drop2"></div>
+        <div class="person-selected-badge" id="m-sel2" style="display:none">
+          <span id="m-sel2-text"></span>
+          <button class="clear-sel" onclick="clearSel(2)">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="cm-foot">
+      <button class="btn" onclick="closeConnModal()">Cancel</button>
+      <button class="btn prim" onclick="connectPpl()">Link</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div id="export-modal">
+  <div class="ex-box">
+    <h2>Export Family Tree</h2>
+    <div class="fg">
+      <label class="fl">Paper / Size</label>
+      <div class="size-grid">
+        <div class="size-opt active" data-size="fit" onclick="setExSize(this,'fit')">
+          Fit Content<div class="size-dims">auto</div>
+        </div>
+        <div class="size-opt" data-size="a4p" onclick="setExSize(this,'a4p')">
+          A4 Portrait<div class="size-dims">210×297mm</div>
+        </div>
+        <div class="size-opt" data-size="a4l" onclick="setExSize(this,'a4l')">
+          A4 Landscape<div class="size-dims">297×210mm</div>
+        </div>
+        <div class="size-opt" data-size="a3p" onclick="setExSize(this,'a3p')">
+          A3 Portrait<div class="size-dims">297×420mm</div>
+        </div>
+        <div class="size-opt" data-size="a3l" onclick="setExSize(this,'a3l')">
+          A3 Landscape<div class="size-dims">420×297mm</div>
+        </div>
+        <div class="size-opt" data-size="letter" onclick="setExSize(this,'letter')">
+          US Letter<div class="size-dims">8.5×11in</div>
+        </div>
+        <div class="size-opt" data-size="sq" onclick="setExSize(this,'sq')">
+          Square<div class="size-dims">1:1</div>
+        </div>
+        <div class="size-opt" data-size="wide" onclick="setExSize(this,'wide')">
+          Widescreen<div class="size-dims">16:9</div>
+        </div>
+        <div class="size-opt" data-size="4k" onclick="setExSize(this,'4k')">
+          4K UHD<div class="size-dims">3840×2160</div>
+        </div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Background</label>
+      <div class="bg-swatches">
+        <div class="bg-swatch active" data-bg="#0c0a07" style="background:#0c0a07;border:1px solid #4a3f30" onclick="setExBg(this,'#0c0a07')" title="Dark (default)"></div>
+        <div class="bg-swatch" data-bg="#1a1714" style="background:#1a1714" onclick="setExBg(this,'#1a1714')" title="Ink"></div>
+        <div class="bg-swatch" data-bg="#2a2520" style="background:#2a2520" onclick="setExBg(this,'#2a2520')" title="Warm dark"></div>
+        <div class="bg-swatch" data-bg="#f5f0e8" style="background:#f5f0e8" onclick="setExBg(this,'#f5f0e8')" title="Parchment"></div>
+        <div class="bg-swatch" data-bg="#ffffff" style="background:#ffffff;border:1px solid #ccc" onclick="setExBg(this,'#ffffff')" title="White"></div>
+        <div class="bg-swatch" data-bg="transparent" style="background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0/12px 12px" onclick="setExBg(this,'transparent')" title="Transparent PNG"></div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Resolution</label>
+      <select class="fi" id="ex-dpi">
+        <option value="2">2× (Standard, ~150dpi)</option>
+        <option value="3" selected>3× (High, ~225dpi)</option>
+        <option value="4">4× (Print, ~300dpi)</option>
+      </select>
+    </div>
+    <div id="ex-preview" class="ex-preview">Preview will show here</div>
+    <div class="ex-foot">
+      <button class="btn" onclick="closeExportModal()">Cancel</button>
+      <button class="btn prim" onclick="doExport()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PNG
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+let P = {}, R = [], NP = {};
+let nextId = 1;
+let focusId = null;
+let editId = null;
+let curPhoto = null;
+let pendingParent = null;
+let pendingPos = null;
+
+// Collab
+let roomId = null;
+let userName = 'Anonymous';
+let syncInterval = null;
+let lastSyncHash = '';
+
+function uid() { return 'p' + (nextId++); }
+function rid() { return 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2,5); }
+
+// ════════════════════════════════════════════
+// PAN / ZOOM
+// ════════════════════════════════════════════
+let scale = 1, panX = 0, panY = 0;
+let panning = false, pStart = {x:0,y:0}, pOrig = {x:0,y:0};
+let pinching = false, pinchDist0 = 0, pinchScale0 = 1, pinchPanX0 = 0, pinchPanY0 = 0, pinchMid0 = {x:0,y:0};
+const MIN_S = 0.12, MAX_S = 3;
+
+function applyT() {
+  document.getElementById('canvas').style.transform = `translate(${panX}px,${panY}px) scale(${scale})`;
+  document.getElementById('zoom-lbl').textContent = Math.round(scale*100)+'%';
+  drawMM();
+}
+
+function wrapMD(e) {
+  if (e.target.closest('.node-card,.marry-node,#panel,.card-btn,.btn,button')) return;
+  panning = true; pStart = {x:e.clientX,y:e.clientY}; pOrig = {x:panX,y:panY};
+  document.getElementById('canvas').classList.add('grabbing');
+}
+function wrapMM(e) {
+  if (!panning) return;
+  panX = pOrig.x + e.clientX - pStart.x;
+  panY = pOrig.y + e.clientY - pStart.y;
+  applyT();
+}
+function wrapMU() { panning=false; document.getElementById('canvas').classList.remove('grabbing'); }
+function wrapWheel(e) {
+  e.preventDefault();
+  const r = document.getElementById('canvas-wrap').getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  const d = e.deltaY > 0 ? 0.9 : 1.1;
+  const ns = Math.max(MIN_S, Math.min(MAX_S, scale*d));
+  panX = mx - (mx-panX)*ns/scale;
+  panY = my - (my-panY)*ns/scale;
+  scale = ns; applyT();
+}
+function wrapDbl(e) {
+  if (e.target.closest('.node-card,#panel')) return;
+  const r = document.getElementById('canvas-wrap').getBoundingClientRect();
+  openAddPanel(null, (e.clientX-r.left-panX)/scale, (e.clientY-r.top-panY)/scale);
+}
+
+// Touch
+function dist2(t) { return Math.hypot(t[0].clientX-t[1].clientX, t[0].clientY-t[1].clientY); }
+function midpoint(t) { return {x:(t[0].clientX+t[1].clientX)/2, y:(t[0].clientY+t[1].clientY)/2}; }
+
+function wrapTS(e) {
+  e.preventDefault();
+  if (e.touches.length === 2) {
+    pinching = true; panning = false;
+    pinchDist0 = dist2(e.touches);
+    pinchScale0 = scale;
+    pinchPanX0 = panX; pinchPanY0 = panY;
+    const r = document.getElementById('canvas-wrap').getBoundingClientRect();
+    const m = midpoint(e.touches);
+    pinchMid0 = {x: m.x - r.left, y: m.y - r.top};
+  } else if (e.touches.length === 1) {
+    if (e.target.closest('.node-card,.marry-node,#panel,.card-btn,.btn,button')) return;
+    pinching = false;
+    panning = true;
+    pStart = {x:e.touches[0].clientX, y:e.touches[0].clientY};
+    pOrig = {x:panX, y:panY};
+  }
+}
+function wrapTM(e) {
+  e.preventDefault();
+  if (pinching && e.touches.length === 2) {
+    const d = dist2(e.touches);
+    const ns = Math.max(MIN_S, Math.min(MAX_S, pinchScale0 * d / pinchDist0));
+    const r = document.getElementById('canvas-wrap').getBoundingClientRect();
+    const m = midpoint(e.touches);
+    const mx = m.x - r.left, my = m.y - r.top;
+    panX = mx - (pinchMid0.x - pinchPanX0) * ns / pinchScale0 - (mx - pinchMid0.x);
+    panY = my - (pinchMid0.y - pinchPanY0) * ns / pinchScale0 - (my - pinchMid0.y);
+    scale = ns; applyT();
+  } else if (panning && e.touches.length === 1) {
+    panX = pOrig.x + e.touches[0].clientX - pStart.x;
+    panY = pOrig.y + e.touches[0].clientY - pStart.y;
+    applyT();
+  }
+}
+function wrapTE(e) { if (!e.touches.length) { panning=false; pinching=false; } }
+
+function zoomIn() { const c=centerWrap(); zoomAt(c.x,c.y,1.2); }
+function zoomOut() { const c=centerWrap(); zoomAt(c.x,c.y,0.833); }
+function zoomAt(mx,my,d) {
+  const ns=Math.max(MIN_S,Math.min(MAX_S,scale*d));
+  panX=mx-(mx-panX)*ns/scale; panY=my-(my-panY)*ns/scale;
+  scale=ns; applyT();
+}
+function centerWrap() {
+  const r=document.getElementById('canvas-wrap').getBoundingClientRect();
+  return {x:r.width/2, y:r.height/2};
+}
+function fitView() {
+  const ids=Object.keys(P);
+  if (!ids.length) { scale=1; panX=200; panY=100; applyT(); return; }
+  const r=document.getElementById('canvas-wrap').getBoundingClientRect();
+  const xs=Object.values(NP).map(p=>p.x), ys=Object.values(NP).map(p=>p.y);
+  const minX=Math.min(...xs)-90, maxX=Math.max(...xs)+90;
+  const minY=Math.min(...ys)-80, maxY=Math.max(...ys)+80;
+  const w=maxX-minX||1, h=maxY-minY||1;
+  scale=Math.min(r.width/w, r.height/h, 1.6)*0.88;
+  panX=(r.width-w*scale)/2-minX*scale;
+  panY=(r.height-h*scale)/2-minY*scale;
+  applyT();
+}
+
+// ════════════════════════════════════════════
+// SVG ICONS
+// ════════════════════════════════════════════
+const ICONS = {
+  edit: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+  focus: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>`,
+  unfocus: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>`,
+  addchild: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>`,
+  copy: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+  ring: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  ringX: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><line x1="18" y1="6" x2="6" y2="18" stroke-width="2"/></svg>`,
+  step: `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+};
+
+// ════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════
+function initials(n) {
+  return n.split(' ').filter(Boolean).map(w=>w[0].toUpperCase()).slice(0,2).join('');
+}
+
+function focusSet() {
+  if (!focusId) return null;
+  const s = new Set([focusId]);
+  function up(id) { R.filter(r=>r.type==='parent-child'&&r.b===id).forEach(r=>{if(!s.has(r.a)){s.add(r.a);up(r.a);}}); }
+  function dn(id) { R.filter(r=>r.type==='parent-child'&&r.a===id).forEach(r=>{if(!s.has(r.b)){s.add(r.b);dn(r.b);}}); }
+  R.filter(r=>r.type==='spouse'&&(r.a===focusId||r.b===focusId)).forEach(r=>{s.add(r.a);s.add(r.b);});
+  up(focusId); dn(focusId);
+  return s;
+}
+
+function renderAll() {
+  document.querySelectorAll('.node-card,.marry-node').forEach(e=>e.remove());
+  const svg = document.getElementById('tree-svg');
+  svg.innerHTML = '';
+  const canvas = document.getElementById('canvas');
+  const hl = focusSet();
+
+  // defs for arrow
+  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+  const mkr = document.createElementNS('http://www.w3.org/2000/svg','marker');
+  mkr.setAttribute('id','arr'); mkr.setAttribute('markerWidth','7'); mkr.setAttribute('markerHeight','5');
+  mkr.setAttribute('refX','7'); mkr.setAttribute('refY','2.5'); mkr.setAttribute('orient','auto');
+  const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  poly.setAttribute('points','0 0, 7 2.5, 0 5'); poly.setAttribute('fill','rgba(117,99,80,0.55)');
+  mkr.appendChild(poly); defs.appendChild(mkr); svg.appendChild(defs);
+
+  // lines
+  R.forEach(rel => {
+    const a = NP[rel.a], b = NP[rel.b];
+    if (!a || !b) return;
+    if (rel.type === 'spouse' || rel.type === 'spouse-divorced') {
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+      p.setAttribute('d',`M ${a.x} ${a.y} Q ${mx} ${my-22} ${b.x} ${b.y}`);
+      const coupleHL = !hl || (hl.has(rel.a) && hl.has(rel.b));
+      const isDivorced = rel.type === 'spouse-divorced';
+      p.setAttribute('class','lk-couple' + (isDivorced?' lk-divorced':'') + (coupleHL ? '' : ' lk-dim'));
+      svg.appendChild(p);
+      const rng = document.createElement('div');
+      rng.className = 'marry-node' + (isDivorced?' divorced-ring':'') + (coupleHL ? '' : ' marry-dim');
+      rng.style.left = mx+'px'; rng.style.top = (my-18)+'px';
+      rng.innerHTML = isDivorced ? ICONS.ringX : ICONS.ring;
+      rng.title = isDivorced ? 'Mantan pasangan' : 'Pasangan';
+      canvas.appendChild(rng);
+    } else {
+      const isHL = hl ? (hl.has(rel.a) && hl.has(rel.b)) : false;
+      const isStep = rel.type === 'step-parent';
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      const cy = (a.y + b.y) / 2;
+      p.setAttribute('d',`M ${a.x} ${a.y+57} C ${a.x} ${cy} ${b.x} ${cy} ${b.x} ${b.y-57}`);
+      p.setAttribute('class','lk-child'+(isStep?' lk-step':'')+(isHL?' hl':''));
+      p.setAttribute('marker-end','url(#arr)');
+      svg.appendChild(p);
+    }
+  });
+
+  // cards
+  Object.values(P).forEach(p => {
+    const pos = NP[p.id];
+    if (!pos) return;
+    const isHL = !hl || hl.has(p.id);
+
+    const node = document.createElement('div');
+    node.className = 'node-card' + (hl ? (isHL ? ' focused-node' : ' dimmed') : '');
+    node.style.left = pos.x+'px'; node.style.top = pos.y+'px';
+    node.dataset.id = p.id;
+
+    const inner = document.createElement('div');
+    inner.className = 'card-inner';
+
+    // stripe
+    const stripe = document.createElement('div');
+    stripe.className = 'card-stripe' + (p.gender==='female' ? ' f' : '');
+    inner.appendChild(stripe);
+
+    // avatar
+    const av = document.createElement('div');
+    av.className = 'card-av ' + (p.gender==='female' ? 'f-av' : 'm-av');
+    if (p.photo) { const img=document.createElement('img'); img.src=p.photo; av.appendChild(img); }
+    else { av.textContent = initials(p.name); }
+    inner.appendChild(av);
+
+    // name
+    const nm = document.createElement('div');
+    nm.className = 'card-name'; nm.textContent = p.name; inner.appendChild(nm);
+    if (p.nick) {
+      const nk=document.createElement('div'); nk.className='card-nick';
+      nk.textContent='\u201c'+p.nick+'\u201d'; inner.appendChild(nk);
+    }
+    if (p.birth||p.death) {
+      const dt=document.createElement('div'); dt.className='card-dates';
+      dt.textContent=(p.birth||'?')+(p.death?' \u2013 '+p.death:''); inner.appendChild(dt);
+    }
+    if (p.job) {
+      const jb=document.createElement('div'); jb.className='card-role'; jb.textContent=p.job; inner.appendChild(jb);
+    }
+
+    // action buttons
+    const btns = document.createElement('div'); btns.className='card-btns';
+    const mkBtn = (icon, title, fn) => {
+      const b=document.createElement('button'); b.className='card-btn'; b.title=title;
+      b.innerHTML=icon; b.onclick=(e)=>{e.stopPropagation();fn();};
+      btns.appendChild(b);
+    };
+    mkBtn(ICONS.edit, 'Edit', ()=>openEditPanel(p.id));
+    // focus btn: toggles on/off
+    const focusBtn = document.createElement('button');
+    focusBtn.className = 'card-btn' + (focusId===p.id ? ' card-btn-active' : '');
+    focusBtn.title = focusId===p.id ? 'Clear focus' : 'Focus lineage';
+    focusBtn.innerHTML = focusId===p.id ? ICONS.unfocus : ICONS.focus;
+    focusBtn.onclick = (e) => { e.stopPropagation(); focusId===p.id ? clearFocus() : setFocus(p.id); };
+    btns.appendChild(focusBtn);
+    mkBtn(ICONS.addchild, 'Add child', ()=>openAddPanel(p.id));
+    mkBtn(ICONS.copy, 'Duplicate (inherits parent links)', ()=>duplicatePerson(p.id));
+    inner.appendChild(btns);
+    node.appendChild(inner);
+
+    // ── Feature 1: double-click to edit ──
+    node.addEventListener('dblclick', e => {
+      if (e.target.closest('.card-btn')) return;
+      e.stopPropagation();
+      openEditPanel(p.id);
+    });
+
+    // ── Feature 2: connection points ──
+    [['top','50%','0','translate(-50%,-50%)'],
+     ['bottom','50%','100%','translate(-50%,-50%)'],
+     ['left','0','50%','translate(-50%,-50%)'],
+     ['right','100%','50%','translate(-50%,-50%)']].forEach(([label, lx, ly]) => {
+      const pt = document.createElement('div');
+      pt.className = 'conn-pt';
+      pt.style.left = lx; pt.style.top = ly;
+      pt.dataset.side = label;
+      pt.title = 'Drag to connect';
+      pt.addEventListener('mousedown', e => { e.stopPropagation(); startWireDrag(p.id, e); });
+      node.appendChild(pt);
+    });
+
+    // hover
+    node.addEventListener('mouseenter', ()=>node.classList.add('hovered'));
+    node.addEventListener('mouseleave', ()=>node.classList.remove('hovered'));
+
+    // drag
+    let drag=false, dx=0, dy=0;
+    node.addEventListener('mousedown', e=>{
+      if (e.target.closest('.card-btn')) return;
+      e.stopPropagation();
+      drag=true; dx=e.clientX/scale-pos.x; dy=e.clientY/scale-pos.y;
+      node.style.zIndex=50;
+    });
+    // touch drag
+    node.addEventListener('touchstart', e=>{
+      if (e.target.closest('.card-btn')) return;
+      if (e.touches.length!==1) return;
+      e.stopPropagation();
+      drag=true; dx=e.touches[0].clientX/scale-pos.x; dy=e.touches[0].clientY/scale-pos.y;
+      node.style.zIndex=50;
+    }, {passive:false});
+
+    const mv = e=>{
+      if (!drag) return;
+      NP[p.id].x=e.clientX/scale-dx;
+      NP[p.id].y=e.clientY/scale-dy;
+      node.style.left=NP[p.id].x+'px';
+      node.style.top=NP[p.id].y+'px';
+      renderLines(); drawMM();
+    };
+    const tvmv = e=>{
+      if (!drag||e.touches.length!==1) return;
+      e.preventDefault();
+      NP[p.id].x=e.touches[0].clientX/scale-dx;
+      NP[p.id].y=e.touches[0].clientY/scale-dy;
+      node.style.left=NP[p.id].x+'px';
+      node.style.top=NP[p.id].y+'px';
+      renderLines(); drawMM();
+    };
+    const up=()=>{ drag=false; node.style.zIndex=''; };
+
+    document.addEventListener('mousemove', mv);
+    document.addEventListener('mouseup', up);
+    node.addEventListener('touchmove', tvmv, {passive:false});
+    node.addEventListener('touchend', up);
+
+    canvas.appendChild(node);
+  });
+
+  updateCount(); drawMM();
+}
+
+function renderLines() {
+  const svg=document.getElementById('tree-svg');
+  svg.querySelectorAll('path').forEach(e=>e.remove());
+  document.querySelectorAll('.marry-node').forEach(e=>e.remove());
+  const canvas=document.getElementById('canvas');
+  const hl=focusSet();
+
+  R.forEach(rel => {
+    const a=NP[rel.a], b=NP[rel.b];
+    if (!a||!b) return;
+    if (rel.type==='spouse' || rel.type==='spouse-divorced') {
+      const coupleHL = !hl || (hl.has(rel.a) && hl.has(rel.b));
+      const isDivorced = rel.type==='spouse-divorced';
+      const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+      p.setAttribute('d',`M ${a.x} ${a.y} Q ${mx} ${my-22} ${b.x} ${b.y}`);
+      p.setAttribute('class','lk-couple'+(isDivorced?' lk-divorced':'')+(coupleHL?'':' lk-dim'));
+      svg.appendChild(p);
+      const rng=document.createElement('div');
+      rng.className='marry-node'+(isDivorced?' divorced-ring':'')+(coupleHL?'':' marry-dim');
+      rng.style.left=mx+'px'; rng.style.top=(my-18)+'px';
+      rng.innerHTML=isDivorced?ICONS.ringX:ICONS.ring;
+      canvas.appendChild(rng);
+    } else {
+      const isHL=hl?(hl.has(rel.a)&&hl.has(rel.b)):false;
+      const isStep=rel.type==='step-parent';
+      const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      const cy=(a.y+b.y)/2;
+      p.setAttribute('d',`M ${a.x} ${a.y+57} C ${a.x} ${cy} ${b.x} ${cy} ${b.x} ${b.y-57}`);
+      p.setAttribute('class','lk-child'+(isStep?' lk-step':'')+(isHL?' hl':''));
+      p.setAttribute('marker-end','url(#arr)');
+      svg.appendChild(p);
+    }
+  });
+}
+
+// ════════════════════════════════════════════
+// PANEL
+// ════════════════════════════════════════════
+function openAddPanel(parentId, x, y) {
+  editId=null; pendingParent=parentId; pendingPos=(x&&y)?{x,y}:null; curPhoto=null;
+  document.getElementById('panel-title').textContent='Add Person';
+  document.getElementById('f-name').value='';
+  document.getElementById('f-nick').value='';
+  document.getElementById('f-birth').value='';
+  document.getElementById('f-death').value='';
+  document.getElementById('f-place').value='';
+  document.getElementById('f-job').value='';
+  document.getElementById('f-notes').value='';
+  document.getElementById('g-m').checked=true;
+  document.getElementById('av-preview').innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  document.getElementById('btn-del').style.display='none';
+  populateParent(null);
+  if (parentId) document.getElementById('f-parent').value=parentId;
+  document.getElementById('panel').classList.add('open');
+}
+
+function openEditPanel(id) {
+  const p=P[id]; if (!p) return;
+  editId=id; curPhoto=p.photo||null;
+  document.getElementById('panel-title').textContent='Edit Person';
+  document.getElementById('f-name').value=p.name;
+  document.getElementById('f-nick').value=p.nick||'';
+  document.getElementById('f-birth').value=p.birth||'';
+  document.getElementById('f-death').value=p.death||'';
+  document.getElementById('f-place').value=p.place||'';
+  document.getElementById('f-job').value=p.job||'';
+  document.getElementById('f-notes').value=p.notes||'';
+  document.getElementById(p.gender==='female'?'g-f':'g-m').checked=true;
+  const av=document.getElementById('av-preview');
+  av.innerHTML=p.photo?`<img src="${p.photo}">`:(initials(p.name)||'?');
+  document.getElementById('btn-del').style.display='block';
+  populateParent(id);
+  const pr=R.find(r=>r.type==='parent-child'&&r.b===id);
+  document.getElementById('f-parent').value=pr?pr.a:'';
+  document.getElementById('panel').classList.add('open');
+}
+
+function closePanel() { document.getElementById('panel').classList.remove('open'); editId=null; }
+
+function populateParent(excl) {
+  const sel=document.getElementById('f-parent');
+  sel.innerHTML='<option value="">— Root —</option>';
+  Object.values(P).forEach(p=>{
+    if (p.id===excl) return;
+    const o=document.createElement('option');
+    o.value=p.id; o.textContent=p.name+(p.nick?` "${p.nick}"`:'');
+    sel.appendChild(o);
+  });
+}
+
+function savePerson() {
+  const name=document.getElementById('f-name').value.trim();
+  if (!name) { toast('Name cannot be empty'); return; }
+  const gender=document.querySelector('input[name="g"]:checked').value;
+  const parentId=document.getElementById('f-parent').value;
+
+  if (editId) {
+    const p=P[editId];
+    p.name=name; p.nick=document.getElementById('f-nick').value.trim();
+    p.gender=gender; p.birth=document.getElementById('f-birth').value.trim();
+    p.death=document.getElementById('f-death').value.trim();
+    p.place=document.getElementById('f-place').value.trim();
+    p.job=document.getElementById('f-job').value.trim();
+    p.notes=document.getElementById('f-notes').value.trim();
+    if (curPhoto) p.photo=curPhoto;
+    R=R.filter(r=>!(r.type==='parent-child'&&r.b===editId));
+    if (parentId) R.push({id:rid(),type:'parent-child',a:parentId,b:editId});
+    toast('Updated!');
+  } else {
+    const id=uid();
+    P[id]={id, name,
+      nick:document.getElementById('f-nick').value.trim(),
+      gender,
+      birth:document.getElementById('f-birth').value.trim(),
+      death:document.getElementById('f-death').value.trim(),
+      place:document.getElementById('f-place').value.trim(),
+      job:document.getElementById('f-job').value.trim(),
+      notes:document.getElementById('f-notes').value.trim(),
+      photo:curPhoto||null};
+    if (pendingPos) { NP[id]=pendingPos; }
+    else {
+      const cnt=Object.keys(P).length;
+      if (parentId&&NP[parentId]) {
+        const sibs=R.filter(r=>r.type==='parent-child'&&r.a===parentId).length;
+        NP[id]={x:NP[parentId].x+(sibs-1)*200, y:NP[parentId].y+220};
+      } else if (pendingParent&&NP[pendingParent]) {
+        const sibs=R.filter(r=>r.type==='parent-child'&&r.a===pendingParent).length;
+        NP[id]={x:NP[pendingParent].x+(sibs)*200, y:NP[pendingParent].y+220};
+      } else {
+        NP[id]={x:220+(cnt%5)*220, y:120+Math.floor(cnt/5)*220};
+      }
+    }
+    if (parentId) R.push({id:rid(),type:'parent-child',a:parentId,b:id});
+    toast(`${name} added!`);
+  }
+  closePanel();
+  renderAll();
+  pushSync();
+}
+
+function deletePerson() {
+  if (!editId) return;
+  if (!confirm(`Delete ${P[editId].name}?`)) return;
+  delete P[editId]; delete NP[editId];
+  R=R.filter(r=>r.a!==editId&&r.b!==editId);
+  closePanel(); renderAll(); pushSync();
+  toast('Deleted');
+}
+
+function handlePhoto(e) {
+  const f=e.target.files[0]; if (!f) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    curPhoto=ev.target.result;
+    document.getElementById('av-preview').innerHTML=`<img src="${curPhoto}">`;
+  };
+  r.readAsDataURL(f);
+}
+
+// ════════════════════════════════════════════
+// CONNECT — searchable
+// ════════════════════════════════════════════
+let selPerson = {1: null, 2: null};
+
+function openConnModal() {
+  selPerson = {1: null, 2: null};
+  ['1','2'].forEach(n => {
+    document.getElementById('m-search'+n).value = '';
+    document.getElementById('m-sel'+n).style.display = 'none';
+    document.getElementById('m-search'+n).style.display = '';
+    document.getElementById('m-search'+n).closest('.person-search-wrap').querySelector('svg').style.display = '';
+  });
+  filterPersonOpts(1,''); filterPersonOpts(2,'');
+  updModalMode();
+  document.getElementById('conn-modal').classList.add('open');
+}
+function closeConnModal() {
+  document.getElementById('conn-modal').classList.remove('open');
+  document.getElementById('m-drop1').innerHTML='';
+  document.getElementById('m-drop2').innerHTML='';
+}
+
+function filterPersonOpts(n, q) {
+  const drop = document.getElementById('m-drop'+n);
+  const lower = q.toLowerCase();
+  const people = Object.values(P).filter(p =>
+    !q || p.name.toLowerCase().includes(lower) ||
+    (p.nick && p.nick.toLowerCase().includes(lower)) ||
+    (p.job && p.job.toLowerCase().includes(lower))
+  );
+  drop.innerHTML = '';
+  if (!people.length) {
+    drop.innerHTML = `<div class="person-opt" style="color:var(--text3);font-style:italic">No match</div>`;
+    return;
+  }
+  people.slice(0,20).forEach(p => {
+    const d = document.createElement('div');
+    d.className = 'person-opt' + (selPerson[n]===p.id?' selected':'');
+    d.innerHTML = `
+      <div class="opt-av ${p.gender==='female'?'f':''}">${initials(p.name)}</div>
+      <div class="opt-info">
+        <div class="opt-name">${p.name}</div>
+        <div class="opt-sub">${[p.nick?`"${p.nick}"`:'', p.birth||'', p.job||''].filter(Boolean).join(' · ')}</div>
+      </div>`;
+    d.onclick = () => selectPerson(n, p.id, p.name);
+    drop.appendChild(d);
+  });
+}
+
+function showDropdown(n) {
+  filterPersonOpts(n, document.getElementById('m-search'+n).value);
+}
+
+function selectPerson(n, id, name) {
+  selPerson[n] = id;
+  const wrap = document.getElementById('m-search'+n).closest('.person-search-wrap');
+  document.getElementById('m-search'+n).style.display = 'none';
+  wrap.querySelector('svg').style.display = 'none';
+  document.getElementById('m-drop'+n).innerHTML = '';
+  const badge = document.getElementById('m-sel'+n);
+  document.getElementById('m-sel'+n+'-text').textContent = name;
+  badge.style.display = 'flex';
+}
+
+function clearSel(n) {
+  selPerson[n] = null;
+  const wrap = document.getElementById('m-search'+n).closest('.person-search-wrap');
+  document.getElementById('m-search'+n).value = '';
+  document.getElementById('m-search'+n).style.display = '';
+  wrap.querySelector('svg').style.display = '';
+  document.getElementById('m-sel'+n).style.display = 'none';
+  filterPersonOpts(n,'');
+}
+
+// close dropdowns on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('#conn-modal')) return;
+  [1,2].forEach(n => {
+    if (!e.target.closest('#search-wrap-'+n)) {
+      document.getElementById('m-drop'+n).innerHTML = '';
+    }
+  });
+});
+
+function updModalMode() {
+  const t = document.getElementById('m-type').value;
+  const labels = {
+    'spouse':          ['Spouse A', 'Spouse B'],
+    'spouse-divorced': ['Mantan Pasangan A', 'Mantan Pasangan B'],
+    'parent-child':    ['Parent / Orang Tua', 'Child / Anak'],
+    'step-parent':     ['Step-Parent', 'Child / Anak'],
+  };
+  const [l1, l2] = labels[t] || ['Person A','Person B'];
+  document.getElementById('m-lbl1').textContent = l1;
+  document.getElementById('m-lbl2').textContent = l2;
+}
+
+function connectPpl() {
+  const type = document.getElementById('m-type').value;
+  const a = selPerson[1], b = selPerson[2];
+  if (!a || !b) { toast('Select two people first'); return; }
+  if (a === b) { toast('Pick two different people'); return; }
+  // allow multiple spouse relations (remarriage), but not exact duplicate
+  const isDup = R.find(r => r.type===type && ((r.a===a&&r.b===b)||(r.a===b&&r.b===a)));
+  if (isDup) { toast('Already linked with this relationship'); return; }
+  R.push({id:rid(), type, a, b});
+  closeConnModal(); renderAll(); pushSync();
+  const labels = {'spouse':'Linked as spouses','spouse-divorced':'Linked as former spouses','parent-child':'Parent→child linked','step-parent':'Step-parent link added'};
+  toast(labels[type]||'Linked!');
+}
+
+// ════════════════════════════════════════════
+// DUPLICATE PERSON
+// ════════════════════════════════════════════
+function duplicatePerson(sourceId) {
+  const src = P[sourceId];
+  if (!src) return;
+  const newId = uid();
+  // Copy all data, clear name to signal "edit me"
+  P[newId] = {
+    ...src,
+    id: newId,
+    name: src.name + ' (copy)',
+    nick: src.nick || '',
+    photo: src.photo || null,
+  };
+  // Position offset from source
+  NP[newId] = { x: (NP[sourceId]?.x||300)+170, y: (NP[sourceId]?.y||300) };
+  // Inherit all parent-child relations where source is the child
+  const parentRels = R.filter(r => r.type==='parent-child' && r.b===sourceId);
+  parentRels.forEach(r => R.push({id:rid(), type:'parent-child', a:r.a, b:newId}));
+  const stepRels = R.filter(r => r.type==='step-parent' && r.b===sourceId);
+  stepRels.forEach(r => R.push({id:rid(), type:'step-parent', a:r.a, b:newId}));
+  renderAll(); pushSync();
+  toast(`Duplicated "${src.name}" — edit name & links as needed`);
+  // Auto-open edit panel for the new node
+  setTimeout(() => openEditPanel(newId), 150);
+}
+
+// ════════════════════════════════════════════
+// FOCUS
+// ════════════════════════════════════════════
+function doFocus() {
+  const q=prompt('Focus on who? (type name)');
+  if (!q) return;
+  const f=Object.values(P).find(p=>p.name.toLowerCase().includes(q.toLowerCase()));
+  if (!f) { toast('Person not found'); return; }
+  setFocus(f.id);
+}
+function setFocus(id) {
+  focusId=id;
+  document.getElementById('focus-badge').classList.add('on');
+  document.getElementById('focus-name').textContent=P[id].name;
+  renderAll();
+}
+function clearFocus() {
+  focusId=null;
+  document.getElementById('focus-badge').classList.remove('on');
+  renderAll();
+}
+
+// ════════════════════════════════════════════
+// SEARCH
+// ════════════════════════════════════════════
+function searchNodes(q) {
+  document.querySelectorAll('.node-card').forEach(n=>{
+    if (!q) { n.classList.remove('focused-node','dimmed'); return; }
+    const p=P[n.dataset.id];
+    const m=p&&(p.name.toLowerCase().includes(q.toLowerCase())||(p.nick&&p.nick.toLowerCase().includes(q.toLowerCase()))||(p.job&&p.job.toLowerCase().includes(q.toLowerCase())));
+    n.classList.toggle('focused-node',!!m);
+    n.classList.toggle('dimmed',!m);
+  });
+}
+
+// ════════════════════════════════════════════
+// SAVE / LOAD
+// ════════════════════════════════════════════
+function saveData() {
+  const data=JSON.stringify({P,R,NP,nextId},null,2);
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));
+  a.download='silsilah-'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  toast('Saved!');
+}
+function triggerLoad() { document.getElementById('file-in').click(); }
+function loadFile(e) {
+  const f=e.target.files[0]; if (!f) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    try {
+      const d=JSON.parse(ev.target.result);
+      P=d.P||{}; R=d.R||[]; NP=d.NP||{}; nextId=d.nextId||1;
+      renderAll(); setTimeout(fitView,80);
+      toast('Loaded!');
+    } catch { toast('Invalid file'); }
+  };
+  r.readAsText(f);
+  e.target.value='';
+}
+
+// ════════════════════════════════════════════
+// FEATURE 2: WIRE DRAG TO LINK
+// ════════════════════════════════════════════
+let wireSrc = null, wireActive = false;
+
+function startWireDrag(srcId, e) {
+  wireSrc = srcId;
+  wireActive = true;
+  const path = document.getElementById('wire-path');
+  path.style.display = '';
+  document.addEventListener('mousemove', onWireMove);
+  document.addEventListener('mouseup', onWireUp);
+  e.preventDefault();
+}
+
+function cardCenter(id) {
+  const el = document.querySelector(`.node-card[data-id="${id}"]`);
+  if (!el) return null;
+  const wrap = document.getElementById('canvas-wrap').getBoundingClientRect();
+  const r = el.getBoundingClientRect();
+  return { x: r.left + r.width/2 - wrap.left, y: r.top + r.height/2 - wrap.top };
+}
+
+function onWireMove(e) {
+  if (!wireActive) return;
+  const wrap = document.getElementById('canvas-wrap').getBoundingClientRect();
+  const src = cardCenter(wireSrc);
+  if (!src) return;
+  const tx = e.clientX - wrap.left, ty = e.clientY - wrap.top;
+  const cx = (src.x + tx) / 2;
+  document.getElementById('wire-path').setAttribute('d',
+    `M ${src.x} ${src.y} C ${cx} ${src.y} ${cx} ${ty} ${tx} ${ty}`);
+  // highlight potential target
+  document.querySelectorAll('.node-card').forEach(n => n.classList.remove('drop-target'));
+  const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.node-card');
+  if (target && target.dataset.id !== wireSrc) target.classList.add('drop-target');
+}
+
+function onWireUp(e) {
+  if (!wireActive) return;
+  wireActive = false;
+  document.getElementById('wire-path').style.display = 'none';
+  document.getElementById('wire-path').setAttribute('d','');
+  document.removeEventListener('mousemove', onWireMove);
+  document.removeEventListener('mouseup', onWireUp);
+  document.querySelectorAll('.node-card').forEach(n => n.classList.remove('drop-target'));
+  const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.node-card');
+  if (target && target.dataset.id && target.dataset.id !== wireSrc) {
+    showWireChooser(wireSrc, target.dataset.id, e.clientX, e.clientY);
+  }
+  wireSrc = null;
+}
+
+function showWireChooser(aId, bId, cx, cy) {
+  const chooser = document.getElementById('wire-chooser');
+  const opts = document.getElementById('wire-opts');
+  opts.innerHTML = '';
+  const types = [
+    { type:'parent-child',    label:'Parent → Child',       color:'#756350' },
+    { type:'spouse',          label:'Spouse / Pasangan',    color:'#c8a86a' },
+    { type:'spouse-divorced', label:'Mantan Pasangan',      color:'#b85a3a' },
+    { type:'step-parent',     label:'Step-Parent → Child',  color:'#5a7a9e' },
+  ];
+  types.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'wire-opt';
+    d.innerHTML = `<div class="wire-opt-dot" style="background:${t.color}"></div>${t.label}`;
+    d.onclick = () => {
+      chooser.style.display = 'none';
+      if (R.find(r => r.type===t.type && ((r.a===aId&&r.b===bId)||(r.a===bId&&r.b===aId)))) {
+        toast('Already linked with this type'); return;
+      }
+      R.push({ id:rid(), type:t.type, a:aId, b:bId });
+      renderAll(); pushSync();
+      toast('Linked!');
+    };
+    opts.appendChild(d);
+  });
+  const cancel = document.createElement('div');
+  cancel.className = 'wire-opt';
+  cancel.style.cssText = 'color:var(--text3);font-size:12px;margin-top:4px;border-top:1px solid var(--edge);padding-top:8px';
+  cancel.textContent = '✕  Cancel';
+  cancel.onclick = () => { chooser.style.display = 'none'; };
+  opts.appendChild(cancel);
+
+  // Position near drop point
+  chooser.style.display = 'block';
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const bw = 200, bh = 200;
+  chooser.style.left = Math.min(cx + 8, vw - bw - 10) + 'px';
+  chooser.style.top  = Math.min(cy - 10, vh - bh - 10) + 'px';
+  // close on outside click
+  setTimeout(() => {
+    const close = ev => { if (!ev.target.closest('#wire-chooser')) { chooser.style.display='none'; document.removeEventListener('mousedown',close); }};
+    document.addEventListener('mousedown', close);
+  }, 50);
+}
+
+// ════════════════════════════════════════════
+// FEATURE 3: AUTO-LAYOUT
+// ════════════════════════════════════════════
+function autoLayout() {
+  const ids = Object.keys(P);
+  if (!ids.length) { toast('Nothing to arrange'); return; }
+
+  const CARD_W = 180, CARD_H = 220, GAP_X = 40, GAP_Y = 60;
+
+  // 1. Build adjacency
+  const childrenOf = {}, parentsOf = {};
+  ids.forEach(id => { childrenOf[id] = []; parentsOf[id] = []; });
+  R.forEach(r => {
+    if (r.type === 'parent-child' || r.type === 'step-parent') {
+      if (childrenOf[r.a]) childrenOf[r.a].push(r.b);
+      if (parentsOf[r.b]) parentsOf[r.b].push(r.a);
+    }
+  });
+
+  // 2. Spouse pairs → treat as a single unit in the same generation
+  // First, flatten each person's generation by max parent depth
+  const gen = {};
+  const visited = new Set();
+  function assignGen(id, g) {
+    if (gen[id] !== undefined && gen[id] >= g) return;
+    gen[id] = g;
+    visited.add(id);
+    childrenOf[id].forEach(ch => assignGen(ch, g + 1));
+  }
+  ids.filter(id => parentsOf[id].length === 0).forEach(id => assignGen(id, 0));
+  // Orphans (no parent, no child) → gen 0
+  ids.forEach(id => { if (gen[id] === undefined) gen[id] = 0; });
+
+  // 3. Force spouses into the same generation (use the higher one)
+  R.forEach(r => {
+    if (r.type === 'spouse' || r.type === 'spouse-divorced') {
+      const ga = gen[r.a] ?? 0, gb = gen[r.b] ?? 0;
+      const g = Math.max(ga, gb);
+      gen[r.a] = g; gen[r.b] = g;
+    }
+  });
+
+  // 4. Group by generation
+  const byGen = {};
+  ids.forEach(id => {
+    const g = gen[id];
+    if (!byGen[g]) byGen[g] = [];
+    byGen[g].push(id);
+  });
+
+  // 5. Within each generation: order so spouses are adjacent, then sort
+  //    sibling groups together (share same parents → same cluster)
+  const gens = Object.keys(byGen).map(Number).sort((a, b) => a - b);
+
+  gens.forEach(g => {
+    const group = byGen[g];
+    // Build spouse pairs
+    const placed = new Set(), ordered = [];
+    group.forEach(id => {
+      if (placed.has(id)) return;
+      placed.add(id);
+      ordered.push(id);
+      // Add all spouses adjacent
+      R.forEach(r => {
+        if ((r.type === 'spouse' || r.type === 'spouse-divorced') &&
+            (r.a === id || r.b === id)) {
+          const sp = r.a === id ? r.b : r.a;
+          if (!placed.has(sp) && group.includes(sp)) {
+            placed.add(sp); ordered.push(sp);
+          }
+        }
+      });
+    });
+    byGen[g] = ordered;
+  });
+
+  // 6. Assign X positions: center children under their parents
+  const posX = {}, posY = {};
+  const colW = CARD_W + GAP_X;
+  const rowH = CARD_H + GAP_Y;
+
+  // Assign top generation first, then propagate down
+  gens.forEach((g, gi) => {
+    const group = byGen[g];
+    const y = gi * rowH + 80;
+
+    if (gi === 0 || g === gens[0]) {
+      // Root row: spread evenly centered at 0
+      const totalW = group.length * colW;
+      group.forEach((id, xi) => {
+        posX[id] = xi * colW - totalW / 2 + colW / 2;
+        posY[id] = y;
+      });
+    } else {
+      // For each person, try to center under their parent midpoint
+      // First pass: assign ideal X based on parents
+      const idealX = {};
+      group.forEach(id => {
+        const pars = parentsOf[id].filter(pid => posX[pid] !== undefined);
+        if (pars.length) {
+          idealX[id] = pars.reduce((s, pid) => s + posX[pid], 0) / pars.length;
+        }
+      });
+
+      // Also keep spouses together: average their ideals
+      const pairX = {};
+      const pairedWith = {};
+      R.forEach(r => {
+        if (r.type === 'spouse' || r.type === 'spouse-divorced') {
+          if (group.includes(r.a) && group.includes(r.b)) {
+            pairedWith[r.a] = r.b; pairedWith[r.b] = r.a;
+          }
+        }
+      });
+      group.forEach(id => {
+        const sp = pairedWith[id];
+        if (sp && idealX[id] !== undefined && idealX[sp] !== undefined) {
+          const mid = (idealX[id] + idealX[sp]) / 2;
+          pairX[id] = mid - colW * 0.5;
+          pairX[sp] = mid + colW * 0.5;
+        }
+      });
+      group.forEach(id => {
+        if (pairX[id] !== undefined) idealX[id] = pairX[id];
+      });
+
+      // Sort group by idealX (those with no parent go to end)
+      const withIdeal = group.filter(id => idealX[id] !== undefined).sort((a,b) => idealX[a]-idealX[b]);
+      const noIdeal = group.filter(id => idealX[id] === undefined);
+      const sorted = [...withIdeal, ...noIdeal];
+
+      // Place with minimum spacing, nudging where collisions occur
+      const placed2 = [];
+      sorted.forEach(id => {
+        let x = idealX[id] ?? (placed2.length ? placed2[placed2.length-1].x + colW : 0);
+        // Nudge right if overlapping
+        if (placed2.length) {
+          const lastX = placed2[placed2.length-1].x;
+          if (x < lastX + colW) x = lastX + colW;
+        }
+        placed2.push({ id, x });
+      });
+
+      // Re-center the whole row
+      const minX2 = Math.min(...placed2.map(p => p.x));
+      const maxX2 = Math.max(...placed2.map(p => p.x));
+      const shift = -((minX2 + maxX2) / 2);
+      placed2.forEach(({ id, x }) => { posX[id] = x + shift; posY[id] = y; });
+      return;
+    }
+  });
+
+  // 7. Apply positions
+  ids.forEach(id => {
+    NP[id] = {
+      x: (posX[id] ?? 0) + 600,
+      y: posY[id] ?? 80
+    };
+  });
+
+  renderAll();
+  setTimeout(fitView, 80);
+  toast(`Arranged ${ids.length} people · ${gens.length} generation${gens.length > 1 ? 's' : ''}`);
+}
+
+// ════════════════════════════════════════════
+// FEATURES 4+5: EXPORT MODAL (high-res, paper sizes, background)
+// ════════════════════════════════════════════
+let exConfig = { size: 'fit', bg: '#0c0a07', dpi: 3 };
+
+const EX_SIZES = {
+  fit:    null,  // computed from content
+  a4p:    { w: 2480, h: 3508 },  // A4 portrait at 300dpi
+  a4l:    { w: 3508, h: 2480 },
+  a3p:    { w: 3508, h: 4961 },
+  a3l:    { w: 4961, h: 3508 },
+  letter: { w: 2550, h: 3300 },
+  sq:     null,  // computed as square
+  wide:   null,  // 16:9
+  '4k':   { w: 3840, h: 2160 },
+};
+
+function openExportModal() {
+  if (!Object.keys(P).length) { toast('Nothing to export'); return; }
+  document.getElementById('export-modal').classList.add('open');
+  updateExPreview();
+}
+function closeExportModal() { document.getElementById('export-modal').classList.remove('open'); }
+
+function setExSize(el, size) {
+  document.querySelectorAll('.size-opt').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  exConfig.size = size;
+  updateExPreview();
+}
+function setExBg(el, bg) {
+  document.querySelectorAll('.bg-swatch').forEach(e => e.classList.remove('active'));
+  el.classList.add('active');
+  exConfig.bg = bg;
+  updateExPreview();
+}
+
+function updateExPreview() {
+  const prev = document.getElementById('ex-preview');
+  prev.innerHTML = '<span style="font-size:11px;color:var(--text3)">Generating…</span>';
+  setTimeout(() => {
+    try {
+      const cv = buildExportCanvas(0.15);
+      cv.style.cssText = 'max-width:100%;max-height:76px;border-radius:4px;display:block;margin:auto';
+      prev.innerHTML = ''; prev.appendChild(cv);
+    } catch(e) { prev.innerHTML = '<span style="color:var(--danger)">Preview error</span>'; }
+  }, 40);
+}
+
+function computeExDims() {
+  const xs = Object.values(NP).map(p=>p.x), ys = Object.values(NP).map(p=>p.y);
+  const pad = 100;
+  const cW = Math.max(...xs) - Math.min(...xs) + 300 + pad*2;
+  const cH = Math.max(...ys) - Math.min(...ys) + 200 + pad*2;
+  const sc = parseInt(document.getElementById('ex-dpi').value) || 3;
+
+  if (exConfig.size === 'fit') return { w: cW*sc, h: cH*sc, sc };
+  if (exConfig.size === 'sq') { const s = Math.max(cW, cH)*sc; return { w:s, h:s, sc }; }
+  if (exConfig.size === 'wide') {
+    const w = cW*sc, h = Math.round(w * 9/16);
+    return { w: Math.max(w, 1920), h: Math.max(h, 1080), sc };
+  }
+  const preset = EX_SIZES[exConfig.size];
+  return preset ? { w: preset.w, h: preset.h, sc } : { w: cW*sc, h: cH*sc, sc };
+}
+
+function buildExportCanvas(previewScale) {
+  const ids = Object.keys(P);
+  if (!ids.length) return document.createElement('canvas');
+
+  const xs = ids.map(id => NP[id]?.x ?? 0);
+  const ys = ids.map(id => NP[id]?.y ?? 0);
+  const pad = 120;
+  const minX = Math.min(...xs) - pad;
+  const minY = Math.min(...ys) - pad;
+  const contentW = Math.max(...xs) - minX + pad + 160;
+  const contentH = Math.max(...ys) - minY + pad + 160;
+
+  // Output pixel dimensions
+  const sc = parseInt(document.getElementById('ex-dpi')?.value || '3');
+  let outW, outH;
+  if (exConfig.size === 'fit') {
+    outW = contentW * sc; outH = contentH * sc;
+  } else if (exConfig.size === 'sq') {
+    const s = Math.max(contentW, contentH) * sc; outW = s; outH = s;
+  } else if (exConfig.size === 'wide') {
+    outW = Math.max(contentW * sc, 1920); outH = Math.round(outW * 9/16);
+  } else {
+    const preset = EX_SIZES[exConfig.size];
+    outW = preset ? preset.w : contentW * sc;
+    outH = preset ? preset.h : contentH * sc;
+  }
+
+  // For preview, scale down
+  const psc = previewScale || 1;
+  const cvW = Math.round(outW * psc), cvH = Math.round(outH * psc);
+
+  const cv = document.createElement('canvas');
+  cv.width = cvW; cv.height = cvH;
+  const ctx = cv.getContext('2d');
+
+  // Background
+  if (exConfig.bg === 'transparent') {
+    ctx.clearRect(0, 0, cvW, cvH);
+  } else {
+    ctx.fillStyle = exConfig.bg;
+    ctx.fillRect(0, 0, cvW, cvH);
+  }
+
+  // Fit content into canvas with uniform scale
+  const fitSc = Math.min(cvW / contentW, cvH / contentH) * 0.92;
+  const offX = (cvW - contentW * fitSc) / 2 - minX * fitSc;
+  const offY = (cvH - contentH * fitSc) / 2 - minY * fitSc;
+
+  // Helper: canvas coord from data coord
+  const cx_ = x => x * fitSc + offX;
+  const cy_ = y => y * fitSc + offY;
+  const sc_ = v => v * fitSc;  // scale a size value
+
+  const isDark = exConfig.bg === 'transparent' ||
+    ['#0','#1','#2'].some(p => exConfig.bg.startsWith(p));
+
+  // Grid
+  if (isDark) {
+    ctx.strokeStyle = 'rgba(53,45,34,0.22)'; ctx.lineWidth = 0.5;
+    const step = sc_(48);
+    const gx0 = cx_(Math.floor(minX/48)*48), gy0 = cy_(Math.floor(minY/48)*48);
+    for (let x = gx0; x < cvW + step; x += step) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, cvH); ctx.stroke();
+    }
+    for (let y = gy0; y < cvH + step; y += step) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(cvW, y); ctx.stroke();
+    }
+  }
+
+  // Watermark
+  const titleFs = Math.max(11, sc_(14));
+  ctx.font = `300 ${titleFs}px Georgia`;
+  ctx.fillStyle = isDark ? 'rgba(200,168,106,0.2)' : 'rgba(100,80,40,0.12)';
+  ctx.fillText('Silsilah — Family Tree', cx_(minX + 16), cy_(minY + 22));
+
+  // Lines
+  R.forEach(rel => {
+    const a = NP[rel.a], b = NP[rel.b]; if (!a||!b) return;
+    ctx.beginPath();
+    const lw = Math.max(1, sc_(1.8));
+    if (rel.type === 'spouse' || rel.type === 'spouse-divorced') {
+      ctx.strokeStyle = rel.type === 'spouse-divorced' ? 'rgba(184,90,58,0.75)' : 'rgba(200,168,106,0.75)';
+      ctx.lineWidth = lw * 1.2;
+      const dl = Math.max(2, sc_(5));
+      ctx.setLineDash([dl, dl * 0.6]);
+      const mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
+      ctx.moveTo(cx_(a.x), cy_(a.y));
+      ctx.quadraticCurveTo(cx_(mx), cy_(my - 22), cx_(b.x), cy_(b.y));
+    } else {
+      ctx.strokeStyle = rel.type === 'step-parent'
+        ? 'rgba(90,122,158,0.65)'
+        : (isDark ? 'rgba(117,99,80,0.6)' : 'rgba(80,60,30,0.45)');
+      ctx.lineWidth = lw;
+      const dl = Math.max(2, sc_(4));
+      ctx.setLineDash(rel.type === 'step-parent' ? [dl, dl] : []);
+      const cy2 = (a.y + b.y) / 2;
+      ctx.moveTo(cx_(a.x), cy_(a.y + 57));
+      ctx.bezierCurveTo(cx_(a.x), cy_(cy2), cx_(b.x), cy_(cy2), cx_(b.x), cy_(b.y - 57));
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+  });
+
+  // Cards — drawn at proper pixel sizes
+  function rr(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.arcTo(x+w,y,x+w,y+r,r);
+    ctx.lineTo(x+w,y+h-r); ctx.arcTo(x+w,y+h,x+w-r,y+h,r);
+    ctx.lineTo(x+r,y+h); ctx.arcTo(x,y+h,x,y+h-r,r);
+    ctx.lineTo(x,y+r); ctx.arcTo(x,y,x+r,y,r); ctx.closePath();
+  }
+
+  // Card dimensions in output pixels
+  const CW = sc_(148), CH = sc_(140), CR = sc_(10);
+
+  Object.values(P).forEach(p => {
+    const pos = NP[p.id]; if (!pos) return;
+    const cardX = cx_(pos.x) - CW/2;
+    const cardY = cy_(pos.y) - CH/2;
+
+    // Shadow
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = sc_(12); ctx.shadowOffsetY = sc_(4);
+    ctx.fillStyle = isDark ? '#1a1714' : '#fefcf6';
+    rr(cardX, cardY, CW, CH, CR); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+
+    // Border
+    ctx.strokeStyle = isDark ? '#352d22' : '#d4c4a0';
+    ctx.lineWidth = Math.max(0.5, sc_(1));
+    rr(cardX, cardY, CW, CH, CR); ctx.stroke();
+
+    // Top stripe
+    const g = ctx.createLinearGradient(cardX, cardY, cardX + CW, cardY);
+    if (p.gender === 'female') { g.addColorStop(0,'#7a3e60'); g.addColorStop(1,'#b05a8a'); }
+    else { g.addColorStop(0,'#3e6080'); g.addColorStop(1,'#5a8ab0'); }
+    ctx.fillStyle = g;
+    const stripeH = sc_(5);
+    ctx.beginPath();
+    ctx.moveTo(cardX + CR, cardY); ctx.lineTo(cardX + CW - CR, cardY);
+    ctx.arcTo(cardX+CW, cardY, cardX+CW, cardY+CR, CR);
+    ctx.lineTo(cardX+CW, cardY+stripeH);
+    ctx.lineTo(cardX, cardY+stripeH);
+    ctx.lineTo(cardX, cardY+CR);
+    ctx.arcTo(cardX, cardY, cardX+CR, cardY, CR);
+    ctx.closePath(); ctx.fill();
+
+    // Avatar circle
+    const avR = sc_(27);
+    const avCX = cardX + CW/2, avCY = cardY + sc_(40);
+    ctx.fillStyle = p.gender === 'female' ? '#4a1e38' : '#1e304a';
+    ctx.beginPath(); ctx.arc(avCX, avCY, avR, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#4a3f30'; ctx.lineWidth = sc_(2); ctx.stroke();
+
+    // Avatar initials
+    const avFs = Math.max(8, sc_(14));
+    ctx.fillStyle = p.gender === 'female' ? '#e0a0c0' : '#a0c0e0';
+    ctx.font = `bold ${avFs}px Georgia`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(initials(p.name), avCX, avCY);
+    ctx.textBaseline = 'alphabetic';
+
+    // Name (word-wrapped)
+    const nameFs = Math.max(8, sc_(12));
+    ctx.fillStyle = isDark ? '#ede5d0' : '#2a1f10';
+    ctx.font = `600 ${nameFs}px Georgia`;
+    ctx.textAlign = 'center';
+    const words = p.name.split(' '); let lines = [], line = '';
+    words.forEach(w => {
+      const t = line ? line + ' ' + w : w;
+      if (ctx.measureText(t).width > CW - sc_(16)) { lines.push(line); line = w; }
+      else line = t;
+    });
+    if (line) lines.push(line);
+    const nameY0 = cardY + sc_(76);
+    lines.slice(0,2).forEach((l, i) => ctx.fillText(l, cardX + CW/2, nameY0 + i * sc_(15)));
+
+    // Nick
+    if (p.nick) {
+      const nickFs = Math.max(7, sc_(10));
+      ctx.fillStyle = '#c8a86a';
+      ctx.font = `italic ${nickFs}px Georgia`;
+      ctx.fillText(`\u201c${p.nick}\u201d`, cardX + CW/2, cardY + sc_(102));
+    }
+
+    // Dates
+    if (p.birth || p.death) {
+      const dateFs = Math.max(7, sc_(9));
+      ctx.fillStyle = isDark ? '#756350' : '#8a7050';
+      ctx.font = `${dateFs}px Georgia`;
+      ctx.fillText((p.birth||'?') + (p.death ? ' – ' + p.death : ''), cardX + CW/2, cardY + sc_(116));
+    }
+
+    // Job
+    if (p.job) {
+      const jobFs = Math.max(7, sc_(9));
+      ctx.fillStyle = isDark ? '#756350' : '#8a7050';
+      ctx.font = `italic ${jobFs}px Georgia`;
+      ctx.fillText(p.job, cardX + CW/2, cardY + sc_(129));
+    }
+  });
+
+  ctx.textAlign = 'left';
+  return cv;
+}
+
+function doExport() {
+  if (!Object.keys(P).length) { toast('Nothing to export'); return; }
+  toast('Rendering…');
+  setTimeout(() => {
+    try {
+      const cv = buildExportCanvas(1);
+      cv.toBlob(blob => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'silsilah-' + new Date().toISOString().slice(0,10) + '.png';
+        a.click();
+        closeExportModal();
+        toast(`Exported ${cv.width}×${cv.height}px`);
+      }, 'image/png');
+    } catch(e) { toast('Export failed: ' + e.message); }
+  }, 60);
+}
+
+// ════════════════════════════════════════════
+// MINIMAP
+// ════════════════════════════════════════════
+function drawMM() {
+  const cv=document.getElementById('mm-cv');
+  cv.width=160; cv.height=96;
+  const ctx=cv.getContext('2d');
+  ctx.fillStyle='#131109'; ctx.fillRect(0,0,160,96);
+  const ids=Object.keys(P); if(!ids.length) return;
+  const xs=Object.values(NP).map(p=>p.x), ys=Object.values(NP).map(p=>p.y);
+  const mnX=Math.min(...xs)-80, mxX=Math.max(...xs)+80;
+  const mnY=Math.min(...ys)-60, mxY=Math.max(...ys)+60;
+  const W=mxX-mnX||1, H=mxY-mnY||1;
+  const s=Math.min(148/W, 84/H)*0.92;
+  ctx.fillStyle='#4a3f30';
+  Object.values(P).forEach(p=>{
+    const pos=NP[p.id]; if(!pos) return;
+    ctx.beginPath(); ctx.arc((pos.x-mnX)*s+6,(pos.y-mnY)*s+6,3,0,Math.PI*2); ctx.fill();
+  });
+  const wrap=document.getElementById('canvas-wrap').getBoundingClientRect();
+  ctx.strokeStyle='rgba(200,168,106,0.5)'; ctx.lineWidth=1;
+  ctx.strokeRect((-panX/scale-mnX)*s+6, (-panY/scale-mnY)*s+6, (wrap.width/scale)*s, (wrap.height/scale)*s);
+}
+
+// ════════════════════════════════════════════
+// COLLAB — Real-time via persistent storage
+// ════════════════════════════════════════════
+function dataHash() {
+  return JSON.stringify({P, R, NP});
+}
+
+function startCollab() {
+  document.getElementById('landing').classList.add('exit');
+  setTimeout(()=>{
+    document.getElementById('landing').style.display='none';
+    document.getElementById('room-modal').classList.add('open');
+  }, 300);
+}
+
+function closeRoomModal() {
+  document.getElementById('room-modal').classList.remove('open');
+  document.getElementById('landing').style.display='flex';
+  document.getElementById('landing').classList.remove('exit');
+  hideStartChoice();
+}
+
+function createRoom() {
+  const name = document.getElementById('rm-name').value.trim() || 'Anonymous';
+  userName = name;
+  roomId = 'SILS-' + Math.random().toString(36).slice(2,6).toUpperCase();
+  const fromCanvas = document.getElementById('room-modal')._fromCanvas;
+  document.getElementById('room-modal').classList.remove('open');
+  if (fromCanvas) {
+    // Already in canvas — just start syncing current tree
+    const dot = document.getElementById('collab-dot');
+    dot.classList.add('live');
+    document.getElementById('collab-lbl').textContent = roomId;
+    pushSync();
+    startSyncPolling();
+    toast(`Room created: ${roomId} — share this ID to invite family!`);
+  } else {
+    initCollabSession();
+  }
+}
+
+function joinRoom() {
+  const id = document.getElementById('rm-join-id').value.trim().toUpperCase();
+  if (!id) { toast('Enter a Room ID'); return; }
+  const name = document.getElementById('rm-name').value.trim() || 'Anonymous';
+  userName = name;
+  roomId = id;
+  const fromCanvas = document.getElementById('room-modal')._fromCanvas;
+  document.getElementById('room-modal').classList.remove('open');
+  if (fromCanvas) {
+    // Already in canvas — load remote data and start syncing
+    const dot = document.getElementById('collab-dot');
+    dot.classList.add('live');
+    document.getElementById('collab-lbl').textContent = roomId;
+    loadRoomData().then(() => startSyncPolling());
+    toast(`Joining room: ${roomId}`);
+  } else {
+    initCollabSession();
+  }
+}
+
+async function loadRoomData() {
+  try {
+    const existing = await window.storage.get('room:' + roomId, true);
+    if (existing) {
+      const d = JSON.parse(existing.value);
+      P = d.P || {}; R = d.R || []; NP = d.NP || {}; nextId = d.nextId || 1;
+      renderAll(); fitView();
+      toast(`Room loaded — ${Object.keys(P).length} people`);
+    }
+  } catch(e) {}
+}
+
+function startSyncPolling() {
+  if (syncInterval) clearInterval(syncInterval);
+  syncInterval = setInterval(async () => {
+    try {
+      const remote = await window.storage.get('room:' + roomId, true);
+      if (remote) {
+        const current = JSON.stringify({P,R,NP,nextId});
+        if (remote.value !== current) {
+          const d = JSON.parse(remote.value);
+          if (JSON.stringify({P:d.P,R:d.R,NP:d.NP}) !== JSON.stringify({P,R,NP})) {
+            P = d.P || P; R = d.R || R; NP = d.NP || NP; nextId = d.nextId || nextId;
+            renderAll();
+          }
+        }
+      }
+    } catch(e) {}
+  }, 3000);
+}
+
+async function initCollabSession() {
+  const dot = document.getElementById('collab-dot');
+  dot.classList.add('live');
+  document.getElementById('collab-lbl').textContent = roomId;
+
+  // Load existing room data first, render, THEN reveal
+  let loaded = false;
+  try {
+    const existing = await window.storage.get('room:' + roomId, true);
+    if (existing) {
+      const d = JSON.parse(existing.value);
+      P = d.P || {}; R = d.R || []; NP = d.NP || {}; nextId = d.nextId || 1;
+      loaded = true;
+    }
+  } catch (e) { /* new room */ }
+
+  revealApp(() => {
+    renderAll();
+    if (loaded) { fitView(); setTimeout(() => toast(`Room loaded — ${Object.keys(P).length} people`), 450); }
+    else setTimeout(() => toast(`Room ${roomId} ready — start adding family!`), 450);
+  });
+
+  startSyncPolling();
+}
+
+async function pushSync() {
+  if (!roomId) return;
+  try {
+    await window.storage.set('room:' + roomId, JSON.stringify({P,R,NP,nextId}), true);
+  } catch(e) {}
+}
+
+// ════════════════════════════════════════════
+// UTIL
+// ════════════════════════════════════════════
+function toast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._tmr);
+  t._tmr=setTimeout(()=>t.classList.remove('show'),2600);
+}
+function updateCount() {
+  const n=Object.keys(P).length;
+  document.getElementById('node-count').textContent=n+(n===1?' person':' people');
+}
+
+// ════════════════════════════════════════════
+// SAMPLE DATA
+// ════════════════════════════════════════════
+function loadSample() {
+  P={
+    p1:{id:'p1',name:'H. Ahmad bin Abdullah',nick:'Kakek Ahmad',gender:'male',birth:'1935',death:'2010',job:'Ulama & Pedagang',place:'Makassar'},
+    p2:{id:'p2',name:'Hj. Fatimah binti Umar',nick:'Nenek Ima',gender:'female',birth:'1940',death:null,job:'Ibu Rumah Tangga',place:'Bone'},
+    p3:{id:'p3',name:'Dr. Hasan bin Ahmad',nick:'Om Hasan',gender:'male',birth:'1963',death:null,job:'Dokter Spesialis',place:'Makassar'},
+    p4:{id:'p4',name:'Siti Aisyah',nick:'Tante Aisha',gender:'female',birth:'1967',death:null,job:'Guru SD',place:'Gowa'},
+    p5:{id:'p5',name:'Ir. Yusuf bin Ahmad',nick:'Abi',gender:'male',birth:'1970',death:null,job:'Insinyur Sipil',place:'Makassar'},
+    p6:{id:'p6',name:'Nur Halimah',nick:'Ummi',gender:'female',birth:'1972',death:null,job:'Apoteker',place:'Bantaeng'},
+    p7:{id:'p7',name:'Muhammad Faisal',nick:'Isal',gender:'male',birth:'1995',death:null,job:'Engineer',place:'Jakarta'},
+    p8:{id:'p8',name:'Zahra Aulia',nick:'Zahra',gender:'female',birth:'1997',death:null,job:'Arsitek',place:'Makassar'},
+    p9:{id:'p9',name:'Umar Al-Faruq',nick:'Umar',gender:'male',birth:'2000',death:null,job:'Mahasiswa',place:'Bandung'},
+    p10:{id:'p10',name:'Salsabila Putri',nick:'Salsa',gender:'female',birth:'1993',death:null,job:'Desainer',place:'Gowa'},
+    p11:{id:'p11',name:'Ahmad Zaki',nick:'Zaki',gender:'male',birth:'2022',death:null,job:null,place:'Jakarta'},
+    p12:{id:'p12',name:'Aisyah Nura',nick:'Nura',gender:'female',birth:'2020',death:null,job:null,place:'Makassar'},
+  };
+  nextId=13;
+  R=[
+    {id:'r1',type:'spouse',a:'p1',b:'p2'},
+    {id:'r2',type:'parent-child',a:'p1',b:'p3'},{id:'r3',type:'parent-child',a:'p2',b:'p3'},
+    {id:'r4',type:'parent-child',a:'p1',b:'p5'},{id:'r5',type:'parent-child',a:'p2',b:'p5'},
+    {id:'r6',type:'spouse',a:'p3',b:'p4'},{id:'r7',type:'spouse',a:'p5',b:'p6'},
+    {id:'r8',type:'parent-child',a:'p3',b:'p7'},{id:'r9',type:'parent-child',a:'p4',b:'p7'},
+    {id:'r10',type:'parent-child',a:'p3',b:'p8'},{id:'r11',type:'parent-child',a:'p4',b:'p8'},
+    {id:'r12',type:'parent-child',a:'p5',b:'p9'},{id:'r13',type:'parent-child',a:'p6',b:'p9'},
+    {id:'r14',type:'spouse',a:'p7',b:'p10'},
+    {id:'r15',type:'parent-child',a:'p7',b:'p11'},{id:'r16',type:'parent-child',a:'p10',b:'p11'},
+    {id:'r17',type:'parent-child',a:'p5',b:'p12'},{id:'r18',type:'parent-child',a:'p6',b:'p12'},
+  ];
+  NP={
+    p1:{x:480,y:110},p2:{x:650,y:110},
+    p3:{x:280,y:310},p4:{x:460,y:310},
+    p5:{x:680,y:310},p6:{x:860,y:310},
+    p7:{x:160,y:510},p8:{x:380,y:510},
+    p9:{x:680,y:510},
+    p10:{x:-60,y:510},
+    p11:{x:60,y:710},
+    p12:{x:880,y:510},
+  };
+}
+
+// ════════════════════════════════════════════
+// LANDING ACTIONS
+// ════════════════════════════════════════════
+
+// Core reveal: render content silently, fade out landing, THEN show app
+function revealApp(prepFn) {
+  // 1. Prepare content while canvas is still invisible
+  if (prepFn) prepFn();
+  // 2. Fade out landing
+  const landing = document.getElementById('landing');
+  landing.classList.add('exit');
+  // 3. Once landing is gone, reveal app
+  setTimeout(() => {
+    landing.style.display = 'none';
+    document.getElementById('topbar').classList.add('visible');
+    document.getElementById('canvas-wrap').classList.add('visible');
+    document.getElementById('btn-home').style.display = 'flex';
+    hideStartChoice();
+  }, 420);
+}
+
+function hideApp() {
+  document.getElementById('topbar').classList.remove('visible');
+  document.getElementById('canvas-wrap').classList.remove('visible');
+  document.getElementById('btn-home').style.display = 'none';
+}
+
+function showLanding() {
+  hideApp();
+  hideStartChoice();
+  const l = document.getElementById('landing');
+  l.style.display = 'flex';
+  // double rAF ensures display:flex is painted before transition re-runs
+  requestAnimationFrame(() => requestAnimationFrame(() => l.classList.remove('exit')));
+}
+
+function goHome() {
+  if (syncInterval) { clearInterval(syncInterval); syncInterval = null; }
+  roomId = null;
+  document.getElementById('collab-dot').classList.remove('live');
+  document.getElementById('collab-lbl').textContent = 'Offline';
+  showLanding();
+}
+
+function showStartChoice() {
+  document.querySelector('.landing-actions').style.display = 'none';
+  document.getElementById('start-choice').style.display = 'flex';
+}
+function hideStartChoice() {
+  const la = document.querySelector('.landing-actions');
+  if (la) la.style.display = 'flex';
+  const sc = document.getElementById('start-choice');
+  if (sc) sc.style.display = 'none';
+}
+
+function enterCanvas(withSample) {
+  P={}; R=[]; NP={}; nextId=1; focusId=null;
+  revealApp(() => {
+    if (withSample) loadSample();
+    renderAll();
+    if (withSample) fitView();
+    setTimeout(() => {
+      if (!withSample) toast('Double-click anywhere to add your first family member!');
+      else toast('Sample loaded — edit to make it your own!');
+    }, 450);
+  });
+}
+
+function startDemo() {
+  revealApp(() => {
+    loadSample(); renderAll(); fitView();
+    setTimeout(() => toast('Sample family — double-click to add people!'), 450);
+  });
+}
+
+function startCollab() {
+  const landing = document.getElementById('landing');
+  landing.classList.add('exit');
+  setTimeout(() => {
+    landing.style.display = 'none';
+    openRoomModal(false);
+  }, 320);
+}
+
+function openCollabFromCanvas() {
+  openRoomModal(true);
+}
+
+function openRoomModal(fromCanvas) {
+  document.getElementById('room-modal')._fromCanvas = fromCanvas;
+  // Update modal state based on whether already in a room
+  const inRoom = !!roomId;
+  document.getElementById('rm-modal-title').textContent = inRoom ? 'Collaboration' : 'Collaborative Room';
+  document.getElementById('rm-modal-desc').textContent = inRoom
+    ? 'You are in an active room. Share the Room ID with family members so they can join.'
+    : 'Create a shared room so your family can edit together in real-time.';
+  document.getElementById('rm-current-room').style.display = inRoom ? 'block' : 'none';
+  document.getElementById('rm-active-id').textContent = roomId || '';
+  document.getElementById('rm-leave-row').style.display = inRoom ? 'block' : 'none';
+  document.getElementById('room-modal').classList.add('open');
+}
+
+function closeRoomModal() {
+  const fromCanvas = document.getElementById('room-modal')._fromCanvas;
+  document.getElementById('room-modal').classList.remove('open');
+  if (!fromCanvas) {
+    // came from landing — go back to landing
+    showLanding();
+  }
+  // if fromCanvas — just close modal, stay in canvas
+}
+
+function leaveRoom() {
+  if (syncInterval) { clearInterval(syncInterval); syncInterval = null; }
+  roomId = null;
+  document.getElementById('collab-dot').classList.remove('live');
+  document.getElementById('collab-lbl').textContent = 'Offline';
+  document.getElementById('room-modal').classList.remove('open');
+  toast('Left room — tree stays local');
+}
+
+function copyRoomId() {
+  if (!roomId) return;
+  navigator.clipboard.writeText(roomId).then(
+    () => toast(`Room ID "${roomId}" copied!`),
+    () => { prompt('Copy this Room ID:', roomId); }
+  );
+}
+
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('gone');
+  }, 1300);
+
+  // Prevent double-tap zoom on mobile
+  document.addEventListener('touchstart', e=>{
+    if (e.touches.length > 1) e.preventDefault();
+  }, {passive:false});
+});
+</script>
+</body>
+</html>
