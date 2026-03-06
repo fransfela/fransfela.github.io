@@ -40,7 +40,7 @@ The app is intentionally built as a zero-dependency single HTML file. This means
 - **Portability**: send the file itself via WhatsApp, email, or USB drive
 
 ### Tech
-
+&nbsp;
 | Layer | Choice |
 |---|---|
 | UI | Vanilla JS + CSS custom properties |
