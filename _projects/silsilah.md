@@ -12,7 +12,7 @@ related_publications: false
 
 <div class="row justify-content-center mt-3">
   <div class="col-sm-12 col-md-10">
-    <a href="/projects/silsilah/app/" class="btn btn-primary w-100" style="font-size:1.1rem;padding:12px;">
+    <a href="/_projects/silsilah/app/" class="btn btn-primary w-100" style="font-size:1.1rem;padding:12px;">
       🌿 Open Silsilah
     </a>
   </div>
@@ -48,16 +48,16 @@ The app is intentionally built as a zero-dependency single HTML file. This means
 | Storage | `window.storage` (persistent artifacts API) |
 | Export | HTML5 Canvas (`toBlob`) |
 | Fonts | Cormorant Garamond + Crimson Pro (Google Fonts) |
-
+----
 ### Source
 
 The app is a single self-contained file. You can download it, inspect it, modify it, or self-host it anywhere.
 
 <div class="row mt-3">
   <div class="col-sm-6">
-    <a href="/projects/silsilah/app/" class="btn btn-outline-primary w-100">Open App →</a>
+    <a href="/_projects/silsilah/app/" class="btn btn-outline-primary w-100">Open App →</a>
   </div>
   <div class="col-sm-6">
-    <a href="https://github.com/fransfela/fransfela.github.io/blob/master/projects/silsilah/app/index.html" class="btn btn-outline-secondary w-100">View Source →</a>
+    <a href="https://github.com/fransfela/fransfela.github.io/blob/main/_projects/silsilah/app/index.html" class="btn btn-outline-secondary w-100">View Source →</a>
   </div>
 </div>
