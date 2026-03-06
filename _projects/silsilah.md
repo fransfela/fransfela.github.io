@@ -41,14 +41,36 @@ The app is intentionally built as a zero-dependency single HTML file. This means
 - **Portability**: send the file itself via WhatsApp, email, or USB drive
 
 ### Tech
-&nbsp;
-| Layer | Choice |
-|---|---|
-| UI | Vanilla JS + CSS custom properties |
-| Rendering | DOM + inline SVG |
-| Storage | `window.storage` (persistent artifacts API) |
-| Export | HTML5 Canvas (`toBlob`) |
-| Fonts | Cormorant Garamond + Crimson Pro (Google Fonts) |
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UI</td>
+      <td>Vanilla JS + CSS custom properties</td>
+    </tr>
+    <tr>
+      <td>Rendering</td>
+      <td>DOM + inline SVG</td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+      <td><code>window.storage</code> (persistent artifacts API)</td>
+    </tr>
+    <tr>
+      <td>Export</td>
+      <td>HTML5 Canvas (<code>toBlob</code>)</td>
+    </tr>
+    <tr>
+      <td>Fonts</td>
+      <td>Cormorant Garamond + Crimson Pro (Google Fonts)</td>
+    </tr>
+  </tbody>
+</table>
 ----
 ### Source
 
