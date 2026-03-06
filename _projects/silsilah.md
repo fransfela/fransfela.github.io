@@ -6,6 +6,7 @@ img: assets/img/silsilah-thumb.png
 importance: 1
 category: fun
 related_publications: false
+og_image: assets/img/silsilah-thumb.png
 ---
 
 **Silsilah** (Arabic/Indonesian: *سِلْسِلَة* - lineage, chain) is a browser-based family tree builder that runs entirely as a single HTML file. No installation, no backend, no account required. Your family data never leaves your device.
