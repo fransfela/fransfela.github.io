@@ -1,0 +1,1021 @@
+---
+layout: page
+permalink: /viz/akustik-ruang-masjid/
+nav: false
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akustik Ruang Masjid — Simulasi Fisika</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --ink: #1A1410;
+  --paper: #F7F3EC;
+  --gold: #B8922A;
+  --gold-light: #D4AA55;
+  --sage: #4A6741;
+  --sage-light: #6BAF5C;
+  --dust: #4A3C2E;
+  --warm-gray: #C8BFB0;
+  --red: #8B3A2A;
+  --canvas-bg: #0D0B08;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); font-family:'Jost',sans-serif; min-height:100vh; }
+.page { max-width:920px; margin:0 auto; padding:56px 28px 100px; }
+
+.header { text-align:center; margin-bottom:60px; }
+.eyebrow { font-size:12px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:var(--dust); margin-bottom:14px; }
+.header h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(24px,4.5vw,40px); line-height:1.15; color:var(--ink); margin-bottom:10px; }
+.header h1 em { font-style:italic; color:var(--gold); }
+.header-sub { font-size:15px; font-weight:300; color:var(--dust); letter-spacing:0.04em; }
+
+.divider { display:flex; align-items:center; gap:14px; margin:52px 0; }
+.divider-line { flex:1; height:1px; background:var(--warm-gray); }
+.divider-gem { width:7px; height:7px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
+
+.sec-eyebrow { font-size:12px; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:7px; }
+.sec-title { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(19px,2.8vw,26px); color:var(--ink); margin-bottom:7px; }
+.sec-desc { font-size:15px; font-weight:300; color:var(--dust); line-height:1.75; margin-bottom:24px; max-width:640px; }
+.sec-desc em { font-style:italic; color:var(--ink); }
+
+.cw { position:relative; background:var(--canvas-bg); border-radius:2px; overflow:hidden; }
+canvas { display:block; width:100%; }
+
+.ctrl-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:13px; }
+.btn { font-family:'Jost',sans-serif; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; padding:9px 18px; border:1px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; transition:all 0.18s; border-radius:1px; }
+.btn:hover { background:var(--ink); color:var(--paper); }
+.btn-gold { border-color:var(--gold); color:var(--gold); }
+.btn-gold:hover { background:var(--gold); color:var(--paper); }
+
+.sl-group { display:flex; align-items:center; gap:9px; }
+.sl-label { font-size:13px; font-weight:400; color:var(--dust); white-space:nowrap; }
+.sl-val { font-size:14px; font-weight:500; color:var(--gold); min-width:54px; }
+input[type=range] { -webkit-appearance:none; width:110px; height:2px; background:var(--warm-gray); outline:none; border-radius:2px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:13px; height:13px; border-radius:50%; background:var(--gold); cursor:pointer; }
+
+.mat-box { margin-top:18px; padding:16px 18px; border:1px solid var(--warm-gray); border-radius:1px; }
+.mat-hdr { font-size:12px; font-weight:500; letter-spacing:0.20em; text-transform:uppercase; color:var(--dust); margin-bottom:12px; }
+.mat-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; }
+.mat-row { display:flex; align-items:center; gap:7px; }
+.mat-swatch { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.mat-name { font-size:13px; font-weight:400; color:var(--ink); flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mat-sl { -webkit-appearance:none; width:80px; height:2px; background:var(--warm-gray); outline:none; border-radius:2px; flex-shrink:0; }
+.mat-sl::-webkit-slider-thumb { -webkit-appearance:none; width:11px; height:11px; border-radius:50%; cursor:pointer; }
+.mat-alpha { font-size:13px; font-weight:500; color:var(--dust); min-width:36px; text-align:right; }
+.rt60-footer { font-size:13px; font-weight:300; color:var(--dust); margin-top:10px; }
+.rt60-footer strong { font-weight:600; color:var(--gold); }
+
+.ann { margin-top:14px; padding-top:13px; border-top:1px solid var(--warm-gray); display:flex; flex-wrap:wrap; gap:10px 22px; }
+.ann-item { display:flex; align-items:center; gap:7px; }
+.ann-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.ann-txt { font-size:13px; font-weight:300; color:var(--dust); line-height:1.5; }
+.ann-txt strong { font-weight:500; color:var(--ink); }
+
+.insight { background:var(--ink); color:var(--paper); padding:34px 42px; margin:0 -6px 52px; position:relative; overflow:hidden; }
+.insight::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 15% 50%,rgba(184,146,42,.1),transparent 60%); pointer-events:none; }
+.insight-label { font-size:12px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:11px; }
+.insight-txt { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(17px,2.2vw,22px); line-height:1.65; color:var(--paper); }
+.insight-txt em { font-style:italic; color:var(--gold-light); }
+
+.tabs { display:flex; border-bottom:1px solid var(--warm-gray); margin-bottom:18px; flex-wrap:wrap; }
+.tab { font-family:'Jost',sans-serif; font-size:13px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:10px 20px; border:none; background:transparent; color:var(--dust); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:all 0.18s; }
+.tab:hover { color:var(--ink); }
+.t-shalat.on { color:#6BAF5C; border-bottom-color:#6BAF5C; }
+.t-khutbah.on { color:var(--gold); border-bottom-color:var(--gold); }
+.t-tilawah.on { color:var(--red); border-bottom-color:var(--red); }
+.t-all.on { color:var(--dust); border-bottom-color:var(--dust); }
+
+.rt60-readout { display:flex; gap:6px 20px; flex-wrap:wrap; margin-bottom:12px; }
+.rt-badge { font-size:13px; font-weight:300; color:var(--dust); display:flex; align-items:center; gap:5px; }
+.rt-badge strong { font-weight:500; color:var(--ink); }
+.rt-swatch { width:8px; height:8px; border-radius:50%; display:inline-block; flex-shrink:0; }
+
+.decay-wrap { background:var(--canvas-bg); border-radius:2px; overflow:hidden; height:300px; }
+
+.mh-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:16px; }
+.mh-tab { text-align:center; padding:10px 4px; border:1px solid var(--warm-gray); cursor:pointer; transition:all 0.18s; border-radius:1px; }
+.mh-tab:hover { border-color:var(--gold); }
+.mh-tab.active { border-color:var(--gold); background:rgba(184,146,42,.05); }
+.mh-tab svg { width:100%; aspect-ratio:1; display:block; }
+.mh-lbl { font-size:11px; font-weight:500; letter-spacing:0.10em; text-transform:uppercase; color:var(--dust); margin-top:5px; display:block; }
+.mh-tab.active .mh-lbl { color:var(--gold); }
+
+.perf { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+.perf-lbl { font-size:12px; font-weight:500; letter-spacing:0.09em; text-transform:uppercase; color:var(--dust); margin-bottom:5px; }
+.perf-bg { height:3px; background:var(--warm-gray); border-radius:2px; overflow:hidden; }
+.perf-fill { height:100%; background:var(--gold); border-radius:2px; transition:width 0.45s ease; }
+.perf-val { font-size:13px; font-weight:400; color:var(--ink); margin-top:4px; line-height:1.5; }
+
+@media(max-width:560px){
+  .mat-grid{grid-template-columns:1fr;}
+  .mh-grid{grid-template-columns:repeat(2,1fr);}
+  .perf{grid-template-columns:1fr;}
+  .page{padding:36px 16px 80px;}
+  .insight{padding:26px 22px;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="eyebrow">Bagian I — Simulasi Akustik Geometri 2D</div>
+  <h1>Fisika Suara di Dalam<br><em>Ruang Masjid</em></h1>
+  <div class="header-sub">Hukum pemantulan Snell-Descartes &middot; Persamaan Eyring RT60 &middot; Geometri mihrab</div>
+</div>
+
+<!-- ══════════ SECTION 1 ══════════ -->
+<div class="sec-eyebrow">01 / Pemantulan Suara di Ruang Masjid</div>
+<div class="sec-title">Bagaimana sinar suara bergerak dan memudar</div>
+<div class="sec-desc">
+  Simulasi ini menggunakan <em>geometric acoustics</em> 2D: setiap sinar suara bergerak lurus, memantul di permukaan dengan hukum Snell-Descartes (sudut pantul = sudut datang terhadap normal lokal), dan kehilangan energi sebesar koefisien absorpsi <em>α</em> setiap kali memantul. Nilai <em>α</em> tiap material diambil dari data pengukuran ISO 354 pada frekuensi 500 Hz.
+</div>
+
+<div class="cw"><canvas id="rayC" height="420"></canvas></div>
+
+<div class="ctrl-row">
+  <button class="btn btn-gold" onclick="fireRays()">&#9654; Lepas Suara</button>
+  <button class="btn" onclick="clearRays()">Reset</button>
+  <div class="sl-group" style="margin-left:auto">
+    <span class="sl-label">Jumlah sinar</span>
+    <input type="range" id="nRays" min="8" max="60" step="4" value="24"
+      oninput="document.getElementById('nRaysV').textContent=this.value">
+    <span class="sl-val" id="nRaysV">24</span>
+  </div>
+</div>
+
+<div class="mat-box">
+  <div class="mat-hdr">Koefisien Absorpsi Material &#945; @ 500 Hz &mdash; ISO 354 / Everest &amp; Pohlmann 6th ed.</div>
+  <div class="mat-grid" id="matGrid"></div>
+  <div class="rt60-footer">
+    <em>RT60 (Eyring) =</em> <strong id="rt60ey">—</strong>
+    &nbsp;&nbsp; Volume: <strong id="volDisp" style="color:var(--ink)">—</strong>
+  </div>
+</div>
+
+<div class="ann">
+  <div class="ann-item"><div class="ann-dot" style="background:#F5C842"></div>
+    <div class="ann-txt"><strong>Energi tinggi</strong> — sinar awal, energi penuh</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#6BAF5C"></div>
+    <div class="ann-txt"><strong>Pantulan aktif</strong> — masih membawa energi signifikan</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#5C8AAF"></div>
+    <div class="ann-txt"><strong>Peluruhan akhir</strong> — energi &lt; 5%, hampir hilang</div></div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-gem"></div><div class="divider-line"></div></div>
+
+<!-- ══════════ SECTION 2 ══════════ -->
+<div class="sec-eyebrow">02 / RT60 dan Konflik Fungsi Masjid</div>
+<div class="sec-title">Satu ruang, tiga kebutuhan akustik yang bertentangan</div>
+<div class="sec-desc">
+  <em>RT60</em> dihitung menggunakan persamaan Eyring: <em>T = 0.161 V / (&#8722;S ln(1&#8722;&#257;))</em>, di mana V = volume (m&#179;), S = total luas permukaan (m&#178;), dan &#257; = koefisien absorpsi rata-rata tertimbang. Ubah material di atas atau geser volume &mdash; RT60 dan status semua fungsi akan terupdate secara real-time.
+</div>
+
+<div class="rt60-readout" id="rt60Readout"></div>
+
+<div class="tabs">
+  <button class="tab t-shalat on" id="tab-shalat" onclick="setDecayMode('shalat')">Shalat</button>
+  <button class="tab t-khutbah" id="tab-khutbah" onclick="setDecayMode('khutbah')">Khutbah</button>
+  <button class="tab t-tilawah" id="tab-tilawah" onclick="setDecayMode('tilawah')">Tilawah</button>
+  <button class="tab t-all" id="tab-all" onclick="setDecayMode('all')">Overlay Semua</button>
+</div>
+
+<div class="decay-wrap"><canvas id="decayC"></canvas></div>
+
+<div class="ctrl-row" style="margin-top:12px">
+  <div class="sl-group">
+    <span class="sl-label">Volume ruang</span>
+    <input type="range" id="volSl" min="300" max="15000" step="100" value="3000" oninput="onVolChange(this.value)">
+    <span class="sl-val" id="volSv">3 000 m&#179;</span>
+  </div>
+</div>
+
+<div class="ann">
+  <div class="ann-item"><div class="ann-dot" style="background:#6BAF5C"></div>
+    <div class="ann-txt"><strong>Shalat berjamaah</strong> — optimal RT60 = 0.8&#8211;1.2 s (Abdou 2003)</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#B8922A"></div>
+    <div class="ann-txt"><strong>Khutbah</strong> — optimal RT60 = 0.6&#8211;1.0 s (Bistafa &amp; Bradley 2000)</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#8B3A2A"></div>
+    <div class="ann-txt"><strong>Tilawah Al-Qur'an</strong> — optimal RT60 = 1.5&#8211;2.5 s (Shankland 1979; Saoud 2016)</div></div>
+</div>
+
+<div class="insight" style="margin-top:28px">
+  <div class="insight-label">Paradoks Akustik Masjid</div>
+  <div class="insight-txt">
+    Ruang yang ideal untuk tilawah &mdash; bergema panjang, RT60 di atas 1.5 detik &mdash; adalah ruang yang buruk untuk khutbah. Keindahan akustik yang membuat lantunan ayat terasa <em>transenden</em> adalah fenomena fisika yang sama yang membuat kata-kata imam melebur menjadi derau tak terbaca. Tidak ada satu nilai RT60 yang memuaskan ketiga fungsi sekaligus.
+  </div>
+</div>
+
+<!-- ══════════ SECTION 3 ══════════ -->
+<div class="sec-eyebrow">03 / Geometri Mihrab sebagai Perangkat Akustik</div>
+<div class="sec-title">Bentuk cekungan menentukan ke mana suara diarahkan</div>
+<div class="sec-desc">
+  Simulasi ray tracing di mihrab menggunakan specular reflection geometris dengan normal dihitung per segmen. Untuk setengah lingkaran: busur dimodelkan sebagai N = 128 segmen sehingga normal lokal akurat. Posisi imam dapat digeser &mdash; perhatikan bagaimana pola pantulan berubah, terutama pada setengah lingkaran yang sangat sensitif terhadap posisi sumber.
+</div>
+
+<div class="mh-grid">
+  <div class="mh-tab active" id="mt-semicircle" onclick="setMihrab('semicircle')">
+    <svg viewBox="0 0 80 80" fill="none"><rect width="80" height="80" fill="#0D0B08"/>
+      <path d="M18 62 L18 38 Q40 8 62 38 L62 62" stroke="#B8922A" stroke-width="1.8" fill="rgba(184,146,42,.07)"/>
+    </svg>
+    <span class="mh-lbl">Setengah Lingkaran</span>
+  </div>
+  <div class="mh-tab" id="mt-trapezoid" onclick="setMihrab('trapezoid')">
+    <svg viewBox="0 0 80 80" fill="none"><rect width="80" height="80" fill="#0D0B08"/>
+      <path d="M20 62 L28 14 L52 14 L60 62 Z" stroke="#B8922A" stroke-width="1.8" fill="rgba(184,146,42,.07)"/>
+    </svg>
+    <span class="mh-lbl">Trapesium</span>
+  </div>
+  <div class="mh-tab" id="mt-triangular" onclick="setMihrab('triangular')">
+    <svg viewBox="0 0 80 80" fill="none"><rect width="80" height="80" fill="#0D0B08"/>
+      <path d="M16 62 L40 10 L64 62 Z" stroke="#B8922A" stroke-width="1.8" fill="rgba(184,146,42,.07)"/>
+    </svg>
+    <span class="mh-lbl">Segitiga</span>
+  </div>
+  <div class="mh-tab" id="mt-flat" onclick="setMihrab('flat')">
+    <svg viewBox="0 0 80 80" fill="none"><rect width="80" height="80" fill="#0D0B08"/>
+      <rect x="16" y="14" width="48" height="48" stroke="#B8922A" stroke-width="1.8" fill="rgba(184,146,42,.07)"/>
+    </svg>
+    <span class="mh-lbl">Datar</span>
+  </div>
+</div>
+
+<div class="cw" style="height:360px"><canvas id="mhC" style="height:100%"></canvas></div>
+
+<div class="ctrl-row" style="margin-top:12px">
+  <div class="sl-group">
+    <span class="sl-label">Posisi imam dari dinding belakang</span>
+    <input type="range" id="imamPos" min="10" max="90" step="5" value="30"
+      oninput="onImamChange(this.value)">
+    <span class="sl-val" id="imamPosV">30 cm</span>
+  </div>
+  <div class="sl-group">
+    <span class="sl-label">Jumlah sinar</span>
+    <input type="range" id="mhRaysSl" min="8" max="48" step="4" value="24"
+      oninput="onMhRaysChange(this.value)">
+    <span class="sl-val" id="mhRaysV">24</span>
+  </div>
+</div>
+
+<div class="perf">
+  <div><div class="perf-lbl">Fokus ke jemaah</div>
+    <div class="perf-bg"><div class="perf-fill" id="pf-focus" style="width:50%"></div></div>
+    <div class="perf-val" id="pv-focus">—</div></div>
+  <div><div class="perf-lbl">Cakupan lateral</div>
+    <div class="perf-bg"><div class="perf-fill" id="pf-cover" style="width:50%"></div></div>
+    <div class="perf-val" id="pv-cover">—</div></div>
+  <div><div class="perf-lbl">Efisiensi SPL</div>
+    <div class="perf-bg"><div class="perf-fill" id="pf-spl" style="width:50%"></div></div>
+    <div class="perf-val" id="pv-spl">—</div></div>
+</div>
+
+<div class="ann" style="margin-top:16px">
+  <div class="ann-item"><div class="ann-dot" style="background:#F5C842"></div>
+    <div class="ann-txt"><strong>Sinar langsung</strong> dari imam, omnidireksional 180&#176; ke ruang shalat</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#6BAF5C"></div>
+    <div class="ann-txt"><strong>Pantulan produktif</strong> &mdash; berhasil diarahkan ke zona jemaah</div></div>
+  <div class="ann-item"><div class="ann-dot" style="background:#8B3A2A"></div>
+    <div class="ann-txt"><strong>Pantulan terbuang</strong> &mdash; kembali ke imam atau ke langit-langit</div></div>
+</div>
+
+<div class="insight" style="margin-top:28px">
+  <div class="insight-label">Temuan Kunci &mdash; ScienceDirect 2024 &amp; IntechOpen 2019</div>
+  <div class="insight-txt">
+    Mihrab setengah lingkaran yang paling umum dibangun secara akustik hanya optimal ketika imam berdiri <em>tepat</em> di titik fokus geometri busur. Dalam praktik ini hampir tidak pernah terjadi &mdash; dan pergeseran kecil posisi sumber mengubah pola pantulan secara drastis. Mihrab trapesium menghasilkan distribusi SPL paling merata dan konsisten karena dua bidang miring mengarahkan suara ke depan terlepas dari posisi imam.
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:12px">
+  <span style="font-size:12px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--dust)">
+    Simulasi oleh Randy Frans Fela &middot; fransfela.com &nbsp;|&nbsp;
+    <a href="https://fransfela.github.io/viz/mosque-acoustics/" style="color:var(--gold);text-decoration:none">
+      Bagian II: Masjid Biasa vs Masjidil Haram &#8594;</a>
+  </span>
+</div>
+
+</div><!-- /page -->
+
+<script>
+// ═══════════════════════════════════════════════
+// MATERIAL DATABASE  (ISO 354 / Everest & Pohlmann, 500 Hz)
+// ═══════════════════════════════════════════════
+const MAT_DB = {
+  plester:  { label:'Plester / Beton',    alpha:0.03, color:'#8A9BAA' },
+  kayu:     { label:'Panel Kayu',         alpha:0.10, color:'#A08050' },
+  karpet:   { label:'Karpet Tebal',       alpha:0.35, color:'#7A6050' },
+  kaca:     { label:'Kaca / Ubin',        alpha:0.02, color:'#80A0B8' },
+  cushion:  { label:'Jok / Bantal',       alpha:0.45, color:'#806878' },
+  udara:    { label:'Udara (per 1000 m\u00b3)', alpha:0.006, color:'#7AA09A' },
+};
+
+// Live material alpha values
+const MAT = {};
+for (const k in MAT_DB) MAT[k] = MAT_DB[k].alpha;
+
+let VOLUME = 3000; // m³
+
+// Surface area fractions (heuristic for typical mosque)
+function surfaceAreas(V) {
+  const S = 6 * Math.pow(V, 2/3); // total surface ~ cube approximation
+  return { plester:S*0.55, kayu:S*0.10, karpet:S*0.22, kaca:S*0.05, cushion:S*0.08 };
+}
+
+// Eyring equation: T60 = 0.161*V / (-S*ln(1-alpha_bar))
+function eyringRT60() {
+  const areas = surfaceAreas(VOLUME);
+  const Stot = Object.values(areas).reduce((a,b)=>a+b, 0);
+  let A = 0;
+  for (const k in areas) A += MAT[k] * areas[k];
+  A += MAT.udara * (VOLUME / 1000);
+  const ab = A / Stot;
+  if (ab >= 0.9999) return 0.01;
+  return 0.161 * VOLUME / (-Stot * Math.log(1 - ab));
+}
+
+// ═══════════════════════════════════════════════
+// MATERIAL SLIDERS
+// ═══════════════════════════════════════════════
+function buildMatGrid() {
+  const grid = document.getElementById('matGrid');
+  grid.innerHTML = '';
+  // Add dynamic thumb styles
+  let thumbCSS = '';
+  for (const k in MAT_DB) {
+    const m = MAT_DB[k];
+    const row = document.createElement('div');
+    row.className = 'mat-row';
+    row.innerHTML =
+      `<div class="mat-swatch" style="background:${m.color}"></div>` +
+      `<span class="mat-name">${m.label}</span>` +
+      `<input class="mat-sl" id="msl_${k}" type="range" min="0.01" max="0.99" step="0.01" value="${m.alpha}" oninput="onMat('${k}',this.value)">` +
+      `<span class="mat-alpha" id="mav_${k}">\u03b1&nbsp;${m.alpha.toFixed(2)}</span>`;
+    grid.appendChild(row);
+    thumbCSS += `#msl_${k}::-webkit-slider-thumb{background:${m.color};}`;
+  }
+  const st = document.createElement('style');
+  st.textContent = thumbCSS;
+  document.head.appendChild(st);
+  refreshRT60();
+}
+
+function onMat(k, v) {
+  MAT[k] = parseFloat(v);
+  document.getElementById('mav_' + k).textContent = '\u03b1\u00a0' + MAT[k].toFixed(2);
+  refreshRT60();
+  drawDecay();
+  if (activeRays.length) drawRayRoom(activeRays); // re-color walls
+}
+
+function refreshRT60() {
+  const rt = eyringRT60();
+  document.getElementById('rt60ey').textContent = rt.toFixed(2) + ' s';
+  document.getElementById('volDisp').textContent = VOLUME.toLocaleString('id') + ' m\u00b3';
+  drawRT60Badges(rt);
+}
+
+// ═══════════════════════════════════════════════
+// PHYSICS HELPERS
+// ═══════════════════════════════════════════════
+// Ray-segment intersection: returns t > 0 or null
+function segHit(px,py,dx,dy,x1,y1,x2,y2) {
+  const ex=x2-x1, ey=y2-y1;
+  const denom = dx*ey - dy*ex;
+  if (Math.abs(denom)<1e-10) return null;
+  const t = ((x1-px)*ey-(y1-py)*ex)/denom;
+  const u = ((x1-px)*dy-(y1-py)*dx)/denom;
+  if (t>1e-4 && u>=0 && u<=1) return t;
+  return null;
+}
+
+// Specular reflection: d_r = d - 2(d·n̂)n̂
+// segment direction (wx,wy) → outward normal computed such that it faces incident ray
+function specReflect(dx,dy,wx,wy) {
+  const len = Math.sqrt(wx*wx+wy*wy);
+  // Two possible normals; pick the one that faces the incoming ray
+  let nx=-wy/len, ny=wx/len;
+  if (dx*nx+dy*ny > 0) { nx=-nx; ny=-ny; } // flip to face incident
+  const d2n = dx*nx+dy*ny;
+  return { dx:dx-2*d2n*nx, dy:dy-2*d2n*ny };
+}
+
+// ═══════════════════════════════════════════════
+// SECTION 1 — RAY TRACING
+// ═══════════════════════════════════════════════
+const rayC = document.getElementById('rayC');
+const rCtx  = rayC.getContext('2d');
+let activeRays = [];
+let rayAnimId  = null;
+
+function resizeRayC() {
+  rayC.width  = rayC.parentElement.clientWidth;
+  rayC.height = Math.round(rayC.width * 0.46);
+  drawRayRoom(activeRays);
+}
+
+function roomGeom(W,H) {
+  const L=W*0.07, R=W*0.93, T=H*0.08, B=H*0.92;
+  const mT=H*0.27, mB=H*0.73;   // mihrab opening
+  const mD=W*0.065;               // mihrab depth
+  const dA=T-H*0.04;             // dome apex Y
+  return {L,R,T,B,mT,mB,mD,dA};
+}
+
+function buildRoomWalls(W,H) {
+  const g = roomGeom(W,H);
+  const {L,R,T,B,mT,mB,mD,dA} = g;
+  return [
+    // floor (karpet)
+    {x1:L,y1:B,x2:R,y2:B,      alpha:MAT.karpet,  matKey:'karpet'},
+    // right wall (plester)
+    {x1:R,y1:T,x2:R,y2:B,      alpha:MAT.plester, matKey:'plester'},
+    // left wall top (plester)
+    {x1:L,y1:dA,x2:L,y2:mT,   alpha:MAT.plester, matKey:'plester'},
+    // left wall bottom (plester)
+    {x1:L,y1:mB,x2:L,y2:B,    alpha:MAT.plester, matKey:'plester'},
+    // mihrab top sill (kayu)
+    {x1:L-mD,y1:mT,x2:L,y2:mT,alpha:MAT.kayu,   matKey:'kayu'},
+    // mihrab back wall (plester)
+    {x1:L-mD,y1:mT,x2:L-mD,y2:mB,alpha:MAT.plester,matKey:'plester'},
+    // mihrab bottom sill (kayu)
+    {x1:L-mD,y1:mB,x2:L,y2:mB,alpha:MAT.kayu,   matKey:'kayu'},
+    // ceiling left slope
+    {x1:L,y1:dA,x2:W/2,y2:dA-H*0.04, alpha:MAT.plester,matKey:'plester'},
+    // ceiling right slope
+    {x1:W/2,y1:dA-H*0.04,x2:R,y2:T, alpha:MAT.plester,matKey:'plester'},
+  ];
+}
+
+class Ray {
+  constructor(x,y,angle) {
+    this.x=x; this.y=y;
+    this.dx=Math.cos(angle); this.dy=Math.sin(angle);
+    this.energy=1.0;
+    this.path=[{x,y}];
+    this.done=false;
+  }
+  step(walls, speed=5) {
+    if(this.done) return;
+    let minT=Infinity, hit=null;
+    for(const w of walls) {
+      const t=segHit(this.x,this.y,this.dx,this.dy,w.x1,w.y1,w.x2,w.y2);
+      if(t!==null && t<minT){minT=t;hit=w;}
+    }
+    if(hit && minT<speed) {
+      this.x+=this.dx*minT; this.y+=this.dy*minT;
+      this.path.push({x:this.x,y:this.y});
+      const r=specReflect(this.dx,this.dy,hit.x2-hit.x1,hit.y2-hit.y1);
+      this.dx=r.dx; this.dy=r.dy;
+      this.energy*=(1-hit.alpha);
+      if(this.energy<0.004) this.done=true;
+    } else {
+      this.x+=this.dx*speed; this.y+=this.dy*speed;
+    }
+  }
+}
+
+function drawRayRoom(rays) {
+  const W=rayC.width,H=rayC.height;
+  const {L,R,T,B,mT,mB,mD,dA}=roomGeom(W,H);
+  rCtx.clearRect(0,0,W,H);
+  rCtx.fillStyle='#0D0B08'; rCtx.fillRect(0,0,W,H);
+
+  // Room fill
+  rCtx.save();
+  rCtx.beginPath();
+  rCtx.moveTo(L,B); rCtx.lineTo(L,mB);
+  rCtx.lineTo(L-mD,mB); rCtx.lineTo(L-mD,mT);
+  rCtx.lineTo(L,mT); rCtx.lineTo(L,dA);
+  rCtx.lineTo(W/2,dA-H*0.04); rCtx.lineTo(R,T);
+  rCtx.lineTo(R,B); rCtx.closePath();
+  rCtx.fillStyle='rgba(28,22,14,0.9)'; rCtx.fill();
+  rCtx.strokeStyle='rgba(200,191,176,0.22)'; rCtx.lineWidth=1.5; rCtx.stroke();
+  rCtx.restore();
+
+  // Material color strips on walls
+  const walls=buildRoomWalls(W,H);
+  for(const w of walls) {
+    const col = MAT_DB[w.matKey]?.color || '#888';
+    rCtx.save();
+    rCtx.strokeStyle=col+'44'; rCtx.lineWidth=3;
+    rCtx.beginPath(); rCtx.moveTo(w.x1,w.y1); rCtx.lineTo(w.x2,w.y2); rCtx.stroke();
+    rCtx.restore();
+  }
+
+  // Labels
+  rCtx.save();
+  rCtx.fillStyle='rgba(138,123,106,0.45)'; rCtx.font='9px Jost,sans-serif';
+  rCtx.textAlign='center';
+  rCtx.fillText('RUANG SHALAT',(L+R)/2+W*0.05,B-8);
+  rCtx.textAlign='left';
+  rCtx.fillText('MIHRAB',L-mD+3,mT-5);
+  rCtx.restore();
+
+  // Draw ray paths
+  for(const ray of rays) {
+    if(ray.path.length<2) continue;
+    for(let i=1;i<ray.path.length;i++) {
+      const frac=i/ray.path.length;
+      // Color: gold (high energy) → blue (low energy)
+      const e=Math.max(0,ray.energy*(1-frac)+0.02);
+      const rr=Math.round(245*Math.min(1,e*2)+92*(1-Math.min(1,e*2)));
+      const gg=Math.round(200*Math.min(1,e*2)+138*(1-Math.min(1,e*2)));
+      const bb=Math.round(66 *Math.min(1,e*2)+175*(1-Math.min(1,e*2)));
+      rCtx.save();
+      rCtx.strokeStyle=`rgba(${rr},${gg},${bb},${Math.max(0.06,e*0.8)})`;
+      rCtx.lineWidth=1.2;
+      rCtx.beginPath();
+      rCtx.moveTo(ray.path[i-1].x,ray.path[i-1].y);
+      rCtx.lineTo(ray.path[i].x,ray.path[i].y);
+      rCtx.stroke();
+      rCtx.restore();
+    }
+    if(!ray.done) {
+      rCtx.save();
+      rCtx.fillStyle=`rgba(245,200,66,${Math.max(0,ray.energy)})`;
+      rCtx.beginPath();
+      rCtx.arc(ray.x,ray.y,2.5,0,Math.PI*2);
+      rCtx.fill();
+      rCtx.restore();
+    }
+  }
+
+  // Imam source
+  const sx=L-mD*0.35, sy=(mT+mB)/2;
+  rCtx.save();
+  rCtx.fillStyle='rgba(107,175,92,0.15)';
+  rCtx.beginPath(); rCtx.arc(sx,sy,13,0,Math.PI*2); rCtx.fill();
+  rCtx.fillStyle='#6BAF5C';
+  rCtx.beginPath(); rCtx.arc(sx,sy,5,0,Math.PI*2); rCtx.fill();
+  rCtx.restore();
+}
+
+function fireRays() {
+  clearRays();
+  const W=rayC.width,H=rayC.height;
+  const {L,mT,mB,mD}=roomGeom(W,H);
+  const sx=L-mD*0.35, sy=(mT+mB)/2;
+  const n=parseInt(document.getElementById('nRays').value);
+  const walls=buildRoomWalls(W,H);
+  for(let i=0;i<n;i++) {
+    activeRays.push(new Ray(sx,sy,2*Math.PI*i/n));
+  }
+  function tick() {
+    const done=activeRays.every(r=>r.done);
+    activeRays.forEach(r=>{ if(!r.done) r.step(walls,5); });
+    drawRayRoom(activeRays);
+    if(!done) rayAnimId=requestAnimationFrame(tick);
+    else rayAnimId=null;
+  }
+  tick();
+}
+
+function clearRays() {
+  if(rayAnimId){cancelAnimationFrame(rayAnimId);rayAnimId=null;}
+  activeRays=[];
+  drawRayRoom([]);
+}
+
+// ═══════════════════════════════════════════════
+// SECTION 2 — DECAY CURVES
+// ═══════════════════════════════════════════════
+const decayC = document.getElementById('decayC');
+const dCtx   = decayC.getContext('2d');
+let decayMode = 'shalat';
+
+const FUNCS = {
+  shalat:  {label:'Shalat Berjamaah', color:'#6BAF5C', oMin:0.8, oMax:1.2},
+  khutbah: {label:'Khutbah',          color:'#B8922A', oMin:0.6, oMax:1.0},
+  tilawah: {label:"Tilawah Al-Qur'an",color:'#8B3A2A', oMin:1.5, oMax:2.5},
+};
+
+function resizeDecayC() {
+  const w=decayC.parentElement;
+  decayC.width=w.clientWidth; decayC.height=w.clientHeight;
+  drawDecay();
+}
+
+function hexRgb(h){return{r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};}
+
+function drawRT60Badges(rt) {
+  const el=document.getElementById('rt60Readout');
+  el.innerHTML=Object.entries(FUNCS).map(([k,m])=>{
+    const {r,g,b}=hexRgb(m.color);
+    const ok=rt>=m.oMin&&rt<=m.oMax;
+    const status=ok?'\u2713 Optimal':rt<m.oMin?'\u2191 Terlalu kering':'\u2193 Terlalu bergema';
+    return `<div class="rt-badge">
+      <span class="rt-swatch" style="background:${m.color}"></span>
+      ${m.label}: <strong>${status}</strong></div>`;
+  }).join('');
+}
+
+function drawDecay() {
+  const W=decayC.width,H=decayC.height;
+  if(!W||!H)return;
+  dCtx.clearRect(0,0,W,H);
+  dCtx.fillStyle='#0D0B08'; dCtx.fillRect(0,0,W,H);
+
+  const pL=58,pR=18,pT=28,pB=44;
+  const cW=W-pL-pR,cH=H-pT-pB,maxT=5;
+
+  const rt=eyringRT60();
+  drawRT60Badges(rt);
+
+  // Grid
+  dCtx.save();
+  dCtx.strokeStyle='rgba(200,191,176,0.07)'; dCtx.lineWidth=1;
+  for(let db=0;db<=60;db+=10){
+    const y=pT+(db/60)*cH;
+    dCtx.beginPath(); dCtx.moveTo(pL,y); dCtx.lineTo(pL+cW,y); dCtx.stroke();
+    dCtx.fillStyle='rgba(138,123,106,0.65)'; dCtx.font='9px Jost,sans-serif';
+    dCtx.textAlign='right';
+    dCtx.fillText(`\u2212${db} dB`,pL-5,y+3);
+  }
+  for(let t=0;t<=maxT;t++){
+    const x=pL+(t/maxT)*cW;
+    dCtx.beginPath(); dCtx.moveTo(x,pT); dCtx.lineTo(x,pT+cH); dCtx.stroke();
+    dCtx.fillStyle='rgba(138,123,106,0.65)'; dCtx.font='9px Jost,sans-serif';
+    dCtx.textAlign='center';
+    dCtx.fillText(t+'s',x,pT+cH+14);
+  }
+  dCtx.restore();
+
+  // -60 dB line
+  dCtx.save();
+  dCtx.strokeStyle='rgba(184,146,42,0.25)'; dCtx.setLineDash([4,5]); dCtx.lineWidth=1;
+  dCtx.beginPath(); dCtx.moveTo(pL,pT+cH); dCtx.lineTo(pL+cW,pT+cH); dCtx.stroke();
+  dCtx.setLineDash([]); dCtx.fillStyle='rgba(184,146,42,0.45)';
+  dCtx.font='8px Jost,sans-serif'; dCtx.textAlign='left';
+  dCtx.fillText('\u221260 dB = ambang RT60',pL+4,pT+cH-4);
+  dCtx.restore();
+
+  // Axes
+  dCtx.save();
+  dCtx.strokeStyle='rgba(200,191,176,0.22)'; dCtx.lineWidth=1;
+  dCtx.beginPath();
+  dCtx.moveTo(pL,pT); dCtx.lineTo(pL,pT+cH); dCtx.lineTo(pL+cW,pT+cH); dCtx.stroke();
+  dCtx.fillStyle='rgba(138,123,106,0.5)'; dCtx.font='9px Jost,sans-serif';
+  dCtx.textAlign='center';
+  dCtx.fillText('Waktu (detik)',pL+cW/2,H-5);
+  dCtx.restore();
+
+  // Draw function reference curves (dashed, ideal midpoint)
+  const modes = decayMode==='all' ? Object.keys(FUNCS) : [decayMode];
+  let yOffset=16;
+  for(const mk of modes) {
+    const m=FUNCS[mk];
+    const {r,g,b}=hexRgb(m.color);
+    const rt_ideal=(m.oMin+m.oMax)/2;
+
+    // Optimal zone fill
+    const xMin=pL+(m.oMin/maxT)*cW, xMax=pL+(m.oMax/maxT)*cW;
+    dCtx.save();
+    dCtx.fillStyle=`rgba(${r},${g},${b},0.07)`;
+    dCtx.fillRect(xMin,pT,xMax-xMin,cH);
+    // zone border dashes
+    dCtx.strokeStyle=`rgba(${r},${g},${b},0.18)`;
+    dCtx.setLineDash([2,4]); dCtx.lineWidth=1;
+    dCtx.beginPath();
+    dCtx.moveTo(xMin,pT); dCtx.lineTo(xMin,pT+cH);
+    dCtx.moveTo(xMax,pT); dCtx.lineTo(xMax,pT+cH);
+    dCtx.stroke(); dCtx.setLineDash([]);
+    dCtx.restore();
+
+    // Ideal curve (dashed)
+    dCtx.save();
+    dCtx.beginPath();
+    for(let px=0;px<=cW;px++){
+      const t=(px/cW)*maxT;
+      const db=Math.min(0,-60*t/rt_ideal);
+      const y=pT+(-db/60)*cH;
+      if(px===0) dCtx.moveTo(pL+px,y); else dCtx.lineTo(pL+px,y);
+    }
+    dCtx.strokeStyle=`rgba(${r},${g},${b},0.45)`;
+    dCtx.lineWidth=1.5; dCtx.setLineDash([6,4]); dCtx.stroke();
+    dCtx.setLineDash([]);
+
+    // Label
+    dCtx.fillStyle=`rgba(${r},${g},${b},0.85)`;
+    dCtx.font='10px Jost,sans-serif'; dCtx.textAlign='left';
+    dCtx.fillText(m.label+' ('+m.oMin+'\u2013'+m.oMax+' s)', pL+4, pT+yOffset);
+    yOffset+=13;
+    dCtx.restore();
+  }
+
+  // Actual room decay curve (solid white) — from Eyring RT60
+  dCtx.save();
+  dCtx.beginPath();
+  for(let px=0;px<=cW;px++){
+    const t=(px/cW)*maxT;
+    const db=Math.min(0,-60*t/Math.max(0.05,rt));
+    const y=pT+(-db/60)*cH;
+    if(px===0) dCtx.moveTo(pL+px,y); else dCtx.lineTo(pL+px,y);
+  }
+  dCtx.strokeStyle='rgba(247,243,236,0.9)'; dCtx.lineWidth=2.5; dCtx.stroke();
+
+  // RT60 vertical marker
+  const xRT=pL+(rt/maxT)*cW;
+  if(xRT<=pL+cW+2){
+    dCtx.strokeStyle='rgba(184,146,42,0.7)'; dCtx.lineWidth=1; dCtx.setLineDash([3,4]);
+    dCtx.beginPath(); dCtx.moveTo(xRT,pT); dCtx.lineTo(xRT,pT+cH); dCtx.stroke();
+    dCtx.setLineDash([]);
+    dCtx.fillStyle='rgba(184,146,42,0.9)'; dCtx.font='bold 10px Jost,sans-serif';
+    dCtx.textAlign='center';
+    const xLabel=Math.min(xRT, pL+cW-52);
+    dCtx.fillText('RT60 = '+rt.toFixed(2)+'s', xLabel, pT+cH-18);
+  }
+
+  // "Ruang saat ini" label
+  dCtx.fillStyle='rgba(247,243,236,0.45)'; dCtx.font='9px Jost,sans-serif';
+  dCtx.textAlign='right';
+  dCtx.fillText('Ruang saat ini \u2192', Math.min(pL+(rt/maxT)*cW-6, pL+cW-8), pT+8);
+  dCtx.restore();
+}
+
+function setDecayMode(m) {
+  decayMode=m;
+  for(const k of ['shalat','khutbah','tilawah','all']){
+    const el=document.getElementById('tab-'+k);
+    el.className='tab t-'+k;
+  }
+  document.getElementById('tab-'+m).classList.add('on');
+  drawDecay();
+}
+
+function onVolChange(v) {
+  VOLUME=parseInt(v);
+  document.getElementById('volSv').textContent=Number(v).toLocaleString('id')+' m\u00b3';
+  refreshRT60(); drawDecay();
+}
+
+// ═══════════════════════════════════════════════
+// SECTION 3 — MIHRAB RAY TRACING
+// ═══════════════════════════════════════════════
+const mhC  = document.getElementById('mhC');
+const mCtx = mhC.getContext('2d');
+let currentMihrab='semicircle';
+let imamPct=30;   // % depth from back wall
+let mhN=24;       // number of rays
+
+const MH_PERF = {
+  semicircle:{focus:52,cover:58,spl:48,
+    fL:'Sedang \u2014 bergantung posisi imam',
+    cL:'Cukup, tidak konsisten',sL:'Rendah jika imam tidak di titik fokus',
+    desc:'Optimal hanya jika imam tepat di titik fokus (R/2 dari dinding). Geser slider posisi imam untuk melihat sensitivitas ini.'},
+  trapezoid: {focus:80,cover:85,spl:78,
+    fL:'Tinggi \u2014 konsisten',
+    cL:'Merata luas ke seluruh jemaah',sL:'Tinggi \u2014 distribusi SPL terbaik',
+    desc:'Dua bidang miring mengarahkan suara ke depan secara konsisten terlepas dari posisi imam. Hasil ScienceDirect 2024 & IntechOpen 2019.'},
+  triangular:{focus:88,cover:72,spl:82,
+    fL:'Sangat tinggi \u2014 apex kuat',
+    cL:'Baik ke depan, sempit lateral',sL:'Sangat tinggi \u2014 energi terkonsentrasi',
+    desc:'Apex segitiga bertindak sebagai fokus kuat. Forward gain tinggi, tapi cakupan lateral lebih sempit dibanding trapesium.'},
+  flat:      {focus:30,cover:35,spl:25,
+    fL:'Rendah \u2014 pantulan kembali',
+    cL:'Buruk \u2014 energi tidak diarahkan',sL:'Sangat rendah \u2014 terbuang',
+    desc:'Dinding datar memantulkan suara langsung kembali ke imam. Konfigurasi akustik terburuk.'},
+};
+
+function resizeMhC() {
+  mhC.width =mhC.parentElement.clientWidth;
+  mhC.height=mhC.parentElement.clientHeight;
+  drawMihrab();
+}
+
+function mihrabWalls(type,W,H) {
+  // Room: congregation to the right, mihrab on left wall
+  const rL=W*0.06,rR=W*0.94,rT=H*0.07,rB=H*0.93;
+  const opY1=H*0.24,opY2=H*0.76; // mihrab opening on left wall
+  const depth=W*0.19;
+  const mCy=(opY1+opY2)/2;
+  const mHH=(opY2-opY1)/2;
+  const backX=rL-depth;
+  const frontX=rL;
+
+  let mWalls=[];
+
+  if(type==='semicircle') {
+    // Center of circle at backX + radius (so circle arc touches frontX)
+    const r=mHH;
+    const cx=frontX-r; // center x
+    const N=128;
+    for(let i=0;i<N;i++){
+      // Arc from top (mCy-r) to bottom (mCy+r), right side of circle faces room
+      const a1=Math.PI/2-Math.PI*i/N;
+      const a2=Math.PI/2-Math.PI*(i+1)/N;
+      // Right side of circle: x = cx + r*cos(a), y = mCy - r*sin(a)  ... wait
+      // Standard: circle on left wall, opens right.
+      // Points on circle: x = cx - r*cos(theta), y = mCy + r*sin(theta), theta from -PI/2 to PI/2
+      const t1=-Math.PI/2+Math.PI*i/N;
+      const t2=-Math.PI/2+Math.PI*(i+1)/N;
+      mWalls.push({
+        x1:cx-r*Math.cos(t1), y1:mCy+r*Math.sin(t1),
+        x2:cx-r*Math.cos(t2), y2:mCy+r*Math.sin(t2),
+        alpha:MAT.plester,isMihrab:true
+      });
+    }
+    // Store geometry info for imam placement
+    mWalls._cx=cx; mWalls._r=r; mWalls._backX=cx-r;
+  } else if(type==='trapezoid'){
+    const oH=mHH, bH=mHH*0.42, bX=frontX-depth*0.85;
+    mWalls=[
+      {x1:frontX,y1:mCy-oH, x2:bX,y2:mCy-bH, alpha:MAT.plester,isMihrab:true},
+      {x1:bX,y1:mCy-bH,     x2:bX,y2:mCy+bH, alpha:MAT.plester,isMihrab:true},
+      {x1:bX,y1:mCy+bH,     x2:frontX,y2:mCy+oH, alpha:MAT.plester,isMihrab:true},
+    ];
+    mWalls._backX=bX;
+  } else if(type==='triangular'){
+    const apexX=frontX-depth*0.82;
+    mWalls=[
+      {x1:frontX,y1:mCy-mHH, x2:apexX,y2:mCy, alpha:MAT.plester,isMihrab:true},
+      {x1:apexX,y1:mCy,       x2:frontX,y2:mCy+mHH, alpha:MAT.plester,isMihrab:true},
+    ];
+    mWalls._backX=apexX;
+  } else {
+    const bX=frontX-depth*0.85;
+    mWalls=[
+      {x1:frontX,y1:mCy-mHH, x2:bX,y2:mCy-mHH, alpha:MAT.plester,isMihrab:true},
+      {x1:bX,y1:mCy-mHH,     x2:bX,y2:mCy+mHH, alpha:MAT.plester,isMihrab:true},
+      {x1:bX,y1:mCy+mHH,     x2:frontX,y2:mCy+mHH, alpha:MAT.plester,isMihrab:true},
+    ];
+    mWalls._backX=bX;
+  }
+
+  const roomWalls=[
+    {x1:rL,y1:rT,x2:rR,y2:rT,alpha:MAT.plester},
+    {x1:rR,y1:rT,x2:rR,y2:rB,alpha:MAT.plester},
+    {x1:rL,y1:rB,x2:rR,y2:rB,alpha:MAT.karpet},
+    {x1:rL,y1:rT,x2:rL,y2:opY1,alpha:MAT.plester},
+    {x1:rL,y1:opY2,x2:rL,y2:rB,alpha:MAT.plester},
+  ];
+
+  // Imam position: lerp from back wall to front opening
+  const bx=mWalls._backX ?? backX;
+  const frac=imamPct/100;
+  const srcX=bx+(frontX-bx)*frac;
+  const srcY=mCy;
+
+  return {mWalls,roomWalls,allWalls:[...mWalls,...roomWalls],
+          rL,rR,rT,rB,opY1,opY2,mCy,mHH,depth,frontX,srcX,srcY};
+}
+
+function drawMihrab() {
+  const W=mhC.width,H=mhC.height;
+  if(!W||!H)return;
+  const geo=mihrabWalls(currentMihrab,W,H);
+  const {mWalls,allWalls,rL,rR,rT,rB,opY1,opY2,mCy,mHH,depth,frontX,srcX,srcY}=geo;
+
+  mCtx.clearRect(0,0,W,H);
+  mCtx.fillStyle='#0D0B08'; mCtx.fillRect(0,0,W,H);
+
+  // Room
+  mCtx.save();
+  mCtx.fillStyle='rgba(22,16,10,0.9)';
+  mCtx.fillRect(rL,rT,rR-rL,rB-rT);
+  mCtx.strokeStyle='rgba(200,191,176,0.18)'; mCtx.lineWidth=1.5;
+  mCtx.strokeRect(rL,rT,rR-rL,rB-rT);
+  mCtx.restore();
+
+  // Mihrab cavity fill
+  mCtx.save();
+  mCtx.fillStyle='rgba(184,146,42,0.06)';
+  mCtx.beginPath();
+  mCtx.moveTo(frontX,opY1);
+  if(mWalls.length>0){
+    mCtx.lineTo(mWalls[0].x1,mWalls[0].y1);
+    for(const w of mWalls) mCtx.lineTo(w.x2,w.y2);
+  }
+  mCtx.lineTo(frontX,opY2);
+  mCtx.closePath(); mCtx.fill();
+  // Mihrab wall outline
+  mCtx.strokeStyle='rgba(184,146,42,0.55)'; mCtx.lineWidth=1.8;
+  mCtx.beginPath();
+  if(mWalls.length>0){
+    mCtx.moveTo(mWalls[0].x1,mWalls[0].y1);
+    for(const w of mWalls) mCtx.lineTo(w.x2,w.y2);
+  }
+  mCtx.stroke();
+  mCtx.restore();
+
+  // Shoot rays
+  let frontCount=0;
+  for(let i=0;i<mhN;i++){
+    // Fan 180° toward congregation (rightward)
+    const angle=-Math.PI/2+Math.PI*(i/(mhN-1));
+    let x=srcX,y=srcY,dx=Math.cos(angle),dy=Math.sin(angle);
+    let energy=1.0;
+    const path=[{x,y}];
+    let hitCong=false;
+
+    for(let b=0;b<5;b++){
+      let minT=Infinity,hit=null;
+      for(const w of allWalls){
+        const t=segHit(x,y,dx,dy,w.x1,w.y1,w.x2,w.y2);
+        if(t!==null&&t<minT){minT=t;hit=w;}
+      }
+      if(!hit||minT>5000)break;
+      x+=dx*minT; y+=dy*minT;
+      path.push({x,y});
+      const r2=specReflect(dx,dy,hit.x2-hit.x1,hit.y2-hit.y1);
+      dx=r2.dx; dy=r2.dy;
+      energy*=(1-hit.alpha);
+      if(energy<0.01)break;
+      if(x>rL+(rR-rL)*0.2) hitCong=true;
+    }
+    if(hitCong)frontCount++;
+
+    const col=hitCong?[107,175,92]:[139,58,42];
+    mCtx.save();
+    mCtx.strokeStyle=`rgba(${col[0]},${col[1]},${col[2]},${Math.max(0.08,energy*0.7)})`;
+    mCtx.lineWidth=1.2;
+    mCtx.beginPath();
+    mCtx.moveTo(path[0].x,path[0].y);
+    for(let j=1;j<path.length;j++)mCtx.lineTo(path[j].x,path[j].y);
+    mCtx.stroke();
+    // endpoint
+    const ep=path[path.length-1];
+    mCtx.fillStyle=`rgba(${col[0]},${col[1]},${col[2]},${energy*0.55})`;
+    mCtx.beginPath();mCtx.arc(ep.x,ep.y,2,0,Math.PI*2);mCtx.fill();
+    mCtx.restore();
+  }
+
+  // Imam
+  mCtx.save();
+  mCtx.fillStyle='rgba(107,175,92,0.14)';
+  mCtx.beginPath();mCtx.arc(srcX,srcY,13,0,Math.PI*2);mCtx.fill();
+  mCtx.fillStyle='#6BAF5C';
+  mCtx.beginPath();mCtx.arc(srcX,srcY,5,0,Math.PI*2);mCtx.fill();
+  mCtx.restore();
+
+  // Labels
+  mCtx.save();
+  mCtx.font='9px Jost,sans-serif'; mCtx.textAlign='center';
+  mCtx.fillStyle='rgba(184,146,42,0.65)';
+  mCtx.fillText('MIHRAB',frontX-depth*0.5,rT+14);
+  mCtx.fillStyle='rgba(138,123,106,0.4)';
+  mCtx.fillText('RUANG SHALAT',(frontX+rR)/2,rB-8);
+  mCtx.fillStyle='rgba(107,175,92,0.6)';
+  mCtx.font='8px Jost,sans-serif';
+  mCtx.fillText('IMAM',srcX,srcY-14);
+  mCtx.restore();
+
+  // Efficiency label
+  const eff=Math.round(frontCount/mhN*100);
+  mCtx.save();
+  mCtx.fillStyle='rgba(200,191,176,0.5)'; mCtx.font='9px Jost,sans-serif';
+  mCtx.textAlign='right';
+  mCtx.fillText(eff+'% sinar ke jemaah',rR-8,rT+14);
+  mCtx.restore();
+
+  // Update perf bars
+  const d=MH_PERF[currentMihrab];
+  document.getElementById('pf-focus').style.width=d.focus+'%';
+  document.getElementById('pf-cover').style.width=d.cover+'%';
+  document.getElementById('pf-spl').style.width=d.spl+'%';
+  document.getElementById('pv-focus').textContent=d.fL;
+  document.getElementById('pv-cover').textContent=d.cL;
+  document.getElementById('pv-spl').textContent=d.sL;
+}
+
+function setMihrab(t) {
+  currentMihrab=t;
+  for(const k of ['semicircle','trapezoid','triangular','flat'])
+    document.getElementById('mt-'+k).classList.remove('active');
+  document.getElementById('mt-'+t).classList.add('active');
+  drawMihrab();
+}
+
+function onImamChange(v){
+  imamPct=parseInt(v);
+  document.getElementById('imamPosV').textContent=v+' cm';
+  drawMihrab();
+}
+function onMhRaysChange(v){
+  mhN=parseInt(v);
+  document.getElementById('mhRaysV').textContent=v;
+  drawMihrab();
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+function initAll(){
+  buildMatGrid();
+  resizeRayC();
+  resizeDecayC();
+  resizeMhC();
+}
+let rzTimer;
+window.addEventListener('resize',()=>{
+  clearTimeout(rzTimer);
+  rzTimer=setTimeout(()=>{resizeRayC();resizeDecayC();resizeMhC();},120);
+});
+initAll();
+</script>
+</body>
+</html>
