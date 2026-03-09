@@ -1,9 +1,13 @@
+---
+layout: none
+permalink: /blog/fisika-suara-masjid/
+---
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fisika Suara di Dalam Masjid — Randy Frans Fela</title>
+<title>Fisika Suara di Dalam Masjid — Frans Pela</title>
 <meta name="description" content="Mengapa masjid tua terdengar berbeda dari masjid modern? Ada fisika yang bekerja di baliknya: RT60, mihrab, dan bagaimana otak kita memproses suara dalam ruang beribadah.">
 <meta property="og:title" content="Fisika Suara di Dalam Masjid">
 <meta property="og:description" content="RT60, mihrab sebagai acoustic device, dan bagaimana otak manusia merespons ruang akustik yang berbeda. Bagian I dari seri akustik masjid.">
@@ -287,7 +291,7 @@ footer {
 
 <!-- MASTHEAD -->
 <header class="mast">
-  <a href="https://fransfela.com" class="mast-name">Randy Frans Fela</a>
+  <a href="https://fransfela.com" class="mast-name">Frans Pela</a>
   <nav class="mast-nav">
     <a href="https://fransfela.com/blog">Tulisan</a>
     <a href="https://fransfela.com/projects">Proyek</a>
@@ -306,7 +310,7 @@ footer {
     <div class="hero-meta">
       <span>Randy Fela</span>
       <div class="dot"></div>
-      <span>Ramadan 1447H</span>
+      <span>Ramadan 1446H</span>
       <div class="dot"></div>
       <span>~9 menit baca</span>
     </div>
@@ -430,11 +434,11 @@ footer {
     Artikel ini ditulis dari perspektif <em>perceptual audio engineer</em>, bukan hanya rekap literatur. Ada analisis sendiri, ada perbedaan yang jelas antara temuan akademis dan interpretasi pribadi, dan ada tautan ke semua sumber primer.
   </p>
   <div class="btn-row reveal">
-    <a href="https://fransfela.substack.com/" class="btn btn-primary" target="_blank">
+    <a href="https://fransfela.substack.com" class="btn btn-primary" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       Baca di Substack
     </a>
-    <a href="https://fransfela.substack.com/" class="btn btn-ghost" target="_blank">Subscribe gratis</a>
+    <a href="https://fransfela.substack.com" class="btn btn-ghost" target="_blank">Subscribe gratis</a>
   </div>
 </div>
 
