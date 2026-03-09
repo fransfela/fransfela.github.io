@@ -69,7 +69,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-why-your-expensive-earbuds-spend-more-engineering-effort-on-your-zoom-calls-than-your-spotify-playlist",
+        },{id: "post-2025-03-09-fisika-suara-masjid-bagian-1",
+        
+          title: "2025 03 09 Fisika Suara Masjid Bagian 1",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/fisika-suara-masjid/";
+          
+        },
+      },{id: "post-why-your-expensive-earbuds-spend-more-engineering-effort-on-your-zoom-calls-than-your-spotify-playlist",
         
           title: "Why Your Expensive Earbuds Spend More Engineering Effort on Your Zoom Calls Than...",
         
