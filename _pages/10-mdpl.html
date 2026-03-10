@@ -4,692 +4,1274 @@ permalink: /10-mdpl/
 nav: false
 ---
 <!DOCTYPE html>
-<html lang="id" dir="ltr">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panduan 10 Malam Terakhir Ramadhan - IMSD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --green-deep:   #1a4a2e;
-      --green-mid:    #2d7a4f;
-      --green-light:  #e8f5ed;
-      --gold:         #b8860b;
-      --gold-light:   #f5e6b0;
-      --cream:        #faf8f2;
-      --text-dark:    #1a1a1a;
-      --text-mid:     #3d3d3d;
-      --text-light:   #5a5a5a;
-      --border:       #c9d8c5;
-      --white:        #ffffff;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panduan 10 Malam Terakhir Ramadhan | IMSD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===========================
+     CSS VARIABLES & RESET
+  =========================== */
+  :root {
+    --orange:    #E8811F;
+    --orange-lt: #F5A24B;
+    --orange-dk: #B5620F;
+    --gray:      #4A4A4A;
+    --gray-lt:   #525252;
+    --ink:       #1A1A1A;
+    --paper:     #FAF8F4;
+    --paper-dk:  #F0ECE4;
+    --cream:     #FFF9F0;
+    --gold:      #C8922A;
+    --border:    #DDD5C8;
+    --white:     #FFFFFF;
+    --arabic-font: 'Noto Naskh Arabic', 'Lateef', serif;
+    --body-font:  'Crimson Pro', Georgia, serif;
+    --ui-font:    'Jost', sans-serif;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+    --radius:    8px;
+  }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background-color: var(--cream);
-      color: var(--text-dark);
-      font-size: 17px;
-      line-height: 1.75;
-    }
+  html { font-size: 18px; scroll-behavior: smooth; }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--green-deep);
-      color: var(--white);
-      padding: 2.5rem 1.5rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(184,134,11,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(45,122,79,0.25) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .header-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  body {
+    font-family: var(--body-font);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    min-height: 100vh;
+  }
 
-    .logo-wrap {
-      margin-bottom: 1.2rem;
-    }
-    .logo-wrap img {
-      height: 72px;
-      width: auto;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
+  /* ===========================
+     PRINT STYLES
+  =========================== */
+  @media print {
+    .no-print { display: none !important; }
+    body { font-size: 11pt; background: white; color: black; }
+    .hero { background: white !important; color: black !important; padding: 20pt 0; }
+    .hero-subtitle { color: #444 !important; }
+    .section { page-break-inside: avoid; }
+    .accordion-body { display: block !important; max-height: none !important; }
+    .accordion-btn::after { display: none; }
+    a { color: black; text-decoration: none; }
+    .print-btn { display: none; }
+  }
 
-    header .org-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 0.6rem;
-    }
-    header h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    header .arabic-title {
-      font-family: 'Amiri', serif;
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      color: var(--gold-light);
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-    header .subtitle {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.78);
-      font-weight: 300;
-    }
-    .gold-line {
-      width: 60px; height: 3px;
-      background: var(--gold);
-      margin: 1.2rem auto;
-      border-radius: 2px;
-    }
+  /* ===========================
+     HEADER / HERO
+  =========================== */
+  .hero {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2A2018 60%, #1A0F00 100%);
+    color: var(--white);
+    padding: 56px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* ── LAYOUT ── */
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2.5rem 1.2rem 4rem;
-    }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,129,31,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-    /* ── SECTION HEADINGS ── */
-    .section-title {
-      font-family: 'Lora', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--green-deep);
-      border-left: 4px solid var(--gold);
-      padding-left: 0.8rem;
-      margin: 2.8rem 0 1.2rem;
-      line-height: 1.35;
-    }
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
 
-    /* ── INTRO BOX ── */
-    .intro-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem 1.8rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 12px rgba(26,74,46,0.07);
-    }
-    .intro-box p { color: var(--text-mid); margin-bottom: 0.6rem; }
-    .intro-box p:last-child { margin-bottom: 0; }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 
-    /* ── AYAH / HADITS CARD ── */
-    .dalil-card {
-      background: var(--green-light);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--green-mid);
-      border-radius: 8px;
-      padding: 1.3rem 1.5rem;
-      margin: 1.2rem 0;
-    }
-    .dalil-card .arabic {
-      font-family: 'Amiri', serif;
-      font-size: 1.5rem;
-      color: var(--green-deep);
-      text-align: right;
-      direction: rtl;
-      line-height: 2.2;
-      margin-bottom: 0.6rem;
-    }
-    .dalil-card .trans {
-      font-style: italic;
-      color: var(--text-mid);
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-    .dalil-card .source {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--green-mid);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+  .hero-logo {
+    height: 64px;
+    max-width: 180px;
+    width: auto;
+    object-fit: contain;
+    background: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
 
-    /* ── DOA CARD ── */
-    .doa-card {
-      background: var(--gold-light);
-      border: 1px solid #d4b96a;
-      border-left: 4px solid var(--gold);
-      border-radius: 8px;
-      padding: 1.3rem 1.5rem;
-      margin: 1.2rem 0;
-    }
-    .doa-card .doa-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-    .doa-card .arabic {
-      font-family: 'Amiri', serif;
-      font-size: 1.5rem;
-      color: var(--green-deep);
-      text-align: right;
-      direction: rtl;
-      line-height: 2.2;
-      margin-bottom: 0.5rem;
-    }
-    .doa-card .latin {
-      font-style: italic;
-      color: var(--text-mid);
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
-    }
-    .doa-card .arti {
-      color: var(--text-dark);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
+  .hero-org {
+    font-family: var(--ui-font);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange-lt);
+    line-height: 1.3;
+  }
 
-    /* ── SUNNAH LIST ── */
-    .sunnah-list {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-    }
-    .sunnah-list li {
-      display: flex;
-      gap: 0.8rem;
-      align-items: flex-start;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-mid);
-    }
-    .sunnah-list li:last-child { border-bottom: none; }
-    .sunnah-list .num {
-      min-width: 28px; height: 28px;
-      background: var(--green-deep);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.15rem;
-    }
+  .hero-org strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--white);
+    letter-spacing: 0.06em;
+  }
 
-    /* ── QnA ACCORDION ── */
-    .qna-section { margin-top: 1rem; }
-    .qna-item {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 0.7rem;
-      overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 1px 4px rgba(26,74,46,0.05);
-    }
-    .qna-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 1rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--green-deep);
-      user-select: none;
-      background: var(--white);
-      transition: background 0.2s;
-    }
-    .qna-item summary:hover { background: var(--green-light); }
-    .qna-item summary::-webkit-details-marker { display: none; }
-    .qna-icon {
-      min-width: 22px; height: 22px;
-      border-radius: 50%;
-      background: var(--green-deep);
-      color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-    details[open] .qna-icon { transform: rotate(45deg); }
-    .qna-body {
-      padding: 0 1.2rem 1.2rem;
-      color: var(--text-mid);
-      font-size: 0.97rem;
-      line-height: 1.8;
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-    }
-    .qna-body p { margin-bottom: 0.6rem; }
-    .qna-body p:last-child { margin-bottom: 0; }
-    .qna-body strong { color: var(--text-dark); }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,129,31,0.2);
+    border: 1px solid rgba(232,129,31,0.4);
+    color: var(--orange-lt);
+    font-family: var(--ui-font);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
 
-    /* ── MIHRAB / TIPS BOX ── */
-    .tip-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.4rem 1.6rem;
-      margin: 1.2rem 0;
-    }
-    .tip-box h4 {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem;
-      color: var(--green-deep);
-      margin-bottom: 0.7rem;
-    }
-    .tip-box ul {
-      padding-left: 1.3rem;
-      color: var(--text-mid);
-    }
-    .tip-box ul li { margin-bottom: 0.35rem; }
+  .hero-badge::before { content: '☽'; font-size: 0.85em; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green-deep);
-      color: rgba(255,255,255,0.65);
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 1.8rem 1rem;
-    }
-    footer strong { color: var(--gold-light); }
+  .hero-title {
+    font-family: var(--body-font);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+  }
 
-    /* ── PRINT ── */
-    @media print {
-      header { background: #1a4a2e !important; -webkit-print-color-adjust: exact; }
-      .qna-item details { open: true; }
-      .qna-body { display: block !important; }
-    }
+  .hero-title span {
+    color: var(--orange-lt);
+    display: block;
+  }
 
-    @media (max-width: 540px) {
-      body { font-size: 15.5px; }
-      .dalil-card .arabic, .doa-card .arabic { font-size: 1.3rem; }
-    }
-  </style>
+  .hero-arabic {
+    font-family: var(--arabic-font);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: rgba(255,255,255,0.95);
+    direction: rtl;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.92);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-family: var(--ui-font);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.18s ease;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--orange-dk); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--orange-lt);
+    border: 1px solid rgba(232,129,31,0.5);
+  }
+  .btn-outline:hover { background: rgba(232,129,31,0.12); }
+
+  /* ===========================
+     LAYOUT CONTAINER
+  =========================== */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .main-content {
+    padding: 48px 0 80px;
+  }
+
+  /* ===========================
+     ORNAMENTAL DIVIDER
+  =========================== */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 36px 0 28px;
+  }
+
+  .ornament-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  .ornament-diamond {
+    width: 8px; height: 8px;
+    background: var(--orange);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  .ornament-text {
+    font-family: var(--ui-font);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-lt);
+  }
+
+  /* ===========================
+     SECTION HEADINGS
+  =========================== */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    font-family: var(--ui-font);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: var(--body-font);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  /* ===========================
+     HADITH / QURAN BLOCK
+  =========================== */
+  .dalil-block {
+    background: var(--cream);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 22px;
+    margin: 18px 0;
+  }
+
+  .dalil-arabic {
+    font-family: var(--arabic-font);
+    font-size: 1.45rem;
+    direction: rtl;
+    text-align: right;
+    line-height: 2.1;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .dalil-trans {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+
+  .dalil-source {
+    font-family: var(--ui-font);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--orange-dk);
+    letter-spacing: 0.04em;
+  }
+
+  /* ===========================
+     DOA BLOCK (special)
+  =========================== */
+  .doa-block {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2A2018 100%);
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doa-block::before {
+    content: '☽';
+    position: absolute;
+    top: 10px; right: 18px;
+    font-size: 3rem;
+    color: rgba(232,129,31,0.12);
+    pointer-events: none;
+  }
+
+  .doa-label {
+    font-family: var(--ui-font);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange-lt);
+    margin-bottom: 12px;
+  }
+
+  .doa-arabic {
+    font-family: var(--arabic-font);
+    font-size: 1.55rem;
+    direction: rtl;
+    text-align: right;
+    line-height: 2.2;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .doa-latin {
+    font-style: italic;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .doa-arti {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.65;
+  }
+
+  .doa-source {
+    font-family: var(--ui-font);
+    font-size: 0.7rem;
+    color: var(--orange-lt);
+    margin-top: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ===========================
+     AMAL CARD GRID
+  =========================== */
+  .amal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .amal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+  }
+
+  .amal-card:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--orange);
+  }
+
+  .amal-num {
+    font-family: var(--ui-font);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+  }
+
+  .amal-title {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .amal-desc {
+    font-size: 0.86rem;
+    color: var(--gray-lt);
+    line-height: 1.55;
+  }
+
+  /* ===========================
+     ACCORDION (QnA)
+  =========================== */
+  .accordion-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .accordion-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+
+  .accordion-item.open {
+    border-color: var(--orange);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .accordion-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .accordion-btn:hover { background: var(--paper-dk); }
+
+  .accordion-icon {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--paper-dk);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--orange);
+    font-weight: 700;
+    transition: transform 0.25s, background 0.15s;
+    line-height: 1;
+  }
+
+  .accordion-item.open .accordion-icon {
+    transform: rotate(45deg);
+    background: var(--orange);
+    color: white;
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 2400px;
+  }
+
+  .accordion-content {
+    padding: 4px 18px 20px;
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--gray);
+  }
+
+  .accordion-content p { margin-bottom: 10px; }
+  .accordion-content p:last-child { margin-bottom: 0; }
+
+  .accordion-content strong { color: var(--ink); font-weight: 600; }
+
+  .accordion-content .dalil-block { margin: 12px 0; }
+  .accordion-content .note {
+    background: rgba(232,129,31,0.08);
+    border-left: 3px solid var(--orange-lt);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin: 10px 0;
+  }
+
+  /* ===========================
+     JADWAL TABLE
+  =========================== */
+  .jadwal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.92rem;
+  }
+
+  .jadwal-table th {
+    background: var(--ink);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: var(--ui-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .jadwal-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--gray);
+  }
+
+  .jadwal-table tr:last-child td { border-bottom: none; }
+  .jadwal-table tr:nth-child(even) td { background: var(--paper-dk); }
+  .jadwal-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+  /* ===========================
+     HIGHLIGHT BOX
+  =========================== */
+  .highlight-box {
+    background: rgba(232,129,31,0.09);
+    border: 1px solid rgba(232,129,31,0.25);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin: 16px 0;
+    font-size: 0.94rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .highlight-box strong { color: var(--orange-dk); }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.90);
+    padding: 32px 20px;
+    text-align: center;
+    font-family: var(--ui-font);
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+
+  .footer strong { color: var(--orange-lt); }
+
+  /* ===========================
+     NAV (sticky top)
+  =========================== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,26,26,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(232,129,31,0.2);
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    font-family: var(--ui-font);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.90);
+    text-decoration: none;
+    padding: 14px 14px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--orange-lt);
+    border-bottom-color: var(--orange);
+  }
+
+  /* ===========================
+     RESPONSIVE
+  =========================== */
+  @media (max-width: 600px) {
+    .amal-grid { grid-template-columns: 1fr 1fr; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .dalil-arabic { font-size: 1.2rem; }
+    .doa-arabic { font-size: 1.3rem; }
+  }
+
+  @media (max-width: 420px) {
+    .amal-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo-wrap">
-      <!-- Sesuaikan path ini dengan struktur al-folio kamu -->
-      <img src="assets/img/logo_imsd.png" alt="Logo IMSD" />
+<!-- STICKY NAV -->
+<nav class="nav no-print">
+  <div class="nav-inner">
+    <a class="nav-link" href="#dasar">Dasar</a>
+    <a class="nav-link" href="#amalan">Amalan Utama</a>
+    <a class="nav-link" href="#doa">Doa Lailatul Qadr</a>
+    <a class="nav-link" href="#itikaf">Iʿtikaf</a>
+    <a class="nav-link" href="#mihrab">Mihrab di Rumah</a>
+    <a class="nav-link" href="#qna">QnA Kontemporer</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <img src="assets/img/logo_imsd.png" alt="IMSD Logo" class="hero-logo">
+      <div class="hero-org">
+        Indonesian Muslim Society in Denmark
+        <strong>IMSD · Panduan Ramadhan</strong>
+      </div>
     </div>
-    <p class="org-label">Indonesian Muslim Society in Denmark</p>
-    <div class="gold-line"></div>
-    <span class="arabic-title">عشر الأواخر من رمضان</span>
-    <h1>Panduan 10 Malam Terakhir Ramadhan</h1>
-    <p class="subtitle">Berdasarkan Al-Quran, Sunnah, dan Pendapat Jumhur Ulama</p>
-    <div class="gold-line"></div>
+    <div class="hero-badge">10 Malam Terakhir Ramadhan</div>
+    <h1 class="hero-title">
+      Panduan Praktis<br>
+      <span>Lailatul Qadr &amp; Iʿtikaf</span>
+    </h1>
+    <div class="hero-arabic">ليلةُ القَدرِ خَيرٌ مِن أَلفِ شَهر</div>
+    <p class="hero-subtitle">
+      Panduan berbasis Al-Quran, Sunnah, dan pendapat jumhur ulama. Disusun untuk komunitas Muslim Indonesia di Denmark.
+    </p>
+    <div class="hero-actions no-print">
+      <button class="btn btn-primary" onclick="window.print()">⬇ Unduh / Cetak PDF</button>
+      <a class="btn btn-outline" href="https://github.com/imsd-denmark" target="_blank">GitHub IMSD</a>
+    </div>
   </div>
 </header>
 
-<main>
+<!-- MAIN CONTENT -->
+<main class="main-content">
+<div class="container">
 
-  <!-- INTRO -->
-  <div class="intro-box">
-    <p>Sepuluh malam terakhir Ramadhan adalah puncak dari bulan yang mulia. Di dalamnya tersimpan satu malam yang nilainya melampaui seribu bulan: <strong>Lailatul Qadr</strong>. Para ulama sepakat bahwa inilah saatnya seorang mukmin mencurahkan segala upaya untuk mendekat kepada Allah.</p>
-    <p>Panduan ini disusun berdasarkan Al-Quran, hadits-hadits shahih, dan pendapat jumhur ulama, untuk membantu kita semua meraih malam yang diberkahi itu, di mana pun kita berada.</p>
-  </div>
+  <!-- ===== SECTION 1: DASAR ===== -->
+  <section class="section" id="dasar">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 1</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
 
-  <!-- KEUTAMAAN -->
-  <h2 class="section-title">Keutamaan Lailatul Qadr</h2>
+    <div class="section-label">Fondasi</div>
+    <h2 class="section-title">Mengapa 10 Malam Terakhir Begitu Istimewa?</h2>
 
-  <div class="dalil-card">
-    <div class="arabic">إِنَّآ أَنزَلْنَـٰهُ فِى لَيْلَةِ ٱلْقَدْرِ ۝ وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ ۝ لَيْلَةُ ٱلْقَدْرِ خَيْرٌۭ مِّنْ أَلْفِ شَهْرٍۢ ۝ تَنَزَّلُ ٱلْمَلَـٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍۢ ۝ سَلَـٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ</div>
-    <p class="trans">"Sesungguhnya Kami telah menurunkannya (Al-Quran) pada Lailatul Qadr. Dan tahukah kamu apakah Lailatul Qadr itu? Lailatul Qadr lebih baik dari seribu bulan. Pada malam itu turun malaikat-malaikat dan Ruh (Jibril) dengan izin Tuhannya untuk mengatur segala urusan. Malam itu (penuh) kesejahteraan sampai terbit fajar."</p>
-    <span class="source">QS. Al-Qadr: 1-5</span>
-  </div>
+    <p>Sepuluh malam terakhir Ramadhan memiliki kedudukan yang sangat agung dalam Islam. Di dalamnya terdapat <em>Lailatul Qadr</em>, malam yang Allah sifati lebih baik dari seribu bulan.</p>
 
-  <div class="dalil-card">
-    <div class="arabic">كَانَ النَّبِيُّ ﷺ إِذَا دَخَلَ الْعَشْرُ الْأَوَاخِرُ شَدَّ مِئْزَرَهُ وَأَحْيَا لَيْلَهُ وَأَيْقَظَ أَهْلَهُ</div>
-    <p class="trans">"Apabila Nabi ﷺ memasuki sepuluh hari terakhir (Ramadhan), beliau mengencangkan sarungnya, menghidupkan malamnya, dan membangunkan keluarganya."</p>
-    <span class="source">HR. Bukhari no. 2024 &amp; Muslim no. 1174</span>
-  </div>
+    <div class="dalil-block">
+      <div class="dalil-arabic">إِنَّآ أَنزَلۡنَٰهُ فِي لَيۡلَةِ ٱلۡقَدۡرِ ۝ وَمَآ أَدۡرَىٰكَ مَا لَيۡلَةُ ٱلۡقَدۡرِ ۝ لَيۡلَةُ ٱلۡقَدۡرِ خَيۡرٌ مِّنۡ أَلۡفِ شَهۡرٍ ۝ تَنَزَّلُ ٱلۡمَلَٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذۡنِ رَبِّهِم مِّن كُلِّ أَمۡرٍ ۝ سَلَٰمٌ هِيَ حَتَّىٰ مَطۡلَعِ ٱلۡفَجۡرِ</div>
+      <p class="dalil-trans">Sesungguhnya Kami telah menurunkannya (Al-Quran) pada Lailatul Qadr. Dan tahukah kamu apakah Lailatul Qadr itu? Lailatul Qadr itu lebih baik dari seribu bulan. Pada malam itu turun para malaikat dan Jibril dengan izin Tuhannya untuk mengatur segala urusan. Malam itu penuh kesejahteraan hingga terbit fajar.</p>
+      <div class="dalil-source">QS. Al-Qadr: 1–5</div>
+    </div>
 
-  <!-- SUNNAH-SUNNAH -->
-  <h2 class="section-title">Sunnah-Sunnah di 10 Malam Terakhir</h2>
+    <p>Rasulullah ﷺ secara khusus bersungguh-sungguh pada 10 malam terakhir dengan cara yang tidak dilakukan pada malam-malam lainnya.</p>
 
-  <ul class="sunnah-list">
-    <li><span class="num">1</span><span><strong>Menghidupkan malam</strong> dengan shalat, tilawah, dzikir, dan doa, sebagaimana hadits Bukhari di atas.</span></li>
-    <li><span class="num">2</span><span><strong>Beri'tikaf</strong> di masjid selama 10 hari penuh, mengikuti sunnah Nabi ﷺ yang tidak pernah meninggalkannya setelah datangnya perintah i'tikaf (HR. Bukhari no. 2026).</span></li>
-    <li><span class="num">3</span><span><strong>Memperbanyak doa khusus Lailatul Qadr</strong> (lihat bagian doa di bawah).</span></li>
-    <li><span class="num">4</span><span><strong>Memperbanyak tilawah Al-Quran</strong>, Jibril as. mudarasah (membaca bersama) Quran dengan Nabi ﷺ setiap Ramadhan (HR. Bukhari no. 3554).</span></li>
-    <li><span class="num">5</span><span><strong>Membangunkan keluarga</strong> untuk shalat malam dan ibadah bersama.</span></li>
-    <li><span class="num">6</span><span><strong>Memperbanyak sedekah</strong> karena pahala berlipat ganda di malam yang mulia.</span></li>
-    <li><span class="num">7</span><span><strong>Mandi sebelum malam</strong> sebagai persiapan menyambut Lailatul Qadr (dianjurkan sebagian ulama berdasarkan atsar).</span></li>
-    <li><span class="num">8</span><span><strong>Mengenakan pakaian terbaik</strong> dan memakai wewangian (bagi laki-laki) sebagai bentuk pengagungan.</span></li>
-    <li><span class="num">9</span><span><strong>Memperbanyak istighfar dan shalawat</strong> kepada Nabi ﷺ.</span></li>
-    <li><span class="num">10</span><span><strong>Menjaga dari hal yang sia-sia</strong>: mengurangi bicara yang tidak perlu, media sosial berlebihan, dan aktivitas yang melalaikan.</span></li>
-  </ul>
+    <div class="dalil-block">
+      <div class="dalil-arabic">كَانَ النَّبِيُّ صَلَّى اللهُ عَلَيهِ وَسَلَّمَ إِذَا دَخَلَ العَشرُ شَدَّ مِئزَرَهُ وَأَحيَا لَيلَهُ وَأَيقَظَ أَهلَهُ</div>
+      <p class="dalil-trans">Apabila memasuki sepuluh hari terakhir (Ramadhan), Nabi ﷺ mengencangkan ikat pinggangnya, menghidupkan malamnya, dan membangunkan keluarganya.</p>
+      <div class="dalil-source">HR. Al-Bukhari no. 2024, Muslim no. 1174 — dari 'Aisyah radhiyallahu 'anha</div>
+    </div>
 
-  <!-- DOA LAILATUL QADR -->
-  <h2 class="section-title">Doa-Doa yang Disunnahkan</h2>
+    <div class="dalil-block">
+      <div class="dalil-arabic">كَانَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيهِ وَسَلَّمَ يَجتَهِدُ فِي العَشرِ الأَوَاخِرِ مَا لَا يَجتَهِدُ فِي غَيرِهِ</div>
+      <p class="dalil-trans">Rasulullah ﷺ bersungguh-sungguh pada sepuluh hari terakhir (Ramadhan) melebihi kesungguhannya di hari-hari lain.</p>
+      <div class="dalil-source">HR. Muslim no. 1175 — dari 'Aisyah radhiyallahu 'anha</div>
+    </div>
 
-  <div class="doa-card">
-    <div class="doa-label">Doa Lailatul Qadr (Utama)</div>
-    <div class="arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
-    <p class="latin"><em>Allaahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni</em></p>
-    <p class="arti">"Ya Allah, sesungguhnya Engkau Maha Pemaaf, Engkau menyukai maaf, maka maafkanlah aku."</p>
-    <p style="font-size:0.82rem;color:#5a5a5a;margin-top:0.5rem;">HR. Tirmidzi no. 3513, Ibnu Majah no. 3850 - Shahih. Dari Aisyah ra., beliau bertanya kepada Nabi ﷺ: "Jika aku mengetahui malam Lailatul Qadr, apa yang aku ucapkan?" Nabi ﷺ menjawab dengan doa ini.</p>
-  </div>
+    <div class="highlight-box">
+      <strong>Kapan 10 malam terakhir dimulai?</strong><br>
+      Dimulai dari malam ke-21 Ramadhan, yaitu malam setelah siang ke-20 selesai (masuknya Maghrib malam ke-21). Jika Ramadhan berlangsung 29 hari, maka dimulai dari malam ke-20.
+    </div>
+  </section>
 
-  <div class="doa-card">
-    <div class="doa-label">Doa Qiyamul Lail / Shalat Malam</div>
-    <div class="arabic">اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ قَيِّمُ السَّمَوَاتِ وَالأَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ لَكَ مُلْكُ السَّمَوَاتِ وَالأَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ أَنْتَ نُورُ السَّمَوَاتِ وَالأَرْضِ وَلَكَ الْحَمْدُ أَنْتَ الْحَقُّ وَوَعْدُكَ الْحَقُّ وَلِقَاؤُكَ حَقٌّ وَقَوْلُكَ حَقٌّ وَالْجَنَّةُ حَقٌّ وَالنَّارُ حَقٌّ وَالنَّبِيُّونَ حَقٌّ وَمُحَمَّدٌ ﷺ حَقٌّ وَالسَّاعَةُ حَقٌّ اللَّهُمَّ لَكَ أَسْلَمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَإِلَيْكَ أَنَبْتُ وَبِكَ خَاصَمْتُ وَإِلَيْكَ حَاكَمْتُ فَاغْفِرْ لِي مَا قَدَّمْتُ وَمَا أَخَّرْتُ وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ لاَ إِلَهَ إِلَّا أَنْتَ</div>
-    <p class="latin"><em>Allaahumma lakal hamdu Anta qayyimus samaawaati wal ardhi wa man fiihinn. Wa lakal hamdu, laka mulkus samaawaati wal ardhi wa man fiihinn. Wa lakal hamdu, Anta nuurussamaawaati wal ardh. Wa lakal hamdu, Antal haqq, wa wa'dukal haqq, wa liqaa'uka haqq, wa qauluka haqq, wal jannatu haqq, wan naaru haqq, wan nabiyyuuna haqq, wa Muhammadun ﷺ haqq, was saa'atu haqq. Allaahumma laka aslamtu, wa bika aamantu, wa 'alaika tawakkaltu, wa ilaika anabtu, wa bika khaashamtu, wa ilaika haakamtu, faghfir lii maa qaddamtu wa maa akh-khartu wa maa asrartu wa maa a'lantu. Antal muqaddimu wa Antal mu'akhkhiru, laa ilaaha illaa Anta.</em></p>
-    <p class="arti">"Ya Allah, segala puji bagi-Mu, Engkau Pengatur langit dan bumi dan semua yang ada di dalamnya. Segala puji bagi-Mu, milik-Mu kerajaan langit dan bumi. Segala puji bagi-Mu, Engkau cahaya langit dan bumi. Engkau adalah Yang Maha Benar, janji-Mu benar, pertemuan dengan-Mu benar, firman-Mu benar, surga benar, neraka benar, para nabi benar, Muhammad ﷺ benar, dan hari kiamat benar. Ya Allah, kepada-Mu aku berserah diri, kepada-Mu aku beriman, kepada-Mu aku bertawakal, kepada-Mu aku kembali, dengan-Mu aku berdebat, dan kepada-Mu aku berhukum. Maka ampunilah aku atas dosa yang telah lalu dan yang akan datang, yang tersembunyi dan yang nyata. Engkau yang mendahulukan dan Engkau yang mengakhirkan, tidak ada ilah selain Engkau."</p>
-    <p style="font-size:0.82rem;color:#5a5a5a;margin-top:0.5rem;">HR. Bukhari no. 1120 &amp; Muslim no. 769 - dari Ibnu Abbas ra., doa Nabi ﷺ ketika bangun shalat malam.</p>
-  </div>
+  <!-- ===== SECTION 2: AMALAN UTAMA ===== -->
+  <section class="section" id="amalan">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 2</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
 
-  <div class="doa-card">
-    <div class="doa-label">Doa Witir / Qunut Witir</div>
-    <div class="arabic">اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ وَبَارِكْ لِي فِيمَا أَعْطَيْتَ وَقِنِي شَرَّ مَا قَضَيْتَ إِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ وَإِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ وَلَا يَعِزُّ مَنْ عَادَيْتَ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ</div>
-    <p class="latin"><em>Allaahummahdini fiiman hadait, wa 'aafinii fiiman 'aafait, wa tawallaniy fiiman tawallait, wa baarik lii fiimaa a'thait, wa qinii syarra maa qadhait. Innaka taqdii wa laa yuqdhaa 'alaik. Wa innahu laa yadzillu man waalait, wa laa ya'izzu man 'aadait. Tabaarakta rabbanaa wa ta'aalait.</em></p>
-    <p class="arti">"Ya Allah, tunjukilah aku di antara orang-orang yang telah Engkau beri petunjuk. Sehatkanlah aku di antara orang-orang yang telah Engkau sehatkan. Uruslah aku di antara orang-orang yang telah Engkau urus. Berkahilah aku dalam apa yang telah Engkau berikan. Jagalah aku dari keburukan apa yang telah Engkau tetapkan. Sesungguhnya Engkau yang menetapkan dan tidak ada yang dapat menetapkan atas-Mu. Sesungguhnya tidak akan hina orang yang Engkau jadikan wali. Dan tidak akan mulia orang yang Engkau musuhi. Maha Mulia Engkau wahai Rabb kami dan Maha Tinggi."</p>
-    <p style="font-size:0.82rem;color:#5a5a5a;margin-top:0.5rem;">HR. Abu Dawud no. 1425, Tirmidzi no. 464, Nasa'i no. 1745 - dari Al-Hasan bin Ali ra.</p>
-  </div>
+    <div class="section-label">Panduan Amal</div>
+    <h2 class="section-title">Amalan Utama 10 Malam Terakhir</h2>
 
-  <div class="doa-card">
-    <div class="doa-label">Doa Sujud Tilawah</div>
-    <div class="arabic">سَجَدَ وَجْهِيَ لِلَّذِي خَلَقَهُ وَصَوَّرَهُ وَشَقَّ سَمْعَهُ وَبَصَرَهُ بِحَوْلِهِ وَقُوَّتِهِ تَبَارَكَ اللَّهُ أَحْسَنُ الْخَالِقِينَ</div>
-    <p class="latin"><em>Sajada wajhiya lilladzii khalaqahu wa shawwarahu wa syaqqa sam'ahu wa basharahu bihawlihi wa quwwatihi, tabaarakallahu ahsanul khaaliqiin.</em></p>
-    <p class="arti">"Wajahku bersujud kepada Dzat yang menciptakannya, membentuknya, dan membukakan pendengaran serta penglihatannya dengan daya dan kekuatan-Nya. Maha Berkah Allah, sebaik-baik Pencipta."</p>
-    <p style="font-size:0.82rem;color:#5a5a5a;margin-top:0.5rem;">HR. Tirmidzi no. 580, Abu Dawud no. 1414, Nasa'i no. 1129 - Shahih. Dari Aisyah ra.</p>
-  </div>
+    <div class="amal-grid">
+      <div class="amal-card">
+        <div class="amal-num">01</div>
+        <div class="amal-title">Qiyamul Lail</div>
+        <div class="amal-desc">Menghidupkan malam dengan shalat, membaca Quran, dzikir, dan doa. Inti dari "menghidupkan malam".</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">02</div>
+        <div class="amal-title">Iʿtikaf</div>
+        <div class="amal-desc">Berdiam di masjid dengan niat ibadah. Sunnah muakkad yang Rasulullah ﷺ tidak pernah tinggalkan.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">03</div>
+        <div class="amal-title">Tilawah Al-Quran</div>
+        <div class="amal-desc">Memperbanyak bacaan Al-Quran. Jibrīl 'alaihissalām mengulang Al-Quran bersama Nabi ﷺ setiap Ramadhan.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">04</div>
+        <div class="amal-title">Doa Lailatul Qadr</div>
+        <div class="amal-desc">Memperbanyak doa yang diajarkan Nabi ﷺ khusus untuk malam ini. Lihat Bagian 3.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">05</div>
+        <div class="amal-title">Sedekah &amp; Infak</div>
+        <div class="amal-desc">Memperbanyak sedekah di 10 malam terakhir. Zakat Fitrah juga ditunaikan di akhir Ramadhan.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">06</div>
+        <div class="amal-title">Istighfar &amp; Taubat</div>
+        <div class="amal-desc">Memperbanyak permohonan ampunan. Malam Lailatul Qadr adalah kesempatan yang tidak ternilai.</div>
+      </div>
+    </div>
 
-  <!-- ADZ-DZARIYAT 16-20 -->
-  <h2 class="section-title">Bacaan Tadabbur: Adz-Dzariyat 15-18</h2>
-  <p style="color:var(--text-mid); margin-bottom: 1rem;">Ayat berikut menggambarkan ciri orang-orang yang bertakwa (al-muttaqin), yang sangat relevan untuk direnungkan di 10 malam terakhir:</p>
+    <p style="margin-top:18px;">Makna <strong>"mengencangkan ikat pinggang"</strong> dalam hadits 'Aisyah di atas ditafsirkan ulama sebagai bersungguh-sungguh dalam ibadah dan menjauhi urusan duniawi, termasuk mengurangi hubungan suami istri untuk fokus pada ibadah (lihat: Fath al-Bari, Ibn Hajar).</p>
+  </section>
 
-  <div class="dalil-card">
-    <div class="arabic">إِنَّ ٱلْمُتَّقِينَ فِى جَنَّـٰتٍۢ وَعُيُونٍ ۝ ءَاخِذِينَ مَآ ءَاتَىٰهُمْ رَبُّهُمْ ۚ إِنَّهُمْ كَانُوا۟ قَبْلَ ذَٰلِكَ مُحْسِنِينَ ۝ كَانُوا۟ قَلِيلًۭا مِّنَ ٱلَّيْلِ مَا يَهْجَعُونَ ۝ وَبِٱلْأَسْحَارِ هُمْ يَسْتَغْفِرُونَ ۝ وَفِىٓ أَمْوَٰلِهِمْ حَقٌّۭ لِّلسَّآئِلِ وَٱلْمَحْرُومِ</div>
-    <p class="trans">"Sesungguhnya orang-orang yang bertakwa itu berada dalam taman-taman (surga) dan mata air-mata air. Mereka mengambil apa yang diberikan Rabb mereka kepada mereka. Sesungguhnya mereka sebelum itu (di dunia) adalah orang-orang yang berbuat kebaikan. <strong>Mereka sedikit sekali tidur di waktu malam. Dan pada akhir malam mereka memohon ampun (kepada Allah). Dan pada harta-harta mereka ada hak orang miskin yang meminta dan orang yang kekurangan.</strong>"</p>
-    <span class="source">QS. Adz-Dzariyat: 15-19</span>
-  </div>
+  <!-- ===== SECTION 3: DOA ===== -->
+  <section class="section" id="doa">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 3</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
 
-  <div class="tip-box">
-    <h4>Tadabbur</h4>
-    <p style="color:var(--text-mid);font-size:0.95rem;">Tiga ciri utama al-muttaqin yang digambarkan ayat ini relevan langsung untuk 10 malam terakhir: (1) <strong>sedikit tidur di malam hari</strong> yakni menghidupkan malam dengan ibadah; (2) <strong>istighfar di waktu sahur</strong> (ashar/waktu sepertiga malam terakhir); dan (3) <strong>bersedekah</strong> di waktu yang paling utama ini.</p>
-  </div>
+    <div class="section-label">Doa Sunnah</div>
+    <h2 class="section-title">Doa Lailatul Qadr yang Diajarkan Nabi ﷺ</h2>
 
-  <!-- MENYIAPKAN MIHRAB -->
-  <h2 class="section-title">Menyiapkan Mihrab (Sudut Ibadah) di Rumah</h2>
+    <p>'Aisyah radhiyallahu 'anha berkata: "Aku bertanya, wahai Rasulullah, apa pendapatmu jika aku mengetahui malam Lailatul Qadr, apa yang aku ucapkan?" Beliau menjawab:</p>
 
-  <div class="tip-box">
-    <h4>Panduan Praktis Menyiapkan Tempat Ibadah Khusus</h4>
-    <ul>
-      <li>Pilih sudut yang tenang, jauh dari layar TV dan gangguan.</li>
-      <li>Bentangkan sajadah permanen di sana selama 10 malam terakhir.</li>
-      <li>Siapkan Al-Quran mushaf fisik, buku doa, dan tasbih di dekatnya.</li>
-      <li>Atur pencahayaan yang redup dan nyaman untuk tilawah malam.</li>
-      <li>Jauhkan ponsel atau notifikasi, atau gunakan mode pesawat.</li>
-      <li>Pasang tulisan ayat atau doa sebagai pengingat visual.</li>
-      <li>Siapkan air minum dan kurma agar tidak perlu beranjak jauh.</li>
-      <li>Niatkan sudut ini sebagai "zona sakral" selama 10 malam terakhir.</li>
-    </ul>
-  </div>
+    <div class="doa-block">
+      <div class="doa-label">Doa Lailatul Qadr — Riwayat At-Tirmidzi</div>
+      <div class="doa-arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+      <div class="doa-latin">Allāhumma innaka 'afuwwun karīmun tuḥibbul-'afwa fa'fu 'annī</div>
+      <div class="doa-arti">"Ya Allah, sesungguhnya Engkau Maha Pemaaf lagi Maha Mulia, Engkau mencintai maaf, maka maafkanlah aku."</div>
+      <div class="doa-source">HR. At-Tirmidzi no. 3513 (shahih), Ibn Majah no. 3850 — Beliau menyatakan hadits ini hasan shahih</div>
+    </div>
 
-  <!-- QnA SECTION -->
-  <h2 class="section-title">Tanya Jawab Kontemporer (QnA)</h2>
-  <p style="color:var(--text-mid); margin-bottom: 1.2rem;">Klik setiap pertanyaan untuk membuka jawabannya.</p>
+    <p>Doa ini adalah doa yang paling dianjurkan dibaca berulang-ulang sepanjang malam Lailatul Qadr. Para ulama menganjurkan untuk memperbanyaknya, tidak hanya sekali.</p>
 
-  <div class="qna-section">
+    <h3 style="font-size:1.15rem; font-weight:700; margin:24px 0 12px; color:var(--ink);">Dzikir dan Doa Lainnya yang Dianjurkan</h3>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Kapan i'tikaf dimulai? Jam berapa tepatnya?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Jumhur ulama berpendapat bahwa i'tikaf 10 malam terakhir dimulai pada <strong>malam ke-21 Ramadhan</strong>, yaitu setelah shalat Maghrib pada malam yang memasuki tanggal 21. Ini berdasarkan hadits:</p>
-          <div class="dalil-card" style="margin:0.8rem 0;">
-            <div class="arabic">مَنْ كَانَ مُعْتَكِفًا فَلْيَرْجِعْ إِلَى مُعْتَكَفِهِ</div>
-            <p class="trans">"Barangsiapa yang beri'tikaf, hendaklah ia kembali ke tempat i'tikafnya."</p>
-            <span class="source">HR. Bukhari no. 2026 &amp; Muslim no. 1173</span>
+    <div class="dalil-block">
+      <div class="dalil-arabic">سُبحَانَ اللهِ وَبِحَمدِهِ · سُبحَانَ اللهِ العَظِيمِ · لَا إِلَهَ إِلَّا اللهُ · اللهُ أَكبَر · سُبحَانَ اللهِ وَالحَمدُ لِلهِ وَلَا إِلَهَ إِلَّا اللهُ وَاللهُ أَكبَر</div>
+      <p class="dalil-trans">Subḥānallāh wabiḥamdih — Subḥānallāhil-'aẓīm — Lā ilāha illallāh — Allāhu Akbar — Subḥānallāh walḥamdu lillāh wa lā ilāha illallāh wallāhu Akbar</p>
+      <div class="dalil-source">Dzikir yang sangat dicintai Allah — HR. Al-Bukhari, Muslim</div>
+    </div>
+
+    <div class="dalil-block">
+      <div class="dalil-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ</div>
+      <p class="dalil-trans">Allāhumma innī as'alukal-'afwa wal-'āfiyata fid-dunyā wal-ākhirah<br>"Ya Allah, sesungguhnya aku memohon kepada-Mu maaf dan kesehatan di dunia dan akhirat."</p>
+      <div class="dalil-source">HR. Ibn Majah no. 3871, Abu Dawud no. 5074 — shahih</div>
+    </div>
+
+    <div class="dalil-block">
+      <div class="dalil-arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+      <p class="dalil-trans">Rabbanā ātinā fid-dunyā ḥasanatan wa fil-ākhirati ḥasanatan wa qinā 'adzāban-nār<br>"Ya Tuhan kami, berikanlah kepada kami kebaikan di dunia dan kebaikan di akhirat, dan jagalah kami dari azab neraka."</p>
+      <div class="dalil-source">QS. Al-Baqarah: 201 — Doa yang paling sering dipanjatkan Rasulullah ﷺ (HR. Al-Bukhari no. 6389)</div>
+    </div>
+
+    <h3 style="font-size:1.15rem; font-weight:700; margin:28px 0 12px; color:var(--ink);">Doa Sujud Tilawah</h3>
+
+    <p>Sujud tilawah dilakukan ketika membaca atau mendengar ayat <em>sajdah</em> dalam Al-Quran. Ada 15 ayat sajdah; di bulan Ramadhan sujud tilawah sangat sering dilakukan saat tilawah panjang. Berikut doa yang diajarkan Nabi ﷺ:</p>
+
+    <div class="doa-block">
+      <div class="doa-label">Doa Sujud Tilawah — Riwayat Muslim &amp; Abu Dawud</div>
+      <div class="doa-arabic">سَجَدَ وَجهِي لِلَّذِي خَلَقَهُ وَصَوَّرَهُ وَشَقَّ سَمعَهُ وَبَصَرَهُ بِحَولِهِ وَقُوَّتِهِ فَتَبَارَكَ اللهُ أَحسَنُ الخَالِقِينَ</div>
+      <div class="doa-latin">Sajada wajhī lil-ladzī khalaqahū wa ṣawwarahū wa syaqqa sam'ahū wa baṣarahū biḥawlihī wa quwwatihī, fatabārakallāhu aḥsanul-khāliqīn</div>
+      <div class="doa-arti">"Wajahku bersujud kepada Dzat yang menciptakannya, membentuknya, dan yang membelah pendengaran serta penglihatannya dengan daya dan kekuatan-Nya. Maka Maha Berkah Allah, sebaik-baik Pencipta."</div>
+      <div class="doa-source">HR. At-Tirmidzi no. 580 (hasan), Abu Dawud no. 1414, An-Nasa'i no. 1129 — dari 'Aisyah radhiyallahu 'anha</div>
+    </div>
+
+    <div class="doa-block">
+      <div class="doa-label">Doa Sujud Tilawah — Riwayat Muslim (alternatif)</div>
+      <div class="doa-arabic">اللَّهُمَّ اكتُب لِي بِهَا عِندَكَ أَجراً، وَضَع عَنِّي بِهَا وِزراً، وَاجعَلهَا لِي عِندَكَ ذُخراً، وَتَقَبَّلهَا مِنِّي كَمَا تَقَبَّلتَهَا مِن عَبدِكَ دَاوُدَ</div>
+      <div class="doa-latin">Allāhummaktub lī bihā 'indaka ajran, wa ḍa' 'annī bihā wizran, waj'alhā lī 'indaka dzukhran, wa taqabbalha minnī kamā taqabbaltahā min 'abdika Dāwūd</div>
+      <div class="doa-arti">"Ya Allah, tuliskanlah untukku dengannya pahala di sisi-Mu, hapuskanlah dariku dengannya dosa, jadikanlah ia simpanan bagiku di sisi-Mu, dan terimalah ia dariku sebagaimana Engkau menerimanya dari hamba-Mu Dawud."</div>
+      <div class="doa-source">HR. At-Tirmidzi no. 579 (hasan), Ibn Majah no. 1053 — dari Ibn 'Abbas radhiyallahu 'anhuma</div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Tata cara sujud tilawah:</strong> Takbir saat turun sujud, baca salah satu doa di atas, takbir saat bangkit. Tidak ada tasyahud dan salam. Boleh dilakukan di luar shalat tanpa wudhu menurut sebagian ulama (Hanbali), namun wudhu lebih utama dan wajib menurut jumhur (Hanafi, Syafi'i, Maliki).
+    </div>
+
+    <h3 style="font-size:1.15rem; font-weight:700; margin:28px 0 12px; color:var(--ink);">Renungan: QS. Adz-Dzariyat: 15–19</h3>
+
+    <p>Allah menggambarkan ciri orang-orang bertakwa yang meraih surga dan rahmat-Nya — ayat ini sangat relevan dibaca dan direnungkan di 10 malam terakhir Ramadhan:</p>
+
+    <div class="dalil-block">
+      <div class="dalil-arabic">إِنَّ ٱلۡمُتَّقِينَ فِي جَنَّٰتٍ وَعُيُونٍ ۝ ءَاخِذِينَ مَآ ءَاتَىٰهُمۡ رَبُّهُمۡۚ إِنَّهُمۡ كَانُواْ قَبۡلَ ذَٰلِكَ مُحۡسِنِينَ ۝ كَانُواْ قَلِيلًا مِّنَ ٱلَّيۡلِ مَا يَهۡجَعُونَ ۝ وَبِٱلۡأَسۡحَارِ هُمۡ يَسۡتَغۡفِرُونَ ۝ وَفِيٓ أَمۡوَٰلِهِمۡ حَقٌّ لِّلسَّآئِلِ وَٱلۡمَحۡرُومِ</div>
+      <p class="dalil-trans">
+        (15) "Sesungguhnya orang-orang yang bertakwa berada di dalam taman-taman surga dan di mata air-mata air."<br><br>
+        (16) "Mereka mengambil apa yang diberikan Tuhan kepada mereka. Sesungguhnya mereka sebelum itu di dunia adalah orang-orang yang berbuat baik."<br><br>
+        (17) "Mereka sedikit sekali tidur di waktu malam."<br><br>
+        (18) "Dan di akhir malam mereka memohon ampunan (kepada Allah)."<br><br>
+        (19) "Dan pada harta-harta mereka ada hak untuk orang miskin yang meminta dan orang miskin yang tidak mendapat bagian."
+      </p>
+      <div class="dalil-source">QS. Adz-Dzariyat: 15–19</div>
+    </div>
+
+    <div class="highlight-box">
+      Ayat 17–18 menjadi salah satu dalil utama qiyamul lail dan istighfar di waktu sahur (<em>asḥār</em>). Para ulama tafsir seperti Ibn Katsir dan Al-Qurthubi mencatat bahwa "sedikit tidur di malam hari" dan "beristighfar di waktu sahur" adalah dua amalan yang Allah sebutkan berdampingan sebagai ciri khas ahlul jannah.
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: ITIKAF ===== -->
+  <section class="section" id="itikaf">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 4</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-label">Iʿtikaf</div>
+    <h2 class="section-title">Iʿtikaf: Hukum, Syarat, dan Tata Cara</h2>
+
+    <p><strong>Iʿtikaf</strong> secara bahasa berarti menetap dan berdiam. Secara syar'i: berdiam di masjid dengan niat mendekatkan diri kepada Allah.</p>
+
+    <div class="dalil-block">
+      <div class="dalil-arabic">كَانَ النَّبِيُّ صَلَّى اللهُ عَلَيهِ وَسَلَّمَ يَعتَكِفُ فِي كُلِّ رَمَضَانَ عَشرَةَ أَيَّامٍ، فَلَمَّا كَانَ العَامُ الَّذِي قُبِضَ فِيهِ اعتَكَفَ عِشرِينَ يَوماً</div>
+      <p class="dalil-trans">Nabi ﷺ beriʿtikaf setiap Ramadhan selama sepuluh hari. Pada tahun beliau wafat, beliau beriʿtikaf selama dua puluh hari.</p>
+      <div class="dalil-source">HR. Al-Bukhari no. 2044 — dari Abu Hurairah radhiyallahu 'anhu</div>
+    </div>
+
+    <h3 style="font-size:1.1rem; font-weight:700; margin:20px 0 10px; color:var(--ink);">Waktu Memulai Iʿtikaf</h3>
+
+    <table class="jadwal-table">
+      <tr>
+        <th>Aspek</th>
+        <th>Keterangan</th>
+      </tr>
+      <tr>
+        <td>Waktu masuk</td>
+        <td>Sebelum Maghrib malam ke-21 (setelah Ashar atau seiring masuknya Maghrib tanggal 20). Berdasarkan hadits: "Barangsiapa ingin beriʿtikaf bersamaku, hendaklah ia beriʿtikaf pada sepuluh hari terakhir." (HR. Al-Bukhari no. 2027)</td>
+      </tr>
+      <tr>
+        <td>Waktu keluar</td>
+        <td>Setelah terbenam matahari di hari terakhir Ramadhan (malam Idul Fitri), atau setelah shalat Shubuh menurut sebagian ulama.</td>
+      </tr>
+      <tr>
+        <td>Boleh keluar?</td>
+        <td>Hanya untuk hajat yang mendesak (buang air, wudhu) atau keperluan yang tidak bisa diwakilkan. Keluar tanpa uzur membatalkan iʿtikaf.</td>
+      </tr>
+    </table>
+
+    <h3 style="font-size:1.1rem; font-weight:700; margin:20px 0 10px; color:var(--ink);">Syarat Sahnya Iʿtikaf</h3>
+    <p>Jumhur ulama (Hanafi, Maliki, Syafi'i, Hanbali) menyepakati beberapa syarat: Muslim, berakal, suci dari junub, dilakukan di masjid, dan ada niat.</p>
+  </section>
+
+  <!-- ===== SECTION 5: MIHRAB DI RUMAH ===== -->
+  <section class="section" id="mihrab">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 5</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-label">Ruang Ibadah</div>
+    <h2 class="section-title">Menyiapkan Mihrab di Rumah</h2>
+
+    <p>Bagi yang tidak bisa iʿtikaf di masjid, menyiapkan sudut khusus ibadah di rumah sangat dianjurkan. Ini bukan sekadar kenyamanan, melainkan ada dasar syar'inya.</p>
+
+    <div class="dalil-block">
+      <div class="dalil-arabic">اجعَلُوا فِي بُيُوتِكُم مِن صَلَاتِكُم وَلَا تَتَّخِذُوهَا قُبُوراً</div>
+      <p class="dalil-trans">"Jadikanlah sebagian shalat kalian di rumah-rumah kalian, dan janganlah kalian jadikan rumah-rumah itu sebagai kuburan (yang tidak ada ibadah di dalamnya)."</p>
+      <div class="dalil-source">HR. Al-Bukhari no. 432, Muslim no. 777 — dari Ibn Umar radhiyallahu 'anhu</div>
+    </div>
+
+    <p>Praktis, ada beberapa hal yang bisa disiapkan untuk memaksimalkan ibadah di rumah:</p>
+
+    <div class="amal-grid" style="margin-top:14px;">
+      <div class="amal-card">
+        <div class="amal-num">☽</div>
+        <div class="amal-title">Sudut Khusus</div>
+        <div class="amal-desc">Pilih sudut yang tenang, jauh dari TV dan gangguan. Hadapkan ke arah kiblat.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">📖</div>
+        <div class="amal-title">Siapkan Mushaf</div>
+        <div class="amal-desc">Letakkan Al-Quran, tasbih, dan buku doa di tempat yang mudah dijangkau.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">🕯</div>
+        <div class="amal-title">Pencahayaan</div>
+        <div class="amal-desc">Cahaya yang lembut dan hangat membantu kekhusyukan. Hindari layar yang terlalu terang saat membaca.</div>
+      </div>
+      <div class="amal-card">
+        <div class="amal-num">🔇</div>
+        <div class="amal-title">Minimalisir Gangguan</div>
+        <div class="amal-desc">Matikan notifikasi HP. Mode airplane selama qiyamul lail sangat membantu.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: QnA ===== -->
+  <section class="section" id="qna">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <span class="ornament-text">Bagian 6</span>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-label">Pertanyaan &amp; Jawaban</div>
+    <h2 class="section-title">QnA: Permasalahan Kontemporer</h2>
+    <p style="color:var(--gray-lt); margin-bottom:4px; font-size:0.92rem;">Klik pertanyaan untuk membuka jawaban.</p>
+
+    <div class="accordion-wrap">
+
+      <!-- Q1 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Kapan tepatnya memulai iʿtikaf? Apakah malam ke-21 atau setelah Ashar hari ke-20?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Jumhur ulama berpendapat iʿtikaf 10 malam terakhir dimulai sebelum terbenamnya matahari malam ke-21, yaitu <strong>setelah Ashar hari ke-20</strong>. Ini agar sejak awal malam ke-21 sudah berada di dalam masjid.</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">مَن كَانَ مُعتَكِفاً مَعِي فَليَعتَكِف العَشرَ الأَوَاخِرَ</div>
+              <p class="dalil-trans">"Barangsiapa ingin beriʿtikaf bersamaku, hendaklah ia beriʿtikaf pada sepuluh hari terakhir."</p>
+              <div class="dalil-source">HR. Al-Bukhari no. 2027, Muslim no. 1167</div>
+            </div>
+            <p>Imam Syafi'i dan Imam Ahmad berpendapat masuk sebelum Maghrib malam ke-21. Imam Malik: masuk setelah Shubuh malam ke-21. Yang paling berhati-hati adalah masuk setelah Ashar hari ke-20 sebagaimana dilakukan Nabi ﷺ.</p>
           </div>
-          <p>Imam Nawawi dalam <em>Al-Majmu'</em> menjelaskan: i'tikaf 10 hari penuh dimulai sebelum matahari terbenam pada malam ke-21, yaitu setelah shalat Ashar di hari ke-20, agar ia sudah berada di dalam masjid ketika malam ke-21 tiba. I'tikaf berakhir saat terbenamnya matahari malam Idul Fitri atau pagi hari Id (ada dua pendapat).</p>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Bolehkah i'tikaf di rumah?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p><strong>Pendapat jumhur ulama (Syafi'i, Maliki, Hanbali):</strong> I'tikaf yang sah hanya di masjid, berdasarkan firman Allah:</p>
-          <div class="dalil-card" style="margin:0.8rem 0;">
-            <div class="arabic">وَلَا تُبَـٰشِرُوهُنَّ وَأَنتُمْ عَـٰكِفُونَ فِى ٱلْمَسَـٰجِدِ</div>
-            <p class="trans">"...dan janganlah kamu campuri mereka, sementara kamu beri'tikaf di masjid-masjid."</p>
-            <span class="source">QS. Al-Baqarah: 187</span>
+      <!-- Q2 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bolehkah iʿtikaf di rumah? Sah atau tidak?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p><strong>Jumhur ulama (Hanafi, Syafi'i, Hanbali, dan mayoritas Maliki) berpendapat iʿtikaf hanya sah dilakukan di masjid.</strong> Ini berdasarkan ayat:</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">وَلَا تُبَٰشِرُوهُنَّ وَأَنتُمۡ عَٰكِفُونَ فِي ٱلۡمَسَٰجِدِ</div>
+              <p class="dalil-trans">"...dan janganlah kamu campuri mereka, sedang kamu beriʿtikaf di masjid-masjid."</p>
+              <div class="dalil-source">QS. Al-Baqarah: 187</div>
+            </div>
+            <p>Ayat ini mengaitkan iʿtikaf secara eksplisit dengan <em>masjid</em> (bentuk jamak: masājid). Ibn Qudamah dalam Al-Mughni dan Imam Nawawi dalam Al-Majmu' menegaskan hal ini.</p>
+            <div class="accordion-content note">
+              <strong>Catatan untuk wanita:</strong> Hadits yang menyebut Nabi ﷺ mengizinkan istri-istrinya beriʿtikaf di tempat khusus dalam masjid. Sebagian ulama mengizinkan wanita beriʿtikaf di <em>mushalla</em> rumah berdasarkan hadits riwayat Abu Dawud, namun ini adalah pendapat minoritas yang perlu didalami lebih lanjut.
+            </div>
+            <p>Kesimpulan: iʿtikaf di rumah tidak sah menurut jumhur. Namun berdiam di rumah untuk qiyamul lail, tilawah, dan dzikir tetap merupakan amalan mulia yang sangat dianjurkan.</p>
           </div>
-          <p>Ayat ini secara eksplisit menyebutkan <em>masjid</em> sebagai tempat i'tikaf. Imam Syafi'i, Imam Ahmad, dan Imam Malik tidak membenarkan i'tikaf di selain masjid.</p>
-          <p><strong>Pendapat Hanafi:</strong> Membolehkan wanita beri'tikaf di ruangan khusus ibadah di rumah, dengan syarat tempat tersebut ditetapkan untuk shalat. Namun ini pendapat yang lemah menurut mayoritas ulama.</p>
-          <p><strong>Kesimpulan:</strong> Usahakan i'tikaf di masjid. Jika tidak memungkinkan, perbanyak ibadah di rumah dengan niat <em>qiyamul lail</em>, bukan dinamakan i'tikaf secara syar'i. Ini tetap bernilai besar di sisi Allah.</p>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Bolehkah membawa laptop atau mengerjakan pekerjaan saat i'tikaf?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Para ulama kontemporer membahas masalah ini dengan kaidah: <strong>segala yang memalingkan dari tujuan i'tikaf (taqarrub kepada Allah) maka dimakruhkan atau diharamkan, dan segala yang tidak memalingkan maka dibolehkan.</strong></p>
-          <p><strong>Yang dibolehkan:</strong> Membawa laptop untuk membaca Al-Quran digital, mendengarkan kajian ilmu agama, atau kegiatan yang mendukung ibadah. Syeikh Ibnu Utsaimin membolehkan membawa buku pelajaran ilmu syar'i.</p>
-          <p><strong>Yang dimakruhkan atau dilarang:</strong> Mengerjakan pekerjaan kantor, bisnis, bermain game, atau scrolling media sosial. Hal ini bertentangan dengan ruh i'tikaf yang tujuannya adalah <em>al-infiraad li 'ibaadatillah</em> (menyendiri untuk ibadah kepada Allah).</p>
-          <p><strong>Kaidah praktis:</strong> Tanya diri sendiri: "Apakah aktivitas ini mendekatkan saya kepada Allah atau menjauhkan?" Jika menjauhkan, tinggalkan demi menjaga kualitas i'tikaf.</p>
+      <!-- Q3 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bolehkah membawa laptop atau bekerja saat iʿtikaf?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Para ulama tidak berbicara langsung soal laptop karena ini persoalan kontemporer, namun prinsipnya jelas: <strong>iʿtikaf adalah pemutusan dari urusan duniawi untuk total beribadah.</strong></p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">فَيَعتَكِفُ العَشرَ الأَوَاخِرَ مِن رَمَضَانَ حَتَّى تَوَفَّاهُ اللهُ</div>
+              <p class="dalil-trans">Beliau beriʿtikaf pada sepuluh hari terakhir Ramadhan hingga Allah mewafatkannya.</p>
+              <div class="dalil-source">HR. Al-Bukhari no. 2026, Muslim no. 1172</div>
+            </div>
+            <p>Penggunaan laptop untuk pekerjaan duniawi (email, meeting, tugas kantor) <strong>membatalkan ruh iʿtikaf</strong> meskipun secara fisik masih di masjid. Ulama kontemporer seperti Syaikh Bin Baz dan Syaikh Utsaimin menekankan bahwa iʿtikaf seharusnya menjadi periode isolasi total dari pekerjaan.</p>
+            <div class="accordion-content note">
+              <strong>Pengecualian:</strong> Menggunakan perangkat untuk membaca Al-Quran digital, mendengarkan kajian ilmu, atau keperluan darurat keluarga diperbolehkan selama tidak menjadi aktivitas dominan. Yang membatalkan iʿtikaf adalah meninggalkan masjid tanpa uzur syar'i, bukan penggunaan perangkat di dalam masjid.
+            </div>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
+      <!-- Q4 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
           Bagaimana dengan wanita yang sedang haid atau nifas?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Wanita yang sedang haid atau nifas <strong>tidak diperbolehkan beri'tikaf di masjid</strong>, karena syarat i'tikaf adalah suci dari hadas besar. Namun Allah Maha Adil dan tidak menzalimi hamba-Nya:</p>
-          <p><strong>Amalan yang tetap bisa dilakukan:</strong></p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0 0.8rem;">
-            <li>Dzikir dan istighfar (tidak perlu dalam keadaan wudhu)</li>
-            <li>Berdoa kapan saja dan di mana saja</li>
-            <li>Mendengarkan tilawah atau kajian Al-Quran</li>
-            <li>Membaca tafsir, buku hadits, dan ilmu agama</li>
-            <li>Bersedekah dan membantu sesama</li>
-            <li>Memperbanyak shalawat kepada Nabi ﷺ</li>
-            <li>Doa sayyidul istighfar dan doa Lailatul Qadr (boleh dibaca tanpa syarat thaharah)</li>
-          </ul>
-          <p>Imam Nawawi berkata: "Wanita haid yang tidak bisa shalat tetap bisa mendapatkan pahala Lailatul Qadr dengan niat, dzikir, dan doa." Allah menilai niat dan usaha, bukan hanya ritual yang bisa dikerjakan.</p>
-          <div class="dalil-card" style="margin:0.8rem 0;">
-            <div class="arabic">إِذَا مَرِضَ الْعَبْدُ أَوْ سَافَرَ كُتِبَ لَهُ مِثْلُ مَا كَانَ يَعْمَلُ مُقِيمًا صَحِيحًا</div>
-            <p class="trans">"Apabila seorang hamba sakit atau bepergian, maka dituliskan baginya pahala seperti amal yang biasa ia kerjakan ketika mukim dan sehat."</p>
-            <span class="source">HR. Bukhari no. 2996</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Wanita yang sedang haid atau nifas <strong>tidak boleh beriʿtikaf di masjid</strong> karena syarat sahnya iʿtikaf adalah suci dari hadas besar. Ini merupakan kesepakatan ulama (ijmak).</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">لَا أُحِلُّ المَسجِدَ لِحَائِضٍ وَلَا جُنُب</div>
+              <p class="dalil-trans">"Aku tidak menghalalkan masjid bagi wanita haid dan orang yang junub."</p>
+              <div class="dalil-source">HR. Abu Dawud no. 232 — dishahihkan oleh Al-Albani</div>
+            </div>
+            <p>Namun wanita yang haid atau nifas tetap dapat memaksimalkan 10 malam terakhir dengan:</p>
+            <p>• <strong>Dzikir dan istighfar</strong> — tidak ada larangan sama sekali<br>
+            • <strong>Membaca terjemah dan tafsir Al-Quran</strong> — mayoritas ulama membolehkan<br>
+            • <strong>Doa</strong> — tidak ada larangan, termasuk doa Lailatul Qadr<br>
+            • <strong>Mendengarkan kajian dan tilawah</strong><br>
+            • <strong>Sedekah dan infak</strong><br>
+            • <strong>Qiyamul lail</strong> — berdiri malam dengan dzikir dan doa meski tidak bisa shalat</p>
+            <div class="accordion-content note">
+              Wanita haid tidak terhalang dari mendapatkan pahala Lailatul Qadr jika terus beribadah sesuai kemampuannya. Ibn Taimiyyah dan ulama lainnya menegaskan bahwa pahala diberi sesuai niat dan usaha.
+            </div>
           </div>
-          <p>Para ulama mengqiyaskan hadits ini: wanita haid yang terbiasa ibadah tetap mendapat pahala penuh, insya Allah.</p>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
+      <!-- Q5 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
           Bagaimana jika sedang dalam perjalanan (musafir)?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Musafir mendapat keringanan (rukhsah) dalam Islam: boleh berbuka puasa, shalat qashar, dan tidak wajib i'tikaf. Namun 10 malam terakhir tetap bisa dimaksimalkan:</p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0 0.8rem;">
-            <li>Memperbanyak doa Lailatul Qadr di sepanjang perjalanan</li>
-            <li>Tilawah Al-Quran di kendaraan atau penginapan</li>
-            <li>Shalat malam (qiyam) di mana pun berada, meski ringkas</li>
-            <li>Menjaga dzikir pagi dan petang</li>
-            <li>Jika berhenti di kota dengan masjid yang ada i'tikaf, manfaatkan kesempatan itu</li>
-          </ul>
-          <p>Nabi ﷺ sendiri pernah meninggalkan i'tikaf karena udzur, lalu mengqadhanya di Syawwal (HR. Bukhari no. 2041). Ini menunjukkan bahwa udzur perjalanan dimaklumi, dan yang terpenting adalah <strong>niat dan usaha semaksimal mungkin</strong>.</p>
-        </div>
-      </details>
-    </div>
-
-    <div class="qna-item">
-      <details>
-        <summary>
-          Kapan Lailatul Qadr terjadi? Apakah bisa diketahui secara pasti?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Lailatul Qadr <strong>dirahasiakan</strong> oleh Allah agar kita menghidupkan semua malam di 10 terakhir. Nabi ﷺ bersabda:</p>
-          <div class="dalil-card" style="margin:0.8rem 0;">
-            <div class="arabic">تَحَرَّوْا لَيْلَةَ الْقَدْرِ فِي الْوِتْرِ مِنَ الْعَشْرِ الأَوَاخِرِ مِنْ رَمَضَانَ</div>
-            <p class="trans">"Carilah Lailatul Qadr pada malam-malam ganjil dari sepuluh malam terakhir Ramadhan."</p>
-            <span class="source">HR. Bukhari no. 2017</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Musafir tetap bisa beribadah maksimal di 10 malam terakhir. Beberapa keringanan yang berlaku:</p>
+            <p><strong>Shalat:</strong> Boleh menjamak dan mengqashar shalat wajib. Namun qiyamul lail (shalat malam sunnah) tetap sangat dianjurkan.</p>
+            <p><strong>Puasa:</strong> Boleh tidak berpuasa dan menggantinya setelah Ramadhan. Namun jika mampu, puasa lebih utama.</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">وَأَن تَصُومُواْ خَيۡرٌ لَّكُمۡ إِن كُنتُمۡ تَعۡلَمُونَ</div>
+              <p class="dalil-trans">"Dan berpuasa lebih baik bagimu jika kamu mengetahui." </p>
+              <div class="dalil-source">QS. Al-Baqarah: 184</div>
+            </div>
+            <p><strong>Iʿtikaf:</strong> Bisa dilakukan di masjid mana pun di tempat tujuan perjalanan, tidak harus di masjid asal. Niat iʿtikaf sunnah tidak terikat tempat tertentu.</p>
+            <div class="accordion-content note">
+              Seorang musafir yang sungguh-sungguh berdzikir, berdoa, dan qiyamul lail di perjalanan berpeluang mendapatkan Lailatul Qadr sebagaimana orang yang menetap. Yang penting adalah niat dan kesungguhan.
+            </div>
           </div>
-          <p>Malam-malam yang paling kuat kemungkinannya berdasarkan hadits-hadits adalah <strong>malam 21, 23, 25, 27, dan 29</strong>. Sebagian besar ulama berpendapat malam 27 paling kuat, namun ini tidak mutlak. Strategi terbaik: maksimalkan semua malam ganjil, bahkan semua 10 malam.</p>
-          <p>Tanda Lailatul Qadr menurut hadits: malam yang tenang, tidak terlalu panas/dingin, dan matahari terbit keesokan paginya dengan sinar yang redup tanpa cahaya yang kuat (HR. Muslim no. 762).</p>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Bolehkah keluar sebentar dari i'tikaf untuk keperluan mendesak?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Boleh keluar masjid untuk <strong>kebutuhan yang tidak bisa dihindari</strong>, yaitu:</p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0 0.8rem;">
-            <li>Buang air besar/kecil (ke toilet)</li>
-            <li>Mandi wajib (junub atau haid bagi yang baru selesai)</li>
-            <li>Makan dan minum jika tidak ada yang mengantarkan</li>
-            <li>Kondisi darurat medis atau keamanan</li>
-          </ul>
-          <p>Yang <strong>tidak boleh</strong> dilakukan tanpa udzur syar'i: mengunjungi orang sakit, menghadiri pernikahan, pergi bekerja, atau keluar untuk alasan hiburan. Jika dilakukan, i'tikaf batal menurut jumhur ulama.</p>
-          <p>Nabi ﷺ menunjukkan contoh: beliau hanya memasukkan kepala ke kamar Aisyah ra. untuk disisir rambutnya saat i'tikaf (HR. Bukhari no. 2029), menunjukkan minimnya interaksi di luar masjid.</p>
+      <!-- Q6 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Di malam ganjil mana kemungkinan terbesar Lailatul Qadr?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Rasulullah ﷺ menganjurkan mencari Lailatul Qadr di malam-malam ganjil sepuluh terakhir:</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">التَمِسُوهَا فِي العَشرِ الأَوَاخِرِ مِن رَمَضَانَ لَيلَةَ القَدرِ فِي تِسعٍ يَبقَينَ أَو سَبعٍ يَبقَينَ أَو خَمسٍ يَبقَينَ أَو ثَلَاثٍ يَبقَينَ أَو آخِرِ لَيلَةٍ</div>
+              <p class="dalil-trans">"Carilah Lailatul Qadr pada sepuluh hari terakhir Ramadhan, pada malam ke-9 tersisa, atau ke-7 tersisa, atau ke-5 tersisa, atau ke-3 tersisa, atau malam terakhir."</p>
+              <div class="dalil-source">HR. Al-Bukhari no. 2021 — dari Abu Sa'id Al-Khudri</div>
+            </div>
+            <div class="dalil-block">
+              <div class="dalil-arabic">تَحَرَّوا لَيلَةَ القَدرِ فِي الوِترِ مِن العَشرِ الأَوَاخِرِ مِن رَمَضَانَ</div>
+              <p class="dalil-trans">"Carilah Lailatul Qadr pada malam ganjil dari sepuluh hari terakhir Ramadhan."</p>
+              <div class="dalil-source">HR. Al-Bukhari no. 2017 — dari 'Aisyah radhiyallahu 'anha</div>
+            </div>
+            <p>Mayoritas ulama berpendapat Lailatul Qadr paling sering jatuh pada <strong>malam ke-27</strong> berdasarkan atsar dari Ubay bin Ka'ab dan pendapat para sahabat. Namun Nabi ﷺ menyembunyikan kepastiannya agar umat bersungguh-sungguh di semua malam ganjil, bahkan semua 10 malam terakhir.</p>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Apakah i'tikaf harus 10 hari penuh, atau boleh sebagian malam saja?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>I'tikaf <strong>tidak memiliki batas waktu minimum</strong> menurut sebagian ulama (Hanafi dan sebagian Syafi'i): boleh sesaat pun sudah dianggap i'tikaf. Namun sunnah yang dikerjakan Nabi ﷺ adalah 10 hari penuh.</p>
-          <p>Bagi yang tidak bisa penuh 10 hari, opsi yang dibolehkan:</p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0;">
-            <li><strong>I'tikaf malam saja</strong> (setelah Isya hingga Subuh): dibolehkan sebagian ulama</li>
-            <li><strong>I'tikaf akhir pekan</strong>: misalnya malam Jumat-Sabtu-Ahad saja</li>
-            <li><strong>I'tikaf pada malam-malam ganjil</strong> saja: malam 21, 23, 25, 27, 29</li>
-          </ul>
-          <p>Yang terpenting: niatkan dengan sungguh-sungguh, dan manfaatkan semaksimal mungkin waktu yang ada. <em>Allah tidak melihat banyaknya amal, tetapi kualitas dan keikhlasannya.</em></p>
+      <!-- Q7 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bagaimana tanda-tanda malam Lailatul Qadr?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Ada beberapa tanda yang disebutkan dalam hadits:</p>
+            <div class="dalil-block">
+              <div class="dalil-arabic">إِنَّهَا لَيلَةٌ طَلقَةٌ بَلجَةٌ لَا حَارَّةٌ وَلَا بَارِدَةٌ، تَطلُعُ الشَّمسُ صَبِيحَتَهَا لَيسَ لَهَا شُعَاعٌ</div>
+              <p class="dalil-trans">"Sesungguhnya malam itu adalah malam yang tenang dan cerah, tidak panas dan tidak dingin, dan matahari terbit di pagi harinya tanpa sinar yang menyilaukan."</p>
+              <div class="dalil-source">HR. Ibn Khuzaimah no. 2192 — dari Jabir bin Samurah, disahihkan Al-Albani</div>
+            </div>
+            <div class="accordion-content note">
+              Tanda-tanda ini bersifat informatif dan baru terlihat setelah malam berlalu (matahari pagi). Jadi tidak bisa dijadikan acuan sebelum malam tiba. Yang terpenting: bersungguh-sungguh di semua malam ganjil tanpa menunggu tanda.
+            </div>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Bagaimana cara menjaga semangat ibadah agar tidak menurun di pertengahan 10 malam?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Ini adalah tantangan nyata yang diakui para ulama. Berikut beberapa strategi berdasarkan tuntunan syar'i dan psikologi ibadah:</p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0;">
-            <li><strong>Renew your intention (tajdidul niyyah)</strong> setiap malam: ingatkan diri bahwa malam ini mungkin Lailatul Qadr.</li>
-            <li><strong>Tidur siang (qailulah)</strong> untuk menjaga stamina malam, ini sunnah Nabi ﷺ.</li>
-            <li><strong>Variasikan ibadah:</strong> gantikan antara tilawah, shalat, dzikir, dan doa agar tidak jenuh.</li>
-            <li><strong>Cari teman ibadah:</strong> ajak pasangan atau keluarga untuk saling membangunkan.</li>
-            <li><strong>Kurangi konsumsi berlebihan saat sahur dan iftar</strong> agar tidak mengantuk dan berat.</li>
-            <li><strong>Baca satu kisah sahabat</strong> tentang semangat mereka di Ramadhan sebagai motivasi.</li>
-          </ul>
-          <p>Nabi ﷺ bersabda: <em>"Sesungguhnya amalan itu tergantung pada akhirnya."</em> (HR. Bukhari no. 6607). Jangan menyerah di penghujung Ramadhan.</p>
+      <!-- Q8 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bolehkah iʿtikaf hanya beberapa jam, bukan semalam penuh?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Para ulama berbeda pendapat mengenai batas minimal durasi iʿtikaf:</p>
+            <p>• <strong>Imam Syafi'i dan Hanbali:</strong> Tidak ada batas minimal waktu. Iʿtikaf sesaat pun sah dengan niat, termasuk beberapa jam.<br>
+            • <strong>Imam Malik:</strong> Minimal satu hari satu malam.<br>
+            • <strong>Imam Abu Hanifah:</strong> Minimal sehari penuh (24 jam).</p>
+            <p>Dalam konteks modern dan keterbatasan waktu, <strong>pendapat Syafi'i dan Hanbali lebih memudahkan</strong>: seseorang boleh berniat iʿtikaf selama beberapa jam di masjid, kemudian pulang karena kebutuhan, lalu kembali lagi di lain waktu dengan niat baru.</p>
+            <div class="accordion-content note">
+              Iʿtikaf singkat yang dilakukan dengan serius dan niat yang benar jauh lebih baik dari tidak beriʿtikaf sama sekali. Jangan biarkan sempurnanya menjadi musuh dari yang baik.
+            </div>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Apakah ada amalan khusus untuk malam ke-27?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Tidak ada amalan <strong>khusus</strong> yang ditetapkan secara syar'i hanya untuk malam ke-27. Yang ada adalah anjuran umum untuk menghidupkan malam-malam ganjil, dan para ulama seperti Ubay bin Ka'ab ra. yang berpendapat kuat bahwa Lailatul Qadr adalah malam ke-27 (HR. Muslim no. 762).</p>
-          <p>Yang disunnahkan di malam ke-27 (dan semua malam ganjil) sama dengan malam lainnya: perbanyak shalat, doa Lailatul Qadr, istighfar, tilawah, dan sedekah. Tidak ada dalil tentang shalat atau doa tertentu yang dikhususkan untuk malam ke-27 saja.</p>
-          <p><strong>Peringatan:</strong> Sebagian adat yang beredar di masyarakat seperti "shalat malam khusus malam ke-27 dengan tata cara tertentu yang berbeda" tidak memiliki dasar yang shahih dan termasuk dalam kategori bid'ah.</p>
+      <!-- Q9 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bolehkah iʿtikaf di masjid kampus, mushalla kantor, atau masjid kecil?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Menurut jumhur ulama (Syafi'i, Maliki, dan sebagian Hanbali), iʿtikaf sah di masjid mana pun yang digunakan untuk shalat berjamaah, termasuk mushalla dan masjid kecil. Tidak disyaratkan harus di Masjid Jami' (masjid Jumat).</p>
+            <p>Imam Ahmad berpendapat: iʿtikaf lebih utama di masjid yang dilaksanakan shalat Jumat agar tidak perlu keluar untuk shalat Jumat. Namun ini adalah keutamaan, bukan syarat sah.</p>
+            <div class="accordion-content note">
+              Bagi komunitas Muslim di Denmark, iʿtikaf di masjid terdekat atau mushalla komunitas sudah sah dan sangat dianjurkan. Yang penting tempatnya digunakan sebagai tempat shalat berjamaah.
+            </div>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-    <div class="qna-item">
-      <details>
-        <summary>
-          Saya tinggal di negara dengan waktu malam sangat singkat (Denmark). Bagaimana beribadah secara optimal?
-          <span class="qna-icon">+</span>
-        </summary>
-        <div class="qna-body">
-          <p>Di Denmark, terutama mendekati musim panas, waktu antara Isya dan Subuh bisa sangat singkat (2-4 jam). Ini adalah konteks nyata kita sebagai Muslim di Skandinavia. Beberapa panduan:</p>
-          <ul style="padding-left:1.3rem; color:var(--text-mid); margin: 0.5rem 0;">
-            <li><strong>Manfaatkan setiap menit malam</strong> yang tersedia, walaupun singkat.</li>
-            <li><strong>Kerjakan amalan siang:</strong> tilawah, sedekah, dan dzikir bisa dilakukan sepanjang hari.</li>
-            <li><strong>Niatkan seluruh hidup sebagai ibadah:</strong> pekerjaan, keluarga, semua bernilai ibadah dengan niat yang benar.</li>
-            <li><strong>Shalat Dhuha</strong> bisa menjadi pengganti qiyamul lail yang tertinggal (HR. Muslim no. 721).</li>
-            <li><strong>Istirahat sejenak sebelum sahur</strong> lalu bangun untuk doa dan shalat sebelum Subuh, ini waktu yang sangat istimewa (waktu ashar/sepertiga malam akhir).</li>
-          </ul>
-          <p>Ingat ayat Adz-Dzariyat: <em>"Dan di akhir malam, mereka memohon ampun."</em> Bahkan 15-30 menit sebelum Subuh untuk doa dan istighfar sudah termasuk menghidupkan malam menurut sebagian ulama.</p>
+      <!-- Q10 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Apakah niat iʿtikaf harus diucapkan? Bagaimana lafaznya?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Niat adalah amalan hati, tidak wajib diucapkan. Cukup dalam hati: "Aku niat iʿtikaf sunnah karena Allah." Namun jika ingin mengucapkannya, tidak ada larangan.</p>
+            <div class="doa-block" style="margin:12px 0;">
+              <div class="doa-label">Lafaz Niat Iʿtikaf (boleh diucapkan)</div>
+              <div class="doa-arabic">نَوَيتُ الاِعتِكَافَ سُنَّةً لِلهِ تَعَالَى</div>
+              <div class="doa-latin">Nawaytul iʿtikāfa sunnatan lillāhi ta'ālā</div>
+              <div class="doa-arti">"Aku niat beriʿtikaf sunnah karena Allah Ta'ala."</div>
+            </div>
+            <p>Niat dilakukan saat memasuki masjid dengan tujuan iʿtikaf.</p>
+          </div>
         </div>
-      </details>
-    </div>
+      </div>
 
-  </div>
+      <!-- Q11 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Apa yang dianjurkan dilakukan selama iʿtikaf? Bolehkah tidur?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Selama iʿtikaf, seseorang dianjurkan mengisi waktu dengan ibadah. Tidak ada larangan untuk tidur, makan, atau berbicara yang diperlukan. Yang penting adalah niat dan tidak meninggalkan masjid.</p>
+            <p>Amalan yang dianjurkan selama iʿtikaf:<br>
+            • Shalat sunnah sebanyak-banyaknya<br>
+            • Tilawah Al-Quran<br>
+            • Dzikir: tasbih, tahmid, tahlil, takbir, istighfar<br>
+            • Doa — terutama doa Lailatul Qadr<br>
+            • Membaca buku-buku ilmu agama<br>
+            • Shalawat atas Nabi ﷺ</p>
+            <div class="accordion-content note">
+              Tidur di dalam masjid tidak membatalkan iʿtikaf. Nabi ﷺ dan para sahabat tidur di masjid saat iʿtikaf. Yang membatalkan adalah keluar dari masjid tanpa uzur syar'i, atau berhubungan suami istri.
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- PENUTUP -->
-  <h2 class="section-title">Doa Penutup</h2>
-  <div class="doa-card">
-    <div class="doa-label">Doa Sayyidul Istighfar</div>
-    <div class="arabic">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</div>
-    <p class="latin"><em>Allaahumma Anta Rabbii laa ilaaha illaa Anta, khalaqtanii wa ana 'abduka, wa ana 'alaa 'ahdika wa wa'dika mastatha'tu. A'uudzu bika min syarri maa shana'tu. Abuu'u laka bini'matika 'alayya wa abuu'u laka bidzambii. Faghfir lii fa-innahu laa yaghfirudz dzunuuba illaa Anta.</em></p>
-    <p class="arti">"Ya Allah, Engkau adalah Rabb-ku. Tidak ada ilah selain Engkau. Engkau telah menciptakanku dan aku adalah hamba-Mu. Aku berada di atas perjanjian dan janji-Mu semampu yang aku bisa. Aku berlindung kepada-Mu dari keburukan apa yang aku perbuat. Aku mengakui nikmat-Mu kepadaku, dan aku mengakui dosaku. Maka ampunilah aku, karena tidak ada yang mengampuni dosa selain Engkau."</p>
-    <p style="font-size:0.82rem;color:#5a5a5a;margin-top:0.5rem;">HR. Bukhari no. 6306. Nabi ﷺ bersabda: "Barangsiapa mengucapkannya dengan penuh keyakinan di siang hari lalu meninggal sebelum sore, maka ia termasuk ahli surga. Dan barangsiapa mengucapkannya dengan penuh keyakinan di malam hari lalu meninggal sebelum pagi, maka ia termasuk ahli surga."</p>
-  </div>
+      <!-- Q12 -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Bagaimana cara membaca doa Lailatul Qadr yang benar? Berapa kali?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <p>Tidak ada ketentuan berapa kali doa Lailatul Qadr harus dibaca. Nabi ﷺ hanya mengajarkan lafaznya tanpa menyebut hitungan tertentu. Para ulama menganjurkan memperbanyaknya, khususnya saat sujud, setelah shalat, dan di sepertiga malam terakhir.</p>
+            <div class="doa-block">
+              <div class="doa-label">Doa Lailatul Qadr — Ulangi sebanyak-banyaknya</div>
+              <div class="doa-arabic">اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+              <div class="doa-latin">Allāhumma innaka 'afuwwun karīmun tuḥibbul-'afwa fa'fu 'annī</div>
+              <div class="doa-arti">"Ya Allah, sesungguhnya Engkau Maha Pemaaf lagi Maha Mulia, Engkau mencintai maaf, maka maafkanlah aku."</div>
+              <div class="doa-source">HR. At-Tirmidzi no. 3513 (hasan shahih), Ibn Majah no. 3850</div>
+            </div>
+            <p>Waktu terbaik berdoa: saat sujud dalam shalat, antara adzan dan iqamah, sepertiga malam terakhir, dan saat menjelang sahur.</p>
+          </div>
+        </div>
+      </div>
 
-  <div style="background:var(--green-deep); color:var(--white); border-radius:10px; padding:1.5rem 1.8rem; text-align:center; margin-top:2.5rem;">
-    <p style="font-family:'Amiri',serif; font-size:1.6rem; margin-bottom:0.5rem; color:var(--gold-light);">رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ</p>
-    <p style="font-size:0.95rem; color:rgba(255,255,255,0.8);">"Ya Rabb kami, terimalah (amal) dari kami. Sesungguhnya Engkau Maha Mendengar lagi Maha Mengetahui." (QS. Al-Baqarah: 127)</p>
-  </div>
+    </div><!-- end accordion-wrap -->
+  </section>
 
+</div><!-- end container -->
 </main>
 
-<footer>
-  <p><strong>Indonesian Muslim Society in Denmark (IMSD)</strong></p>
-  <p style="margin-top:0.3rem;">Semoga Allah menerima amal ibadah kita dan mengampuni dosa-dosa kita. Aamiin.</p>
-  <p style="margin-top:0.5rem; font-size:0.78rem;">Panduan ini disusun berdasarkan sumber-sumber yang shahih untuk keperluan edukasi komunitas. Wallahu a'lam bishawab.</p>
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="assets/img/logo_imsd.png" alt="IMSD" style="height:50px; max-width:160px; object-fit:contain; display:block; margin:0 auto 12px; background:white; border-radius:6px; padding:4px 8px;">
+  <strong>Indonesian Muslim Society in Denmark (IMSD)</strong><br>
+  Panduan ini disusun berdasarkan Al-Quran, Sunnah, dan pendapat jumhur ulama.<br>
+  Selalu rujuk ulama untuk permasalahan khusus yang membutuhkan fatwa.<br><br>
+  <span style="opacity:0.45;">Semoga Allah menerima amalan kita di 10 malam terakhir Ramadhan ini. Aamiin.</span>
 </footer>
+
+<script>
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked if it wasn't open
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 
 </body>
 </html>
