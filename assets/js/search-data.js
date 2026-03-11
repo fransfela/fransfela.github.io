@@ -88,7 +88,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/fisika-suara-masjid/";
+            window.location.href = "/blog/fisika-suara-masjid-bag-1/";
           
         },
       },{id: "post-why-your-expensive-earbuds-spend-more-engineering-effort-on-your-zoom-calls-than-your-spotify-playlist",
