@@ -69,7 +69,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-fisika-suara-masjid-bagian-1",
+        },{id: "post-fisika-suara-masjid-bagian-2",
+        
+          title: "Fisika Suara Masjid Bagian 2",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/fisika-suara-masjid-bag-2/";
+          
+        },
+      },{id: "post-fisika-suara-masjid-bagian-1",
         
           title: "Fisika Suara Masjid Bagian 1",
         
