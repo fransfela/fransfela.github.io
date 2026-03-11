@@ -69,9 +69,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/id-id/cv/";
           },
-        },{id: "post-2025-03-09-fisika-suara-masjid-bagian-1",
+        },{id: "post-fisika-suara-masjid-bagian-1",
         
-          title: "2025 03 09 Fisika Suara Masjid Bagian 1",
+          title: "Fisika Suara Masjid Bagian 1",
         
         description: "",
         section: "Posts",
