@@ -1,0 +1,1174 @@
+---
+layout: page
+permalink: /viz/mosque-loudspeaker/
+nav: false
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulasi Loudspeaker Masjid — Bagian III</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --ink:        #1A1410;
+  --paper:      #F7F3EC;
+  --gold:       #B8922A;
+  --gold-l:     #D4AA55;
+  --gold-dim:   rgba(184,146,42,0.18);
+  --sage:       #4A6741;
+  --dust:       #8A7B6A;
+  --warm:       #C8BFB0;
+  --red:        #8B3A2A;
+  --canvas-bg:  #0E0C09;
+  --panel-bg:   #F2EDE4;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:14px;}
+body{background:var(--paper);color:var(--ink);font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased;}
+
+.page{max-width:980px;margin:0 auto;padding:52px 24px 120px;}
+
+/* ── HEADER ── */
+.hdr{text-align:center;margin-bottom:60px;}
+.eyebrow{font-size:9px;font-weight:500;letter-spacing:.38em;text-transform:uppercase;color:var(--dust);margin-bottom:16px;}
+.hdr h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(24px,4.2vw,42px);line-height:1.12;margin-bottom:8px;}
+.hdr h1 em{font-style:italic;color:var(--gold);}
+.hdr-sub{font-size:11px;font-weight:300;color:var(--dust);letter-spacing:.06em;}
+
+/* ── DIVIDER ── */
+.div{display:flex;align-items:center;gap:14px;margin:48px 0;}
+.div-line{flex:1;height:1px;background:var(--warm);}
+.div-gem{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+
+/* ── SECTION HEADER ── */
+.s-ey{font-size:9px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.s-ti{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(17px,2.4vw,23px);color:var(--ink);margin-bottom:6px;}
+.s-de{font-size:11px;font-weight:300;color:var(--dust);line-height:1.8;margin-bottom:22px;max-width:660px;}
+.s-de em{font-style:italic;color:var(--ink);}
+
+/* ── CONFIG TABS ── */
+.cfg-tabs{display:flex;gap:0;margin-bottom:20px;border:1px solid var(--warm);overflow:hidden;}
+.cfg-tab{flex:1;padding:12px 10px 10px;cursor:pointer;text-align:center;transition:background .16s;border-right:1px solid var(--warm);}
+.cfg-tab:last-child{border-right:none;}
+.cfg-tab:hover{background:rgba(184,146,42,.04);}
+.cfg-tab.active{background:var(--ink);}
+.cfg-tab-lbl{font-size:8px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--dust);margin-bottom:3px;transition:color .16s;}
+.cfg-tab.active .cfg-tab-lbl{color:var(--gold);}
+.cfg-tab-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;color:var(--ink);transition:color .16s;}
+.cfg-tab.active .cfg-tab-name{color:var(--paper);}
+.cfg-tab-hint{font-size:9px;font-weight:300;color:var(--warm);margin-top:2px;display:none;}
+.cfg-tab.active .cfg-tab-hint{display:block;color:rgba(247,243,236,.45);}
+
+/* ── SIM LAYOUT ── */
+.sim-wrap{display:grid;grid-template-columns:1fr 248px;gap:14px;align-items:start;}
+@media(max-width:680px){.sim-wrap{grid-template-columns:1fr;}}
+
+.canvas-box{position:relative;background:var(--canvas-bg);border-radius:2px;overflow:hidden;}
+canvas{display:block;width:100%;}
+
+/* ── LAYER BUTTONS ── */
+.layer-btns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.lbtn{font-family:'Jost',sans-serif;font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--warm);background:transparent;color:var(--dust);cursor:pointer;border-radius:1px;transition:all .15s;}
+.lbtn:hover{border-color:var(--ink);color:var(--ink);}
+.lbtn.active{border-color:var(--gold);background:var(--gold-dim);color:var(--gold);}
+
+/* ── SIDE PANEL ── */
+.side{display:flex;flex-direction:column;gap:10px;}
+.pbox{border:1px solid var(--warm);padding:13px 13px 11px;background:var(--panel-bg);}
+.plbl{font-size:8px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--dust);margin-bottom:9px;}
+
+/* toggles */
+.tog-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+.tog-name{font-size:10px;font-weight:300;color:var(--ink);}
+.tog{position:relative;width:30px;height:16px;cursor:pointer;flex-shrink:0;}
+.tog input{opacity:0;width:0;height:0;}
+.tog-tr{position:absolute;inset:0;background:var(--warm);border-radius:8px;transition:.18s;}
+.tog input:checked+.tog-tr{background:var(--gold);}
+.tog-th{position:absolute;left:2px;top:2px;width:12px;height:12px;background:white;border-radius:50%;transition:.18s;pointer-events:none;}
+.tog input:checked~.tog-th{left:16px;}
+
+/* sliders */
+.sl{margin-bottom:7px;}
+.sl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;}
+.sl-n{font-size:10px;font-weight:300;color:var(--ink);}
+.sl-v{font-size:10px;font-weight:500;color:var(--gold);}
+input[type=range].mini{-webkit-appearance:none;width:100%;height:2px;background:var(--warm);outline:none;border-radius:2px;}
+input[type=range].mini::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--gold);cursor:pointer;}
+
+/* metrics */
+.mets{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.met{background:var(--paper);padding:7px 9px;border-radius:1px;}
+.met-lbl{font-size:7px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dust);margin-bottom:2px;}
+.met-val{font-size:13px;font-weight:500;color:var(--ink);}
+.met-unit{font-size:8px;font-weight:300;color:var(--dust);}
+.met.ok .met-val{color:var(--sage);}
+.met.warn .met-val{color:var(--red);}
+
+/* legend */
+.leg{display:flex;flex-direction:column;gap:4px;}
+.leg-it{display:flex;align-items:center;gap:7px;}
+.leg-sw{width:20px;height:7px;border-radius:1px;flex-shrink:0;}
+.leg-tx{font-size:9px;font-weight:300;color:var(--dust);line-height:1.4;}
+
+/* ── ANNOTATION ROW ── */
+.ann{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px;padding-top:11px;border-top:1px solid var(--warm);}
+.ann-it{display:flex;align-items:center;gap:6px;}
+.ann-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.ann-tx{font-size:10px;font-weight:300;color:var(--dust);}
+.ann-tx strong{font-weight:500;color:var(--ink);}
+
+/* ── INSIGHT ── */
+.insight{background:var(--ink);color:var(--paper);padding:28px 36px;margin:0 -2px 44px;position:relative;overflow:hidden;}
+.insight::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 12% 50%,rgba(184,146,42,.12),transparent 55%);pointer-events:none;}
+.insight-lbl{font-size:8px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.insight-tx{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(13px,1.7vw,17px);line-height:1.65;color:var(--paper);}
+.insight-tx em{font-style:italic;color:var(--gold-l);}
+.insight-tx code{font-family:monospace;font-size:.88em;background:rgba(184,146,42,.15);padding:1px 5px;border-radius:2px;color:var(--gold-l);}
+
+/* ── DELAY DIAGRAM ── */
+.delay-wrap{background:var(--canvas-bg);border-radius:2px;overflow:hidden;margin-bottom:12px;}
+
+/* ── HARAM ── */
+.haram-wrap{background:var(--canvas-bg);border-radius:2px;overflow:hidden;margin-bottom:12px;}
+
+/* ── COMPARE TABLE ── */
+.cmp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:11px;}
+.cmp-table th{font-size:8px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--dust);padding:8px 10px;text-align:left;border-bottom:1px solid var(--warm);}
+.cmp-table td{padding:9px 10px;border-bottom:1px solid rgba(200,191,176,.4);font-weight:300;color:var(--ink);}
+.cmp-table tr:last-child td{border-bottom:none;}
+.cmp-table td.ok{color:var(--sage);font-weight:500;}
+.cmp-table td.warn{color:var(--red);font-weight:500;}
+.cmp-table td.mid{color:#8a6530;font-weight:500;}
+
+@media(max-width:580px){.page{padding:36px 14px 80px;}.insight{padding:22px 18px;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="eyebrow">Bagian III — Simulasi Sistem Aktif</div>
+  <h1>Loudspeaker di Masjid:<br><em>Tiga Konfigurasi</em>, Satu Trade-off</h1>
+  <div class="hdr-sub">Model akustik ruang · Distribusi SPL · Pelanggaran Haas · Arah persepsi sumber suara</div>
+</div>
+
+<!-- ══ SIMULATOR ══ -->
+<div class="s-ey">Simulator Konfigurasi</div>
+<div class="s-ti">Pilih konfigurasi dan eksplorasi efeknya</div>
+<div class="s-de">
+  Setiap titik di denah ruang dihitung menggunakan model akustik ruang standar (Hopkins-Stryker):
+  <em>SPL = PWL + 10 log₁₀(Q / 4πr² + 4/R)</em>
+  di mana <em>R</em> adalah <em>room constant</em> dari persamaan Eyring, dan <em>Q</em> adalah
+  <em>directivity factor</em> speaker pada sumbu utama. Pengaruh sudut off-axis dihitung terpisah
+  menggunakan <em>directivity pattern D(θ)</em>, sehingga SPL efektif pada sudut θ menjadi
+  <em>SPL(θ) = PWL + 10 log₁₀(Q·D(θ) / 4πr² + 4/R)</em> dengan D(θ) = 1 pada sumbu utama (θ = 0°).
+  Haas window dihitung dari waktu kedatangan aktual tiap speaker di tiap titik, termasuk efek
+  <em>delay alignment</em>.
+</div>
+
+<!-- Config tabs -->
+<div class="cfg-tabs">
+  <div class="cfg-tab active" id="tab-central" onclick="setCfg('central')">
+    <div class="cfg-tab-lbl">Konfigurasi A</div>
+    <div class="cfg-tab-name">Central Cluster</div>
+    <div class="cfg-tab-hint">1–3 speaker · atas mihrab</div>
+  </div>
+  <div class="cfg-tab" id="tab-ceiling" onclick="setCfg('ceiling')">
+    <div class="cfg-tab-lbl">Konfigurasi B</div>
+    <div class="cfg-tab-name">Distributed Ceiling</div>
+    <div class="cfg-tab-hint">Grid speaker · plafon merata</div>
+  </div>
+  <div class="cfg-tab" id="tab-column" onclick="setCfg('column')">
+    <div class="cfg-tab-lbl">Konfigurasi C</div>
+    <div class="cfg-tab-name">Column Array + Fill</div>
+    <div class="cfg-tab-hint">Line array · dinding kiblat + delay fill</div>
+  </div>
+</div>
+
+<!-- Sim + side panel -->
+<div class="sim-wrap">
+  <div>
+    <div class="canvas-box"><canvas id="simC"></canvas></div>
+    <div class="layer-btns">
+      <button class="lbtn active" id="lb-spl" onclick="setLayer('spl')">SPL Heatmap</button>
+      <button class="lbtn" id="lb-haas" onclick="setLayer('haas')">Haas Window</button>
+      <button class="lbtn" id="lb-dir" onclick="setLayer('dir')">Arah Persepsi</button>
+    </div>
+    <div class="ann" id="annRow"></div>
+  </div>
+
+  <div class="side">
+    <div class="pbox">
+      <div class="plbl">Kontrol</div>
+
+      <div class="tog-row">
+        <span class="tog-name"><em>Delay alignment</em> aktif</span>
+        <label class="tog"><input type="checkbox" id="tog-delay" checked onchange="redraw();drawDelay();">
+          <div class="tog-tr"></div><div class="tog-th"></div></label>
+      </div>
+      <div class="tog-row">
+        <span class="tog-name">Tampilkan speaker</span>
+        <label class="tog"><input type="checkbox" id="tog-spk" checked onchange="redraw()">
+          <div class="tog-tr"></div><div class="tog-th"></div></label>
+      </div>
+
+      <div style="height:8px"></div>
+
+      <div class="sl">
+        <div class="sl-top"><span class="sl-n">Panjang ruang</span><span class="sl-v" id="sv-L">20 m</span></div>
+        <input type="range" class="mini" id="sl-L" min="10" max="40" step="1" value="20" oninput="onRoom()">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><span class="sl-n">Lebar ruang</span><span class="sl-v" id="sv-W">12 m</span></div>
+        <input type="range" class="mini" id="sl-W" min="6" max="24" step="1" value="12" oninput="onRoom()">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><span class="sl-n">RT60</span><span class="sl-v" id="sv-rt">1.5 s</span></div>
+        <input type="range" class="mini" id="sl-rt" min="0.4" max="4.0" step="0.1" value="1.5" oninput="onRoom()">
+      </div>
+      <div class="sl">
+        <div class="sl-top"><span class="sl-n">PWL speaker</span><span class="sl-v" id="sv-pw">100 dB</span></div>
+        <input type="range" class="mini" id="sl-pw" min="85" max="115" step="1" value="100" oninput="onRoom()">
+      </div>
+    </div>
+
+    <div class="pbox">
+      <div class="plbl">Metrik Akustik</div>
+      <div class="mets">
+        <div class="met" id="m-spl">
+          <div class="met-lbl">SPL Rata-rata</div>
+          <div><span class="met-val" id="mv-spl">—</span><span class="met-unit"> dB</span></div>
+        </div>
+        <div class="met" id="m-var">
+          <div class="met-lbl">Variasi P10–P90</div>
+          <div><span class="met-val" id="mv-var">—</span><span class="met-unit"> dB</span></div>
+        </div>
+        <div class="met" id="m-haas">
+          <div class="met-lbl">% Haas OK</div>
+          <div><span class="met-val" id="mv-haas">—</span><span class="met-unit"> %</span></div>
+        </div>
+        <div class="met" id="m-dir">
+          <div class="met-lbl">% Dari Kiblat</div>
+          <div><span class="met-val" id="mv-dir">—</span><span class="met-unit"> %</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pbox">
+      <div class="plbl">Legenda</div>
+      <div class="leg" id="legBox"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DELAY DIAGRAM ── -->
+<div class="div"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+<div class="s-ey">Fisika Delay Alignment</div>
+<div class="s-ti">Mengapa tanda plus di depan angka ms itu penting</div>
+<div class="s-de">
+  Suara dari <em>fill speaker</em> perlu tiba di telinga pendengar <em>setelah</em> suara dari speaker kiblat — bukan sebelum, bukan bersamaan. Jika fill speaker tiba lebih dulu, Haas window terlampaui dan pendengar mempersepsikan sumber suara dari arah fill speaker, bukan dari kiblat. Matikan <em>delay alignment</em> di panel kiri untuk melihat konsekuensinya pada diagram di bawah dan pada heatmap di atas.
+</div>
+<div class="delay-wrap"><canvas id="delayC" height="200"></canvas></div>
+
+<div class="insight">
+  <div class="insight-lbl">Prinsip Delay Alignment</div>
+  <div class="insight-tx">
+    Target: fill speaker tiba <em>5–20 ms setelah</em> speaker referensi kiblat. Formula: <code>delay = (d_fill − d_ref) / 343 + δ</code> di mana δ adalah pre-delay sekitar 10 ms. Ini memastikan Precedence Effect tetap melokalisasi sumber suara ke depan (kiblat), sambil fill speaker tetap berkontribusi pada SPL. Tanpa delay atau dengan delay yang salah arah, fill speaker justru menjadi sumber lokalisasi baru yang bersaing dengan kiblat.
+  </div>
+</div>
+
+<!-- ── COMPARISON TABLE ── -->
+<div class="s-ey">Perbandingan Tiga Konfigurasi</div>
+<div class="s-ti">Trade-off yang perlu dipertimbangkan perancang</div>
+<table class="cmp-table">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>A — Central Cluster</th>
+      <th>B — Distributed Ceiling</th>
+      <th>C — Column Array + Fill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Distribusi SPL</td>
+      <td class="warn">Drop besar ke belakang</td>
+      <td class="ok">Paling merata</td>
+      <td class="mid">Baik dengan delay fill</td>
+    </tr>
+    <tr>
+      <td>Lokalisasi ke kiblat</td>
+      <td class="ok">Baik di tengah-depan</td>
+      <td class="warn">Buruk (atas/plafon)</td>
+      <td class="ok">Baik di seluruh ruang</td>
+    </tr>
+    <tr>
+      <td>Risiko Haas violation</td>
+      <td class="ok">Rendah (1 sumber)</td>
+      <td class="warn">Tinggi tanpa delay</td>
+      <td class="mid">Sedang — butuh DSP</td>
+    </tr>
+    <tr>
+      <td>Cakupan ruang panjang (&gt;20 m)</td>
+      <td class="warn">Tidak memadai</td>
+      <td class="ok">Memadai</td>
+      <td class="ok">Memadai</td>
+    </tr>
+    <tr>
+      <td>Kompleksitas instalasi</td>
+      <td class="ok">Rendah</td>
+      <td class="mid">Sedang (kabel ke plafon)</td>
+      <td class="warn">Tinggi (DSP + commissioning)</td>
+    </tr>
+    <tr>
+      <td>Biaya relatif</td>
+      <td class="ok">Rendah</td>
+      <td class="mid">Sedang</td>
+      <td class="warn">Tinggi</td>
+    </tr>
+    <tr>
+      <td>Cocok untuk masjid</td>
+      <td>Kecil, &lt;15 m</td>
+      <td>Sedang, langit-langit rendah</td>
+      <td>Besar, kualitas tinggi</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ── MASJIDIL HARAM ── -->
+<div class="div"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+<div class="s-ey">Kasus Khusus</div>
+<div class="s-ti">Masjidil Haram: ketika distributed adalah satu-satunya pilihan</div>
+<div class="s-de">
+  Di masjid konvensional, konfigurasi C bisa mempertahankan lokalisasi "dari kiblat" untuk hampir seluruh jemaah. Masjidil Haram tidak punya satu arah kiblat yang universal — jemaah menghadap Ka'bah dari semua sisi. <em>Distributed system</em> di sini bukan pilihan kompromi, melainkan satu-satunya konfigurasi yang fisibel secara geometri.
+</div>
+<div class="haram-wrap"><canvas id="haramC"></canvas></div>
+<div class="layer-btns" style="margin-top:10px;">
+  <button class="lbtn active" id="hb-spl" onclick="setHaramLayer('spl')">SPL Heatmap</button>
+  <button class="lbtn" id="hb-dir" onclick="setHaramLayer('dir')">Konflik Arah</button>
+</div>
+<div class="ann" style="margin-top:12px;">
+  <div class="ann-it"><div class="ann-dot" style="background:#B8922A"></div>
+    <div class="ann-tx"><strong>Ka'bah</strong> — kiblat sentral</div></div>
+  <div class="ann-it"><div class="ann-dot" style="background:#5C8AAF"></div>
+    <div class="ann-tx"><strong>Speaker distributed</strong> — ring konsentris</div></div>
+  <div class="ann-it"><div class="ann-dot" style="background:#e74c3c"></div>
+    <div class="ann-tx"><strong>Merah</strong> di layer arah = konflik antara orientasi jemaah dan arah suara</div></div>
+</div>
+
+<div style="text-align:center;margin-top:48px">
+  <span style="font-size:9px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--dust)">
+    Simulasi oleh Randy Frans Fela · fransfela.github.io &nbsp;|&nbsp;
+    <a href="https://fransfela.github.io/blog/fisika-suara-masjid-bag-2/" style="color:var(--gold);text-decoration:none">← Bagian II: Akustik Kiblat</a>
+  </span>
+</div>
+
+</div><!-- /page -->
+
+<script>
+'use strict';
+// ════════════════════════════════════════════════════════════
+// PHYSICS CONSTANTS
+// ════════════════════════════════════════════════════════════
+const C      = 343.0;   // m/s, speed of sound @ 20°C
+const HAAS_FUSE  = 0.001; // <1 ms → full fusion
+const HAAS_OK    = 0.035; // <35 ms → Haas window intact
+const HAAS_WARN  = 0.050; // <50 ms → borderline
+
+// ════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════
+let cfg = 'central', layer = 'spl', haramLayer = 'spl';
+let RL = 20, RW = 12, RT60 = 1.5, PWL = 100;
+
+// ════════════════════════════════════════════════════════════
+// ROOM ACOUSTICS — Eyring model
+// Room constant: R = S·ᾱ / (1 − ᾱ)
+// where ᾱ = 1 − exp(−0.161·V / (S·T))  [Eyring]
+// SPL at receiver: SPL = PWL + 10·log10( Q·Γ(θ) / (4π·r²) + 4/R )
+//
+// Units check:
+//   Q·Γ(θ) / (4π·r²)  → [dimensionless / m²] → m⁻²
+//   4/R               → [m⁻²]
+//   10·log10(m⁻²) + PWL [dBW] = SPL [dB re 20µPa] with offset
+//   We use PWL as relative reference; absolute values are representative
+// ════════════════════════════════════════════════════════════
+function roomConstant(L, W, T) {
+  const H   = 7.0;  // typical mosque ceiling height, metres
+  const V   = L * W * H;
+  const S   = 2 * (L*W + L*H + W*H);
+  // Eyring mean absorption coefficient
+  const aBar = 1 - Math.exp(-0.161 * V / (S * T));
+  // Clamp to avoid singularity when aBar→1
+  return S * aBar / Math.max(0.001, 1 - aBar);
+}
+
+// ────────────────────────────────────────────────────────────
+// Directivity pattern Γ(θ) for a speaker
+//   omni:    Γ = 1  (Q given is reference Q)
+//   cluster/column: Γ = max(0, cos θ)^n  (n controls beamwidth)
+//     Q_total = Q * Γ(θ)  ← what we plug into SPL formula
+//
+// cos θ derived from dot product of speaker-to-listener unit vector
+// with speaker facing unit vector.
+// ────────────────────────────────────────────────────────────
+function gamma(spk, rx, ry) {
+  if (spk.type === 'omni') return 1.0;
+  const dx = rx - spk.x, dy = ry - spk.y;
+  const r  = Math.sqrt(dx*dx + dy*dy);
+  if (r < 1e-6) return 1.0;
+  // facing vector (unit)
+  const fx = Math.cos(spk.facing), fy = Math.sin(spk.facing);
+  const cosT = (dx*fx + dy*fy) / r; // dot product
+  return Math.pow(Math.max(0, cosT), spk.n || 1);
+}
+
+// ────────────────────────────────────────────────────────────
+// SPL at a single receive point from ALL speakers
+// Returns { splTotal, firstSpk, firstAngle, dtRefMs }
+//   firstSpk  = speaker whose signal arrives FIRST
+//   firstAngle = angle (rad) FROM which first signal arrives (perceived source)
+//   dtRefMs   = arrival time of first speaker RELATIVE to ref speaker (ms)
+//               positive → fill arrives AFTER ref → GOOD
+//               negative → fill arrives BEFORE ref → BAD (Haas violation)
+// ────────────────────────────────────────────────────────────
+function splAtPoint(rx, ry, speakers, R, delayOn, refSpk) {
+  let sumLin     = 0;
+  let tMinEff    = Infinity; // earliest EFFECTIVE arrival time
+  let firstSpk   = null;
+  let firstAngle = 0;
+
+  for (const spk of speakers) {
+    const dx = rx - spk.x, dy = ry - spk.y;
+    const r  = Math.max(0.3, Math.sqrt(dx*dx + dy*dy));
+
+    // Effective Q including directivity
+    const Qeff = spk.Q * gamma(spk, rx, ry);
+
+    // SPL contribution: even an off-axis speaker contributes via reverberant field
+    const directI = Math.max(0, Qeff) / (4 * Math.PI * r * r);
+    const reverbI = 4 / Math.max(0.1, R);
+    const splI    = PWL + 10 * Math.log10(directI + reverbI);
+    sumLin += Math.pow(10, splI / 10);
+
+    // Propagation time from speaker to receiver
+    const tProp = r / C;
+
+    // Effective signal emission time at speaker (delay added = signal sent later)
+    // delay_digital > 0 means signal is HELD for that duration before emission
+    // → effective arrival at receiver = tProp + delay_digital
+    const tDelay = delayOn ? (spk.delay || 0) : 0;
+    const tEff   = tProp + tDelay; // CORRECT: longer delay = arrives later
+
+    if (tEff < tMinEff) {
+      tMinEff    = tEff;
+      firstSpk   = spk;
+      // Direction FROM which sound is perceived = direction from spk TOWARD rx,
+      // i.e., the angle of the vector (spk → rx) gives the direction the sound
+      // is coming FROM (from listener's perspective).
+      // Listener perceives source in direction OPPOSITE to (rx - spk):
+      firstAngle = Math.atan2(spk.y - ry, spk.x - rx);
+    }
+  }
+
+  const splTotal = 10 * Math.log10(Math.max(1e-14, sumLin));
+
+  // Compute arrival time of REFERENCE speaker at this point
+  const dxR = rx - refSpk.x, dyR = ry - refSpk.y;
+  const rR  = Math.max(0.3, Math.sqrt(dxR*dxR + dyR*dyR));
+  const tRef = rR/C + (delayOn ? (refSpk.delay||0) : 0);
+
+  // dtRefMs: how much LATER than ref does first-arriving speaker arrive?
+  // Positive = first arrives after ref = ref wins = GOOD
+  // Negative = first arrives before ref = non-ref speaker perceived = BAD
+  const dtRefMs = (tRef - tMinEff) * 1000; // ms, sign: + means ref won
+
+  return { splTotal, firstSpk, firstAngle, dtRefMs };
+}
+
+// ════════════════════════════════════════════════════════════
+// SPEAKER CONFIGURATIONS
+// Convention: x=0 = qibla wall, x=L = back wall
+//             y=0 = left wall,  y=W = right wall
+// facing=0   = pointing toward positive-x (toward congregation)
+// ════════════════════════════════════════════════════════════
+function getSpeakers(c, L, W) {
+  const s = [];
+
+  if (c === 'central') {
+    // ── Central cluster above mihrab
+    // Q=6 → 10·log10(6) ≈ 7.8 dB over omni (roughly 120° coverage)
+    // n=1.5 gives a moderate cardioid-like pattern
+    s.push({ x:0.8,  y:W/2,    Q:6, type:'cluster', facing:0,    n:1.5, delay:0, isRef:true,  label:'Cluster C' });
+    if (L > 16) {
+      // Wider rooms: two flanking clusters, slightly toe-d in
+      s.push({ x:0.8,  y:W*0.28, Q:4, type:'cluster', facing:0.12, n:1.5, delay:0, isRef:true,  label:'Cluster L' });
+      s.push({ x:0.8,  y:W*0.72, Q:4, type:'cluster', facing:-0.12,n:1.5, delay:0, isRef:true,  label:'Cluster R' });
+    }
+
+  } else if (c === 'ceiling') {
+    // ── Distributed ceiling grid
+    // Q=1 (omnidirectional downward — in 2D this is isotropic in horizontal plane)
+    // Spacing ≈ 3–4 m to achieve uniform coverage
+    const spX = Math.max(2.5, Math.min(4.0, L/5));
+    const spY = Math.max(2.5, Math.min(3.5, W/4));
+    const nX  = Math.round(L / spX);
+    const nY  = Math.round(W / spY);
+
+    // Reference = front-most speaker row (closest to qibla)
+    const xRef = (0.5) * L / (nX + 1); // centre of first column
+
+    for (let i = 0; i <= nX; i++) {
+      for (let j = 0; j <= nY; j++) {
+        const sx = (i + 0.5) * L / (nX + 1);
+        const sy = (j + 0.5) * W / (nY + 1);
+        // delay_digital = (sx - xRef)/C + 0.010
+        // This makes sound from speaker at sx arrive 10ms AFTER sound from xRef
+        // at any listener who is closer to sx than xRef would otherwise be.
+        // Net effect: all speakers appear to come from qibla direction.
+        const delayD = (sx - xRef) / C + 0.010;
+        s.push({
+          x: sx, y: sy,
+          Q: 1.2, type:'omni', facing:0, n:0,
+          delay: Math.max(0, delayD),
+          isRef: (i === 0),
+          label: `Ceil(${i},${j})`
+        });
+      }
+    }
+
+  } else { // column
+    // ── Column array + fill
+    // Main arrays flanking mihrab at qibla wall
+    // Q=10 (column array with narrow vertical beam, wide horizontal)
+    // n=1.0 → cos(θ) pattern: -6dB at 90°, 0 off-axis at 180°
+    // toe-in ≈ 8–12° toward center of congregation
+    const toeIn = Math.atan2(W/2 - W*0.18, L/2); // angle toward room center
+    s.push({ x:0.7, y:W*0.18, Q:10, type:'column', facing:toeIn,  n:1.0, delay:0, isRef:true,  label:'Array L' });
+    s.push({ x:0.7, y:W*0.82, Q:10, type:'column', facing:-toeIn, n:1.0, delay:0, isRef:true,  label:'Array R' });
+
+    // Fill zone: back 35% of room if L > 14m
+    if (L >= 14) {
+      const xF   = L * 0.60;
+      // delay: fill arrives 12 ms AFTER array reference at a listener midway
+      const dArrToFill = Math.sqrt((xF-0.7)**2 + (W*0.5 - W*0.18)**2);
+      const dArrToMid  = Math.sqrt((L*0.5-0.7)**2 + (W*0.5-W*0.18)**2);
+      // We want: at listener at x=xF, fill arrives 12ms after array
+      // t_array_at_xF + delay_fill = t_array_at_xF + 0.012
+      // t_fill_at_xF  + delay_fill = t_array_at_xF + 0.012
+      // delay_fill = t_array_at_xF - t_fill_at_xF + 0.012
+      // t_array_at_xF = sqrt((xF-0.7)^2+(xF-yF)^2)/C etc.
+      // Simplified for centre listener at xF:
+      const tArray_at_fill = Math.sqrt((xF-0.7)**2 + (0)**2) / C; // approx for y=W/2
+      const tFill_at_fill  = 0; // speaker IS at xF, dist = 0, tProp = 0 + small
+      const fillDelay = tArray_at_fill + 0.012;
+      s.push({ x:xF,   y:W*0.28, Q:4, type:'column', facing:toeIn*0.5,  n:1.0, delay:fillDelay, isRef:false, label:'Fill L' });
+      s.push({ x:xF,   y:W*0.72, Q:4, type:'column', facing:-toeIn*0.5, n:1.0, delay:fillDelay, isRef:false, label:'Fill R' });
+    }
+    if (L >= 26) {
+      const xF2   = L * 0.80;
+      const tArray_at_f2 = (xF2 - 0.7) / C;
+      const fillDelay2   = tArray_at_f2 + 0.012;
+      s.push({ x:xF2, y:W*0.28, Q:3, type:'column', facing:0.08, n:1.0, delay:fillDelay2, isRef:false, label:'Fill2 L' });
+      s.push({ x:xF2, y:W*0.72, Q:3, type:'column', facing:-0.08,n:1.0, delay:fillDelay2, isRef:false, label:'Fill2 R' });
+    }
+  }
+
+  return s;
+}
+
+// ════════════════════════════════════════════════════════════
+// COLOR MAPS
+// ════════════════════════════════════════════════════════════
+function cSPL(spl, lo, hi, a=0.88) {
+  const t = Math.max(0, Math.min(1, (spl-lo)/(hi-lo)));
+  const r = t < 0.5 ? Math.round(255*t*2) : 255;
+  const g = t < 0.5 ? 255 : Math.round(255*(1-t)*2);
+  return `rgba(${r},${g},30,${a})`;
+}
+
+function cHaas(dtMs, a=0.88) {
+  // dtMs > 0: ref wins, fill arrives later by dtMs → fusion OK
+  // dtMs < 0: fill arrived FIRST before ref → Haas violation
+  if (dtMs >= 0 && dtMs < 35)  return `rgba(46,204,113,${a})`;  // OK
+  if (dtMs < 0 && dtMs > -35)  return `rgba(46,204,113,${a})`;  // also OK, ref still first
+  if (Math.abs(dtMs) < 50)     return `rgba(230,126,34,${a})`;  // borderline
+  return                         `rgba(231,76,60,${a})`;          // echo
+}
+
+function cDir(angle, a=0.88) {
+  // Desired perceived source = from qibla wall (x=0 side)
+  // firstAngle = atan2(spk.y - ry, spk.x - rx)
+  // For qibla speaker at x≈0, listener at x>0:
+  //   spk.x - rx < 0, dy ≈ 0 → atan2(0, neg) = π  ← desired
+  // deviation from π
+  let dev = Math.abs(angle - Math.PI);
+  if (dev > Math.PI) dev = 2*Math.PI - dev;
+  const t = Math.min(1, dev / Math.PI);
+  const r2 = Math.round(46 + (231-46)*Math.min(1,t*1.4));
+  const g2 = Math.round(204 * Math.max(0, 1-t*1.4));
+  return `rgba(${r2},${g2},60,${a})`;
+}
+
+// ════════════════════════════════════════════════════════════
+// MAIN SIM DRAW
+// ════════════════════════════════════════════════════════════
+const simC = document.getElementById('simC');
+const sCtx = simC.getContext('2d');
+
+function resizeSim() {
+  simC.width  = simC.parentElement.clientWidth;
+  simC.height = Math.round(simC.width * 0.52);
+  redraw();
+}
+
+function r2c(rx, ry, padL, padT, cW, cH) {
+  return {
+    cx: padL + (rx/RL)*cW,
+    cy: padT + (ry/RW)*cH
+  };
+}
+
+function redraw() {
+  const W = simC.width, H = simC.height;
+  if (!W||!H) return;
+  const padL=40, padR=18, padT=20, padB=32;
+  const cW=W-padL-padR, cH=H-padT-padB;
+
+  sCtx.clearRect(0,0,W,H);
+  sCtx.fillStyle='#0E0C09'; sCtx.fillRect(0,0,W,H);
+
+  const spks    = getSpeakers(cfg, RL, RW);
+  const R       = roomConstant(RL, RW, RT60);
+  const delayOn = document.getElementById('tog-delay').checked;
+  const showSpk = document.getElementById('tog-spk').checked;
+  const refSpk  = spks.find(s=>s.isRef) || spks[0];
+
+  const GRID = 60;
+  const splG=[], haasG=[], dirG=[];
+  let lo=Infinity, hi=-Infinity;
+
+  for (let i=0;i<GRID;i++) {
+    splG[i]=[]; haasG[i]=[]; dirG[i]=[];
+    for (let j=0;j<GRID;j++) {
+      const rx=(i+0.5)*RL/GRID, ry=(j+0.5)*RW/GRID;
+      const p = splAtPoint(rx, ry, spks, R, delayOn, refSpk);
+      splG[i][j]  = p.splTotal;
+      haasG[i][j] = p.dtRefMs; // ms, positive=good
+      dirG[i][j]  = p.firstAngle;
+      if (p.splTotal>hi) hi=p.splTotal;
+      if (p.splTotal<lo) lo=p.splTotal;
+    }
+  }
+
+  // draw heatmap
+  const pw=cW/GRID, ph=cH/GRID;
+  for (let i=0;i<GRID;i++) {
+    for (let j=0;j<GRID;j++) {
+      const cx=padL+i*pw, cy=padT+j*ph;
+      if      (layer==='spl')  sCtx.fillStyle = cSPL(splG[i][j], lo, hi);
+      else if (layer==='haas') sCtx.fillStyle = cHaas(haasG[i][j]);
+      else                     sCtx.fillStyle = cDir(dirG[i][j]);
+      sCtx.fillRect(cx,cy,pw+0.6,ph+0.6);
+    }
+  }
+
+  // Direction arrows overlay
+  if (layer==='dir') {
+    const AG=10;
+    for (let i=0;i<AG;i++) for (let j=0;j<AG;j++) {
+      const gi=Math.floor((i+0.5)/AG*GRID), gj=Math.floor((j+0.5)/AG*GRID);
+      const angle = dirG[Math.min(gi,GRID-1)][Math.min(gj,GRID-1)];
+      const ax=padL+(i+0.5)*cW/AG, ay=padT+(j+0.5)*cH/AG;
+      const len=Math.min(pw,ph)*AG*0.28;
+      sCtx.save(); sCtx.translate(ax,ay); sCtx.rotate(angle);
+      sCtx.strokeStyle='rgba(255,255,255,0.65)'; sCtx.lineWidth=1;
+      sCtx.beginPath();
+      sCtx.moveTo(-len*0.5,0); sCtx.lineTo(len*0.5,0);
+      sCtx.moveTo(len*0.5,0); sCtx.lineTo(len*0.5-4,-3);
+      sCtx.moveTo(len*0.5,0); sCtx.lineTo(len*0.5-4,3);
+      sCtx.stroke(); sCtx.restore();
+    }
+  }
+
+  // Room outline
+  sCtx.save();
+  sCtx.strokeStyle='rgba(200,191,176,0.35)'; sCtx.lineWidth=1.5;
+  sCtx.strokeRect(padL,padT,cW,cH);
+  // Qibla wall
+  sCtx.strokeStyle='rgba(184,146,42,0.75)'; sCtx.lineWidth=3;
+  sCtx.beginPath(); sCtx.moveTo(padL,padT); sCtx.lineTo(padL,padT+cH); sCtx.stroke();
+  // Mihrab cutout
+  const mT=padT+cH*0.36, mB=padT+cH*0.64, mD=14;
+  sCtx.strokeStyle='rgba(184,146,42,0.8)'; sCtx.lineWidth=1.5;
+  sCtx.fillStyle='rgba(184,146,42,0.07)';
+  sCtx.beginPath();
+  sCtx.moveTo(padL,mT); sCtx.lineTo(padL-mD,mT);
+  sCtx.arc(padL-mD,(mT+mB)/2,Math.abs(mB-mT)/2,Math.PI*1.5,Math.PI*0.5,true);
+  sCtx.lineTo(padL,mB);
+  sCtx.fill(); sCtx.stroke();
+  sCtx.restore();
+
+  // Axis labels
+  sCtx.save();
+  sCtx.fillStyle='rgba(184,146,42,0.65)'; sCtx.font='8px Jost,sans-serif'; sCtx.textAlign='center';
+  sCtx.save(); sCtx.translate(padL-14,padT+cH/2); sCtx.rotate(-Math.PI/2);
+  sCtx.fillText('KIBLAT',0,0); sCtx.restore();
+  sCtx.fillStyle='rgba(138,123,106,0.45)';
+  sCtx.fillText(RL+'m →',padL+cW*0.5,padT+cH+22);
+  sCtx.restore();
+
+  // Speakers
+  if (showSpk) {
+    for (const spk of spks) {
+      const {cx,cy}=r2c(spk.x,spk.y,padL,padT,cW,cH);
+      sCtx.save();
+      sCtx.fillStyle = spk.isRef ? '#D4AA55' : '#6B9EC4';
+      if (spk.type==='omni') {
+        sCtx.beginPath(); sCtx.arc(cx,cy,4.5,0,Math.PI*2); sCtx.fill();
+        sCtx.strokeStyle='rgba(255,255,255,0.3)'; sCtx.lineWidth=0.8;
+        sCtx.stroke();
+      } else {
+        // Triangle pointing in facing direction
+        sCtx.translate(cx,cy); sCtx.rotate(spk.facing);
+        sCtx.beginPath(); sCtx.moveTo(8,0); sCtx.lineTo(-5,-5); sCtx.lineTo(-5,5); sCtx.closePath();
+        sCtx.fill();
+        sCtx.strokeStyle='rgba(255,255,255,0.25)'; sCtx.lineWidth=0.7; sCtx.stroke();
+      }
+      // Delay badge for fill speakers
+      if (!spk.isRef && delayOn && spk.delay>0.001) {
+        sCtx.setTransform(1,0,0,1,0,0);
+        sCtx.fillStyle='rgba(107,158,196,0.9)';
+        sCtx.font='7px Jost,sans-serif'; sCtx.textAlign='center';
+        sCtx.fillText('+'+(spk.delay*1000).toFixed(0)+'ms',cx,cy-10);
+      }
+      sCtx.restore();
+    }
+  }
+
+  // ── Metrics
+  let sSum=0, sArr=[], hOK=0, dOK=0, tot=0;
+  const startI = Math.floor(1.5/RL*GRID); // skip near-mihrab
+  for (let i=startI;i<GRID;i++) {
+    for (let j=0;j<GRID;j++) {
+      sSum += splG[i][j]; sArr.push(splG[i][j]);
+      // Haas: dtRefMs > 0 means ref arrived first (or simultaneously) → good
+      // dtRefMs can be negative (fill arrived before ref) → bad only if |dt|>35ms
+      const dt = haasG[i][j];
+      const absDt = Math.abs(dt);
+      if (absDt < 35) hOK++;
+      const dev = Math.abs(dirG[i][j]-Math.PI);
+      const devClamp = Math.min(dev, 2*Math.PI-dev)*180/Math.PI;
+      if (devClamp < 65) dOK++;
+      tot++;
+    }
+  }
+  sArr.sort((a,b)=>a-b);
+  const p10=sArr[Math.floor(sArr.length*.10)], p90=sArr[Math.floor(sArr.length*.90)];
+  const avgS=(sSum/tot).toFixed(1), varS=(p90-p10).toFixed(1);
+  const pHaas=Math.round(hOK/tot*100), pDir=Math.round(dOK/tot*100);
+
+  document.getElementById('mv-spl').textContent  = avgS;
+  document.getElementById('mv-var').textContent  = varS;
+  document.getElementById('mv-haas').textContent = pHaas;
+  document.getElementById('mv-dir').textContent  = pDir;
+
+  const mc=(id,val,g,w,rev=false)=>{
+    const el=document.getElementById(id); el.classList.remove('ok','warn');
+    const isOk = rev ? parseFloat(val)<=g : parseFloat(val)>=g;
+    const isW  = rev ? parseFloat(val)>w  : parseFloat(val)<w;
+    if(isOk) el.classList.add('ok'); else if(isW) el.classList.add('warn');
+  };
+  mc('m-var', varS, 0, 8, true);
+  mc('m-haas', pHaas, 90, 70);
+  mc('m-dir', pDir, 80, 60);
+
+  updateLegend();
+  updateAnn();
+}
+
+// ════════════════════════════════════════════════════════════
+// DELAY DIAGRAM
+// ════════════════════════════════════════════════════════════
+const delayC = document.getElementById('delayC');
+const dCtx   = delayC.getContext('2d');
+
+function resizeDelay() {
+  delayC.width  = delayC.parentElement.clientWidth;
+  delayC.height = 200;
+  drawDelay();
+}
+
+function drawDelay() {
+  const W=delayC.width, H=200;
+  if (!W) return;
+  dCtx.clearRect(0,0,W,H);
+  dCtx.fillStyle='#0E0C09'; dCtx.fillRect(0,0,W,H);
+
+  const padL=110, padR=24, padT=28, padB=40;
+  const cW=W-padL-padR, cH=H-padT-padB;
+  const maxMs=100;
+
+  // Zone backgrounds
+  const zones=[
+    [0,1,'rgba(46,204,113,.12)'],
+    [1,35,'rgba(46,204,113,.06)'],
+    [35,50,'rgba(230,126,34,.14)'],
+    [50,100,'rgba(231,76,60,.10)'],
+  ];
+  for(const [a,b,col] of zones){
+    dCtx.fillStyle=col;
+    dCtx.fillRect(padL+(a/maxMs)*cW,padT,(b-a)/maxMs*cW,cH);
+  }
+  // Zone lines + labels
+  for(const t of [1,35,50]){
+    const x=padL+(t/maxMs)*cW;
+    dCtx.save(); dCtx.strokeStyle='rgba(200,191,176,.2)'; dCtx.lineWidth=1;
+    dCtx.setLineDash([2,4]);
+    dCtx.beginPath(); dCtx.moveTo(x,padT); dCtx.lineTo(x,padT+cH); dCtx.stroke();
+    dCtx.setLineDash([]);
+    dCtx.fillStyle='rgba(200,191,176,.5)'; dCtx.font='8px Jost,sans-serif';
+    dCtx.textAlign='center'; dCtx.fillText(t+'ms',x,padT+cH+14);
+    dCtx.restore();
+  }
+  // Zone text labels
+  const zlbls=[
+    [0,'Fusi penuh','rgba(46,204,113,.7)'],
+    [18,'Haas window OK','rgba(46,204,113,.5)'],
+    [42.5,'Ambang','rgba(230,126,34,.8)'],
+    [75,'Echo','rgba(231,76,60,.8)'],
+  ];
+  for(const [pct,lbl,col] of zlbls){
+    dCtx.save(); dCtx.fillStyle=col; dCtx.font='8px Jost,sans-serif';
+    dCtx.textAlign='center';
+    dCtx.fillText(lbl, padL+(pct/maxMs)*cW, padT+11);
+    dCtx.restore();
+  }
+
+  // Compute rows
+  const delayOn = document.getElementById('tog-delay').checked;
+  const spks    = getSpeakers(cfg, RL, RW);
+  const refSpk  = spks.find(s=>s.isRef) || spks[0];
+  const lisX    = RL*0.65, lisY = RW*0.5; // representative listener
+
+  const rows = [];
+  const dxR=lisX-refSpk.x, dyR=lisY-refSpk.y;
+  const rRef=Math.sqrt(dxR*dxR+dyR*dyR);
+  const tRef=(rRef/C) + (delayOn?(refSpk.delay||0):0);
+
+  // Ref row
+  rows.push({ label:'Speaker kiblat (ref)', color:'#D4AA55', dtMs:0 });
+
+  // Non-ref speakers (deduplicated by role)
+  const seen = new Set();
+  for(const spk of spks){
+    if(spk.isRef) continue;
+    const role=spk.label.replace(/[LR]$/,'').trim();
+    if(seen.has(role)) continue; seen.add(role);
+    const dx=lisX-spk.x, dy=lisY-spk.y;
+    const r=Math.sqrt(dx*dx+dy*dy);
+    const tSpk=(r/C)+(delayOn?(spk.delay||0):0);
+    const dtMs=(tSpk-tRef)*1000; // + = arrives AFTER ref = GOOD
+    rows.push({ label:role, color:'#6B9EC4', dtMs });
+  }
+  if(rows.length===1){
+    rows.push({ label:'(tidak ada fill speaker)', color:'rgba(200,191,176,.4)', dtMs:0 });
+  }
+
+  // Draw rows
+  const rowH = cH/(rows.length);
+  rows.forEach((row,i)=>{
+    const y=padT+(i+0.5)*rowH;
+    // row bg
+    dCtx.fillStyle='rgba(255,255,255,.03)'; dCtx.fillRect(padL,padT+i*rowH,cW,rowH);
+    // clamp to visible range
+    const clampedMs=Math.max(-10, Math.min(maxMs-2, row.dtMs));
+    const markerX=padL+(Math.max(0,clampedMs)/maxMs)*cW;
+    // marker
+    dCtx.save();
+    dCtx.fillStyle=row.color;
+    dCtx.beginPath(); dCtx.arc(markerX,y,5,0,Math.PI*2); dCtx.fill();
+    // label (left)
+    dCtx.fillStyle='rgba(200,191,176,.75)'; dCtx.font='9px Jost,sans-serif';
+    dCtx.textAlign='right'; dCtx.fillText(row.label,padL-6,y+3);
+    // value (right of marker)
+    if(i>0){
+      const sign=row.dtMs>=0?'+':'';
+      const col=Math.abs(row.dtMs)<35?'rgba(46,204,113,.9)':
+                Math.abs(row.dtMs)<50?'rgba(230,126,34,.9)':'rgba(231,76,60,.9)';
+      dCtx.fillStyle=col; dCtx.font='bold 9px Jost,sans-serif';
+      dCtx.textAlign='left';
+      dCtx.fillText(sign+row.dtMs.toFixed(1)+'ms', markerX+8, y+3);
+    }
+    dCtx.restore();
+  });
+
+  // Ref line
+  dCtx.save(); dCtx.strokeStyle='rgba(184,146,42,.6)'; dCtx.lineWidth=1.2; dCtx.setLineDash([2,3]);
+  dCtx.beginPath(); dCtx.moveTo(padL,padT); dCtx.lineTo(padL,padT+cH); dCtx.stroke();
+  dCtx.setLineDash([]);
+  dCtx.fillStyle='rgba(184,146,42,.65)'; dCtx.font='8px Jost,sans-serif';
+  dCtx.textAlign='center'; dCtx.fillText('Ref = 0ms',padL,padT-8);
+  dCtx.restore();
+
+  // Axis
+  dCtx.save(); dCtx.strokeStyle='rgba(200,191,176,.2)'; dCtx.lineWidth=1;
+  dCtx.beginPath(); dCtx.moveTo(padL,padT+cH); dCtx.lineTo(padL+cW,padT+cH); dCtx.stroke();
+  dCtx.fillStyle='rgba(138,123,106,.5)'; dCtx.font='8px Jost,sans-serif'; dCtx.textAlign='center';
+  dCtx.fillText('Δt kedatangan relatif terhadap speaker kiblat (ms)',padL+cW/2,H-6);
+  dCtx.restore();
+}
+
+// ════════════════════════════════════════════════════════════
+// MASJIDIL HARAM
+// ════════════════════════════════════════════════════════════
+const haramC = document.getElementById('haramC');
+const hCtx   = haramC.getContext('2d');
+let hRL;
+
+function resizeHaram() {
+  haramC.width  = haramC.parentElement.clientWidth;
+  hRL = haramC.width;
+  haramC.height = Math.round(hRL * 0.60);
+  drawHaram();
+}
+
+function buildHaramSpks(cx, cy, outerR) {
+  const s=[];
+  // Outer ring: 24 speakers
+  for(let i=0;i<24;i++){
+    const a=2*Math.PI*i/24;
+    s.push({ x:cx+outerR*.62*Math.cos(a), y:cy+outerR*.62*Math.sin(a), Q:1.5, type:'omni', delay:0, isRef:false });
+  }
+  // Inner ring: 12 speakers
+  for(let i=0;i<12;i++){
+    const a=2*Math.PI*i/12+Math.PI/12;
+    s.push({ x:cx+outerR*.30*Math.cos(a), y:cy+outerR*.30*Math.sin(a), Q:1.2, type:'omni', delay:0, isRef:false });
+  }
+  return s;
+}
+
+function drawHaram() {
+  const W=haramC.width, H=haramC.height;
+  if(!W||!H) return;
+  hCtx.clearRect(0,0,W,H);
+  hCtx.fillStyle='#0E0C09'; hCtx.fillRect(0,0,W,H);
+
+  const cx=W/2, cy=H/2;
+  const outerR = Math.min(W,H)*0.42;
+  const kaabaS = Math.min(W,H)*0.072;
+  const spks   = buildHaramSpks(cx,cy,outerR);
+
+  // Use large R (open/semi-open space, minimal reverb)
+  const R_haram = 800;
+
+  // Compute heatmap
+  const GRID=56;
+  const splH=[], dirH=[];
+  let lo2=Infinity, hi2=-Infinity;
+  const refSpkH = spks[0]; // arbitrary ref for Haas (not meaningful in distributed)
+
+  for(let i=0;i<GRID;i++){
+    splH[i]=[]; dirH[i]=[];
+    for(let j=0;j<GRID;j++){
+      const wx=(i/(GRID-1)-0.5)*W, wy=(j/(GRID-1)-0.5)*H;
+      const d2=wx*wx+wy*wy;
+      if(d2>(outerR*outerR)*1.01 || d2<(kaabaS*kaabaS)*0.7){
+        splH[i][j]=null; dirH[i][j]=null; continue;
+      }
+      const px=cx+wx, py=cy+wy;
+      const res=splAtPoint(px,py,spks,R_haram,false,refSpkH);
+      splH[i][j]=res.splTotal; dirH[i][j]=res.firstAngle;
+      if(res.splTotal>hi2)hi2=res.splTotal;
+      if(res.splTotal<lo2)lo2=res.splTotal;
+    }
+  }
+
+  // Draw
+  const pw2=W/GRID, ph2=H/GRID;
+  for(let i=0;i<GRID;i++) for(let j=0;j<GRID;j++){
+    if(splH[i][j]===null) continue;
+    const pcx=i*pw2, pcy=j*ph2;
+    if(haramLayer==='spl'){
+      hCtx.fillStyle=cSPL(splH[i][j],lo2,hi2,0.82);
+    } else {
+      // Directional conflict:
+      // Jemaah at (wx,wy) from center faces TOWARD center → desired source direction = toward center = angle from jemaah to center
+      const wx=(i/(GRID-1)-.5)*W, wy=(j/(GRID-1)-.5)*H;
+      const desiredAngle = Math.atan2(-wy,-wx); // angle pointing from jemaah toward Ka'bah
+      const perceived    = dirH[i][j];
+      let dev = Math.abs(perceived - desiredAngle);
+      if(dev>Math.PI) dev=2*Math.PI-dev;
+      const t=Math.min(1,dev/Math.PI);
+      const r2=Math.round(46+(231-46)*Math.min(1,t*1.4));
+      const g2=Math.round(204*Math.max(0,1-t*1.4));
+      hCtx.fillStyle=`rgba(${r2},${g2},60,0.82)`;
+    }
+    hCtx.fillRect(pcx,pcy,pw2+0.5,ph2+0.5);
+  }
+
+  // Direction arrows (dir layer)
+  if(haramLayer==='dir'){
+    const NA=20;
+    for(let i=0;i<NA;i++){
+      const a=2*Math.PI*i/NA;
+      const r=outerR*.78;
+      const ax=cx+r*Math.cos(a), ay=cy+r*Math.sin(a);
+      // Jemaah facing angle: toward Ka'bah = opposite of their position angle
+      const faceAng=a+Math.PI;
+      hCtx.save(); hCtx.translate(ax,ay); hCtx.rotate(faceAng);
+      hCtx.strokeStyle='rgba(247,243,236,.5)'; hCtx.lineWidth=1.2;
+      hCtx.beginPath(); hCtx.moveTo(0,0); hCtx.lineTo(10,0);
+      hCtx.moveTo(10,0); hCtx.lineTo(6,-3); hCtx.moveTo(10,0); hCtx.lineTo(6,3);
+      hCtx.stroke(); hCtx.restore();
+    }
+    // Perceived source arrows at inner ring
+    const NP=16;
+    for(let i=0;i<NP;i++){
+      const a=2*Math.PI*i/NP+Math.PI/NP;
+      const r=outerR*.50;
+      const ax=cx+r*Math.cos(a), ay=cy+r*Math.sin(a);
+      const gi=Math.round((ax/W)*GRID), gj=Math.round((ay/H)*GRID);
+      const pAngle=dirH[Math.max(0,Math.min(GRID-1,gi))][Math.max(0,Math.min(GRID-1,gj))];
+      if(pAngle===null||pAngle===undefined) continue;
+      hCtx.save(); hCtx.translate(ax,ay); hCtx.rotate(pAngle);
+      hCtx.strokeStyle='rgba(92,138,175,.8)'; hCtx.lineWidth=1.2;
+      hCtx.setLineDash([2,2]);
+      hCtx.beginPath(); hCtx.moveTo(0,0); hCtx.lineTo(10,0);
+      hCtx.moveTo(10,0); hCtx.lineTo(6,-3); hCtx.moveTo(10,0); hCtx.lineTo(6,3);
+      hCtx.stroke(); hCtx.setLineDash([]); hCtx.restore();
+    }
+    // Legend note
+    hCtx.save(); hCtx.font='9px Jost,sans-serif'; hCtx.textAlign='left';
+    hCtx.fillStyle='rgba(247,243,236,.5)'; hCtx.fillText('→ arah hadap jemaah',W*.05,H*.95);
+    hCtx.fillStyle='rgba(92,138,175,.75)'; hCtx.fillText('⋯→ sumber suara dipersepsikan',W*.05,H*.95-14);
+    hCtx.restore();
+  }
+
+  // Outer ring
+  hCtx.save(); hCtx.strokeStyle='rgba(200,191,176,.25)'; hCtx.lineWidth=1.5;
+  hCtx.beginPath(); hCtx.arc(cx,cy,outerR,0,Math.PI*2); hCtx.stroke(); hCtx.restore();
+
+  // Speakers
+  for(const spk of spks){
+    hCtx.save(); hCtx.fillStyle='rgba(92,138,175,.8)';
+    hCtx.beginPath(); hCtx.arc(spk.x,spk.y,3.5,0,Math.PI*2); hCtx.fill(); hCtx.restore();
+  }
+
+  // Ka'bah
+  hCtx.save();
+  hCtx.fillStyle='rgba(184,146,42,.18)';
+  hCtx.strokeStyle='rgba(184,146,42,.9)'; hCtx.lineWidth=2;
+  hCtx.fillRect(cx-kaabaS/2,cy-kaabaS/2,kaabaS,kaabaS);
+  hCtx.strokeRect(cx-kaabaS/2,cy-kaabaS/2,kaabaS,kaabaS);
+  hCtx.fillStyle='rgba(184,146,42,.85)'; hCtx.font=`bold ${Math.round(kaabaS*.28)}px Jost,sans-serif`;
+  hCtx.textAlign='center'; hCtx.textBaseline='middle';
+  hCtx.fillText("KA'BAH",cx,cy);
+  hCtx.restore();
+
+  // Label
+  hCtx.save(); hCtx.fillStyle='rgba(138,123,106,.4)'; hCtx.font='9px Jost,sans-serif'; hCtx.textAlign='center';
+  hCtx.fillText('Masjidil Haram — Sistem Distributed · 36 speaker simulasi',cx,H-8);
+  hCtx.restore();
+}
+
+// ════════════════════════════════════════════════════════════
+// LEGEND & ANNOTATION
+// ════════════════════════════════════════════════════════════
+function updateLegend() {
+  const b=document.getElementById('legBox');
+  if(layer==='spl'){
+    b.innerHTML=`
+      <div class="leg-it"><div class="leg-sw" style="background:linear-gradient(to right,#e74c3c,#f1c40f,#2ecc71)"></div><div class="leg-tx">Rendah → Tinggi SPL</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#D4AA55"></div><div class="leg-tx">Speaker utama (kiblat)</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#6B9EC4"></div><div class="leg-tx">Fill speaker (delayed)</div></div>`;
+  } else if(layer==='haas'){
+    b.innerHTML=`
+      <div class="leg-it"><div class="leg-sw" style="background:#2ecc71"></div><div class="leg-tx">Haas OK — lokalisasi ke kiblat</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#e67e22"></div><div class="leg-tx">Ambang (35–50 ms)</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#e74c3c"></div><div class="leg-tx">Echo — fill speaker mendominasi</div></div>`;
+  } else {
+    b.innerHTML=`
+      <div class="leg-it"><div class="leg-sw" style="background:#2ecc71"></div><div class="leg-tx">Sumber dari kiblat (±65°)</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#e67e22"></div><div class="leg-tx">Deviasi sedang</div></div>
+      <div class="leg-it"><div class="leg-sw" style="background:#e74c3c"></div><div class="leg-tx">Sumber dari arah berlawanan</div></div>`;
+  }
+}
+
+function updateAnn() {
+  const a=document.getElementById('annRow');
+  if(layer==='spl'){
+    a.innerHTML=`
+      <div class="ann-it"><div class="ann-dot" style="background:#2ecc71"></div><div class="ann-tx"><strong>Hijau</strong> — zona SPL optimal, jemaah terlayani baik</div></div>
+      <div class="ann-it"><div class="ann-dot" style="background:#e74c3c"></div><div class="ann-tx"><strong>Merah</strong> — dead spot, SPL di bawah threshold</div></div>
+      <div class="ann-it"><div class="ann-dot" style="background:#D4AA55"></div><div class="ann-tx"><strong>Segitiga emas</strong> = speaker utama · <strong>Biru</strong> = fill speaker</div></div>`;
+  } else if(layer==='haas'){
+    a.innerHTML=`
+      <div class="ann-it"><div class="ann-dot" style="background:#2ecc71"></div><div class="ann-tx"><strong>Hijau</strong> — speaker kiblat tiba pertama, lokalisasi terjaga</div></div>
+      <div class="ann-it"><div class="ann-dot" style="background:#e74c3c"></div><div class="ann-tx"><strong>Merah</strong> — fill tiba dulu, pendengar mempersepsikan suara dari fill</div></div>
+      <div class="ann-it"><div class="ann-dot" style="background:#e67e22"></div><div class="ann-tx"><strong>Oranye</strong> — jendela Haas hampir terlampaui (35–50 ms)</div></div>`;
+  } else {
+    a.innerHTML=`
+      <div class="ann-it"><div class="ann-dot" style="background:#2ecc71"></div><div class="ann-tx"><strong>Hijau</strong> — sumber suara terdengar dari arah kiblat</div></div>
+      <div class="ann-it"><div class="ann-dot" style="background:#e74c3c"></div><div class="ann-tx"><strong>Merah</strong> — sumber suara terdengar dari arah lain (samping/belakang)</div></div>
+      <div class="ann-it" style="font-size:9px;color:var(--dust)"><span style="font-weight:300;color:var(--dust)">Panah menunjukkan arah sumber suara yang dipersepsikan di tiap titik</span></div>`;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// UI HANDLERS
+// ════════════════════════════════════════════════════════════
+function setCfg(c){
+  cfg=c;
+  ['central','ceiling','column'].forEach(k=>{
+    document.getElementById('tab-'+k).classList.toggle('active',k===c);
+  });
+  redraw(); drawDelay();
+}
+
+function setLayer(l){
+  layer=l;
+  ['spl','haas','dir'].forEach(k=>{
+    document.getElementById('lb-'+k).classList.toggle('active',k===l);
+  });
+  redraw();
+}
+
+function setHaramLayer(l){
+  haramLayer=l;
+  ['spl','dir'].forEach(k=>document.getElementById('hb-'+k).classList.toggle('active',k===l));
+  drawHaram();
+}
+
+function onRoom(){
+  RL  = parseInt(document.getElementById('sl-L').value);
+  RW  = parseInt(document.getElementById('sl-W').value);
+  RT60= parseFloat(document.getElementById('sl-rt').value);
+  PWL = parseInt(document.getElementById('sl-pw').value);
+  document.getElementById('sv-L').textContent  = RL+' m';
+  document.getElementById('sv-W').textContent  = RW+' m';
+  document.getElementById('sv-rt').textContent = RT60.toFixed(1)+' s';
+  document.getElementById('sv-pw').textContent = PWL+' dB';
+  redraw(); drawDelay();
+}
+
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+let rzTimer;
+window.addEventListener('resize',()=>{
+  clearTimeout(rzTimer);
+  rzTimer=setTimeout(()=>{resizeSim();resizeDelay();resizeHaram();},120);
+});
+
+resizeSim(); resizeDelay(); resizeHaram();
+</script>
+</body>
+</html>
