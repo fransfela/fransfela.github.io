@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Delapan Tahun, Satu Langkah yang Lama Saya Tunda"
-date: 2025-03-31 12:00:00 +0200
+date: 2026-03-21 12:00:00 +0200
 description: Setelah delapan tahun di Denmark, akhirnya memberanikan diri mengambil amanah sebagai khatib. Bukan karena sudah merasa cukup baik, tapi karena zaman yang tidak memberi kita kemewahan untuk terus diam.
 tags: [refleksi, islam, komunitas, idul-fitri]
 categories: []
