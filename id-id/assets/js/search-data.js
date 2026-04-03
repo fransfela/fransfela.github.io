@@ -69,18 +69,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/id-id/cv/";
           },
-        },{id: "post-delapan-tahun-satu-langkah-yang-lama-saya-tunda",
-        
-          title: "Delapan Tahun, Satu Langkah yang Lama Saya Tunda",
-        
-        description: "Setelah delapan tahun di Denmark, akhirnya memberanikan diri mengambil amanah sebagai khatib. Bukan karena sudah merasa cukup baik, tapi karena zaman yang tidak memberi kita kemewahan untuk terus diam.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/id-id/blog/2026/delapan-tahun-satu-langkah/";
-          
-        },
-      },{id: "post-fisika-suara-masjid-bagian-2",
+        },{id: "post-fisika-suara-masjid-bagian-2",
         
           title: "Fisika Suara Masjid Bagian 2",
         
