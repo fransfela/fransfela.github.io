@@ -4,7 +4,7 @@ layout: page
 title: BatchMaileR
 description: A Shiny web application for sending batch emails with personalized content and attachments
 img: assets/img/BatchMaileR.png
-importance: 1
+importance: 4
 category: work
 github: https://github.com/fransfela/BatchMaileR
 related_publications: false
