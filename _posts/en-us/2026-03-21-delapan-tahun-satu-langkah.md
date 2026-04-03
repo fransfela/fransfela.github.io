@@ -5,7 +5,7 @@ date: 2026-03-21
 description: Setelah delapan tahun di Denmark, akhirnya memberanikan diri mengambil amanah sebagai khatib. Bukan karena sudah merasa cukup baik, tapi karena zaman yang tidak memberi kita kemewahan untuk terus diam.
 tags: [refleksi, islam, komunitas, idul-fitri]
 categories: []
-published: true
+published: false
 sitemap: true
 ---
 
