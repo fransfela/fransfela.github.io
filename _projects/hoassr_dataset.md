@@ -4,7 +4,7 @@ layout: page
 title: HOA-SSR Dataset
 description: Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research
 img: assets/img/hoassr.png
-importance: 2
+importance: 3
 category: work
 related_publications: false
 ---
