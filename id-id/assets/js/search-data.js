@@ -285,6 +285,11 @@ ninja.data = [{
           description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/qualia/";
+            },},{id: "projects-shelfmate",
+          title: 'Shelfmate',
+          description: "An invite-only book club for people who actually read.",
+          section: "Projects",handler: () => {
+              window.location.href = "/id-id/projects/shelfmate/";
             },},{id: "projects-silsilah",
           title: 'Silsilah',
           description: "A privacy-first family tree web app. No account, no server, no data leaving your device. Single HTML file.",
