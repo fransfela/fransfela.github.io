@@ -6,7 +6,7 @@ description: Setelah delapan tahun di Denmark, akhirnya memberanikan diri mengam
 tags: [refleksi, islam, komunitas, idul-fitri]
 categories: []
 published: true
-sitemap: false
+hidden: true
 ---
 
 Tahun ini adalah tahun kedelapan saya di Denmark.
