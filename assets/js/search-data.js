@@ -280,6 +280,11 @@ ninja.data = [{
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
               window.location.href = "/projects/hoassr_dataset/";
+            },},{id: "projects-qualia-platform",
+          title: 'QUALIA Platform',
+          description: "Browser-based perceptual screener and assessor qualification platform for the GN Audio Perceptual Evaluation Team.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/qualia/";
             },},{id: "projects-silsilah",
           title: 'Silsilah',
           description: "A privacy-first family tree web app. No account, no server, no data leaving your device. Single HTML file.",
