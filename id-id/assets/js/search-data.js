@@ -290,6 +290,11 @@ ninja.data = [{
           description: "A privacy-first family tree web app. No account, no server, no data leaving your device. Single HTML file.",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/silsilah/";
+            },},{id: "projects-vq-monitor",
+          title: 'vq_monitor',
+          description: "Real-time video quality monitoring tool with 25 perceptual metrics, spatial heatmap, and scenario testing engine.",
+          section: "Projects",handler: () => {
+              window.location.href = "/id-id/projects/vq-monitor/";
             },},{
         id: 'social-email',
         title: 'Send an email',
