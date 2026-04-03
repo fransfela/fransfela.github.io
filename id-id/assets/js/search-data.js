@@ -282,7 +282,7 @@ ninja.data = [{
               window.location.href = "/id-id/projects/hoassr_dataset/";
             },},{id: "projects-qualia-platform",
           title: 'QUALIA Platform',
-          description: "Browser-based perceptual screener and assessor qualification platform for the GN Audio Perceptual Evaluation Team.",
+          description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/qualia/";
             },},{id: "projects-silsilah",
