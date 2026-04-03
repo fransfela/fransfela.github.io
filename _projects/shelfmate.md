@@ -195,7 +195,7 @@ related_publications: false
           </div>
           <div class="friend-row">
             <div class="friend-avatar" style="background:#0C447C;">D</div>
-            <span class="friend-name">dani</span>
+            <span class="friend-name">randy</span>
             <span class="friend-book">Stoner &mdash; Williams</span>
           </div>
           <div class="friend-row">
