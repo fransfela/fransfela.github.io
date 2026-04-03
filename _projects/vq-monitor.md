@@ -4,7 +4,7 @@ title: vq_monitor
 description: Real-time video quality monitoring tool with 25 perceptual metrics, spatial heatmap, and scenario testing engine.
 img: assets/img/vq-monitor-thumb.png
 importance: 2
-category: internal tools
+category: work
 related_publications: false
 ---
 <style>
