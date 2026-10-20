@@ -56,7 +56,7 @@ Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalbo
 
 ---
 
-[📧 Get in touch](mailto:rffela@gn.com) |
+[📧 Get in touch](mailto:randyrff@gmail.com) |
 [📱 Follow me on Instagram](https://instagram.com/fransfela) |
 [🎥 YouTube Channel](https://www.youtube.com/@fransfela)
 
