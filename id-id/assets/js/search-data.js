@@ -270,6 +270,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/id-id/news/announcement_rucha_defense/";
+            },},{id: "news-paper-accepted-at-emnlp-2026-industry-track",
+          title: 'Paper accepted at EMNLP 2026 Industry Track',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/id-id/news/announcement_emnlp_2026/";
             },},{id: "projects-batchmailer",
           title: 'BatchMaileR',
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
@@ -285,6 +290,11 @@ ninja.data = [{
           description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/qualia/";
+            },},{id: "projects-se-llm-odr-benchmark",
+          title: 'SE-LLM ODR Benchmark',
+          description: "Measuring how speech enhancement front-ends change the intent predicted by LLM-based voice systems (EMNLP 2026 Industry Track).",
+          section: "Projects",handler: () => {
+              window.location.href = "/id-id/projects/se-llm-odr-benchmark/";
             },},{id: "projects-shelfmate",
           title: 'Shelfmate',
           description: "An invite-only book club for people who actually read.",
