@@ -14,6 +14,21 @@
 % Selected Publications (selected={true})
 % ========================================
 
+@inproceedings{fela2026perceptually,
+  abbr={EMNLP},
+  title={Perceptually Better, Semantically Worse: Measuring Speech Enhancement Impact on {LLM}-Based Voice Systems},
+  author={Fela, R. F. and Mowlaee, P.},
+  abstract={Speech enhancement (SE) front-ends improve perceptual quality metrics such as PESQ and STOI, but can silently damage the semantic content that downstream LLMs rely on. We introduce Output Divergence Rate (ODR), the fraction of clips whose LLM-predicted intent changes after enhancement relative to the clean baseline, and benchmark five conditions on 2,974 SLURP test clips with 77 intents. MetricGAN+ more than doubles ODR (0.318 vs. 0.135 for noisy speech) despite improving PESQ, and unmitigated echo reaches an ODR of 0.836 through wrong-speaker transcription. PESQ shows the strongest pooled correlation with ODR (Spearman rho = -0.467), yet within any single condition no metric exceeds |rho| = 0.34. Findings replicate across ASR architectures (Whisper large-v3 and wav2vec2-large).},
+  booktitle={Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing: Industry Track},
+  publisher={Association for Computational Linguistics},
+  year={2026},
+  preview={emnlp2026_poster.jpg},
+  code={https://github.com/fransfela/se-llm-odr-benchmark},
+  html={https://github.com/fransfela/se-llm-odr-benchmark},
+  poster={EMNLP2026_Fela_Poster.png},
+  selected={true}
+}
+
 @article{fela2024evaluation,
   abbr={AES},
   title={Evaluation of Own Voice Perception while Using In-ear Headsets},
