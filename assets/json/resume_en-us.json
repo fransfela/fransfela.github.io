@@ -89,20 +89,6 @@
   ],
   "volunteer": [
     {
-      "organization": "MentoringBangRandy",
-      "location": "Remote",
-      "position": "Founder & Mentor",
-      "url": "https://instagram.com/mentoringbangrandy",
-      "startDate": "2020-01-01",
-      "endDate": "Present",
-      "summary": "Providing 1-on-1 mentoring for Indonesian students applying to international Master's, PhD, and Postdoc programs.",
-      "highlights": [
-        "Successfully guided 10+ students to acceptance at top universities worldwide",
-        "85% acceptance rate across mentees",
-        "Active community of 5K+ followers across Instagram, Threads, and YouTube"
-      ]
-    },
-    {
       "organization": "Indonesian Student Association in Denmark",
       "location": "Denmark",
       "position": "General Secretary",
@@ -550,19 +536,6 @@
       "url": "https://forcetechnology.com/en/services/acoustics-noise-sound-quality/senselab-download-hoa-ssr-dataset"
     },
     {
-      "name": "MentoringBangRandy",
-      "summary": "Founded mentoring service helping Indonesian students secure international graduate admissions and scholarships.",
-      "highlights": [
-        "50+ successful mentees accepted to top universities",
-        "85% acceptance rate",
-        "$2M+ in scholarships secured",
-        "10K+ community across social media"
-      ],
-      "startDate": "2024-10-01",
-      "endDate": "Present",
-      "url": "https://instagram.com/fransfela"
-    },
-    {
       "name": "Jabra Spatial Audio Evaluation",
       "summary": "Developed and executed field evaluation methodology for spatial audio features in consumer headphones across Denmark and China markets.",
       "highlights": [
@@ -573,6 +546,18 @@
       "startDate": "2024-01-01",
       "endDate": "2024-06-30",
       "url": ""
+    }
+  ],
+  "side_activities": [
+    {
+      "organization": "MentoringBangRandy",
+      "location": "Remote",
+      "position": "Mentor",
+      "url": "https://instagram.com/mentoringbangrandy",
+      "startDate": "2024-10-01",
+      "endDate": "Present",
+      "summary": "Independent mentoring for Indonesian students applying to international Master's, PhD and Postdoc programs. Not affiliated with any employer.",
+      "highlights": []
     }
   ]
 }
