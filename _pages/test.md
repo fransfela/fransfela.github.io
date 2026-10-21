@@ -3,6 +3,8 @@ layout: page
 title: Panduan Memaksimalkan 10 Malam Terakhir Ramadhan
 description: Mencari Lailatul Qadr berdasarkan Al-Qur'an dan Sunnah
 permalink: /lailatul-qadr-guide/
+robots: noindex
+sitemap: false
 toc: true
 ---
 

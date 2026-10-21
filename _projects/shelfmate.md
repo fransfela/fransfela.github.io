@@ -5,7 +5,7 @@ description: An invite-only book club for people who actually read.
 img: /assets/img/shelfmate-thumb.png
 importance: 2
 category: fun
-github: fransfela/shelfmate
+github: https://github.com/fransfela/shelfmate
 url: https://myshelfmate.vercel.app
 related_publications: false
 ---
