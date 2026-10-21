@@ -1,92 +1,153 @@
----
-layout: default
----
+{% assign t = site.data[site.active_lang].strings.home %}
+{% assign socials = site.data.socials %}
 
-<div class="home-container" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem 2rem;">
+{% comment %}
+  TODO: replace the bitmoji below with a real photograph (assets/img).
+  TODO: every number in the proof tiles must be confirmed and cleared with my employer before launch.
+  TODO: the "Get in touch" button points to LinkedIn until contact_email is set (Phase 5).
+{% endcomment %}
 
-  <!-- Profile Photo -->
-  <div class="profile-photo mb-4">
-    <img src="{{ '/assets/img/bitmoji-full-vector.png' | relative_url }}" 
-         alt="Randy F. Fela" 
-         style="width: 180px; height: 320px; border-radius: 15px; object-fit: cover;">
-  </div>
+<div class="home">
+  <section class="home-hero row align-items-center">
+    <div class="col-md-8 order-2 order-md-1">
+      <h1 class="home-name">Randy F. Fela</h1>
+      <p class="home-role">{{ t.role }}</p>
+      <p class="home-positioning">{{ t.positioning }}</p>
+      <div class="home-buttons">
+        <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}" class="btn btn-primary btn-lg z-depth-0">{{ t.get_in_touch }}</a>
+        <a href="{{ '/publications/' | relative_url }}" class="btn btn-outline-primary btn-lg z-depth-0">{{ t.view_publications }}</a>
+      </div>
+    </div>
+    <div class="col-md-4 order-1 order-md-2 text-center mb-4 mb-md-0">
+      <img
+        class="home-photo"
+        src="{{ '/assets/img/bitmoji-closeup.png' | relative_url }}"
+        alt="{{ t.photo_alt }}"
+        width="220"
+        height="220"
+      >
+    </div>
+  </section>
 
-  <!-- Greeting -->
-  <h1 class="text-4xl font-bold mb-2">Hi, I am Randy</h1>
+  <section class="home-tiles row row-cols-1 row-cols-md-3">
+    {% for tile in t.tiles %}
+      <div class="col mb-3">
+        <div class="card h-100 z-depth-0 home-tile">
+          <div class="card-body">
+            <p class="card-text">{{ tile }}</p>
+            <p class="home-source">{{ t.source_cv }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
 
-  <!-- Animated Typing Text -->
-  <div class="typed-container mb-6" style="min-height: 60px;">
-    <span id="typed-text" class="text-2xl" style="color: var(--global-theme-color);"></span>
-  </div>
+  <section class="home-section">
+    <h2>
+      <a href="{{ '/publications/' | relative_url }}">{{ t.selected_publications }}</a>
+    </h2>
+    <div class="publications">
+      {% bibliography --group_by none --query @*[key=fela2023comparison]* %}
+      {% bibliography --group_by none --query @*[key=fela2022assessor]* %}
+      {% bibliography --group_by none --query @*[key=fela2021perceptual_ml]* %}
+    </div>
+  </section>
 
-  <!-- Buttons -->
-  <div class="home-buttons mb-8" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-    <a href="{{ '/about/' | relative_url }}" class="btn btn-primary" style="padding: 0.75rem 2rem; border-radius: 5px; text-decoration: none; background-color: var(--global-theme-color); color: white; font-weight: 500;">
-      About Me
-    </a>
-    <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline" style="padding: 0.75rem 2rem; border-radius: 5px; text-decoration: none; border: 2px solid var(--global-theme-color); color: var(--global-theme-color); font-weight: 500;">
-      Blog
-    </a>
-  </div>
+  <section class="home-section">
+    <h2>
+      <a href="{{ '/projects/' | relative_url }}">{{ t.featured_projects }}</a>
+    </h2>
+    {% assign featured = site.projects | where_exp: 'p', "p.slug == 'hoassr_dataset' or p.slug == 'batchmailer'" | sort: 'importance' %}
+    <div class="projects">
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for project in featured %}
+          {% include projects.liquid %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-  {% comment %}
-  <!-- Social Links -->
-  <div class="social-links" style="display: flex; gap: 1.5rem; font-size: 1.5rem; flex-wrap: wrap; justify-content: center;">
-    <a href="mailto:randyrff@gmail.com" title="Email" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/randy-frans-fela" title="LinkedIn" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://orcid.org/0000-0001-5905-5522" title="ORCID" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fab fa-orcid"></i>
-    </a>
-    <a href="https://www.researchgate.net/profile/Randy-Fela" title="ResearchGate" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fab fa-researchgate"></i>
-    </a>
-    <a href="https://scholar.google.com/citations?user=XSBROGkAAAAJ" title="Google Scholar" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fas fa-graduation-cap"></i>
-    </a>
-    <a href="https://www.scopus.com/authid/detail.uri?authorId=57195643532" title="Scopus" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="ai ai-scopus"></i>
-    </a>
-    <a href="https://www.youtube.com/@fransfela" title="YouTube" target="_blank" style="color: var(--global-text-color); transition: color 0.3s;">
-      <i class="fab fa-youtube"></i>
-    </a>
-  </div>
-  {% endcomment %}
-
+  <section class="home-section">
+    <h2>
+      <a href="{{ '/zettelkasten/' | relative_url }}">{{ t.latest_notes }}</a>
+    </h2>
+    {% assign notes = site.posts
+      | where_exp: 'post', "post.tags contains 'living-note' or post.tags contains 'living-book'"
+      | sort: 'date'
+      | reverse
+    %}
+    <ul class="list-unstyled">
+      {% for post in notes limit: 3 %}
+        <li class="mb-3">
+          <a href="{{ post.url | relative_url }}"
+            ><strong>{{ post.title }}</strong></a
+          ><br>
+          <span class="home-note-desc">{{ post.description | strip_html | truncate: 150 }}</span><br>
+          <small class="home-source">{{ post.date | date: '%Y-%m-%d' }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 </div>
 
-<!-- Typed.js for animated typing -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-  var typed = new Typed('#typed-text', {
-    strings: [
-      '🎧 Perceptual Audio-Visual Engineer',
-      '🧠 Human Perception Researcher',
-      '🎓 Industry-Academia Student Advisor',
-      '☕ Exploratory Coffee Brewer'
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 2000,
-    startDelay: 500,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|'
-  });
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Randy F. Fela",
+    "jobTitle": "Perceptual Audio-visual Evaluation Engineer",
+    "url": "{{ site.url }}{{ site.baseurl }}/",
+    "sameAs": [
+      "https://www.linkedin.com/in/{{ socials.linkedin_username }}",
+      "https://orcid.org/{{ socials.orcid_id }}",
+      "https://scholar.google.com/citations?user={{ socials.scholar_userid }}",
+      "https://www.scopus.com/authid/detail.uri?authorId={{ socials.scopus_id }}",
+      "https://www.youtube.com/@{{ socials.youtube_id }}"
+    ]
+  }
 </script>
 
 <style>
-  .home-buttons a:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
-    transition: all 0.3s;
+  .home-hero {
+    padding: 2rem 0;
   }
-  
-  .social-links a:hover {
-    color: var(--global-theme-color) !important;
-    transform: scale(1.2);
+  .home-name {
+    font-size: 2.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .home-role {
+    color: var(--global-theme-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .home-positioning {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .home-buttons .btn {
+    margin: 0 0.5rem 0.5rem 0;
+  }
+  .home-photo {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .home-tile {
+    border-left: 4px solid var(--global-theme-color);
+  }
+  .home-source {
+    color: var(--global-text-color-light);
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  .home-section {
+    margin-top: 2.5rem;
+  }
+  .home-section h2 a {
+    color: inherit;
+  }
+  .home-note-desc {
+    color: var(--global-text-color-light);
   }
 </style>
