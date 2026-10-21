@@ -275,6 +275,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_emnlp_2026/";
+            },},{id: "news-paper-submitted-to-icassp-2027",
+          title: 'Paper submitted to ICASSP 2027',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_icassp_2027_submission/";
             },},{id: "projects-batchmailer",
           title: 'BatchMaileR',
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
@@ -285,6 +290,11 @@ ninja.data = [{
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
               window.location.href = "/projects/hoassr_dataset/";
+            },},{id: "projects-mos-conformal",
+          title: 'MOS Conformal',
+          description: "Conformal prediction wrappers for no-reference MOS predictors, studied under distribution shift (ICASSP 2027 submission, under review).",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mos-conformal/";
             },},{id: "projects-qualia-platform",
           title: 'QUALIA Platform',
           description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
