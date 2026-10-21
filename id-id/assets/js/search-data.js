@@ -290,11 +290,6 @@ ninja.data = [{
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
               window.location.href = "/id-id/projects/hoassr_dataset/";
-            },},{id: "projects-mos-conformal",
-          title: 'MOS Conformal',
-          description: "Conformal prediction wrappers for no-reference MOS predictors, studied under distribution shift (ICASSP 2027 submission, under review).",
-          section: "Projects",handler: () => {
-              window.location.href = "/id-id/projects/mos-conformal/";
             },},{id: "projects-qualia-platform",
           title: 'QUALIA Platform',
           description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
