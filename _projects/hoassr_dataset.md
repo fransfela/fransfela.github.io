@@ -250,7 +250,6 @@ The HOA-SSR dataset is the result of a collaborative effort between leading rese
 **Industry Partners:**
 - Bang & Olufsen
 - Demant
-- GN Store Nord (Jabra)
 - Sonova
 - WSA
 - Additional industrial collaborators

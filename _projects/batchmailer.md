@@ -135,7 +135,7 @@ Planned enhancements for future versions include:
 
 ## Project Background
 
-BatchMaileR was developed to address a common challenge in research and professional environments: efficiently sending personalized communications to large groups while maintaining quality and accuracy. The tool has been successfully used in perceptual evaluation studies and administrative workflows at GN Audio A/S.
+BatchMaileR was developed to address a common challenge in research and professional environments: efficiently sending personalized communications to large groups while maintaining quality and accuracy. The tool has been successfully used in perceptual evaluation studies and administrative workflows.
 
 ---
 
