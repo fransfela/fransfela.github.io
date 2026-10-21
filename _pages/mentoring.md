@@ -11,6 +11,8 @@ nav: false
   <p style="font-size: 1.2rem; color: var(--global-theme-color);">Dari Kuli Pabrik ke Denmark — Temani Langkahmu Meraih Beasiswa Impian</p>
 </div>
 
+> MentoringBangRandy adalah kegiatan sampingan pribadi yang saya jalankan secara mandiri. Layanan ini bukan bagian dari, tidak disponsori oleh, dan tidak terkait dengan perusahaan tempat saya bekerja maupun institusi lain.
+
 ---
 
 ## 📖 Kisah Singkat
@@ -25,6 +27,7 @@ Saya lahir dan besar di pinggiran Jakarta, dari keluarga sederhana. Selepas lulu
 - 🎓 ITB Sandwich Program
 - 🎓 Marie Skłodowska-Curie Action (Uni Eropa – PhD)
 
+<!-- TODO: the claim "Berjejaring langsung dengan reviewer dan panitia seleksi beasiswa" needs evidence or removal. -->
 **Saat ini:** Perceptual Audio Engineer & Researcher di Denmark | Pengalaman di 15+ negara | Berjejaring langsung dengan reviewer dan panitia seleksi beasiswa.
 
 [📖 Baca Kisah Lengkap →](/blog/2026/mentoring-bang-randy-scholarship-guidance/)

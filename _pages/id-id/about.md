@@ -34,7 +34,13 @@ My work at [Jabra](https://www.jabra.com/) sits at the intersection of:
 - 🤖 Bridging AI metrics with human perception
 - 📊 Turning subjective ratings into actionable insights
 
-Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalborg) — and I'm open to collaborating with students from universities abroad. I also run a mentoring practice through [MentoringBangRandy](/mentoring/), helping aspiring Indonesian researchers crack the master's and PhD application code, share career reflections on YouTube, and try to balance being a present parent with staying on top of the latest AI hype cycles.
+Beyond the lab, I supervise Master's students at Danish universities (DTU, Aalborg) — and I'm open to collaborating with students from universities abroad.
+
+### Di luar pekerjaan
+
+Secara terpisah, saya menjalankan kegiatan sampingan mandiri, [MentoringBangRandy](/mentoring/), yang membantu pelajar Indonesia menyiapkan aplikasi beasiswa dan studi pascasarjana.
+
+> MentoringBangRandy adalah kegiatan sampingan pribadi yang saya jalankan secara mandiri. Layanan ini bukan bagian dari, tidak disponsori oleh, dan tidak terkait dengan perusahaan tempat saya bekerja maupun institusi lain.
 
 ---
 

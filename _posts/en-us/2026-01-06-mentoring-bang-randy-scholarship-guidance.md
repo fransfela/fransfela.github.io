@@ -9,6 +9,8 @@ featured: true
 thumbnail: assets/img/posts/mentoring-thumbnail.jpg
 ---
 
+> MentoringBangRandy adalah kegiatan sampingan pribadi yang saya jalankan secara mandiri. Layanan ini bukan bagian dari, tidak disponsori oleh, dan tidak terkait dengan perusahaan tempat saya bekerja maupun institusi lain.
+
 ## Dari Kuli Pabrik ke Denmark: Mimpi yang Awalnya Terasa Mustahil
 
 Saya lahir dan tumbuh di pinggiran Jakarta, dari keluarga sederhana. Selepas lulus STM, hidup saya diisi dengan pekerjaan serabutan: pernah jadi kuli pabrik di perusahaan otomotif, guru les, hingga penjaga warnet. Dengan penghasilan sekitar Rp250.000–Rp500.000 per bulan, masa depan terasa samar.
