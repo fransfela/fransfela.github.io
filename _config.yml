@@ -54,9 +54,10 @@ max_width: 1000px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/og-default.png # The site-wide (default for all links) Open Graph preview image
+# TODO: supply a 1200x630 image at assets/img/og-default.png. Until then, shared links have no preview image.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -98,6 +99,8 @@ jupyter_notebooks:
 
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
+# TODO: repo_id and category_id must be regenerated at https://giscus.app/ for fransfela/fransfela.github.io.
+# The current repo_id (103430951) belongs to the template repository, and category_id is empty.
 giscus:
   repo: fransfela/fransfela.github.io/ # <your-github-user-name>/<your-github-repo-name>
   repo_id: 103430951 # leave empty or specify your repo_id (see https://giscus.app/)
@@ -110,10 +113,6 @@ giscus:
   dark_theme: dark # name of the dark color scheme (preferred works well with al-folio dark mode)
   light_theme: light # name of the light color scheme (preferred works well with al-folio light mode)
   emit_metadata: 0
-
-# Disqus comments (DEPRECATED)
-disqus_shortname: multi-language-al-folio # put your disqus shortname
-# https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
@@ -283,8 +282,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Fela]
+  first_name: [Randy, R., Randy F., R. F., Randy Frans]
 
   style: apa
   locale: en
