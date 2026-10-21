@@ -1,0 +1,30 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% assign seen = '' %}
+{% for node in site.pages %}
+  {% if node.layout and node.sitemap != false %}
+    {% unless node.url contains '/assets/' or node.url contains '404' or node.url contains '/_pages/' or node.url contains 'feed' %}
+      {% capture key %}|{{ node.url }}|{% endcapture %}
+      {% unless seen contains key %}
+        {% assign seen = seen | append: key %}
+        {% include sitemap_entry.liquid node=node %}
+      {% endunless %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+{% for collection in site.collections %}
+  {% if collection.output %}
+    {% for node in site[collection.label] %}
+      {% if node.sitemap != false %}
+        {% capture key %}|{{ node.url }}|{% endcapture %}
+        {% unless seen contains key %}
+          {% assign seen = seen | append: key %}
+          {% include sitemap_entry.liquid node=node %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+</urlset>

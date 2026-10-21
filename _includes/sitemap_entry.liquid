@@ -1,0 +1,24 @@
+<url>
+  <loc>{{ include.node.url | absolute_url }}</loc>
+  {% for lang in site.languages %}
+    {% if lang == site.default_lang %}
+      <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ include.node.url | absolute_url }}"/>
+    {% else %}
+      <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ include.node.url | prepend: lang | prepend: '/' | absolute_url }}"/>
+    {% endif %}
+  {% endfor %}
+</url>
+{% for lang in site.languages %}
+  {% unless lang == site.default_lang %}
+    <url>
+      <loc>{{ include.node.url | prepend: lang | prepend: '/' | absolute_url }}</loc>
+      {% for alt in site.languages %}
+        {% if alt == site.default_lang %}
+          <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ include.node.url | absolute_url }}"/>
+        {% else %}
+          <xhtml:link rel="alternate" hreflang="{{ alt }}" href="{{ include.node.url | prepend: alt | prepend: '/' | absolute_url }}"/>
+        {% endif %}
+      {% endfor %}
+    </url>
+  {% endunless %}
+{% endfor %}
