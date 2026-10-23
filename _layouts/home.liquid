@@ -42,6 +42,18 @@ layout: default
     {% endfor %}
   </ul>
 
+  {% assign lately = site.news | sort: 'date' | reverse %}
+  {% if lately.size > 0 %}
+    <p class="home-lately">
+      <strong>{{ t.lately }}</strong>
+      {% for item in lately limit: 2 %}
+        <br>
+        <span class="home-note-desc">{% include date_format.liquid format='short' date=item.date %}</span>
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+
   <section class="home-section">
     <h2>
       <a href="{{ '/publications/' | relative_url }}">{{ t.selected_publications }}</a>
@@ -153,6 +165,11 @@ layout: default
     flex: 0 0 auto;
     height: 260px;
     width: auto;
+  }
+  .home-lately {
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    line-height: 1.7;
   }
   .home-facts {
     max-width: 42rem;

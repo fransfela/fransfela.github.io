@@ -77,6 +77,23 @@ PSNR is a common image quality metric. Pick a distortion, move the slider, and n
   </div>
 </div>
 
+## See what you hear: a live spectrogram
+
+Time runs left to right, frequency runs bottom to top, and brighter means louder. Try the sweep first, then the harmonics: the stack of lines is what makes a note sound like a voice or an instrument. "Ah" and "ee" use the same buzzing source, and only the filtering changes.
+
+<div class="mb-4">
+  <canvas id="spec-view" width="600" height="240" style="max-width: 100%; height: auto; background: #000"></canvas>
+  <div class="mt-2">
+    <button class="btn btn-sm btn-outline-primary" data-spec="sweep">Sweep</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="harmonics">Harmonics</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="noise">Noise</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="ah">"Ah"</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="ee">"Ee"</button>
+    <button id="spec-stop" class="btn btn-sm btn-link">Stop</button>
+  </div>
+  <p class="mt-2">The vertical axis covers 0 to 8 kHz.</p>
+</div>
+
 ## Other things to click
 
 - [Akustik & Kiblat](/viz/mosque-acoustics/): where does sound face? An interactive piece in Indonesian.

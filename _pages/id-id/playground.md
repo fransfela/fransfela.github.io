@@ -77,6 +77,23 @@ PSNR adalah metrik kualitas gambar yang umum dipakai. Pilih satu distorsi, geser
   </div>
 </div>
 
+## Lihat apa yang kamu dengar: spectrogram langsung
+
+Waktu berjalan dari kiri ke kanan, frekuensi dari bawah ke atas, dan makin terang berarti makin keras. Coba sweep dulu, lalu harmonics: susunan garis itulah yang membuat sebuah nada terdengar seperti suara orang atau alat musik. "Ah" dan "ee" memakai sumber dengung yang sama, hanya filternya yang berbeda.
+
+<div class="mb-4">
+  <canvas id="spec-view" width="600" height="240" style="max-width: 100%; height: auto; background: #000"></canvas>
+  <div class="mt-2">
+    <button class="btn btn-sm btn-outline-primary" data-spec="sweep">Sweep</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="harmonics">Harmonics</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="noise">Noise</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="ah">"Ah"</button>
+    <button class="btn btn-sm btn-outline-primary" data-spec="ee">"Ee"</button>
+    <button id="spec-stop" class="btn btn-sm btn-link">Berhenti</button>
+  </div>
+  <p class="mt-2">Sumbu vertikal mencakup 0 sampai 8 kHz.</p>
+</div>
+
 ## Hal lain untuk dicoba
 
 - [Akustik & Kiblat](/viz/mosque-acoustics/): ke mana suara menghadap? Karya interaktif dalam bahasa Indonesia.

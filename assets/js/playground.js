@@ -375,9 +375,164 @@
     update();
   }
 
+  // ---------- Demo 4: live spectrogram of synthetic sounds ----------
+  function initSpectrogram() {
+    var canvas = $("spec-view");
+    if (!canvas) return;
+    var g = canvas.getContext("2d");
+    var W = canvas.width;
+    var H = canvas.height;
+    var maxHz = 8000;
+    var active = null;
+    var raf = null;
+    var buttons = document.querySelectorAll("[data-spec]");
+    var stopBtn = $("spec-stop");
+
+    g.fillStyle = "#000";
+    g.fillRect(0, 0, W, H);
+
+    function noiseBuffer(c) {
+      var buf = c.createBuffer(1, c.sampleRate * 2, c.sampleRate);
+      var d = buf.getChannelData(0);
+      for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      return buf;
+    }
+
+    function formants(c, source, freqs) {
+      var sum = c.createGain();
+      freqs.forEach(function (f) {
+        var bp = c.createBiquadFilter();
+        bp.type = "bandpass";
+        bp.frequency.value = f;
+        bp.Q.value = 8;
+        source.connect(bp);
+        bp.connect(sum);
+      });
+      return sum;
+    }
+
+    function build(kind, c, out) {
+      var stops = [];
+      var saw;
+      if (kind === "sweep") {
+        var osc = c.createOscillator();
+        osc.connect(out);
+        osc.start();
+        var schedule = function () {
+          var t = c.currentTime;
+          osc.frequency.cancelScheduledValues(t);
+          osc.frequency.setValueAtTime(200, t);
+          osc.frequency.exponentialRampToValueAtTime(7000, t + 4);
+        };
+        schedule();
+        var timer = setInterval(schedule, 4000);
+        stops.push(function () {
+          clearInterval(timer);
+          osc.stop();
+        });
+      } else if (kind === "harmonics") {
+        saw = c.createOscillator();
+        saw.type = "sawtooth";
+        saw.frequency.value = 220;
+        var lfo = c.createOscillator();
+        lfo.frequency.value = 5;
+        var depth = c.createGain();
+        depth.gain.value = 6;
+        lfo.connect(depth);
+        depth.connect(saw.frequency);
+        saw.connect(out);
+        saw.start();
+        lfo.start();
+        stops.push(function () {
+          saw.stop();
+          lfo.stop();
+        });
+      } else if (kind === "noise") {
+        var n = c.createBufferSource();
+        n.buffer = noiseBuffer(c);
+        n.loop = true;
+        n.connect(out);
+        n.start();
+        stops.push(function () {
+          n.stop();
+        });
+      } else {
+        saw = c.createOscillator();
+        saw.type = "sawtooth";
+        saw.frequency.value = 120;
+        var f = kind === "ah" ? [700, 1200, 2600] : [270, 2300, 3000];
+        var mix = formants(c, saw, f);
+        var boost = c.createGain();
+        boost.gain.value = 4;
+        mix.connect(boost);
+        boost.connect(out);
+        saw.start();
+        stops.push(function () {
+          saw.stop();
+        });
+      }
+      return stops;
+    }
+
+    function draw(analyser, data) {
+      analyser.getByteFrequencyData(data);
+      g.drawImage(canvas, -2, 0);
+      var bins = Math.floor((maxHz / (audioCtx.sampleRate / 2)) * data.length);
+      for (var y = 0; y < H; y++) {
+        var bin = Math.floor(((H - 1 - y) / H) * bins);
+        var v = data[bin] / 255;
+        g.fillStyle = "hsl(" + Math.round(260 - v * 260) + ",90%," + Math.round(v * 55) + "%)";
+        g.fillRect(W - 2, y, 2, 1);
+      }
+      raf = requestAnimationFrame(function () {
+        draw(analyser, data);
+      });
+    }
+
+    function stop() {
+      if (!active) return;
+      cancelAnimationFrame(raf);
+      active.stops.forEach(function (s) {
+        s();
+      });
+      active.master.disconnect();
+      active = null;
+      buttons.forEach(function (b) {
+        b.classList.remove("active");
+      });
+    }
+
+    function start(kind, btn) {
+      stop();
+      var c = ctx();
+      var master = outputChain(c);
+      var analyser = c.createAnalyser();
+      analyser.fftSize = 2048;
+      analyser.smoothingTimeConstant = 0.2;
+      var level = c.createGain();
+      level.gain.value = 0.4;
+      level.connect(analyser);
+      analyser.connect(master);
+      var stops = build(kind, c, level);
+      active = { stops: stops, master: master };
+      btn.classList.add("active");
+      g.fillStyle = "#000";
+      g.fillRect(0, 0, W, H);
+      draw(analyser, new Uint8Array(analyser.frequencyBinCount));
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        start(b.getAttribute("data-spec"), b);
+      });
+    });
+    stopBtn.addEventListener("click", stop);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initMasking();
     initAbx();
     initImage();
+    initSpectrogram();
   });
 })();
