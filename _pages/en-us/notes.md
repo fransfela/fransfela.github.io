@@ -1,10 +1,11 @@
 ---
+page_id: notes
 layout: page
-title: Zettelkasten
-permalink: /zettelkasten/
-description: A living archive of interconnected ideas. Notes that evolve, connect, and compound over time
+title: Notes
+permalink: /notes/
+description: Reference notes on audio and image quality metrics, evaluation methods and soundscape analysis.
 nav: true
-nav_order: 4
+nav_order: 5
 ---
 
 The German word **Zettelkasten** translates to "slip box," but it's really a philosophy about how knowledge grows.
@@ -13,7 +14,7 @@ In the 20th century, sociologist Niklas Luhmann filled wooden boxes with thousan
 
 I've adapted this system for the digital age. Instead of index cards, I maintain living notes. Documents that evolve as I learn, research, and encounter new insights. Topics connect. Ideas compound. Understanding deepens.
 
-This is my Zettelkasten: a growing archive of interconnected thoughts on sound, perception, data, and the messy process of making sense of it all.
+These notes are my version of it: a growing archive of interconnected thoughts on sound, perception, data, and the messy process of making sense of it all.
 
 ---
 

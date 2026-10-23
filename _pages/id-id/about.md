@@ -4,7 +4,7 @@ layout: about
 title: About
 permalink: /about/
 nav: true
-nav_order: 1
+nav_order: 8
 subtitle: Perceptual Engineer | Mentor | Perpetual Learner
 
 profile:

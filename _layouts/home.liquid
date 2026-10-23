@@ -81,7 +81,7 @@ layout: default
 
   <section class="home-section">
     <h2>
-      <a href="{{ '/zettelkasten/' | relative_url }}">{{ t.latest_notes }}</a>
+      <a href="{{ '/notes/' | relative_url }}">{{ t.latest_notes }}</a>
     </h2>
     {% assign notes = site.posts
       | where_exp: 'post', "post.tags contains 'living-note' or post.tags contains 'living-book'"

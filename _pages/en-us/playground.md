@@ -5,7 +5,7 @@ title: Playground
 permalink: /playground/
 description: Small experiments in sound and image perception that run in your browser, plus a few visualizations and apps I built.
 nav: true
-nav_order: 6
+nav_order: 4
 ---
 
 I like things you can poke at. These demos run in your browser with made-up signals. Nothing is recorded or sent anywhere.

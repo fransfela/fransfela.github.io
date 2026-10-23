@@ -5,7 +5,7 @@ title: Playground
 permalink: /playground/
 description: Eksperimen kecil tentang persepsi suara dan gambar yang berjalan di browser kamu, ditambah beberapa visualisasi dan aplikasi buatan saya.
 nav: true
-nav_order: 6
+nav_order: 4
 ---
 
 Saya suka hal-hal yang bisa langsung dicoba. Demo ini berjalan di browser dengan sinyal buatan. Tidak ada yang direkam atau dikirim ke mana pun.

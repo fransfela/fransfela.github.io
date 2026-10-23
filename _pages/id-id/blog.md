@@ -6,7 +6,7 @@ title: Blog
 blog_name: Beyond the Sense
 description: A journey navigating signal, data, and human experience
 nav: true
-nav_order: 1
+nav_order: 7
 pagination:
   enabled: true
   collection: posts
