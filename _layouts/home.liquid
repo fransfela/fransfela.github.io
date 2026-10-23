@@ -1,50 +1,46 @@
 ---
 layout: default
 ---
-
 {% assign t = site.data[site.active_lang].strings.home %}
 {% assign socials = site.data.socials %}
 
 {% comment %}
   TODO: replace the bitmoji below with a real photograph (assets/img).
-  TODO: every number in the proof tiles must be confirmed and cleared with my employer before launch.
-  TODO: the "Get in touch" button points to LinkedIn until contact_email is set (Phase 5).
+  TODO: the facts list comes from the CV. Every number must be confirmed and cleared with my employer before launch.
+  TODO: the "Get in touch" link points to LinkedIn until contact_email is set (Phase 5).
 {% endcomment %}
 
 <div class="home">
-  <section class="home-hero row align-items-center">
-    <div class="col-md-8 order-2 order-md-1">
+  <section class="home-hero">
+    <div class="home-hero-text">
       <h1 class="home-name">Randy F. Fela</h1>
-      <p class="home-role">{{ t.role }}</p>
-      <p class="home-positioning">{{ t.positioning }}</p>
-      <div class="home-buttons">
-        <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}" class="btn btn-primary btn-lg z-depth-0">{{ t.get_in_touch }}</a>
-        <a href="{{ '/publications/' | relative_url }}" class="btn btn-outline-primary btn-lg z-depth-0">{{ t.view_publications }}</a>
-      </div>
-    </div>
-    <div class="col-md-4 order-1 order-md-2 text-center mb-4 mb-md-0">
-      <img
-        class="home-photo"
-        src="{{ '/assets/img/bitmoji-closeup.png' | relative_url }}"
-        alt="{{ t.photo_alt }}"
-        width="220"
-        height="220"
+      <p
+        id="typed-line"
+        class="home-role"
+        data-lines="{{ t.typed | jsonify | escape }}"
       >
+        <span class="typed-text">{{ t.typed[0] }}</span><span class="typed-cursor" aria-hidden="true">|</span>
+      </p>
+      <p class="home-positioning">{{ t.positioning }}</p>
+      <p class="home-links">
+        <a href="{{ '/playground/' | relative_url }}">{{ t.playground }}</a>
+        <a href="{{ '/publications/' | relative_url }}">{{ t.view_publications }}</a>
+        <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}">{{ t.get_in_touch }}</a>
+      </p>
     </div>
+    <img
+      class="home-figure"
+      src="{{ '/assets/img/bitmoji-full-vector.png' | relative_url }}"
+      alt="{{ t.photo_alt }}"
+      height="260"
+    >
   </section>
 
-  <section class="home-tiles row row-cols-1 row-cols-md-3">
-    {% for tile in t.tiles %}
-      <div class="col mb-3">
-        <div class="card h-100 z-depth-0 home-tile">
-          <div class="card-body">
-            <p class="card-text">{{ tile }}</p>
-            <p class="home-source">{{ t.source_cv }}</p>
-          </div>
-        </div>
-      </div>
+  <ul class="home-facts">
+    {% for fact in t.tiles %}
+      <li>{{ fact }}</li>
     {% endfor %}
-  </section>
+  </ul>
 
   <section class="home-section">
     <h2>
@@ -87,12 +83,14 @@ layout: default
             ><strong>{{ post.title }}</strong></a
           ><br>
           <span class="home-note-desc">{{ post.description | strip_html | truncate: 150 }}</span><br>
-          <small class="home-source">{{ post.date | date: '%Y-%m-%d' }}</small>
+          <small class="home-note-desc">{{ post.date | date: '%Y-%m-%d' }}</small>
         </li>
       {% endfor %}
     </ul>
   </section>
 </div>
+
+<script src="{{ '/assets/js/typewriter.js' | relative_url }}" defer></script>
 
 <script type="application/ld+json">
   {
@@ -113,37 +111,54 @@ layout: default
 
 <style>
   .home-hero {
-    padding: 2rem 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0 1rem;
+  }
+  .home-hero-text {
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .home-name {
-    font-size: 2.75rem;
-    font-weight: 600;
+    font-size: 3rem;
+    font-weight: 300;
     margin-bottom: 0.25rem;
   }
   .home-role {
     color: var(--global-theme-color);
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    min-height: 2rem;
+    margin-bottom: 1.25rem;
+  }
+  .typed-cursor {
+    animation: home-blink 1s steps(2, start) infinite;
+  }
+  @keyframes home-blink {
+    to {
+      visibility: hidden;
+    }
   }
   .home-positioning {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    max-width: 38rem;
+    font-size: 1.1rem;
+    line-height: 1.65;
   }
-  .home-buttons .btn {
-    margin: 0 0.5rem 0.5rem 0;
+  .home-links a {
+    margin-right: 1.5rem;
+    border-bottom: 1px solid var(--global-theme-color);
   }
-  .home-photo {
-    border-radius: 50%;
-    object-fit: cover;
+  .home-figure {
+    flex: 0 0 auto;
+    height: 260px;
+    width: auto;
   }
-  .home-tile {
-    border-left: 4px solid var(--global-theme-color);
-  }
-  .home-source {
-    color: var(--global-text-color-light);
-    font-size: 0.8rem;
-    margin: 0;
+  .home-facts {
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    padding-left: 1.1rem;
+    line-height: 1.7;
   }
   .home-section {
     margin-top: 2.5rem;
@@ -153,5 +168,22 @@ layout: default
   }
   .home-note-desc {
     color: var(--global-text-color-light);
+  }
+  @media (max-width: 576px) {
+    .home-hero {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+    .home-name {
+      font-size: 2.25rem;
+    }
+    .home-figure {
+      height: 200px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .typed-cursor {
+      animation: none;
+    }
   }
 </style>

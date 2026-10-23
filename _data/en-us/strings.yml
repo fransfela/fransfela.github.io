@@ -161,6 +161,12 @@ search:
   theme: Theme
 home:
   role: Perceptual Audio-visual Evaluation Engineer
+  typed:
+    - Perceptual Audio-visual Evaluation Engineer
+    - Human Perception Researcher
+    - Industry-Academia Student Advisor
+    - Exploratory Coffee Brewer
+  playground: Playground
   positioning: I design and run listening and viewing studies that show whether audio and video devices are good enough for real users, and I build the metrics and tools that make that evaluation repeatable.
   get_in_touch: Get in touch
   view_publications: View publications
@@ -169,7 +175,6 @@ home:
     - Cut test trial count by up to 55% while preserving statistical power using experimental design
     - Founded a global assessor panel following ISO 8586
     - First-author papers in the Journal of the Audio Engineering Society and IEEE venues on 360 audiovisual quality
-  source_cv: "source: CV"
   selected_publications: Selected publications
   featured_projects: Featured projects
   latest_notes: Latest notes

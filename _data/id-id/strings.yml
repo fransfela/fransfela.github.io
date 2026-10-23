@@ -161,6 +161,12 @@ search:
   theme: Theme
 home:
   role: Perceptual Audio-visual Evaluation Engineer
+  typed:
+    - Perceptual Audio-visual Evaluation Engineer
+    - Peneliti persepsi manusia
+    - Penasihat mahasiswa industri dan akademik
+    - Penyeduh kopi eksploratif
+  playground: Playground
   positioning: Saya merancang dan menjalankan studi mendengarkan dan menonton yang menunjukkan apakah perangkat audio dan video cukup baik untuk pengguna nyata, dan saya membangun metrik dan alat yang membuat evaluasi itu dapat diulang.
   get_in_touch: Hubungi saya
   view_publications: Lihat publikasi
@@ -169,7 +175,6 @@ home:
     - Mengurangi jumlah trial uji hingga 55% dengan tetap menjaga statistical power, menggunakan desain eksperimen
     - Mendirikan panel asesor global mengikuti ISO 8586
     - Makalah sebagai penulis pertama di Journal of the Audio Engineering Society dan forum IEEE tentang kualitas audiovisual 360
-  source_cv: "sumber: CV"
   selected_publications: Publikasi pilihan
   featured_projects: Proyek unggulan
   latest_notes: Catatan terbaru
