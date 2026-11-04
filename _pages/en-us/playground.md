@@ -3,95 +3,97 @@ page_id: playground
 layout: page
 title: Playground
 permalink: /playground/
-description: Small experiments in sound and image perception that run in your browser, plus a few visualizations and apps I built.
+description: Walk through real soundscapes, rescue speech from noise, and find out when your eyes disagree with the metric.
 nav: true
-nav_order: 4
+nav_order: 2
 ---
 
-I like things you can poke at. These demos run in your browser with made-up signals. Nothing is recorded or sent anywhere.
+<div id="pg" data-lang="en" data-base="{{ '/assets/playground/' | relative_url }}">
 
-**Turn your volume down before you press play.** The sounds are quiet by design, but headphones are close to your ears.
+<p>Three toys about how people hear and see. Everything runs in your browser and nothing you do is recorded or sent anywhere. Headphones make the first one much better.</p>
+<p class="pg-warn"><strong>Turn your volume down before you press play.</strong></p>
+<nav class="pg-jump"><a href="#soundscapes">Soundscapes</a><a href="#speech">Speech</a><a href="#images">Images</a></nav>
 
-## Can you hear it? Tone in noise
+<h2 id="soundscapes">Walk through a soundscape</h2>
+<p>These are real field recordings placed around you in 3D. Drag any sound, or drag yourself (the white head) and walk. Things happen on their own: a dog, a siren, a passing tram. No two minutes sound alike.</p>
 
-A 1 kHz tone sits inside white noise. Lower the tone until it disappears, then raise the noise instead. The tone has not changed, but your ears lose it anyway. That is masking, and it is why a noisy room makes speech harder to follow.
-
-<div class="mb-4">
-  <button id="mask-play" class="btn btn-sm btn-outline-primary" data-play="Play" data-stop="Stop">Play</button>
-  <div class="mt-3">
-    <label for="mask-tone">Tone level</label>
-    <input id="mask-tone" type="range" min="-80" max="-20" value="-45" step="1" class="form-control-range">
+<section id="sc">
+  <div class="sc-themes"></div>
+  <div class="sc-stage">
+    <canvas id="sc-canvas" tabindex="0" aria-label="Walk through a soundscape"></canvas>
+    <button id="sc-start" type="button" class="btn btn-primary" disabled>…</button>
   </div>
-  <div>
-    <label for="mask-noise">Noise level</label>
-    <input id="mask-noise" type="range" min="-80" max="-20" value="-50" step="1" class="form-control-range">
+  <p class="pg-small">Scroll over the scene to turn your head. With the scene focused, arrow keys walk and Q and E turn.</p>
+  <div class="sc-controls">
+    <button id="sc-stop" type="button" class="btn btn-sm btn-outline-primary sc-on-only">Stop</button>
+    <button id="sc-walk" type="button" class="btn btn-sm btn-outline-primary">Take a walk</button>
+    <button id="sc-surprise" type="button" class="btn btn-sm btn-outline-primary">Surprise me</button>
+    <label class="sc-anc"><input id="sc-anc" type="checkbox"> Noise-cancelling headphones</label>
   </div>
-  <p id="mask-readout" class="mt-2" data-template="Tone {tone} dB, noise {noise} dB, tone minus noise {snr} dB."></p>
-</div>
-
-## ABX: is X the clean one?
-
-A is a full-bandwidth tone complex. B is the same sound with everything above a cutoff removed. X is secretly one of them. Listen, then say which one X is. Ten trials, and you get the odds of scoring that well by guessing.
-
-Try 4 kHz first, then work your way up. Somewhere around the top of the range, most adults stop hearing the difference.
-
-<div id="abx" class="mb-4">
-  <label for="abx-cutoff">Cutoff for B</label>
-  <select id="abx-cutoff" class="form-control form-control-sm" style="max-width: 12rem">
-    <option value="4000">4 kHz</option>
-    <option value="8000" selected>8 kHz</option>
-    <option value="12000">12 kHz</option>
-    <option value="16000">16 kHz</option>
-  </select>
-  <div class="mt-3">
-    <button id="abx-a" class="btn btn-sm btn-outline-primary">Play A</button>
-    <button id="abx-b" class="btn btn-sm btn-outline-primary">Play B</button>
-    <button id="abx-x" class="btn btn-sm btn-outline-primary">Play X</button>
+  <h3 class="pg-h">Make something happen</h3>
+  <div class="sc-events"></div>
+  <div class="sc-grid">
+    <div>
+      <h3 class="pg-h">In this scene</h3>
+      <div class="sc-row sc-bed-row"><span class="sc-dot"></span><label for="sc-bed">Background</label><input id="sc-bed" type="range" min="0" max="1.4" step="0.01" value="1"></div>
+      <div class="sc-list"></div>
+      <h3 class="pg-h">Add a sound from anywhere</h3>
+      <div class="sc-tray"></div>
+    </div>
+    <div>
+      <h3 class="pg-h">How it feels</h3>
+      <canvas id="sc-compass" aria-hidden="true"></canvas>
+      <p class="sc-goal"></p>
+      <p class="pg-small">A playful estimate from what is in your mix, using the axes of ISO 12913-3. It is not a measurement.</p>
+    </div>
   </div>
-  <div class="mt-2">
-    <button id="abx-ans-a" class="btn btn-sm btn-outline-secondary">X is A</button>
-    <button id="abx-ans-b" class="btn btn-sm btn-outline-secondary">X is B</button>
-    <button id="abx-reset" class="btn btn-sm btn-link">Start over</button>
+  <p><button id="sc-copy" type="button" class="btn btn-sm btn-link p-0">Copy link to my mix</button></p>
+  <details class="pg-small"><summary>Credits for the recordings</summary><div class="sc-credits"></div></details>
+</section>
+
+<h2 id="speech">Catch the sentence</h2>
+<p>Someone is talking in a noisy place. Can you catch what they said? Then switch on enhancement and find out what the machine heard. The twist comes from my EMNLP 2026 paper: speech that sounds better is not always speech that is understood better.</p>
+
+<section id="sp">
+  <div class="sp-head"></div>
+  <div class="sp-view">
+    <img id="sp-base" alt="">
+    <img id="sp-over" alt="">
+    <div class="sp-playhead"></div>
   </div>
-  <p id="abx-status" class="mt-2 mb-0" data-template="Trial {done} of {total} answered."></p>
-  <p id="abx-result" data-template="You got {correct} of {total} right. Chance of doing this well or better by guessing: {p}."></p>
-</div>
-
-## Same number, different picture
-
-PSNR is a common image quality metric. Pick a distortion, move the slider, and note the PSNR. Then switch distortion and move the slider until the PSNR matches. The numbers agree, the pictures do not. Hold the button to see the original.
-
-<div class="mb-4">
-  <canvas id="img-view" width="480" height="320" style="max-width: 100%; height: auto"></canvas>
-  <div class="mt-2">
-    <label for="img-type">Distortion</label>
-    <select id="img-type" class="form-control form-control-sm" style="max-width: 12rem">
-      <option value="jpeg">JPEG compression</option>
-      <option value="blur">Blur</option>
-      <option value="noise">Noise</option>
-    </select>
-    <label for="img-amount" class="mt-2">Amount</label>
-    <input id="img-amount" type="range" min="1" max="100" value="60" step="1" class="form-control-range">
-    <button id="img-hold" class="btn btn-sm btn-outline-secondary mt-2">Hold to see original</button>
-    <p id="img-readout" class="mt-2" data-template="PSNR {psnr} dB."></p>
+  <div class="sp-bar">
+    <button id="sp-play" type="button" class="btn btn-primary btn-sm"></button>
+    <label class="pg-switch"><input id="sp-switch" type="checkbox"><span class="pg-slider"></span><span class="sp-switch-label"></span></label>
+    <div class="sp-pills"></div>
   </div>
-</div>
+  <div class="sp-ask"></div>
+  <div class="sp-result" hidden></div>
+  <p class="pg-small">Enhancement was run offline with DeepFilterNet and MetricGAN+. Transcripts are from Whisper small.en, PESQ and STOI are measured against the clean speech. Speech is from LibriSpeech (CC BY 4.0). <a href="https://arxiv.org/html/2608.30348v1">Read the paper</a> · <a href="{{ '/projects/se-llm-odr-benchmark/' | relative_url }}">About the project</a></p>
+</section>
 
-## See what you hear: a live spectrogram
+<h2 id="images">You vs the metric</h2>
+<p>Flip enhancement on and off, then keep the repair you like. Only after you vote do you see what the numbers preferred, and what the photo really looked like.</p>
 
-Time runs left to right, frequency runs bottom to top, and brighter means louder. Try the sweep first, then the harmonics: the stack of lines is what makes a note sound like a voice or an instrument. "Ah" and "ee" use the same buzzing source, and only the filtering changes.
-
-<div class="mb-4">
-  <canvas id="spec-view" width="600" height="240" style="max-width: 100%; height: auto; background: #000"></canvas>
-  <div class="mt-2">
-    <button class="btn btn-sm btn-outline-primary" data-spec="sweep">Sweep</button>
-    <button class="btn btn-sm btn-outline-primary" data-spec="harmonics">Harmonics</button>
-    <button class="btn btn-sm btn-outline-primary" data-spec="noise">Noise</button>
-    <button class="btn btn-sm btn-outline-primary" data-spec="ah">"Ah"</button>
-    <button class="btn btn-sm btn-outline-primary" data-spec="ee">"Ee"</button>
-    <button id="spec-stop" class="btn btn-sm btn-link">Stop</button>
+<section id="im">
+  <div class="im-head"></div>
+  <div class="im-view">
+    <img id="im-base" alt="" width="960" height="640">
+    <img id="im-over" alt="" width="960" height="640">
+    <div class="im-line"></div>
+    <div class="im-lens"></div>
   </div>
-  <p class="mt-2">The vertical axis covers 0 to 8 kHz.</p>
+  <input id="im-range" class="sr-only" type="range" min="0" max="100" value="0" aria-label="You vs the metric">
+  <p class="pg-small im-hint"></p>
+  <div class="sp-bar">
+    <label class="pg-switch"><input id="im-switch" type="checkbox"><span class="pg-slider"></span><span class="im-switch-label"></span></label>
+    <div class="im-pills"></div>
+  </div>
+  <div class="im-ask"></div>
+  <div class="im-result" hidden></div>
+  <p class="pg-small">Repairs were made offline with Real-ESRGAN, SCUNet and FBCNN. Scores are measured against the original. <a href="{{ '/blog/2025/image-video-quality-metrics-reference/' | relative_url }}">More on image quality metrics</a></p>
+  <details class="pg-small"><summary>Credits for the photos</summary><div class="im-credits sc-credits"></div></details>
+</section>
+
 </div>
 
 ## Other things to click
@@ -102,4 +104,8 @@ Time runs left to right, frequency runs bottom to top, and brighter means louder
 - [Silsilah](/projects/silsilah/): a privacy-first family tree app. No account, no server, no data leaves your device.
 - [Shelfmate](/projects/shelfmate/): an invite-only book club for people who actually read.
 
-<script src="{{ '/assets/js/playground.js' | relative_url }}" defer></script>
+<link rel="stylesheet" href="{{ '/assets/playground/playground.css' | relative_url }}">
+<script src="{{ '/assets/js/playground/common.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/playground/soundscape.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/playground/speech-enhancement.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/playground/image-enhancement.js' | relative_url }}" defer></script>
