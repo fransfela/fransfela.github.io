@@ -27,40 +27,26 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/";
           },
-        },{id: "nav-about",
-          title: "About",
-          description: "",
-          section: "Navigation menu",
-          handler: () => {
-            window.location.href = "/about/";
-          },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "A journey navigating signal, data, and human experience",
-          section: "Navigation menu",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-publications",
-          title: "Publications",
+        },{id: "nav-research",
+          title: "Research",
           description: "My research journey started in Acoustics with my bachelor&#39;s thesis on Mathematical Modeling of Acoustic Emission for Water Pipeline Leakage Detection, while simultaneously working as a research assistant specializing in building acoustics and physics. This foundation evolved during my master&#39;s studies at Institut Teknologi Bandung, where I delved into audio-visual perception, VR technology, and immersive multimedia. Today, my research centers on perceptual multimedia evaluation for next-generation AV communication devices, integrating expertise in experimental design optimization, predictive modeling, statistical machine learning, perceptual metrics, and composite model building. Here are selected highlights from my scientific contributions.",
           section: "Navigation menu",
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-projects",
-          title: "Projects",
-          description: "This page will be updated with my recent works and fun projects.",
+        },{id: "nav-playground",
+          title: "Playground",
+          description: "Walk through real soundscapes, rescue speech from noise, and find out when your eyes disagree with the metric.",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/projects/";
+            window.location.href = "/playground/";
           },
-        },{id: "nav-zettelkasten",
-          title: "Zettelkasten",
-          description: "A living archive of interconnected ideas. Notes that evolve, connect, and compound over time",
+        },{id: "nav-writing",
+          title: "Writing",
+          description: "A journey navigating signal, data, and human experience",
           section: "Navigation menu",
           handler: () => {
-            window.location.href = "/zettelkasten/";
+            window.location.href = "/blog/";
           },
         },{id: "nav-cv",
           title: "CV",
@@ -80,22 +66,22 @@ ninja.data = [{
             window.location.href = "/blog/2026/delapan-tahun-satu-langkah/";
           
         },
-      },{id: "post-fisika-suara-masjid-bagian-2",
+      },{id: "post-ke-mana-suara-menghadap-akustik-dan-kiblat",
         
-          title: "Fisika Suara Masjid Bagian 2",
+          title: "Ke Mana Suara Menghadap? Akustik dan Kiblat",
         
-        description: "",
+        description: "Persepsi arah sumber suara dalam dua konfigurasi masjid yang berbeda.",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/fisika-suara-masjid-bag-2/";
           
         },
-      },{id: "post-fisika-suara-masjid-bagian-1",
+      },{id: "post-fisika-suara-di-dalam-masjid",
         
-          title: "Fisika Suara Masjid Bagian 1",
+          title: "Fisika Suara di Dalam Masjid",
         
-        description: "",
+        description: "Mengapa masjid tua terdengar berbeda dari masjid modern? Ada fisika yang bekerja di baliknya: RT60, mihrab, dan bagaimana otak kita memproses suara.",
         section: "Posts",
         handler: () => {
           
@@ -245,12 +231,7 @@ ninja.data = [{
             window.location.href = "/blog/2023/mastering-matlab-data-ai-cloud-reflection/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "news-master-thesis-defense-on-own-voice-perception-at-dtu",
+      },{id: "news-master-thesis-defense-on-own-voice-perception-at-dtu",
           title: 'Master Thesis Defense on Own Voice Perception at DTU',
           description: "",
           section: "News",handler: () => {
@@ -280,6 +261,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_icassp_2027_submission/";
+            },},{id: "news-presented-our-poster-at-emnlp-2026-in-budapest",
+          title: 'Presented our poster at EMNLP 2026 in Budapest',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_emnlp_2026_presented/";
             },},{id: "projects-batchmailer",
           title: 'BatchMaileR',
           description: "A Shiny web application for sending batch emails with personalized content and attachments",
@@ -290,14 +276,9 @@ ninja.data = [{
           description: "Higher-Order Ambisonics Sound Scene Repository - A comprehensive 360° audiovisual quality dataset for immersive media research",
           section: "Projects",handler: () => {
               window.location.href = "/projects/hoassr_dataset/";
-            },},{id: "projects-qualia-platform",
-          title: 'QUALIA Platform',
-          description: "Browser-based perceptual screener and assessor qualification platform for the GN Perceptual Evaluation Team.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/qualia/";
             },},{id: "projects-se-llm-odr-benchmark",
           title: 'SE-LLM ODR Benchmark',
-          description: "Measuring how speech enhancement front-ends change the intent predicted by LLM-based voice systems (EMNLP 2026 Industry Track).",
+          description: "Measuring how speech enhancement front-ends change the intent predicted by LLM-based voice systems (EMNLP 2026 Industry Track, presented in Budapest).",
           section: "Projects",handler: () => {
               window.location.href = "/projects/se-llm-odr-benchmark/";
             },},{id: "projects-shelfmate",
@@ -310,11 +291,6 @@ ninja.data = [{
           description: "A privacy-first family tree web app. No account, no server, no data leaving your device. Single HTML file.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/silsilah/";
-            },},{id: "projects-vq-monitor",
-          title: 'vq_monitor',
-          description: "Real-time video quality monitoring tool with 25 perceptual metrics, spatial heatmap, and scenario testing engine.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/vq-monitor/";
             },},{
         id: 'social-email',
         title: 'Send an email',
