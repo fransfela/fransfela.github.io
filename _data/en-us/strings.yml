@@ -178,6 +178,11 @@ home:
     - First-author papers in the Journal of the Audio Engineering Society and IEEE venues on 360 audiovisual quality
   selected_publications: Selected publications
   featured_projects: Featured projects
+  about_title: "About me"
+  outside_title: "Outside work"
+  outside: "Separately, I run an independent side activity, [MentoringBangRandy](/mentoring/), that helps Indonesian students prepare scholarship and graduate applications."
+  disclaimer: "MentoringBangRandy is an independent personal side activity. It is not part of, endorsed by, or connected to my employer or any other organization I work with."
+  about_link: "About"
   latest_notes: Latest notes
 selected_publications: selected publications
 site_description: Beyond the Sense. Randy F. Fela navigates signal, data, and human experience at the intersection of audio technology and perception research. PhD researcher, engineer at GN Group Denmark, and scholarship mentor.

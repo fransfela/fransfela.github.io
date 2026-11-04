@@ -28,4 +28,4 @@ As **Co-researcher**, I contribute to:
 
 This project combines my expertise in audio-visual perception with healthcare technology to improve stroke rehabilitation outcomes through accessible digital tools.
 
-🔗 [Learn more about PHC Nusantara](https://www.campusfrance.org/fr/nusantara)
+[Learn more about PHC Nusantara](https://www.campusfrance.org/fr/nusantara)

@@ -16,7 +16,7 @@ The **Higher-Order Ambisonics Sound Scene Repository (HOA-SSR)** is a groundbrea
 To our knowledge, this is the first recorded audiovisual dataset with Mean Opinion Scores (MOS) specifically created to support perceptual quality research in immersive audiovisual content. The dataset opens new possibilities for developing and validating quality metrics for next-generation virtual reality, augmented reality, and immersive media applications.
 
 <div class="alert alert-info mt-4">
-  <h5>📊 Dataset Highlights</h5>
+  <h5>Dataset Highlights</h5>
   <ul class="mb-0">
     <li><strong>150+ audiovisual scenes</strong> captured in diverse real-world environments</li>
     <li><strong>8K 360° video</strong> (7680×3840) at 30fps with YUV 4:2:2 color space</li>
@@ -36,7 +36,7 @@ The dataset was captured using professional-grade equipment to ensure the highes
     <div class="col-md-6">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">🎥 Video Capture</h5>
+                <h5 class="card-title">Video Capture</h5>
                 <p class="card-text"><strong>Insta360 Pro2</strong> - Professional spherical 360° camera with 6 synchronized lenses capturing every angle simultaneously</p>
                 <ul class="small">
                     <li>Resolution: 8K (7680×3840)</li>
@@ -50,7 +50,7 @@ The dataset was captured using professional-grade equipment to ensure the highes
     <div class="col-md-6">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">🎙️ Audio Capture</h5>
+                <h5 class="card-title">Audio Capture</h5>
                 <p class="card-text"><strong>em32 Eigenmike</strong> - Spherical microphone array with 32 omnidirectional microphones</p>
                 <ul class="small">
                     <li>Order: 4th order ambisonics</li>
@@ -189,7 +189,7 @@ The HOA-SSR dataset enables research across multiple domains:
 
 <div class="row mt-3">
     <div class="col-md-6 mt-3">
-        <h5>🎧 Audio Product Development</h5>
+        <h5>Audio Product Development</h5>
         <ul>
             <li>Hearing aids and assistive devices testing</li>
             <li>True wireless stereo (TWS) earbuds evaluation</li>
@@ -198,7 +198,7 @@ The HOA-SSR dataset enables research across multiple domains:
         </ul>
     </div>
     <div class="col-md-6 mt-3">
-        <h5>🤖 AI & Machine Learning</h5>
+        <h5>AI & Machine Learning</h5>
         <ul>
             <li>Training perceptual quality models</li>
             <li>Audio-visual fusion algorithms</li>
@@ -207,7 +207,7 @@ The HOA-SSR dataset enables research across multiple domains:
         </ul>
     </div>
     <div class="col-md-6 mt-3">
-        <h5>🎮 Virtual Reality</h5>
+        <h5>Virtual Reality</h5>
         <ul>
             <li>Immersive experience quality evaluation</li>
             <li>Compression artifact assessment</li>
@@ -216,7 +216,7 @@ The HOA-SSR dataset enables research across multiple domains:
         </ul>
     </div>
     <div class="col-md-6 mt-3">
-        <h5>📊 Quality of Experience Research</h5>
+        <h5>Quality of Experience Research</h5>
         <ul>
             <li>Multimodal perception studies</li>
             <li>Cross-modal interaction analysis</li>

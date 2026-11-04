@@ -23,6 +23,7 @@ layout: default
       </p>
       <p class="home-positioning">{{ t.positioning }}</p>
       <p class="home-links">
+        <a href="#about">{{ t.about_link }}</a>
         <a href="{{ '/playground/' | relative_url }}">{{ t.playground }}</a>
         <a href="{{ '/publications/' | relative_url }}">{{ t.view_publications }}</a>
         <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}">{{ t.get_in_touch }}</a>
@@ -99,6 +100,21 @@ layout: default
         </li>
       {% endfor %}
     </ul>
+  </section>
+  <section id="about" class="home-section home-about">
+    <h2>{{ t.about_title }}</h2>
+    <p>I spend my days asking: <em>"How do devices and algorithms really sound and look to humans?"</em> Then I build systems to answer that question at scale.</p>
+    <p>My work sits at the intersection of audio-visual quality evaluation, bridging AI metrics with human perception, and turning subjective ratings into actionable insights. I also supervise Master's students at Danish universities (DTU, Aalborg), and I'm open to collaborating with students from universities abroad.</p>
+    <p>I hold a PhD in <a href="https://orbit.dtu.dk/en/publications/perceptual-evaluation-of-immersive-audiovisual-quality">Perceptual Evaluation of Immersive Audio-visual Technology</a> from the <a href="https://electro.dtu.dk/">Technical University of Denmark</a>, because someone has to quantify "good enough". Away from work I explore coffee flavour with manual brewing, and I have survived the Danish winter several times.</p>
+    <h3>{{ t.outside_title }}</h3>
+    <p>{{ t.outside | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+    <p class="home-note-desc"><small>{{ t.disclaimer }}</small></p>
+    <p>Copenhagen, Denmark · Indonesian roots · Open to collaborations, consulting, speaking and student supervision</p>
+    <p class="home-links">
+      <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}">{{ t.get_in_touch }}</a>
+      <a href="https://instagram.com/fransfela">Instagram</a>
+      <a href="https://www.youtube.com/@fransfela">YouTube</a>
+    </p>
   </section>
 </div>
 
@@ -179,6 +195,10 @@ layout: default
   }
   .home-section {
     margin-top: 2.5rem;
+  }
+  .home-about {
+    max-width: 42rem;
+    line-height: 1.7;
   }
   .home-section h2 a {
     color: inherit;

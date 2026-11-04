@@ -4,7 +4,7 @@ layout: page
 title: Projects
 permalink: /projects/
 description: This page will be updated with my recent works and fun projects.
-nav: true
+nav: false
 nav_order: 3
 display_categories: [work, fun]
 horizontal: false

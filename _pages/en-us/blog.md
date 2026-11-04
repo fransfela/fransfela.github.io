@@ -2,11 +2,11 @@
 page_id: blog
 layout: default
 permalink: /blog/
-title: Blog
+title: Writing
 blog_name: Beyond the Sense
 description: A journey navigating signal, data, and human experience
 nav: true
-nav_order: 7
+nav_order: 3
 pagination:
   enabled: true
   collection: posts
@@ -18,6 +18,15 @@ pagination:
     before: 1 # The number of links before the current page
     after: 3 # The number of links after the current page
 ---
+
+<p class="writing-tabs">
+  <a href="{{ '/blog/' | relative_url }}"{% if page.page_id == 'blog' %} class="active"{% endif %}>Blog</a>
+  <a href="{{ '/notes/' | relative_url }}"{% if page.page_id == 'notes' %} class="active"{% endif %}>{% if site.active_lang == 'id-id' %}Catatan{% else %}Notes{% endif %}</a>
+</p>
+<style>
+  .writing-tabs a { margin-right: 1.5rem; padding-bottom: 0.15rem; color: var(--global-text-color-light); }
+  .writing-tabs a.active { color: var(--global-text-color); border-bottom: 2px solid var(--global-theme-color); }
+</style>
 
 <div class="post">
 

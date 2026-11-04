@@ -1,15 +1,8 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Toggle between light and dark.
 let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
-  } else {
-    setThemeSetting("system");
-  }
+  setThemeSetting(determineThemeSetting() == "dark" ? "light" : "dark");
 };
 
 // Change the theme setting and apply the theme.
@@ -251,12 +244,13 @@ let transTheme = () => {
   }, 500);
 };
 
-// Determine the expected state of the theme toggle, which can be "dark", "light", or
-// "system". Default is "system".
+// Determine the theme setting, which is "dark" or "light". With nothing stored (or an old
+// "system" value), start from the visitor's system preference.
 let determineThemeSetting = () => {
   let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
+  if (themeSetting != "dark" && themeSetting != "light") {
+    const userPref = window.matchMedia;
+    themeSetting = userPref && userPref("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
   return themeSetting;
 };

@@ -1,8 +1,8 @@
 ---
 layout: page
 title: SE-LLM ODR Benchmark
-description: Measuring how speech enhancement front-ends change the intent predicted by LLM-based voice systems (EMNLP 2026 Industry Track).
-img: assets/img/publication_preview/emnlp2026_poster.jpg
+description: Measuring how speech enhancement front-ends change the intent predicted by LLM-based voice systems (EMNLP 2026 Industry Track, presented in Budapest).
+img: assets/img/emnlp-thumbnail.png
 importance: 1
 category: work
 related_publications: false
@@ -21,5 +21,8 @@ The project introduces the **Output Divergence Rate (ODR)**, the fraction of cli
 
 ## Resources
 
+- Paper: [arXiv:2608.30348](https://arxiv.org/html/2608.30348v1)
 - Code and evaluation pipeline: [github.com/fransfela/se-llm-odr-benchmark](https://github.com/fransfela/se-llm-odr-benchmark)
 - [EMNLP 2026 poster]({{ '/assets/pdf/EMNLP2026_Fela_Poster.png' | relative_url }})
+
+Presented in person at EMNLP 2026 in Budapest on 26 October 2026.

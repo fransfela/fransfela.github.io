@@ -18,7 +18,7 @@ BatchMaileR is a professional **R Shiny web application** designed to streamline
     <div class="col-sm-6 mt-3 mt-md-0">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">📧 Batch Email Processing</h5>
+                <h5 class="card-title">Batch Email Processing</h5>
                 <p class="card-text">Upload recipient data from CSV files and send personalized emails to multiple recipients simultaneously.</p>
             </div>
         </div>
@@ -26,7 +26,7 @@ BatchMaileR is a professional **R Shiny web application** designed to streamline
     <div class="col-sm-6 mt-3 mt-md-0">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">✏️ Rich Text Editor</h5>
+                <h5 class="card-title">Rich Text Editor</h5>
                 <p class="card-text">Edit email content with various formatting options including bold, italic, lists, and more.</p>
             </div>
         </div>
@@ -37,7 +37,7 @@ BatchMaileR is a professional **R Shiny web application** designed to streamline
     <div class="col-sm-6 mt-3 mt-md-0">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">🎯 Dynamic Personalization</h5>
+                <h5 class="card-title">Dynamic Personalization</h5>
                 <p class="card-text">Use placeholders like <code>[ColumnName]</code> to personalize email subjects and body content for each recipient.</p>
             </div>
         </div>
@@ -45,7 +45,7 @@ BatchMaileR is a professional **R Shiny web application** designed to streamline
     <div class="col-sm-6 mt-3 mt-md-0">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">📎 Flexible Attachments</h5>
+                <h5 class="card-title">Flexible Attachments</h5>
                 <p class="card-text">Attach common files to all emails or include personalized attachments specific to each recipient.</p>
             </div>
         </div>

@@ -6,7 +6,7 @@ related_posts: false
 title: Master Thesis Defense on Own Voice Perception at DTU
 ---
 
-🎓 **Congratulations to Miho Takeuchi** for successfully defending her Industrial Master's thesis at DTU!
+**Congratulations to Miho Takeuchi** for successfully defending her Industrial Master's thesis at DTU!
 
 **Defense Details:**
 - **Date:** Tuesday, October 17, 2023
@@ -23,7 +23,7 @@ title: Master Thesis Defense on Own Voice Perception at DTU
 ---
 
 <details>
-<summary><strong>📄 Thesis Abstract (Click to expand)</strong></summary>
+<summary><strong>Thesis Abstract (Click to expand)</strong></summary>
 
 <div style="margin-top: 1rem; padding: 1rem; background-color: var(--global-code-bg-color); border-radius: 5px;">
 
@@ -43,4 +43,4 @@ Miho's work explores critical factors affecting self-voice perception when using
 
 Miho's work was accepted for presentation at the **AES 4th International Conference on Audio and Music Induced Hearing Disorders** (May 29–31, 2024, Aalborg, Denmark).
 
-**📄 Paper:** [Access the full paper here →](https://aes.org/publications/elibrary-page/?id=22419) (freely accessible)
+**Paper:** [Access the full paper here →](https://aes.org/publications/elibrary-page/?id=22419) (freely accessible)

@@ -14,7 +14,7 @@ og_image: assets/img/silsilah-thumb.png
 <div class="row justify-content-center mt-3">
   <div class="col-sm-12 col-md-10">
     <a href="/projects/silsilah/app/" class="btn btn-primary w-100" style="font-size:1.1rem;padding:12px;">
-      🌿 Open Silsilah
+      Open Silsilah
     </a>
   </div>
 </div>

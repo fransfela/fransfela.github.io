@@ -6,7 +6,7 @@ related_posts: false
 title: Master Thesis Defense on Video Conferencing Quality at DTU Fotonik
 ---
 
-🎓 **Congratulations to Rucha Jevalikar** for successfully defending her Industrial Master's thesis at DTU Fotonik!
+**Congratulations to Rucha Jevalikar** for successfully defending her Industrial Master's thesis at DTU Fotonik!
 
 **Defense Details:**
 - **Date:** Thursday, August 14, 2025 at 15:00
@@ -23,7 +23,7 @@ title: Master Thesis Defense on Video Conferencing Quality at DTU Fotonik
 ---
 
 <details>
-<summary><strong>📄 Thesis Abstract (Click to expand)</strong></summary>
+<summary><strong>Thesis Abstract (Click to expand)</strong></summary>
 
 <div style="margin-top: 1rem; padding: 1rem; background-color: var(--global-code-bg-color); border-radius: 5px;">
 

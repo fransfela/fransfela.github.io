@@ -4,9 +4,18 @@ layout: page
 title: Notes
 permalink: /notes/
 description: Reference notes on audio and image quality metrics, evaluation methods and soundscape analysis.
-nav: true
+nav: false
 nav_order: 5
 ---
+
+<p class="writing-tabs">
+  <a href="{{ '/blog/' | relative_url }}"{% if page.page_id == 'blog' %} class="active"{% endif %}>Blog</a>
+  <a href="{{ '/notes/' | relative_url }}"{% if page.page_id == 'notes' %} class="active"{% endif %}>{% if site.active_lang == 'id-id' %}Catatan{% else %}Notes{% endif %}</a>
+</p>
+<style>
+  .writing-tabs a { margin-right: 1.5rem; padding-bottom: 0.15rem; color: var(--global-text-color-light); }
+  .writing-tabs a.active { color: var(--global-text-color); border-bottom: 2px solid var(--global-theme-color); }
+</style>
 
 The German word **Zettelkasten** translates to "slip box," but it's really a philosophy about how knowledge grows.
 
@@ -18,7 +27,7 @@ These notes are my version of it: a growing archive of interconnected thoughts o
 
 ---
 
-## 📚 Living Books
+## Living Books
 
 Comprehensive, book-length guides that grow over time. These are deep dives into topics I'm actively researching and refining.
 
@@ -35,7 +44,7 @@ Comprehensive, book-length guides that grow over time. These are deep dives into
 
 ---
 
-## 📝 Living Notes
+## Living Notes
 
 Shorter, focused notes on specific topics. Quick references, frameworks, and insights that I refine as I learn more.
 
